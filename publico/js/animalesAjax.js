@@ -11,10 +11,11 @@ function animalesAjax(send){
                 classNames('fielNewAnimalito')[0].style.display = "none";
                 classNames('form_2')[0].style.display = "block";
                 
-                id('formImages').addEventListener('submit',function(e){
-                    e.preventDefault();
+                let inputFile = id('nuevaFoto');
+                inputFile.addEventListener('change', function(){
                     fotosAjax(e[2]);
                 });
+                
             }
         }
     });
@@ -25,26 +26,24 @@ function animalesAjax(send){
 }
 
 function fotosAjax(folder){
-    let imgBox = id('imagesBox');
-    inputsFiles = imgBox.getElementsByTagName('input');
+    let inputFile = id('nuevaFoto');
 
-    formData = new FormData;
-    formData.append('carpeta', folder);
-    formData.append('numInputs', inputsFiles.length);
+    alert(folder + " " + inputFile.files[0]);
+    fData = new FormData;
+    fData.append('carpeta', folder);
+    fData.append('foto', inputFile.files[0]);
 
-    for(let i = 0; i < inputsFiles.length; i++){
-        formData.append('foto'+i, inputsFiles[i].files[0]);
-    }    
     ht = new XMLHttpRequest;
 
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             var e = this.responseText;
+            console.log(e);
         }
     });
 
     ht.open('POST','controlador/fotosController.php');
-    ht.send(formData);
+    ht.send(fData);
 }
 
 

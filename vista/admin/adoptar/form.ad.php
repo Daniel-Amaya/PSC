@@ -104,10 +104,10 @@
                 </div>
 
                 <div id="imagesBox">
-                    <h3>Imagenes por agregar:</h3>
+                    <h3>Imagenes agregadas:</h3>
                     <div id="messageError"></div>
                 </div>
-                <input type="submit" value="subir fotos" class="btn_naranja">
+                <input type="submit" value="Continuar" class="btn_naranja">
             </div>
 
 

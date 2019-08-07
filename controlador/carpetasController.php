@@ -23,7 +23,7 @@ class Carpetas{
     public function agregarFotos($folder, $fileName, $fileTMP){
         try{
 
-            $dir = $folder . basename($fileName);
+            $dir = $folder."/" . basename($fileName);
             $extension = strtolower(pathinfo($dir, PATHINFO_EXTENSION));
 
             if($extension != "png" && $extension != "jpg" && $extension != "jpeg"){
@@ -31,7 +31,12 @@ class Carpetas{
             }
 
             if(move_uploaded_file($fileTMP, '../publico/images/'.$dir)){
+                
+                rename('../publico/images/'.$dir, rand(0, 987654321).".png");
                 return $dir;
+
+            }else{
+                echo "k mierda malditasea triplehpta";
             }
         }catch(Exception $e){
             exit("ERROR AL AGREGAR LA IMAGEN: ".$e->getMessage());
