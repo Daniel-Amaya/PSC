@@ -55,7 +55,7 @@
         
 </fieldset>
 
-<fieldset class="form_2 margin-menu">
+<fieldset class="form_2 margin-menu" id='formImages' style='display: block !important;'>
     
     <form action="" method="post" class="newAnimalito row" enctype="multipart/form-data">
 

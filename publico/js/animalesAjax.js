@@ -10,7 +10,11 @@ function animalesAjax(send){
             if(e[1] == true){
                 classNames('fielNewAnimalito')[0].style.display = "none";
                 classNames('form_2')[0].style.display = "block";
-
+                
+                id('formImages').addEventListener('submit',function(e){
+                    e.preventDefault();
+                    fotosAjax(e[2]);
+                });
             }
         }
     });
@@ -20,19 +24,29 @@ function animalesAjax(send){
     ht.send(send);
 }
 
-// function fotosAjax(send){
-//     ht = new XMLHttpRequest;
+function fotosAjax(folder){
+    let imgBox = id('imagesBox');
+    inputsFiles = imgBox.getElementsByTagName('input');
 
-//     ht.addEventListener('readystatechange', function(){
-//         if(this.readyState == 4 && this.status == 200){
-//             var e = JSON.parse(this.responseText);
-//         }
-//     });
+    formData = new FormData;
+    formData.append('carpeta', folder);
+    formData.append('numInputs', inputsFiles.length);
 
-//     ht.open('POST','controlador/fotosController.php');
-//     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
-//     ht.send(send);
-// }
+    for(let i = 0; i < inputsFiles.length; i++){
+        formData.append('foto'+i, inputsFiles[i].files[0]);
+    }    
+    ht = new XMLHttpRequest;
+
+    ht.addEventListener('readystatechange', function(){
+        if(this.readyState == 4 && this.status == 200){
+            var e = this.responseText;
+        }
+    });
+
+    ht.open('POST','controlador/fotosController.php');
+    ht.send(formData);
+}
+
 
 
 var form = classNames('newAnimalito')[0];

@@ -113,11 +113,11 @@ include 'modelo/animales.php';
         }else{
 
         ?>
+
         <div class="indic">
             <p>Aquí podrás encontrar nuestros animalitos disponibles para adoptar</p> <hr>
             <strong>Adoptar</strong>
         </div>
-
 
         <div class="card-adopta">
             <div><img src="publico/images/p1.jpg"></div>

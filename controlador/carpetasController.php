@@ -21,10 +21,21 @@ class Carpetas{
     }
 
     public function agregarFotos($folder, $fileName, $fileTMP){
+        try{
 
-        $dir = $folder . basename($fileName);
+            $dir = $folder . basename($fileName);
+            $extension = strtolower(pathinfo($dir, PATHINFO_EXTENSION));
 
-        move_uploaded_file($dir, $fileTMP);
+            if($extension != "png" && $extension != "jpg" && $extension != "jpeg"){
+                throw new Exception("La extensión del achivo no es de imagen");
+            }
+
+            if(move_uploaded_file($fileTMP, '../publico/images/'.$dir)){
+                return $dir;
+            }
+        }catch(Exception $e){
+            exit("ERROR AL AGREGAR LA IMAGEN: ".$e->getMessage());
+        }
 
     }
 

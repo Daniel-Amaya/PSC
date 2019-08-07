@@ -24,6 +24,8 @@ function mostrarImagenesSeleccionadas(){
                     deleteImg.className = "deleteImg fas fa-times";
                     deleteImg.addEventListener('click', function(){
                         imagesBox.removeChild(this.parentNode);
+                        nombrarInputsDeFotos();
+
                     });
 
                     let inputFile = document.createElement('input');
@@ -38,6 +40,9 @@ function mostrarImagenesSeleccionadas(){
                     divImage.appendChild(newImage);
                     divImage.appendChild(deleteImg);
                     imagesBox.appendChild(divImage);
+
+                    nombrarInputsDeFotos();
+
                 }else{
                     newSpan.textContent = "El archivo seleccionado no corresponde a una imagen";
                 }
@@ -67,3 +72,11 @@ function validarTipoDeImagen(file) {
 }
 
 mostrarImagenesSeleccionadas();
+
+function nombrarInputsDeFotos(){
+    let imgBox = id('imagesBox');
+    inputsFiles = imgBox.getElementsByTagName('input');
+    for(let i = 0; i < inputsFiles.length; i++){
+        inputsFiles[i].name = "inputFile"+i;
+    }
+}

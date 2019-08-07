@@ -39,11 +39,11 @@
 
 @keyframes moverNube{
     0%{
-        @include transforms(translate(0px));
+        @include transforms(translate(5px));
     }50%{
-        @include transforms(translate(-10px));        
+        @include transforms(translate(-5px));        
     }100%{
-        @include transforms(translate(0px));
+        @include transforms(translate(5px));
 
     }
 }
