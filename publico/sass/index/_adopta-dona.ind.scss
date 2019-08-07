@@ -1,0 +1,167 @@
+/*-------------------------------*\
+            INDEXADOPTA
+\*-------------------------------*/
+
+.titulo{
+    h1{
+        margin: 30px 0 0 0;
+        text-align: center;
+        color: $color-principal; 
+    }
+    p{
+        padding: 10px 30%;
+    }
+}
+
+.adopta-index{
+    width: 100%;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px 10px;
+    @include column-one(500px);    
+}
+
+$tamaño: 260 / 4 * 1px;
+
+.card-perrito{
+    margin: auto;
+    border-radius: 20px;
+    max-width: 250px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-columns: min-content;
+    height: 300px;
+    grid-template-rows:  $tamaño $tamaño $tamaño $tamaño 40px;
+    position: relative;
+    overflow: hidden;
+    grid-template-areas:'slider' 
+                        'slider'
+                        'slider' 
+                        'slider' 
+                        'info';
+    box-shadow: 0px 0px 5px $color-principal;
+    
+    .div{
+        width: 100%;
+    }
+    .slider{
+        grid-area: slider;
+        display: grid;
+        grid-auto-rows: 90% 10%; 
+
+        .controls{
+            display: flex;
+            background: rgba(255, 255, 255, 0.5);
+            grid-area: 2 / 1 / 3 / 1; 
+            div{
+                margin: auto;
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                background: url(../images/huella.png);
+                background-size: cover;
+                border-radius: 100%;
+            }
+        }
+        img{
+            grid-area: 1 / 1 / 3 / 1; 
+            background: floralwhite;
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+    }
+
+    .btns-pr{
+        grid-area: info;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        button:last-child{
+            &:focus{
+                .info-perrito{
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    .info-perrito{
+        padding: 30px 10px;
+        @include transitions(1s);
+        width: 100%;
+        height: 100%;
+        background: $color-principal-tra;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        z-index: 2;
+        font-size: 15px;
+        span{
+            text-align: left;
+            display: block;
+            padding: 10px;
+        }a{
+            display: block;
+            width: 50%;
+            margin: 10px auto;
+            padding: 5px;
+            border: solid 1px $blanco;
+            color: $blanco;
+        }
+    }
+}
+
+/*-------------------------------*\
+          FININDEXADOPTA
+\*-------------------------------*/
+
+/*-------------------------------*\
+             INDEXDONA
+\*-------------------------------*/
+
+.dona-ind{
+    min-height: 500px;
+    height: fit-content;
+    width: 100%;
+    margin: 20px 0;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    @include column-one(500px);
+    div{
+        &:nth-child(1){
+            padding: 20%;
+        }
+    }
+    .col-cg{
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include respond-to(500px){
+            height: 700px;
+            border-radius: 50%;
+        }
+        div{
+            padding: 0 !important;
+        }
+        &:before{
+            content: '';
+            width: 100%;
+            height: 75%;
+            position: absolute;
+            z-index: -2;
+            background: $color-principal;
+            border-radius: 20% 0 0 20%;
+        }
+    }
+}
+
+
+/*-------------------------------*\
+           FININDEXDONA
+\*-------------------------------*/

@@ -1,0 +1,1592 @@
+/*------------------------------*\
+    $COLORES
+\*-------------------------------*/
+/**
+    Colores principales de la pagina
+**/
+/** 
+    Colores de redes sociales
+**/
+/** 
+    Colores de animales 
+**/
+/*-------------------------------*\
+           ELEMENTOSHTML
+\*-------------------------------*/
+@import url("../fonts/PatuaOne-Regular.ttf");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Patua One", cursive;
+}
+
+*::selection {
+  background: #ff7f04;
+  color: black;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  cursor: pointer;
+  color: #ff7f04;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+hr {
+  border-width: 0.5px;
+  border-color: #ff7f04;
+  background: #ff7f04;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/*-------------------------------*\
+           FINELEMENTOS
+\*-------------------------------*/
+/*-------------------------------*\
+            RESPONSIVE
+\*-------------------------------*/
+.container {
+  margin-right: 100px;
+  margin-bottom: 0;
+  margin-left: 100px;
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.grid {
+  display: grid;
+}
+
+/*-------------------------------*\
+          FINRESPONSIVE
+\*-------------------------------*/
+.pointer {
+  cursor: pointer;
+}
+
+.margin-menu {
+  margin-top: 85px;
+  margin-bottom: 15px;
+}
+
+.center {
+  text-align: center;
+}
+
+.none {
+  display: none;
+}
+
+/*-------------------------------*\
+              BOTONES
+\*-------------------------------*/
+.btn {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  background: #e62303;
+  border-radius: 10px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+  border: solid 1px #ff7f04;
+}
+.btn:hover {
+  background: #ff7f04;
+}
+
+.btn_naranja {
+  background: #ff7f04;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  border: solid 1px transparent !important;
+  outline: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+  cursor: pointer;
+}
+.btn_naranja:hover {
+  background: white;
+  border-color: #ff7f04 !important;
+  color: #ff7f04;
+}
+
+/*-------------------------------*\
+            FINBOTONES
+\*-------------------------------*/
+/*-------------------------------*\
+              PERRITO
+\*-------------------------------*/
+.perrito {
+  background-color: #fdb44e;
+  height: 75px;
+  width: 120px;
+  position: absolute;
+  top: 63%;
+  right: 30%;
+  border-radius: 0px 0px 0px 120px;
+}
+@media only screen and (max-width: 500px) {
+  .perrito {
+    right: 50%;
+  }
+}
+.perrito .cuerpo-perrito {
+  background-color: #fdb44e;
+  height: 100px;
+  width: 180px;
+  position: relative;
+  top: 55px;
+  left: 70px;
+  border-radius: 0px 0px 0px 60px;
+}
+.perrito .pata1, .perrito .pata2, .perrito .pata3, .perrito .pata4 {
+  background: #fdb44e;
+  height: 50px;
+  width: 18px;
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.perrito .pata1 {
+  left: 100px;
+  top: 48px;
+}
+.perrito .pata2 {
+  left: 130px;
+  bottom: 2px;
+}
+.perrito .pata3 {
+  left: 205px;
+  bottom: 50px;
+  background-color: rgba(151, 89, 2, 0.5);
+  z-index: -1;
+}
+.perrito .pata4 {
+  left: 232px;
+  bottom: 100px;
+}
+.perrito .cola {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 100px solid #fdb44e;
+  position: relative;
+  bottom: 320px;
+  left: 230px;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  transform-origin: bottom;
+  animation: moverCola 1s infinite;
+  -webkit-animation: moverCola 1s infinite;
+  -o-animation: moverCola 1s infinite;
+  -moz-animation: moverCola 1s infinite;
+}
+.perrito .oreja {
+  background-color: rgba(151, 89, 2, 0.8);
+  width: 45px;
+  height: 90px;
+  border-radius: 0px 0px 100px 100px;
+  position: relative;
+  left: 75px;
+  bottom: 400px;
+}
+.perrito .nariz {
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: relative;
+  right: 2.5px;
+  bottom: 492px;
+}
+.perrito .ojo {
+  background: black;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  position: relative;
+  bottom: 490px;
+  left: 50px;
+}
+.perrito .lengua {
+  background-color: tomato;
+  height: 20px;
+  width: 8px;
+  border-radius: 10px;
+  position: relative;
+  left: 23px;
+  bottom: 470px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  z-index: -1;
+  animation: moverLengua 1s infinite;
+  -webkit-animation: moverLengua 1s infinite;
+  -o-animation: moverLengua 1s infinite;
+  -moz-animation: moverLengua 1s infinite;
+}
+@keyframes moverLengua {
+  50% {
+    transform: rotate(45deg) translateY(2.5px);
+    -webkit-transform: rotate(45deg) translateY(2.5px);
+    -o-transform: rotate(45deg) translateY(2.5px);
+    -ms-transform: rotate(45deg) translateY(2.5px);
+    -moz-transform: rotate(45deg) translateY(2.5px);
+  }
+}
+@keyframes moverCola {
+  50% {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+  }
+}
+
+/*-------------------------------*\
+            FINPERRITO
+\*-------------------------------*/
+/*-------------------------------*\
+               PANDA 
+\*-------------------------------*/
+.panda {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  height: 120px;
+  width: 80px;
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 30px;
+}
+.panda .carita {
+  position: relative;
+  background-color: white;
+  border: 5px solid black;
+  height: 90px;
+  width: 110px;
+  border-radius: 50%;
+  bottom: 30px;
+  right: 20px;
+}
+.panda .carita .oreja-d, .panda .carita .oreja-i {
+  position: relative;
+  background-color: black;
+  height: 25px;
+  width: 40px;
+  border-radius: 0px 0px 40px 40px;
+}
+.panda .carita .oreja-d {
+  transform: rotate(145deg);
+  -webkit-transform: rotate(145deg);
+  -o-transform: rotate(145deg);
+  -ms-transform: rotate(145deg);
+  -moz-transform: rotate(145deg);
+  bottom: 13px;
+  right: 8px;
+}
+.panda .carita .oreja-i {
+  transform: rotate(-145deg);
+  -webkit-transform: rotate(-145deg);
+  -o-transform: rotate(-145deg);
+  -ms-transform: rotate(-145deg);
+  -moz-transform: rotate(-145deg);
+  left: 68px;
+  bottom: 38px;
+}
+.panda .carita .ojo-d, .panda .carita .ojo-i {
+  position: relative;
+  background-color: black;
+  height: 33px;
+  width: 28px;
+  border-radius: 50%;
+}
+.panda .carita .ojo-d .pupila, .panda .carita .ojo-i .pupila {
+  position: relative;
+  top: 8px;
+  left: 7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: white;
+}
+.panda .carita .ojo-d {
+  bottom: 30px;
+  left: 10px;
+  transform: rotate(25deg);
+  -webkit-transform: rotate(25deg);
+  -o-transform: rotate(25deg);
+  -ms-transform: rotate(25deg);
+  -moz-transform: rotate(25deg);
+}
+.panda .carita .ojo-i {
+  bottom: 63px;
+  left: 62px;
+  transform: rotate(25deg);
+  -webkit-transform: rotate(25deg);
+  -o-transform: rotate(25deg);
+  -ms-transform: rotate(25deg);
+  -moz-transform: rotate(25deg);
+}
+.panda .carita .nariz {
+  position: relative;
+  bottom: 65px;
+  left: 42px;
+  width: 15px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
+  border-radius: 50%;
+}
+.panda .mano-i, .panda .mano-d {
+  position: relative;
+  background-color: black;
+  height: 25px;
+  width: 43px;
+  border-radius: 30px;
+}
+.panda .mano-d {
+  bottom: 43px;
+  right: 43px;
+  animation: panda-saludo 2s infinite;
+  -webkit-animation: panda-saludo 2s infinite;
+  -o-animation: panda-saludo 2s infinite;
+  -moz-animation: panda-saludo 2s infinite;
+  transform-origin: right;
+}
+.panda .mano-i {
+  bottom: 68px;
+  right: -70px;
+}
+.panda .pie-d, .panda .pie-i {
+  position: relative;
+  background-color: black;
+  width: 17px;
+  height: 25px;
+  border-radius: 0px 0px 30px 30px;
+}
+.panda .pie-d {
+  bottom: 30px;
+  left: 15px;
+}
+.panda .pie-i {
+  bottom: 55px;
+  left: 39px;
+}
+.panda .sombra {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 100px;
+  border-radius: 50%;
+  bottom: 50px;
+  right: 15px;
+}
+
+@keyframes panda-saludo {
+  50% {
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+  }
+}
+/*-------------------------------*\
+             FINPANDA 
+\*-------------------------------*/
+/*-------------------------------*\
+             CAJAGATO 
+\*-------------------------------*/
+.cajaGatito {
+  width: 200px;
+  background-color: #ffff9d;
+  position: relative;
+  height: 120px;
+  background-image: radial-gradient(#f7dd5e 5px, transparent 5px);
+  background-size: 35px 35px;
+  background-position: -5px -12px;
+  top: 60px;
+}
+.cajaGatito .b1, .cajaGatito .b2 {
+  background-color: #f7dd5e;
+  height: 8px;
+  width: 50px;
+  position: relative;
+}
+.cajaGatito .b1 {
+  right: 48px;
+  bottom: -8px;
+  transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+}
+.cajaGatito .b2 {
+  left: 198px;
+  bottom: 8px;
+  transform-origin: left;
+  transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+}
+.cajaGatito .gato {
+  position: relative;
+  bottom: 40px;
+  left: 40px;
+  z-index: -1;
+  transition: 1s;
+}
+.cajaGatito .gato .cara {
+  height: 140px;
+  width: 120px;
+  background-color: white;
+  border-radius: 50%;
+}
+.cajaGatito .gato .cara .abajo {
+  height: 40px;
+  background-color: white;
+  width: 140px;
+  border-radius: 0 0 140px 140px;
+  position: relative;
+  top: 60px;
+  right: 10px;
+}
+.cajaGatito .gato .cara .oreja-d, .cajaGatito .gato .cara .oreja-i {
+  height: 0;
+  width: 0;
+  border-bottom: 35px solid white;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  position: relative;
+}
+.cajaGatito .gato .cara .oreja-d {
+  bottom: 55px;
+  transform: rotate(-40deg);
+  -webkit-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+}
+.cajaGatito .gato .cara .oreja-i {
+  bottom: 90px;
+  left: 87px;
+  transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+}
+.cajaGatito .gato .cara .ojo-d, .cajaGatito .gato .cara .ojo-i {
+  height: 15px;
+  width: 13px;
+  position: relative;
+}
+.cajaGatito .gato .cara .ojo-i {
+  bottom: 85px;
+  left: 25px;
+}
+.cajaGatito .gato .cara .ojo-d {
+  bottom: 70px;
+  left: 83px;
+}
+.cajaGatito .gato .cara .ojo {
+  background-color: #434343;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  animation: bink 2s infinite;
+  -webkit-animation: bink 2s infinite;
+  -o-animation: bink 2s infinite;
+  -moz-animation: bink 2s infinite;
+}
+.cajaGatito .gato .cara .nariz {
+  width: 0;
+  height: 0;
+  border-top: 10px solid pink;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: relative;
+  bottom: 72px;
+  left: 48px;
+}
+.cajaGatito .gato .gorro {
+  height: 0;
+  width: 0;
+  border-bottom: 100px solid #ff5c9f;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  position: relative;
+  bottom: 220px;
+  left: 40px;
+  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+}
+.cajaGatito .gato .gorro .estrella {
+  position: relative;
+}
+.cajaGatito .gato .gorro .estrella .d1, .cajaGatito .gato .gorro .estrella .d2, .cajaGatito .gato .gorro .estrella .d3, .cajaGatito .gato .gorro .estrella .d4 {
+  background: #ffff9d;
+  height: 40px;
+  width: 5px;
+  position: relative;
+}
+.cajaGatito .gato .gorro .estrella .d1 {
+  bottom: 20px;
+}
+.cajaGatito .gato .gorro .estrella .d2 {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  bottom: 60px;
+}
+.cajaGatito .gato .gorro .estrella .d3 {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  bottom: 100px;
+}
+.cajaGatito .gato .gorro .estrella .d4 {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  bottom: 140px;
+}
+.cajaGatito:hover .gato {
+  transform: translateY(-55px);
+  -webkit-transform: translateY(-55px);
+  -o-transform: translateY(-55px);
+  -ms-transform: translateY(-55px);
+  -moz-transform: translateY(-55px);
+}
+
+@keyframes bink {
+  20% {
+    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+  }
+}
+/*-------------------------------*\
+           FINCAJAGATO 
+\*-------------------------------*/
+.boxInput textarea, .boxInput select, .boxInput input {
+  width: 100%;
+  border: solid 0.5px grey;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+.boxInput textarea:focus, .boxInput select:focus, .boxInput input:focus {
+  border-color: #ff7f04;
+}
+
+.boxInput {
+  width: 100%;
+  padding: 10px;
+  color: #ff7f04;
+}
+.boxInput textarea {
+  resize: none;
+}
+.boxInput input[type=radio] {
+  width: 10%;
+  margin: 20px 10px;
+}
+.boxInput input[type=submit] {
+  background: #ff7f04;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  border: solid 1px transparent !important;
+  outline: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+  cursor: pointer;
+}
+.boxInput input[type=submit]:hover {
+  background: white;
+  border-color: #ff7f04 !important;
+  color: #ff7f04;
+}
+.boxInput label {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.nube {
+  width: 250px;
+  height: 65px;
+  background: white;
+  border-radius: 30px;
+  color: black;
+  position: relative;
+  line-height: 50px;
+  display: inline-block;
+  font-weight: 700;
+  margin: 10px;
+  font-size: 18px;
+  animation: moverNube 3s infinite;
+}
+.nube:hover {
+  color: blue;
+}
+.nube .bolita {
+  padding: 40px 40px;
+  z-index: -1;
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+  top: -50%;
+  background: white;
+}
+.nube .bolita:nth-child(1) {
+  left: 25px;
+}
+.nube .bolita:nth-child(2) {
+  left: 90px;
+}
+.nube .bolita:nth-child(3) {
+  left: 150px;
+}
+
+@keyframes moverNube {
+  0% {
+    transform: translate(0px);
+    -webkit-transform: translate(0px);
+    -o-transform: translate(0px);
+    -ms-transform: translate(0px);
+    -moz-transform: translate(0px);
+  }
+  50% {
+    transform: translate(-10px);
+    -webkit-transform: translate(-10px);
+    -o-transform: translate(-10px);
+    -ms-transform: translate(-10px);
+    -moz-transform: translate(-10px);
+  }
+  100% {
+    transform: translate(0px);
+    -webkit-transform: translate(0px);
+    -o-transform: translate(0px);
+    -ms-transform: translate(0px);
+    -moz-transform: translate(0px);
+  }
+}
+/*-------------------------------*\
+                MENU
+\*-------------------------------*/
+.adopta-grid .filtro a::before, .rayita-blanca::before, .rayita-naranja::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  bottom: -5%;
+  left: 50%;
+  transform-origin: center;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+}
+
+.rayita-naranja {
+  color: black;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+.rayita-naranja::before {
+  background: #ff7f04;
+}
+.rayita-naranja:hover {
+  color: #ff7f04 !important;
+}
+.rayita-naranja:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.rayita-blanca {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+.rayita-blanca::before {
+  background: white;
+}
+.rayita-blanca:hover {
+  color: white !important;
+}
+.rayita-blanca:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+header {
+  background: #ff7f04;
+  top: 0;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  width: 25%;
+  left: -25%;
+  z-index: 4;
+  color: white !important;
+  box-shadow: 0px 0px 0px black;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+}
+@media only screen and (max-width: 500px) {
+  header {
+    width: 50%;
+    left: -50%;
+  }
+}
+header ul li {
+  padding: 20px;
+}
+header ul li.response-item {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  header ul li.response-item {
+    display: block;
+  }
+}
+header ul li a {
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+  color: white;
+  position: relative;
+}
+
+.menu-res {
+  left: 0% !important;
+  box-shadow: 0px 0px 10px black;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  padding: 0 100px;
+  z-index: 3;
+  top: 0;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+@media only screen and (max-width: 500px) {
+  nav {
+    padding: 0;
+  }
+}
+nav div {
+  display: inline-block;
+  max-height: 100px;
+}
+nav div.nav-logo {
+  float: right;
+  padding: 5px;
+}
+nav div.nav-logo img {
+  width: auto;
+  height: 70px;
+  border-radius: 100%;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+}
+nav div.nav-items {
+  float: left;
+}
+nav div.nav-items ul li {
+  padding: 20px;
+}
+nav div.nav-items ul li a {
+  position: relative;
+}
+@media only screen and (max-width: 800px) {
+  nav div.nav-items ul li a {
+    display: none;
+  }
+}
+
+/*-------------------------------*\
+             FINMENU
+\*-------------------------------*/
+/*-------------------------------*\
+              FOOTER
+\*-------------------------------*/
+footer {
+  width: 100%;
+  display: grid;
+  padding: 10px 100px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(20px, auto);
+  row-gap: 15px;
+  border-top: solid 2px #ff7f04;
+}
+@media only screen and (max-width: 500px) {
+  footer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+}
+@media only screen and (max-width: 500px) {
+  footer {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  footer div {
+    padding: 10px;
+  }
+}
+footer div.redes {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 30px;
+}
+footer div.redes div i {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: relative;
+  border: solid 1px black;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  -moz-transition: 0.2s;
+}
+footer div.redes div i::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  -moz-transition: 0.2s;
+}
+footer div.redes div:nth-child(1) i:hover {
+  color: #3b5999;
+  border-color: #3b5999;
+}
+footer div.redes div:nth-child(1) i:hover::after {
+  box-shadow: 0px 0px 10px #3b5999;
+}
+footer div.redes div:nth-child(2) i:hover {
+  color: #4b04a8;
+  border-color: #4b04a8 #d82e84;
+}
+footer div.redes div:nth-child(2) i:hover::after {
+  box-shadow: 0px 0px 10px #4b04a8, 0px 0px 10px #d82e84, 0px 0px 10px #8840ba;
+}
+footer div.redes div:nth-child(3) i:hover {
+  color: #2ca5dc;
+  border-color: #2ca5dc;
+}
+footer div.redes div:nth-child(3) i:hover::after {
+  box-shadow: 0px 0px 10px #2ca5dc;
+}
+footer div.redes div:nth-child(4) i:hover {
+  color: #05ad05;
+  border-color: #05ad05;
+}
+footer div.redes div:nth-child(4) i:hover::after {
+  box-shadow: 0px 0px 10px #05ad05;
+}
+footer div.copyright {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  background: #ff7f04;
+  color: white;
+}
+@media only screen and (max-width: 500px) {
+  footer div.copyright {
+    grid-column-end: auto;
+  }
+}
+
+/*-------------------------------*\
+            FINFOOTER
+\*-------------------------------*/
+/*-------------------- INDEX -------------------- */
+/*-------------------------------*\
+           INDEXPAISAJE
+\*-------------------------------*/
+.inicio {
+  width: 100%;
+  height: 700px;
+  background: lightblue;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 4fr 1fr;
+  grid-auto-rows: minmax(20px, auto);
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+@media only screen and (max-width: 500px) {
+  .inicio {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+}
+.inicio .cols {
+  padding: 20px;
+}
+.inicio .cols:nth-child(2) {
+  text-align: center;
+  z-index: 1;
+}
+.inicio .cols:last-child {
+  background: green;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  height: 70%;
+  margin: 48px 0 0 0;
+}
+@media only screen and (max-width: 500px) {
+  .inicio .cols:last-child {
+    grid-column-start: 1;
+    grid-column-end: auto;
+  }
+}
+
+/*-------------------------------*\
+          FININDEXPAISAJE
+\*-------------------------------*/
+/*-------------------------------*\
+            INDEXADOPTA
+\*-------------------------------*/
+.titulo h1 {
+  margin: 30px 0 0 0;
+  text-align: center;
+  color: #ff7f04;
+}
+.titulo p {
+  padding: 10px 30%;
+}
+
+.adopta-index {
+  width: 100%;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px 10px;
+}
+@media only screen and (max-width: 500px) {
+  .adopta-index {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+}
+
+.card-perrito {
+  margin: auto;
+  border-radius: 20px;
+  max-width: 250px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-columns: min-content;
+  height: 300px;
+  grid-template-rows: 65px 65px 65px 65px 40px;
+  position: relative;
+  overflow: hidden;
+  grid-template-areas: "slider" "slider" "slider" "slider" "info";
+  box-shadow: 0px 0px 5px #ff7f04;
+}
+.card-perrito .div {
+  width: 100%;
+}
+.card-perrito .slider {
+  grid-area: slider;
+  display: grid;
+  grid-auto-rows: 90% 10%;
+}
+.card-perrito .slider .controls {
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  grid-area: 2/1/3/1;
+}
+.card-perrito .slider .controls div {
+  margin: auto;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url(../images/huella.png);
+  background-size: cover;
+  border-radius: 100%;
+}
+.card-perrito .slider img {
+  grid-area: 1/1/3/1;
+  background: floralwhite;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+.card-perrito .btns-pr {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.card-perrito .btns-pr button:last-child:focus .info-perrito {
+  bottom: 0;
+}
+.card-perrito .info-perrito {
+  padding: 30px 10px;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 125, 4, 0.753);
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  z-index: 2;
+  font-size: 15px;
+}
+.card-perrito .info-perrito span {
+  text-align: left;
+  display: block;
+  padding: 10px;
+}
+.card-perrito .info-perrito a {
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+  padding: 5px;
+  border: solid 1px white;
+  color: white;
+}
+
+/*-------------------------------*\
+          FININDEXADOPTA
+\*-------------------------------*/
+/*-------------------------------*\
+             INDEXDONA
+\*-------------------------------*/
+.dona-ind {
+  min-height: 500px;
+  height: fit-content;
+  width: 100%;
+  margin: 20px 0;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+@media only screen and (max-width: 500px) {
+  .dona-ind {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+}
+.dona-ind div:nth-child(1) {
+  padding: 20%;
+}
+.dona-ind .col-cg {
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 500px) {
+  .dona-ind .col-cg {
+    height: 700px;
+    border-radius: 50%;
+  }
+}
+.dona-ind .col-cg div {
+  padding: 0 !important;
+}
+.dona-ind .col-cg:before {
+  content: "";
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  z-index: -2;
+  background: #ff7f04;
+  border-radius: 20% 0 0 20%;
+}
+
+/*-------------------------------*\
+           FININDEXDONA
+\*-------------------------------*/
+/*-------------------------------*\
+       MENSAJEAMBIENTEINDEX
+\*-------------------------------*/
+.message {
+  position: relative;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0px 0px 10px black;
+  margin: 20px auto;
+  grid-auto-rows: minmax(100px, 200px);
+  grid-auto-columns: minmax(100px, 320px);
+  grid-template-areas: "inte inte info info" "inte inte info info";
+}
+.message::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: lightgreen;
+  border-radius: 0 50%;
+}
+
+.media {
+  grid-area: inte;
+  padding: 20px;
+  position: relative;
+}
+
+.info-message {
+  align-items: center;
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+  grid-area: info;
+  margin: auto;
+  padding: 10% 20% 10% 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/*-------------------------------*\
+      FINMENSAJEAMBIENTEINDEX
+\*-------------------------------*/
+/*-------------------- INDEX -------------------- */
+/*-------------------- ADOPTAR -------------------- */
+.adopta-grid {
+  display: grid;
+  width: 100%;
+  padding: 0 40px;
+  grid-template-columns: repeat(10, 1fr);
+}
+.adopta-grid .filtro {
+  justify-items: center;
+  align-items: center;
+  grid-area: 1/1/2/3;
+  padding: 30px 25px;
+  background: #ff7f04;
+  color: white;
+}
+.adopta-grid .filtro a {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 20px auto;
+  color: white;
+  text-align: center;
+}
+.adopta-grid .filtro a::before {
+  background: white;
+}
+.adopta-grid .filtro a:hover::before {
+  width: 50%;
+  left: 25%;
+}
+.adopta-grid .indic {
+  justify-content: center;
+  grid-area: 1/1/4/4;
+  display: flex;
+}
+.adopta-grid .indic strong {
+  font-size: 35px;
+  font-weight: 700;
+  padding: 0 10px;
+  color: black;
+  text-shadow: 0px 5px 2px #ff7f04;
+}
+.adopta-grid .indic p {
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+.adopta-grid .adopta-ad {
+  grid-area: 1/3/2/11;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, minmax(auto, max-content));
+  padding: 20px;
+  grid-gap: 20px 5px;
+}
+.adopta-grid .adopta-ad .perfil {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-areas: "info" "tabs";
+  grid-area: 1/1/auto/4;
+  background: whitesmoke;
+  padding: 10px;
+}
+.adopta-grid .adopta-ad .perfil .general {
+  grid-area: info;
+  max-height: 200px;
+  display: grid;
+  grid-template-areas: "foto nombre nombre nombre";
+  grid-auto-rows: max-content;
+}
+.adopta-grid .adopta-ad .perfil .general .foto-perfil {
+  margin: auto;
+  grid-area: foto;
+  width: 200px;
+  height: 200px;
+}
+.adopta-grid .adopta-ad .perfil .general .foto-perfil img {
+  width: 100%;
+  height: 100% !important;
+  border-radius: 50%;
+  object-fit: contain;
+  background: whitesmoke;
+  border: solid 1px #ff7f04;
+}
+.adopta-grid .adopta-ad .perfil .general .name {
+  grid-area: nombre;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+.adopta-grid .adopta-ad .perfil #control-tabs {
+  padding: 20px;
+}
+.adopta-grid .adopta-ad .perfil #control-tabs button {
+  background: #e62303;
+  color: white;
+  padding: 10px;
+}
+.adopta-grid .adopta-ad .perfil .info {
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.adopta-grid .adopta-ad .perfil .info .col {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
+}
+.adopta-grid .adopta-ad .perfil .info .col div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.adopta-grid .adopta-ad .perfil .info .col ul {
+  width: 35%;
+  margin: 5px;
+}
+.adopta-grid .adopta-ad .perfil .info .col ul li {
+  margin: 5px;
+  padding: 5px;
+  background: #ff7f04;
+  color: white;
+}
+.adopta-grid .adopta-ad .perfil .info .col h3 {
+  width: 100%;
+  align-self: flex-end;
+  padding: 5px;
+}
+.adopta-grid .card-adopta {
+  border-radius: 5px;
+  overflow: hidden;
+  background: whitesmoke;
+  position: relative;
+  height: 270px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+.adopta-grid .card-adopta:hover div:nth-child(4) {
+  bottom: 0%;
+}
+.adopta-grid .card-adopta div:nth-child(1) {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
+.adopta-grid .card-adopta div:nth-child(1) img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+.adopta-grid .card-adopta .nombre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3px 7px;
+  min-width: 30%;
+  text-align: center;
+  background: rgba(255, 125, 4, 0.753);
+  color: white;
+}
+.adopta-grid .card-adopta .info {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 3px 15px;
+  min-width: 30%;
+  background: rgba(255, 125, 4, 0.753);
+  color: white;
+}
+.adopta-grid .card-adopta div:nth-child(4) {
+  background: rgba(255, 255, 255, 0.651);
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+.adopta-grid .card-adopta div:nth-child(4) a {
+  padding: 5px;
+  margin: auto;
+  display: block;
+  width: max-content;
+}
+
+/*-------------------------------*\
+    FORMULARIO NUEVO ANIMALITO 
+\*-------------------------------*/
+.fielNewAnimalito {
+  width: 40%;
+  border: solid 0.5px transparent;
+  border-radius: 10px;
+  margin-left: 50px;
+}
+.fielNewAnimalito::before {
+  content: "";
+  width: 45%;
+  height: 50%;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  background: #ff7f04;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.fielNewAnimalito::after {
+  content: "";
+  width: 20%;
+  height: 50%;
+  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  background: #ff7f04;
+  position: absolute;
+  right: 30%;
+  bottom: 0;
+}
+
+/*-------------------------------*\
+  FIN FORMULARIO NUEVO ANIMALITO 
+\*-------------------------------*/
+/*-------------------------------*\
+ FORMULARIO FOTOS NUEVO ANIMALITO 
+\*-------------------------------*/
+.newAnimalito {
+  font-family: sans-serif;
+  width: 100%;
+  padding: 30px;
+}
+
+.fotos {
+  position: relative;
+  overflow: hidden;
+}
+.fotos::before {
+  content: "";
+  width: 50%;
+  height: 100px;
+  background: #ff7f04;
+  position: absolute;
+  z-index: -1;
+  bottom: -50%;
+  right: 0;
+  transform: skew(-60deg);
+  -webkit-transform: skew(-60deg);
+  -o-transform: skew(-60deg);
+  -ms-transform: skew(-60deg);
+  -moz-transform: skew(-60deg);
+}
+
+.dataAnimalito {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.dataAnimalito table {
+  padding: 15px;
+  border: solid 1px #ff7f04;
+  border-radius: 10px;
+}
+.dataAnimalito table th {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}
+.dataAnimalito table td {
+  border-top: 1px solid #ff7f04;
+  padding: 10px;
+}
+
+#imagesBox {
+  margin: 20px 0;
+}
+#imagesBox img {
+  width: 100px;
+  height: 100px;
+  object-fit: scale-down;
+  background: black;
+  margin: 10px 5px;
+  border-radius: 10px;
+}
+
+.divImage {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  margin: 3px;
+  display: inline-block;
+}
+
+.deleteImg {
+  position: absolute;
+  top: 0;
+  right: -7px;
+  padding: 5px 8px;
+  font-size: 20px;
+  background: #ff7f04;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+/*-------------------------------*\
+ FORMULARIO FOTOS NUEVO ANIMALITO 
+\*-------------------------------*/
+.form_2, .form_3 {
+  border: solid 0.5px transparent;
+  display: none;
+}
+
+.form_3 form {
+  width: 40%;
+  padding: 20px;
+}
+
+/*-------------------- ADOPTAR -------------------- */
+
+/*# sourceMappingURL=estilo.css.map */

@@ -1,0 +1,133 @@
+/*-------------------------------*\
+    FORMULARIO NUEVO ANIMALITO 
+\*-------------------------------*/
+
+.fielNewAnimalito{
+    width: 40%;
+    border: solid 0.5px transparent;
+    border-radius: 10px;
+    margin-left: 50px;
+    &::before{
+        content: '';
+        width: 45%;
+        height: 50%;
+        @include transforms(rotate(30deg));
+        background: $color-principal;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    &::after{
+        content: '';
+        width: 20%;
+        height: 50%;
+        @include transforms(rotate(-30deg));
+        background: $color-principal;
+        position: absolute;
+        right: 30%;
+        bottom: 0;
+    }
+}
+
+/*-------------------------------*\
+  FIN FORMULARIO NUEVO ANIMALITO 
+\*-------------------------------*/
+
+/*-------------------------------*\
+ FORMULARIO FOTOS NUEVO ANIMALITO 
+\*-------------------------------*/
+
+.newAnimalito{
+    font-family: sans-serif;
+    width: 100%;
+    padding: 30px;
+}
+
+.fotos{
+    position: relative;
+    overflow: hidden;
+    &::before{
+        content: '';
+        width: 50%;
+        height: 100px;
+        background: $color-principal;
+        position: absolute;
+        z-index: -1;
+        bottom: -50%;
+        right: 0;
+        @include transforms(skew(-60deg));
+    }
+
+}
+
+.dataAnimalito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+
+    table{
+        padding: 15px;
+        border: solid 1px $color-principal;
+        border-radius: 10px;
+        th{
+            text-align: center; 
+            font-size: 20px;
+            padding: 10px;
+        }
+        td{
+            border-top: 1px solid $color-principal;
+            padding: 10px;
+        }
+    }
+}
+
+#imagesBox{
+    margin: 20px 0;
+    img{
+        width: 100px;
+        height: 100px;
+        object-fit: scale-down;
+        background: black;
+        margin: 10px 5px;
+        border-radius: 10px;
+    }
+}
+
+.divImage{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: 3px;
+    display: inline-block;
+}
+
+.deleteImg{
+    position: absolute;
+    top: 0;
+    right: -7px;
+    padding: 5px 8px;
+    font-size: 20px;
+    background: $color-principal;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+/*-------------------------------*\
+ FORMULARIO FOTOS NUEVO ANIMALITO 
+\*-------------------------------*/
+
+.form_2, .form_3{
+    border: solid 0.5px transparent;
+    display: none;
+}
+
+.form_3{
+    form{
+        width: 40%;
+        padding: 20px;
+    }
+}

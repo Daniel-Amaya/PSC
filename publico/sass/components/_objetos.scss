@@ -1,0 +1,49 @@
+.nube{
+    width: 250px;
+    height: 65px;
+    // padding: 20px 100px;
+    background: white;
+    border-radius: 30px;
+    color:  black;
+    position: relative;
+    line-height: 50px;
+    display: inline-block;
+    // justify-content: center;
+    // align-items: center;
+    font-weight: 700;
+    margin: 10px;
+    font-size: 18px;
+    animation: moverNube 3s infinite;
+    &:hover{
+        color: blue;
+    }
+    .bolita{
+        padding: 40px 40px;
+        z-index: -1;
+        border-radius: 100%;
+        display: block;
+        position: absolute;
+        top: -50%;
+        background: white;
+        &:nth-child(1){
+            left: 25px;
+        }
+        &:nth-child(2){
+            left: 90px;
+        }
+        &:nth-child(3){
+            left: 150px;
+        }
+    }
+}
+
+@keyframes moverNube{
+    0%{
+        @include transforms(translate(0px));
+    }50%{
+        @include transforms(translate(-10px));        
+    }100%{
+        @include transforms(translate(0px));
+
+    }
+}

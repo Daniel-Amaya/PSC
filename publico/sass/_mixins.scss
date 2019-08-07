@@ -1,0 +1,34 @@
+@mixin transitions($time) {
+    transition: $time;
+    -webkit-transition: $time;
+    -o-transition: $time;
+    -moz-transition: $time;
+} 
+
+@mixin transforms($propety) {
+    transform: $propety;
+    -webkit-transform: $propety;
+    -o-transform: $propety;
+    -ms-transform: $propety;
+    -moz-transform: $propety;
+}
+
+@mixin animation($animation) {
+    animation: $animation;
+    -webkit-animation: $animation;
+    -o-animation: $animation;
+    -moz-animation: $animation;
+}
+
+@mixin respond-to($width) {
+    @media only screen and (max-width: $width){
+        @content;
+    }
+}
+@mixin column-one($width) {
+    @media only screen and (max-width: $width){
+        grid-template-columns:repeat(1, 1fr);
+        grid-template-rows: auto;
+        grid-auto-rows: auto;
+    }
+}

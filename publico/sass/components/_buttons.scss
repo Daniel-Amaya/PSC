@@ -1,0 +1,41 @@
+/*-------------------------------*\
+              BOTONES
+\*-------------------------------*/
+
+.btn{
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    background: $color-secundario;
+    border-radius: 10px;
+    @include transitions(.5s);
+    border: solid 1px $color-principal;
+    &:hover{
+        background: $color-principal;
+    }
+}
+
+.btn_naranja{
+    background: $color-principal;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    border: solid 1px transparent !important;
+    outline: none;
+    @include transitions(0.5s);
+    cursor: pointer;
+
+    &:hover{
+        background: white;
+        border-color: $color-principal !important;
+        color: $color-principal;
+    }
+}
+
+
+
+
+
+/*-------------------------------*\
+            FINBOTONES
+\*-------------------------------*/

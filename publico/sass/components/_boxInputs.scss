@@ -1,0 +1,58 @@
+%campos{
+    width: 100%;
+    border: solid 0.5px grey;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    &:focus{
+        border-color: $color-principal;
+    }
+}
+
+.boxInput{
+    width: 100%;
+    padding: 10px;
+    color: $color-principal;
+
+    input{
+        @extend %campos;
+    }
+
+    select{
+        @extend %campos;
+    }
+
+    textarea{
+        @extend %campos;
+        resize: none;
+    }
+
+    input[type="radio"]{
+        width: 10%;
+        margin: 20px 10px;
+    }
+
+    input[type="submit"]{
+        background: $color-principal;
+        padding: 10px;
+        color: white;
+        border-radius: 10px;
+        border: solid 1px transparent !important;
+        outline: none;
+        @include transitions(0.5s);
+        cursor: pointer;
+        &:hover{
+            background: white;
+            border-color: $color-principal !important;
+            color: $color-principal;
+        }
+
+    }
+
+
+    label{
+        // color: $color-principal;
+        font-size: 17px;
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,426 @@
+/*-------------------------------*\
+              PERRITO
+\*-------------------------------*/
+
+.perrito{
+    background-color: $color-perrito;
+    height: 75px;
+    width: 120px;
+    position: absolute;
+    top: 63%;
+    right: 30%;
+    border-radius: 0px 0px 0px 120px;
+    @include  respond-to(500px){
+        right: 50%;
+    }
+
+    .cuerpo-perrito{
+        background-color: $color-perrito;
+        height: 100px;
+        width: 180px;
+        position: relative;
+        top: 55px;
+        left: 70px;
+        border-radius: 0px 0px 0px 60px;
+    }
+    .pata1, .pata2, .pata3, .pata4{
+        background: $color-perrito;
+        height: 50px;
+        width: 18px;
+        position: relative;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .pata1{
+        left: 100px;
+        top: 48px;
+    }
+    .pata2{
+        left: 130px;
+        bottom: 2px;
+    }
+    .pata3{
+        left: 205px;
+        bottom: 50px;
+        background-color: rgba(151, 89, 2, 0.5);
+        z-index: -1;
+    }
+    .pata4{
+        left: 232px;
+        bottom: 100px;
+    }
+    .cola{
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 100px solid $color-perrito;
+        position: relative;
+        bottom:320px;
+        left: 230px;
+        @include transforms(rotate(30deg));
+        transform-origin: bottom;
+        @include animation(moverCola 1s infinite);
+
+
+    }
+    .oreja{
+        background-color: rgba(151, 89, 2, 0.8);
+        width: 45px;
+        height: 90px;
+        border-radius: 0px 0px 100px 100px;
+        position: relative;
+        left: 75px;
+        bottom: 400px;
+    }
+    .nariz{
+        background-color: $negro;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        position: relative;
+        right: 2.5px;
+        bottom: 492px;
+    }
+    .ojo{
+        background: $negro;
+        height: 10px;
+        width: 10px;
+        border-radius: 100%;
+        position: relative;
+        bottom: 490px;
+        left: 50px;
+    }
+    .lengua{
+        background-color: tomato;
+        height: 20px;
+        width: 8px;
+        border-radius: 10px;
+        position: relative;
+        left: 23px;
+        bottom: 470px;
+        @include transforms(rotate(45deg));
+        z-index: -1;
+        @include animation(moverLengua 1s infinite);
+    }
+
+    @keyframes moverLengua{
+        50%{
+            @include transforms(rotate(45deg) translateY(2.5px));
+        }
+    }
+    @keyframes moverCola{
+        50%{
+            @include transforms(rotate(10deg));
+        }
+    }
+}
+
+/*-------------------------------*\
+            FINPERRITO
+\*-------------------------------*/
+
+/*-------------------------------*\
+               PANDA 
+\*-------------------------------*/
+
+
+.panda{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transforms(translate(-50%, -50%));
+    height: 120px;
+    width: 80px;
+    background-color: white;
+    border: 5px solid $negro; 
+    border-radius: 30px;
+    .carita{
+        position: relative;
+        background-color: white;
+        border: 5px solid $negro;
+        height: 90px;
+        width: 110px;
+        border-radius: 50%;
+        bottom: 30px;
+        right: 20px;
+        .oreja-d, .oreja-i{
+            position: relative;
+            background-color: black;
+            height: 25px;
+            width: 40px;
+            border-radius: 0px 0px 40px 40px;
+        }
+
+        .oreja-d{
+            @include transforms(rotate(145deg));
+            bottom: 13px;
+            right: 8px;
+        }
+        .oreja-i{
+            @include transforms(rotate(-145deg));
+            left: 68px;
+            bottom: 38px;
+        }
+
+        .ojo-d, .ojo-i{
+            position: relative;
+            background-color: black;
+            height: 33px;
+            width: 28px;
+            border-radius: 50%;
+            .pupila{
+                position: relative;
+                top: 8px;
+                left: 7px;
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                background-color: $blanco;
+            }
+        }
+        
+        .ojo-d{
+            bottom: 30px;
+            left: 10px;
+            @include transforms(rotate(25deg));
+        }
+        .ojo-i{
+            bottom: 63px;
+            left: 62px;
+            @include transforms(rotate(25deg));
+        }
+
+        .nariz{
+            position: relative;
+            bottom: 65px;
+            left: 42px;
+            width: 15px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $negro;
+            border-radius: 50%;
+        }
+
+    }
+
+    .mano-i, .mano-d{
+        position: relative;
+        background-color: black;
+        height: 25px;
+        width: 43px;
+        border-radius: 30px;
+    }
+
+    .mano-d{
+        bottom: 43px;
+        right: 43px;
+        @include animation(panda-saludo  2s infinite);
+        transform-origin: right;
+    }
+    .mano-i{
+        bottom: 68px;
+        right: -70px;
+    }
+
+    .pie-d, .pie-i{
+        position: relative;
+        background-color: black;
+        width: 17px;
+        height: 25px;
+        border-radius: 0px 0px 30px 30px;
+    }
+
+    .pie-d{
+        bottom: 30px;
+        left: 15px;
+    }
+    .pie-i{
+        bottom: 55px;
+        left: 39px;
+    }
+
+    .sombra{
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 30px;
+        width: 100px; 
+        border-radius: 50%;
+        bottom: 50px;
+        right: 15px; 
+    }
+
+}
+
+@keyframes panda-saludo{
+
+    50%{
+        @include transforms(rotate(30deg));
+    }
+}
+
+/*-------------------------------*\
+             FINPANDA 
+\*-------------------------------*/
+
+/*-------------------------------*\
+             CAJAGATO 
+\*-------------------------------*/
+
+.cajaGatito{
+    width: 200px;
+    background-color: #ffff9d;
+    position: relative;
+    height: 120px;
+    background-image: radial-gradient(#f7dd5e 5px, transparent 5px);
+    background-size: 35px 35px;
+    background-position: -5px -12px;
+    top: 60px;
+
+    .b1, .b2{
+        background-color: #f7dd5e;
+        height: 8px;
+        width: 50px;
+        position: relative;
+    }
+    .b1{
+        right: 48px;
+        bottom: -8px;
+        @include transforms(rotate(-20deg));
+
+    }
+    .b2{
+        left: 198px;
+        bottom: 8px;
+        transform-origin: left;
+        @include transforms(rotate(20deg));
+    }
+
+    .gato{
+        position: relative;
+        bottom: 40px;
+        left: 40px;
+        z-index: -1;
+        transition: 1s;
+        
+        .cara{
+            height: 140px;
+            width: 120px;
+            background-color: $blanco;
+            border-radius: 50%;
+            .abajo{
+                height: 40px;
+                background-color: $blanco;
+                width: 140px;
+                border-radius: 0 0 140px 140px;
+                position: relative;
+                top: 60px;
+                right: 10px;
+            }
+            .oreja-d, .oreja-i{
+                height: 0;
+                width: 0;
+                border-bottom: 35px solid white;
+                border-left: 18px solid transparent;
+                border-right: 18px solid transparent;
+                position: relative;
+            }
+            .oreja-d{
+                bottom: 55px;
+                @include transforms(rotate(-40deg));
+            }
+            .oreja-i{
+                bottom: 90px;
+                left: 87px;
+                @include transforms(rotate(40deg));
+            }
+            .ojo-d, .ojo-i{
+                height: 15px;
+                width: 13px;
+                position: relative;
+            }
+            .ojo-i{
+                bottom: 85px;
+                left: 25px;
+            }
+            .ojo-d{
+                bottom: 70px;
+                left: 83px;
+            }
+            .ojo{
+                background-color: #434343;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                @include animation(bink 2s infinite);
+            }
+
+            .nariz{
+                width: 0;
+                height: 0;
+                border-top: 10px solid pink;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                position: relative;
+                bottom: 72px;
+                left: 48px;
+            }
+        }
+        .gorro{
+            height: 0;
+            width: 0;
+            border-bottom: 100px solid #ff5c9f;
+            border-left: 35px solid transparent;
+            border-right: 35px solid transparent; 
+            position: relative;
+            bottom: 220px;
+            left: 40px;
+            @include transforms(rotate(10deg));
+            .estrella{
+                position: relative;
+
+                .d1, .d2, .d3, .d4{
+                    background: #ffff9d;
+                    height: 40px;
+                    width: 5px;
+                    position: relative;
+                }
+                .d1{
+                    bottom: 20px;
+                }
+                .d2{
+                    @include transforms(rotate(45deg));
+                    bottom: 60px;
+                }
+                .d3{
+                    @include transforms(rotate(90deg));
+                    bottom: 100px;
+                }
+                .d4{
+                    @include transforms(rotate(135deg));
+                    bottom: 140px;
+                }
+            }
+        }
+
+
+    }
+    &:hover{
+        .gato{
+            @include transforms(translateY(-55px));
+        }
+    }
+
+}
+
+@keyframes bink{
+    20%{
+        @include transforms(scaleY(0));
+
+    }
+}
+
+
+/*-------------------------------*\
+           FINCAJAGATO 
+\*-------------------------------*/

@@ -1,0 +1,212 @@
+.adopta-grid{
+    display: grid;
+    width: 100%;
+    padding: 0 40px;
+    grid-template-columns: repeat(10, 1fr);
+    .filtro{
+        justify-items: center;
+        align-items: center;
+        grid-area: 1 / 1 / 2 / 3;
+        padding: 30px 25px;
+        background: $color-principal;
+        color: white;
+        a{
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin: 20px auto;
+            color: white;
+            text-align: center;
+            &::before{
+                background: white;
+                @extend %rayita-menu;
+                
+            }
+            &:hover{
+                &::before{
+                    width: 50%;
+                    left: 25%;
+                }
+            }
+        }
+    }
+
+    .indic{
+        justify-content: center;
+        grid-area: 1 / 1 / 4 / 4;
+        display: flex;
+        strong{
+            font-size: 35px;
+            font-weight: 700;
+            padding: 0 10px;
+            color: black;
+            text-shadow: 0px 5px 2px $color-principal;
+        }
+        p{
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .adopta-ad{
+        grid-area: 1 / 3 / 2 / 11;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(auto, minmax(auto, max-content));
+        padding: 20px;
+        grid-gap: 20px 5px;
+        .perfil{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, min-content);
+            grid-template-areas: 'info' 'tabs';
+            grid-area: 1 / 1 / auto / 4;
+            background: whitesmoke;
+            padding: 10px;
+            .general{
+                grid-area: info;
+                max-height: 200px;
+                display: grid;
+                grid-template-areas: 'foto nombre nombre nombre';
+                grid-auto-rows: max-content;
+                .foto-perfil{
+                    margin: auto;
+                    grid-area: foto;
+                    width: 200px;
+                    height: 200px;
+                    img{
+                        width: 100%;
+                        height: 100% !important;
+                        border-radius: 50%;
+                        object-fit: contain;
+                        background: whitesmoke;
+                        border: solid 1px $color-principal;
+                    }
+                }
+                .name{
+                    grid-area: nombre;
+                    width: 70%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    font-size: 30px;
+                    font-weight: 800;
+                }
+            }
+            #control-tabs{
+                padding: 20px;
+                button{
+                    background: $color-secundario;
+                    color: white;
+                    padding: 10px;
+                }
+            }
+            .info{
+                background: white;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 10px;
+                .col{
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 50%;
+                    padding: 20px;
+                    justify-content: center;
+                    div{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                    ul{
+                        width: 35%;
+                        margin: 5px;
+                        li{
+                            margin: 5px;
+                            padding: 5px;
+                            background: $color-principal;
+                            color: white;
+                        }
+                    }
+                    h3{
+                        width: 100%;
+                        align-self: flex-end;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .card-adopta{
+        border-radius: 5px;
+        overflow: hidden;
+        background: whitesmoke;
+        position: relative;
+        height: 270px;
+        width: 270px;
+        display: flex;
+        flex-direction: column;
+
+        &:hover{
+            div:nth-child(4){
+                bottom: 0%;
+            }
+        }
+
+        div:nth-child(1){
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            display: flex;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: scale-down;
+            }
+        }
+        .nombre{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 3px 7px;
+            min-width: 30%;
+            text-align: center;
+            background: $color-principal-tra;
+            color: white;
+        }
+        .info{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 3px 15px;
+            min-width: 30%;
+            background: $color-principal-tra;
+            color: white;
+
+        }
+
+        div:nth-child(4){
+            background: rgba(255, 255, 255, 0.651);
+            position: absolute;
+            bottom: -15%;
+            left: 0;
+            height: 15%;
+            width: 100%;
+            display: flex;
+            @include transitions(0.5s);
+            a{
+                padding: 5px;
+                margin: auto;
+                // color: white;
+                display: block;
+                width: max-content;
+                // background: rgb(255, 0, 43);
+                // border-radius: 5px;
+            }
+        }
+    }
+
+}

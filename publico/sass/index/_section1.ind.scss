@@ -1,0 +1,39 @@
+/*-------------------------------*\
+           INDEXPAISAJE
+\*-------------------------------*/
+.inicio{
+    width: 100%;
+    height: 700px;
+    background: lightblue;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows: 4fr 1fr;
+    grid-auto-rows: minmax(20px, auto);
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    @include column-one(500px);
+    .cols{
+        padding: 20px;
+    }
+    .cols:nth-child(2){
+        text-align: center;
+        z-index: 1;
+    }
+    
+    .cols:last-child{
+        background: green;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: 100%;
+        height: 70%;
+        margin: 48px 0 0 0;
+        @include  respond-to(500px){
+            grid-column-start: 1;
+            grid-column-end: auto;
+        }
+    }
+}
+
+/*-------------------------------*\
+          FININDEXPAISAJE
+\*-------------------------------*/
