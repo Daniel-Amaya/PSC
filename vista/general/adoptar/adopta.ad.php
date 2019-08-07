@@ -3,8 +3,6 @@
 include 'modelo/connect.php';
 include 'modelo/animales.php';
 
-// $animal = new Animal('Perry el perrito', 'hola', 'pitbull', 'blanco', 'M', true, 'Es un perro juguetón', 'medellin robledo');
-
 ?>
 
 <section class='margin-menu adopta-grid'>
@@ -119,6 +117,25 @@ include 'modelo/animales.php';
             <strong>Adoptar</strong>
         </div>
 
+        <?php 
+        $animales = Animal::dataAnimal('');
+
+        foreach($animales as $datos) {
+            echo "<div class='card-adopta'>
+                <div><img src='publico/images/p1.jpg'></div>
+                <div class='nombre'>$datos[1]</div>
+                <div class='info'>Especie: $datos[2]</div>
+                <div>
+                    <a href='' class='btn_naranja'>Adoptar</a>
+                    <a href='' class='btn_naranja'>Apadrinar</a>
+                    <a href='' class='btn_naranja'>Conocer</a>
+
+                </div>
+            </div>";
+        }
+        
+        ?>
+<!-- 
         <div class="card-adopta">
             <div><img src="publico/images/p1.jpg"></div>
             <div class="nombre">Toby</div>
@@ -143,7 +160,7 @@ include 'modelo/animales.php';
                 <a href="" class='btn_naranja'>Conocer</a>
 
             </div>
-        </div>
+        </div> -->
         <?php
 
         }

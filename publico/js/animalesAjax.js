@@ -8,12 +8,25 @@ function animalesAjax(send){
         if(this.readyState == 4 && this.status == 200){
             var e = JSON.parse(this.responseText);
             if(e[1] == true){
+
+                // Llevar al formulario siguiente
                 classNames('fielNewAnimalito')[0].style.display = "none";
                 classNames('form_2')[0].style.display = "block";
                 
+                let formFotos = id('formImages');
+                formFotos.addEventListener('submit', function(e){
+                    e.preventDefault();
+                    classNames('form_2')[0].style.display = "none";
+                    classNames('form_3')[0].style.display = "block";
+
+                });
+
+                // Enviar foto seleccionada
                 let inputFile = id('nuevaFoto');
                 inputFile.addEventListener('change', function(){
-                    fotosAjax(e[2]);
+                    if(this.files.length > 0){
+                        fotosAjax(e[2]);
+                    }
                 });
                 
             }
@@ -25,10 +38,11 @@ function animalesAjax(send){
     ht.send(send);
 }
 
+// Función para enviar foto seleccionada 
+
 function fotosAjax(folder){
     let inputFile = id('nuevaFoto');
-
-    alert(folder + " " + inputFile.files[0]);
+    
     fData = new FormData;
     fData.append('carpeta', folder);
     fData.append('foto', inputFile.files[0]);

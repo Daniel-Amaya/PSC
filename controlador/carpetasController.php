@@ -32,7 +32,7 @@ class Carpetas{
 
             if(move_uploaded_file($fileTMP, '../publico/images/'.$dir)){
                 
-                rename('../publico/images/'.$dir, rand(0, 987654321).".png");
+                rename('../publico/images/'.$dir, '../publico/images/'.$folder.rand(0, 987654321).".png");
                 return $dir;
 
             }else{
