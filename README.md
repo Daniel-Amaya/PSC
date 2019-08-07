@@ -1,2 +1,2 @@
 # PSC
-Repositorio de PSC
+Repositorio de PSC, el kracker está excelente.
