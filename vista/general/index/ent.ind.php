@@ -6,7 +6,7 @@
     </div>
     <div class='cols'> 
         <div class='center'>
-            <a class="nube">
+            <a class="nube" href="adoptar.php">
                 <div class="bolita"></div>
                 <div class="bolita"></div>
                 <div class="bolita"></div>

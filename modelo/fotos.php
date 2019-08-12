@@ -36,6 +36,19 @@ class Foto extends Conexion{
             exit("ERROR: ".$e->getMessage());
         }
     }
+
+    public function dataFotos($id){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("SELECT * FROM fotos WHERE idAnimal=:id");
+            $query->bindParam(':id', $id);
+            $query->execute();
+            return $query;
+
+        }catch(Exception $e){
+            exit("ERROR: ".$e->getMessage());
+        }
+    }
 }
 
 

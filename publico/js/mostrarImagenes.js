@@ -20,13 +20,6 @@ function mostrarImagenesSeleccionadas(){
                     let divImage = document.createElement('div');
                     divImage.className = 'divImage';
 
-                    let deleteImg = document.createElement('span');
-                    deleteImg.className = "deleteImg fas fa-times";
-                    deleteImg.addEventListener('click', function(){
-                        imagesBox.removeChild(this.parentNode);
-
-                    });
-
                     var newImage = document.createElement('img');
                     newImage.src =  window.URL.createObjectURL(file[i]);
 

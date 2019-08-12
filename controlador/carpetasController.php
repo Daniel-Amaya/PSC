@@ -20,6 +20,26 @@ class Carpetas{
 
     }
 
+    public function eliminarCarpeta($nombre){
+
+        try{
+
+            if(is_dir("../../publico/images/".$nombre)){
+
+                foreach(glob("../../publico/images/".$nombre . "/*") as $archivos){
+                    unlink($archivos);
+                }
+                $deleteFolder = rmdir("../../publico/images/".$nombre);
+                if($deleteFolder == false){
+                    throw new Exception("No es posible eliminar la carpeta");
+                }
+            }
+        }catch(Exception $e){
+            exit("ERROR Al ELIMINAR LA CARPETA".$e->getMessage());
+        }
+
+    }
+
     public function agregarFotos($folder, $fileName, $fileTMP){
         try{
 
@@ -32,8 +52,11 @@ class Carpetas{
 
             if(move_uploaded_file($fileTMP, '../publico/images/'.$dir)){
                 
-                rename('../publico/images/'.$dir, '../publico/images/'.$folder.rand(0, 987654321).".png");
-                return $dir;
+                $numberName = rand(0, 987654321);
+                $newName = '../publico/images/'.$folder.'/'.$numberName.".png";
+                rename('../publico/images/'.$dir, $newName);
+                
+                return $folder."/".$numberName.".png";
 
             }else{
                 echo "k mierda malditasea triplehpta";

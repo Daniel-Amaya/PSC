@@ -2,21 +2,7 @@
               BOTONES
 \*-------------------------------*/
 
-.btn{
-    display: inline-block;
-    padding: 10px;
-    color: white;
-    background: $color-secundario;
-    border-radius: 10px;
-    @include transitions(.5s);
-    border: solid 1px $color-principal;
-    &:hover{
-        background: $color-principal;
-    }
-}
-
-.btn_naranja{
-    background: $color-principal;
+%btns{
     padding: 10px;
     color: white;
     border-radius: 10px;
@@ -24,6 +10,22 @@
     outline: none;
     @include transitions(0.5s);
     cursor: pointer;
+}
+
+.btn_rojo{
+    @extend %btns;
+    background: $color-secundario;
+    &:hover{
+        background: white;
+        color: $color-secundario;
+        border-color: $color-secundario !important;
+    }
+}
+
+.btn_naranja{
+
+    @extend %btns;
+    background: $color-principal;
 
     &:hover{
         background: white;

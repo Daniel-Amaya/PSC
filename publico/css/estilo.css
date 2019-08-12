@@ -99,27 +99,22 @@ button {
   display: none;
 }
 
+.errNoData {
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/
-.btn {
-  display: inline-block;
-  padding: 10px;
-  color: white;
-  background: #e62303;
-  border-radius: 10px;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  -moz-transition: 0.5s;
-  border: solid 1px #ff7f04;
-}
-.btn:hover {
-  background: #ff7f04;
-}
-
-.btn_naranja {
-  background: #ff7f04;
+.btn_naranja, .btn_rojo {
   padding: 10px;
   color: white;
   border-radius: 10px;
@@ -130,6 +125,19 @@ button {
   -o-transition: 0.5s;
   -moz-transition: 0.5s;
   cursor: pointer;
+}
+
+.btn_rojo {
+  background: #e62303;
+}
+.btn_rojo:hover {
+  background: white;
+  color: #e62303;
+  border-color: #e62303 !important;
+}
+
+.btn_naranja {
+  background: #ff7f04;
 }
 .btn_naranja:hover {
   background: white;
@@ -667,6 +675,10 @@ button {
 .boxInput label {
   font-size: 17px;
   font-weight: 600;
+}
+
+.boxCheck {
+  padding: 10px;
 }
 
 .nube {
@@ -1283,6 +1295,7 @@ footer div.copyright {
   justify-content: center;
   grid-area: 1/1/4/4;
   display: flex;
+  height: fit-content;
 }
 .adopta-grid .indic strong {
   font-size: 35px;
@@ -1297,6 +1310,7 @@ footer div.copyright {
   align-items: center;
 }
 .adopta-grid .adopta-ad {
+  position: relative;
   grid-area: 1/3/2/11;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1449,6 +1463,26 @@ footer div.copyright {
   width: max-content;
 }
 
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  padding: 10px;
+  margin: 10px 0;
+}
+.galeria .imageItem {
+  margin: 10px;
+  max-width: 250px;
+  position: relative;
+  max-height: 250px;
+}
+.galeria .imageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0px 0px 1px black;
+}
+
 /*-------------------------------*\
     FORMULARIO NUEVO ANIMALITO 
 \*-------------------------------*/
@@ -1575,18 +1609,24 @@ footer div.copyright {
 }
 
 /*-------------------------------*\
- FORMULARIO FOTOS NUEVO ANIMALITO 
+FINFORMULARIO FOTOS NUEVO ANIMALITO 
 \*-------------------------------*/
 .form_2, .form_3 {
   border: solid 0.5px transparent;
   display: none;
 }
 
+/*-------------------------------*\
+ FORMULARIO VACUNAS DEL ANIMALITO 
+\*-------------------------------*/
 .form_3 form {
   width: 40%;
   padding: 20px;
 }
 
+/*-------------------------------*\
+FINFORMULARIO VACUNAS DEL ANIMALITO 
+\*-------------------------------*/
 /*-------------------- ADOPTAR -------------------- */
 
 /*# sourceMappingURL=estilo.css.map */

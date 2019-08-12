@@ -1,3 +1,4 @@
+@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -13,7 +14,6 @@
 /*-------------------------------*\
            ELEMENTOSHTML
 \*-------------------------------*/
-@import url("../fonts/PatuaOne-Regular.ttf");
 * {
   margin: 0;
   padding: 0;
@@ -99,27 +99,22 @@ button {
   display: none;
 }
 
+.errNoData {
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/
-.btn {
-  display: inline-block;
-  padding: 10px;
-  color: white;
-  background: #e62303;
-  border-radius: 10px;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  -moz-transition: 0.5s;
-  border: solid 1px #ff7f04;
-}
-.btn:hover {
-  background: #ff7f04;
-}
-
-.btn_naranja {
-  background: #ff7f04;
+.btn_naranja, .btn_rojo {
   padding: 10px;
   color: white;
   border-radius: 10px;
@@ -130,6 +125,19 @@ button {
   -o-transition: 0.5s;
   -moz-transition: 0.5s;
   cursor: pointer;
+}
+
+.btn_rojo {
+  background: #e62303;
+}
+.btn_rojo:hover {
+  background: white;
+  color: #e62303;
+  border-color: #e62303 !important;
+}
+
+.btn_naranja {
+  background: #ff7f04;
 }
 .btn_naranja:hover {
   background: white;
@@ -667,6 +675,10 @@ button {
 .boxInput label {
   font-size: 17px;
   font-weight: 600;
+}
+
+.boxCheck {
+  padding: 10px;
 }
 
 /*-------------------------------*\
