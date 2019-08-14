@@ -6,7 +6,7 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, perspiciatis.</p>
     </div>
 
-    <div class="col-cg">
+    <div class="col-cg" style="align-content:center; justify-items:center;">
         <div class="cajaGatito">
             <div class="b1"></div>
             <div class="b2"></div>
