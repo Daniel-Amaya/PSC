@@ -28,7 +28,7 @@ class Animal extends Conexion{
 
         try{ 
 
-            require 'carpetasController.php';
+            require '../carpetasController.php';
             $dir = new Carpetas;
             $carpeta = $dir->carpetaDePerrito($nombre);
             
@@ -91,6 +91,10 @@ class Animal extends Conexion{
         }catch(Exception $e){
             exit("ERROR AL ELIMINAR ANIMALITO: ".$e->getMessage());
         }
+    }
+
+    public function editAnimal(){
+        
     }
 }
 

@@ -10,7 +10,7 @@ class Carpetas{
 
         $carpeta = $nombre . rand(0, 123456789);
 
-        $base = mkdir("../publico/images/".$carpeta, 0777);
+        $base = mkdir("../../publico/images/".$carpeta, 0777);
 
         if($base == false){
             $carpeta = $nombre . rand(0, 123456789);

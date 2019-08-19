@@ -22,6 +22,17 @@
     }
 }
 
+.btn_cafe{
+    @extend %btns;
+    background: sienna;
+
+    &:hover{
+        background: white;
+        color: sienna;
+        border-color: sienna !important;
+    }
+}
+
 .btn_naranja{
 
     @extend %btns;

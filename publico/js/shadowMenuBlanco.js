@@ -5,7 +5,7 @@ document.addEventListener('scroll', function(e){
     var logo = menuC.getElementsByTagName('img')[0];
     var links = menuC.getElementsByTagName('a');
 
-    if(window.pageYOffset > menuC.offsetHeight){
+    if(window.pageYOffset > 20){
         
         logo.style.height = "60px";
         menuC.style.background = "white";

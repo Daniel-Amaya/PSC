@@ -9,62 +9,57 @@ include 'modelo/fotos.php';
 
 ?>
 
-<section class='margin-menu adopta-grid'>
 
-    <aside class="filtro">
-        <h4>Buscar por:</h4>
-        <form action="">
-            <div class="boxInput">
-                <input type="text" name="nombreAn" placeholder="Nombre">
-            </div>
-            <div class="boxInput">
+<div class="animalitos margin-menu">
 
-                <select name="especie">
-                    <option value="">Especie</option>
-                    <option value="perro">Perro</option>
-                    <option value="gato">Gato</option>
-                </select>
-            </div>
-            <div class="boxInput">
-                <input type="text" name='raza' placeholder="Raza">
-            </div>
-            <div class="boxInput">
-                <input type="text" name='color' placeholder="Color">
-            </div>
-            <div class="boxInput">
-                <select name="especie">
-                    <option value="">Sexo</option>
-                    <option value="perro">Masculino</option>
-                    <option value="gato">Femenino</option>
-                </select>
-            </div>
-        </form> 
-    </aside>
+    <section class='adopta-grid'>
 
-    <div class='grid adopta-ad'>
-        
-        <script>
+        <aside class="filtro">
+            <h4>Buscar por:</h4>
+            <form action="">
+                <div class="boxInput">
+                    <input type="text" name="nombreAn" placeholder="Nombre">
+                </div>
+                <div class="boxInput">
 
-            document.addEventListener('DOMLoadedContent', animalesAjax(''));
+                    <select name="especie">
+                        <option value="">Especie</option>
+                        <option value="perro">Perro</option>
+                        <option value="gato">Gato</option>
+                    </select>
+                </div>
+                <div class="boxInput">
+                    <input type="text" name='raza' placeholder="Raza">
+                </div>
+                <div class="boxInput">
+                    <input type="text" name='color' placeholder="Color">
+                </div>
+                <div class="boxInput">
+                    <select name="especie">
+                        <option value="">Sexo</option>
+                        <option value="perro">Masculino</option>
+                        <option value="gato">Femenino</option>
+                    </select>
+                </div>
 
-            function animalesAjax(send){
+                <input type="submit" value="Buscar" class="btn_cafe">
+            </form> 
+        </aside>
 
-                var ht = new XMLHttpRequest;
-                ht.addEventListener('readystatechange', function(){
-                    if(this.readyState == 4 && this.status == 200){
-                        classNames('adopta-ad')[0].innerHTML = this.responseText;
-                    }
-                });
-                ht.open('POST', 'controlador/ajax/animalitosAjax.php');
-                ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
-                ht.send(send);
-            }
-        
-        </script>
-        
-        
-    <div>
+        <div class='indic'>
+            <p>
+                <button class="btn_naranja" onclick="classNames('adopta-grid')[0].style.display = 'none'; classNames('fielNewAnimalito')[0].style.display = 'block';">Agregar un nuevo perrito</button>
+            </p> <hr>
+            <strong>Adoptar</strong>
+        </div>
 
-</section>
 
-<script src="publico/js/shadowMenuBlanco.js"></script>
+        <div class='grid adopta-ad'>
+
+
+                        
+        <div>
+
+    </section>
+
+    <script src="publico/js/shadowMenuBlanco.js"></script>

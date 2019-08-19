@@ -24,7 +24,6 @@ function mostrarImagenesSeleccionadas(){
                     newImage.src =  window.URL.createObjectURL(file[i]);
 
                     divImage.appendChild(newImage);
-                    divImage.appendChild(deleteImg);
                     imagesBox.appendChild(divImage);
 
                 }else{

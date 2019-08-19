@@ -1,41 +1,55 @@
 document.body.style.overflowX = "hidden";
 
-function animalesAjax(send){
+document.addEventListener('DOMLoadedContent', animalesAjax('', mostrarEliminarAnimalito));
+
+function animalesAjax(send, action){
     
     ht = new XMLHttpRequest;
 
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
-            var e = JSON.parse(this.responseText);
-            if(e[1] == true){
-
-                // Llevar al formulario siguiente
-                classNames('fielNewAnimalito')[0].style.display = "none";
-                classNames('form_2')[0].style.display = "block";
-                
-                let formFotos = id('formImages');
-                formFotos.addEventListener('submit', function(e){
-                    e.preventDefault();
-                    classNames('form_2')[0].style.display = "none";
-                    classNames('form_3')[0].style.display = "block";
-
-                });
-
-                // Enviar foto seleccionada
-                let inputFile = id('nuevaFoto');
-                inputFile.addEventListener('change', function(){
-                    if(this.files.length > 0){
-                        fotosAjax(e[2]);
-                    }
-                });
-                
-            }
+            action(this);
         }
     });
 
-    ht.open('POST','controlador/animalesController.php');
+    ht.open('POST','controlador/ajax/animalitosAjax.php');
     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
     ht.send(send);
+}
+
+// Función para eliminar y mostrar los datos de los perritos
+
+function mostrarEliminarAnimalito(ht){
+    classNames('adopta-ad')[0].innerHTML = ht.responseText;
+}
+
+// Funcion para enviar datos del registro
+
+function formRegistrarAnimalito(ht){
+    var e = JSON.parse(ht.responseText);
+    if(e[1] == true){
+
+        // Llevar al formulario siguiente
+        classNames('fielNewAnimalito')[0].style.display = "none";
+        classNames('form_2')[0].style.display = "block";
+        
+        let formFotos = id('formImages');
+        formFotos.addEventListener('submit', function(e){
+            e.preventDefault();
+            classNames('form_2')[0].style.display = "none";
+            classNames('form_3')[0].style.display = "block";
+
+        });
+
+        // Enviar foto seleccionada
+        let inputFile = id('nuevaFoto');
+        inputFile.addEventListener('change', function(){
+            if(this.files.length > 0){
+                fotosAjax(e[2]);
+            }
+        });
+        
+    }
 }
 
 // Función para enviar foto seleccionada 
@@ -52,7 +66,7 @@ function fotosAjax(folder){
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             var e = this.responseText;
-            console.log(e);
+            // console.log(e);
         }
     });
 
@@ -62,7 +76,7 @@ function fotosAjax(folder){
 
 
 
-var form = classNames('newAnimalito')[0];
+var form = id('newAnimalito');
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -82,11 +96,11 @@ form.addEventListener('submit', function(e){
 
         if(esterAn[0].checked){
 
-            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=1"+"&sexo="+sexoAn+"&descripcion="+descripAn+"&procedencia="+procedAn);
+            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=1"+"&sexo="+sexoAn+"&descripcion="+descripAn+"&procedencia="+procedAn, formRegistrarAnimalito);
 
         }else{
 
-            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=0"+"&sexo="+sexoAn+"&descripcion="+descripAn+"&procedencia="+procedAn);
+            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=0"+"&sexo="+sexoAn+"&descripcion="+descripAn+"&procedencia="+procedAn, formRegistrarAnimalito);
 
         }
 
@@ -102,4 +116,92 @@ form.addEventListener('submit', function(e){
         id('pro').textContent = procedAn;
     }
     
+});
+
+// Confirmar la eliminación de un animalito
+
+function eliminarComfirm(data){
+
+    // Creando ventana modal
+    let modal = document.createElement('div'); modal.className = "modal"; modal.style.display = "block";
+    let contentModal = document.createElement('div'); contentModal.className = "contenido-modal";
+
+    // Creando parte flex de la ventana modal
+    let flexModal = document.createElement('div'); flexModal.className = "flex-modal"; 
+    window.addEventListener('click',function(e){
+        if(e.target == flexModal){
+            modal.remove();
+        }
+    });
+
+    // Creando header de la ventana modal
+
+    let headerModal = document.createElement('div'); headerModal.className = "modal-header";
+    headerModal.textContent = "Confirmar eliminación de un perrito";
+
+    // Creando body y botones de la ventana modal
+    let bodyModal = document.createElement('div'); bodyModal.className = "modal-body";
+    bodyModal.textContent = "¿Está seguro de que desea eliminar el animalito? No es posible revertir esta acción";
+    let btnAceptar = document.createElement('button'); btnAceptar.className = "btn_naranja"; btnAceptar.textContent = "Eliminar";
+    let btnCancelar = document.createElement('button'); btnCancelar.className = "btn_naranja"; btnCancelar.textContent = "Cancelar";
+
+    // añadiendo eventos a los botones de la ventana modal
+    btnAceptar.addEventListener('click', function(){
+        animalesAjax("eliminar="+data[0]+"&folder="+data[1], mostrarEliminarAnimalito);
+        modal.remove();
+
+    });
+
+    btnCancelar.addEventListener('click', function(){
+        modal.remove();
+    });
+
+    bodyModal.appendChild(btnAceptar);
+    bodyModal.appendChild(btnCancelar);
+
+    contentModal.appendChild(headerModal);
+    contentModal.appendChild(bodyModal);
+
+    flexModal.appendChild(contentModal);
+    modal.appendChild(flexModal);
+
+    document.body.appendChild(modal);
+
+}
+
+
+// Editar datos del animalito
+
+let editarForm = id('editAnimalito');
+editarForm.addEventListener('submit', function(){
+    var nombreE = this.getElementsByTagName('input')[0].value,
+    especieE = this.getElementsByTagName('select')[0].value,
+    razaE = this.getElementsByTagName('input')[1].value,
+    colorE = this.getElementsByTagName('input')[2].value,
+    sexoE = this.getElementsByTagName('select')[1].value,
+    descripE = this.getElementsByTagName('textarea')[0].value,
+    procedE = this.getElementsByTagName('input')[5].value,
+    esterE = document.getElementsByName('esterilizadoE');
+
+    
+
+    if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && descripE != "" && procedE != ""){
+
+        if(esterE[0].checked){
+
+            animalesAjax('nombreE='+nombreAn+"&especieE="+especieAn+"&razaE="+razaAn+"&colorE="+colorAn+"&esterilizadoE=1"+"&sexoE="+sexoAn+"&descripcionE="+descripAn+"&procedenciaE="+procedAn, function(ht){
+                let e = ht.responseText;
+                e = e.split('VVV', 2);
+
+                if(e[0] == true){
+                    window.location = 'adoptar.php';
+                }
+            });
+
+        }else{
+
+            animalesAjax('nombreE='+nombreAn+"&especieE="+especieAn+"&razaE="+razaAn+"&colorE="+colorAn+"&esterilizadoE=0"+"&sexoE="+sexoAn+"&descripcionE="+descripAn+"&procedenciaE="+procedAn, mostrarEliminarAnimalito);
+
+        }
+    }
 });

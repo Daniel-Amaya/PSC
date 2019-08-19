@@ -1,3 +1,4 @@
+@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -13,7 +14,6 @@
 /*-------------------------------*\
            ELEMENTOSHTML
 \*-------------------------------*/
-@import url("../fonts/PatuaOne-Regular.ttf");
 * {
   margin: 0;
   padding: 0;
@@ -114,7 +114,7 @@ button {
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/
-.btn_naranja, .btn_rojo {
+.btn_naranja, .btn_cafe, .btn_rojo {
   padding: 10px;
   color: white;
   border-radius: 10px;
@@ -134,6 +134,16 @@ button {
   background: white;
   color: #e62303;
   border-color: #e62303 !important;
+}
+
+.btn_cafe {
+  background: sienna;
+  color: white;
+}
+.btn_cafe:hover {
+  background: white;
+  color: sienna;
+  border-color: sienna !important;
 }
 
 .btn_naranja {
@@ -704,6 +714,8 @@ button {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.315);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .contenido-modal {
