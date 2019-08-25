@@ -93,8 +93,32 @@ class Animal extends Conexion{
         }
     }
 
-    public function editAnimal(){
-        
+    public function editAnimal($nombre, $especie, $raza, $color, $sexo, $esterilizado, $descripcion, $procedencia, $id){
+        $con = parent::conectar();
+        try{
+
+            $query = $con->prepare("UPDATE animales SET nombre=:nombre, especie=:especie, raza=:raza, color=:color, sexo=:sexo, esterilizado=:esterilizado, descripcion=:descripcion, procedencia=:procedencia WHERE id=:id");
+
+            $query->bindParam(':nombre', $nombre);
+            $query->bindParam(':especie', $especie);
+            $query->bindParam(':raza', $raza);
+            $query->bindParam(':color', $color);
+            $query->bindParam(':sexo', $sexo);
+            $query->bindParam(':esterilizado', $esterilizado);
+            $query->bindParam(':descripcion', $descripcion);
+            $query->bindParam(':procedencia', $procedencia);
+            $query->bindParam(':id', $id);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0%%";
+            }else{
+                echo "1%%";
+            }
+
+        }catch(Exception $e){
+            exit('ERROR EDITAR ANIMAL: '.$e->getMessage());
+        }
     }
 }
 

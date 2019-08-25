@@ -12,7 +12,15 @@ include 'modelo/fotos.php';
 
 <div class="animalitos margin-menu">
 
+<div class='dob-menu'>
+            <p>
+                Estos son los animalitos registrados, puedes usar los filtros para encontrar una mascota más rapido
+                <button class="btn_naranja" onclick="classNames('adopta-grid')[0].style.display = 'none'; classNames('fielNewAnimalito')[0].style.display = 'block';">Agregar un nuevo perrito</button>
+            </p> 
+        </div>
     <section class='adopta-grid'>
+
+   
 
         <aside class="filtro">
             <h4>Buscar por:</h4>
@@ -46,20 +54,16 @@ include 'modelo/fotos.php';
             </form> 
         </aside>
 
-        <div class='indic'>
-            <p>
-                <button class="btn_naranja" onclick="classNames('adopta-grid')[0].style.display = 'none'; classNames('fielNewAnimalito')[0].style.display = 'block';">Agregar un nuevo perrito</button>
-            </p> <hr>
-            <strong>Adoptar</strong>
-        </div>
-
-
         <div class='grid adopta-ad'>
 
 
                         
         <div>
 
+  
+
     </section>
+
+   
 
     <script src="publico/js/shadowMenuBlanco.js"></script>

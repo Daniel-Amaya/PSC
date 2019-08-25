@@ -23,8 +23,8 @@ if(isset($_POST['nombreAn']) && isset($_POST['especie']) && isset($_POST['raza']
 
     // Editar animalitos
 
-    if(isset($_POST['nombreE']) && isset($_POST['especieE']) && isset($_POST['razaE']) && isset($_POST['colorE']) &&isset($_POST['sexoE']) && isset($_POST['esterilizadoE']) && isset($_POST['descripcionE']) && isset($_POST['procedenciaE'])){
-
+    if(isset($_POST['nombreE']) && isset($_POST['especieE']) && isset($_POST['razaE']) && isset($_POST['colorE']) &&isset($_POST['sexoE']) && isset($_POST['esterilizadoE']) && isset($_POST['descripcionE']) && isset($_POST['procedenciaE']) && $_POST['idE']){
+        Animal::editAnimal($_POST['nombreE'], $_POST['especieE'], $_POST['razaE'], $_POST['colorE'], $_POST['sexoE'], $_POST['esterilizadoE'], $_POST['descripcionE'], $_POST['procedenciaE'], $_POST['idE']);
     }
     // Mostrar animalitos
 

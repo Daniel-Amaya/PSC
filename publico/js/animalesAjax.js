@@ -172,36 +172,123 @@ function eliminarComfirm(data){
 
 // Editar datos del animalito
 
-let editarForm = id('editAnimalito');
-editarForm.addEventListener('submit', function(){
-    var nombreE = this.getElementsByTagName('input')[0].value,
-    especieE = this.getElementsByTagName('select')[0].value,
-    razaE = this.getElementsByTagName('input')[1].value,
-    colorE = this.getElementsByTagName('input')[2].value,
-    sexoE = this.getElementsByTagName('select')[1].value,
-    descripE = this.getElementsByTagName('textarea')[0].value,
-    procedE = this.getElementsByTagName('input')[5].value,
-    esterE = document.getElementsByName('esterilizadoE');
 
-    
+function editarAnimalito(){
 
-    if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && descripE != "" && procedE != ""){
+    let editarForm = id('editAnimalito');
+    editarForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        var nombreE = this.getElementsByTagName('input')[0].value,
+        especieE = this.getElementsByTagName('select')[0].value,
+        razaE = this.getElementsByTagName('input')[1].value,
+        colorE = this.getElementsByTagName('input')[2].value,
+        sexoE = this.getElementsByTagName('select')[1].value,
+        descripE = this.getElementsByTagName('textarea')[0].value,
+        procedE = this.getElementsByTagName('input')[5].value,
+        idE = id('idE').value;
+        esterE = document.getElementsByName('esterilizadoE');
 
-        if(esterE[0].checked){
+        
 
-            animalesAjax('nombreE='+nombreAn+"&especieE="+especieAn+"&razaE="+razaAn+"&colorE="+colorAn+"&esterilizadoE=1"+"&sexoE="+sexoAn+"&descripcionE="+descripAn+"&procedenciaE="+procedAn, function(ht){
-                let e = ht.responseText;
-                e = e.split('VVV', 2);
+        if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && descripE != "" && procedE != "" && idE != ""){
 
-                if(e[0] == true){
-                    window.location = 'adoptar.php';
-                }
-            });
+            if(esterE[0].checked){
 
-        }else{
+                animalesAjax('nombreE='+nombreE+"&especieE="+especieE+"&razaE="+razaE+"&colorE="+colorE+"&esterilizadoE=1"+"&sexoE="+sexoE+"&descripcionE="+descripE+"&procedenciaE="+procedE+"&idE="+idE, function(ht){
+                    let e = ht.responseText;
+                    e = e.split('%%', 2);
+                    
+                    if(e[0] == "1"){
+                        // Creando ventana modal
+                        let modal = document.createElement('div'); modal.className = "modal"; modal.style.display = "block";
+                        let contentModal = document.createElement('div'); contentModal.className = "contenido-modal";
 
-            animalesAjax('nombreE='+nombreAn+"&especieE="+especieAn+"&razaE="+razaAn+"&colorE="+colorAn+"&esterilizadoE=0"+"&sexoE="+sexoAn+"&descripcionE="+descripAn+"&procedenciaE="+procedAn, mostrarEliminarAnimalito);
+                        // Creando parte flex de la ventana modal
+                        let flexModal = document.createElement('div'); flexModal.className = "flex-modal"; 
+                        window.addEventListener('click',function(e){
+                            if(e.target == flexModal){
+                                window.location = "adoptar.php";
+                            }
+                        });
 
+                        // Creando header de la ventana modal
+
+                        let headerModal = document.createElement('div'); headerModal.className = "modal-header";
+                        headerModal.textContent = "Confirmar eliminación de un perrito";
+
+                        // Creando body y botones de la ventana modal
+                        let bodyModal = document.createElement('div'); bodyModal.className = "modal-body";
+                        bodyModal.textContent = "Los datos del animalito han sido actualizados";
+                        let btnAceptar = document.createElement('button'); btnAceptar.className = "btn_naranja"; btnAceptar.textContent = "Aceptar";
+
+                        // añadiendo eventos a los botones de la ventana modal
+                        btnAceptar.addEventListener('click', function(){
+                            window.location = "adoptar.php";                            
+                        });
+
+                        bodyModal.appendChild(btnAceptar);
+
+                        contentModal.appendChild(headerModal);
+                        contentModal.appendChild(bodyModal);
+
+                        flexModal.appendChild(contentModal);
+                        modal.appendChild(flexModal);
+
+                        document.body.appendChild(modal);
+                    }else{
+                        alert("No es posible actualizar los datos del animalito");
+                    }
+                });
+
+            }else{
+
+                animalesAjax('nombreE='+nombreE+"&especieE="+especieE+"&razaE="+razaE+"&colorE="+colorE+"&esterilizadoE=0"+"&sexoE="+sexoE+"&descripcionE="+descripE+"&procedenciaE="+procedE+"&idE="+idE, function(ht){
+                    let e = ht.responseText;
+                    e = e.split('%%', 2);
+                    
+                    if(e[0] == "1"){
+                        // Creando ventana modal
+                        let modal = document.createElement('div'); modal.className = "modal"; modal.style.display = "block";
+                        let contentModal = document.createElement('div'); contentModal.className = "contenido-modal";
+
+                        // Creando parte flex de la ventana modal
+                        let flexModal = document.createElement('div'); flexModal.className = "flex-modal"; 
+                        window.addEventListener('click',function(e){
+                            if(e.target == flexModal){
+                                window.location = "adoptar.php";
+                            }
+                        });
+
+                        // Creando header de la ventana modal
+
+                        let headerModal = document.createElement('div'); headerModal.className = "modal-header";
+                        headerModal.textContent = "Confirmar eliminación de un perrito";
+
+                        // Creando body y botones de la ventana modal
+                        let bodyModal = document.createElement('div'); bodyModal.className = "modal-body";
+                        bodyModal.textContent = "Los datos del animalito han sido actualizados";
+                        let btnAceptar = document.createElement('button'); btnAceptar.className = "btn_naranja"; btnAceptar.textContent = "Aceptar";
+
+                        // añadiendo eventos a los botones de la ventana modal
+                        btnAceptar.addEventListener('click', function(){
+                            window.location = "adoptar.php";                            
+                        });
+
+                        bodyModal.appendChild(btnAceptar);
+
+                        contentModal.appendChild(headerModal);
+                        contentModal.appendChild(bodyModal);
+
+                        flexModal.appendChild(contentModal);
+                        modal.appendChild(flexModal);
+
+                        document.body.appendChild(modal);
+                    }else{
+                        alert("No es posible actualizar los datos del animalito");
+                    }
+                });
+
+            }
         }
-    }
-});
+    });
+}

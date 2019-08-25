@@ -65,6 +65,9 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
                 <input type='text' name='procedenciaE' placeholder='procedencia' value='$datos[8]'>
             </div>
 
+            <input type='hidden' id='idE' value='$datos[0]'>
+
+
             <div class='boxInput'>
                 <input type='submit' value='Enviar cambios'>
                 <button class='btn_naranja'>Cancelar</button>
@@ -76,6 +79,7 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
 
     echo "<script>
     classNames('animalitos')[0].style.display = 'none';
+    editarAnimalito();
     </script>";
     
     }else{
