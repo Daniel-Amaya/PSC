@@ -18,26 +18,39 @@ include 'modelo/fotos.php';
         require 'controlador/get/adoptarData.php';
         ?>
 
+        <script>
+            tabs();
+        function tabs(){
+            var div_tabs = id('tabs');
+            var tabs = div_tabs.getElementsByClassName('tab-item');
+            for(let i = 0; i < tabs.length; i++){
+                tabs[i].style.display = 'none';
+            }
+
+            var controls_tabs = id('control-tabs');
+            var controls = controls_tabs.getElementsByTagName('button');
+            for(let i = 0; i < controls.length; i++){
+                controls[i].addEventListener('click', function(){
+
+                    tabs[i].style.display = 'block';
+                    if(tabs[i-1]){
+                        tabs[i-1].style.display = "none";
+                    }
+
+                    if(tabs[i+1]){
+                        tabs[i+1].style.display = "none";
+                    }
+                });
+            }
+
+            tabs[0].style.display = "block";
+
+        }
+        
+        </script>
+
     </div>
 
 </section>
 
-<script>
-// window.addEventListener('scroll', function(){
-
-    var menuC = document.getElementsByTagName('nav')[0];
-    var inicio = document.getElementsByClassName('inicio')[0];
-    var logo = menuC.getElementsByTagName('img')[0];
-    var links = menuC.getElementsByTagName('a');
-
-    menuC.style.color = "white";
-    for(let i = 0; i < links.length; i++){
-        links[i].style.color = "white";
-        links[i].classList = "rayita-blanca";
-    }
-    logo.style.height = "60px";
-    menuC.style.background = color_principal;
-    menuC.style.boxShadow = "0px 0px 10px black";
-
-// });
-</script>
+<script src="publico/js/shadowMenuNaranja.js"></script>
