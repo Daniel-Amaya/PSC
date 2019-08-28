@@ -1289,6 +1289,53 @@ footer div.copyright {
   display: flex;
 }
 
+.donaciones {
+  background-color: white;
+  padding: 15px;
+  margin-left: 20px;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 20px;
+  box-shadow: black 0px 0px 5px;
+}
+
+.col-cg {
+  padding: 0;
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.col-cg:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  background: #ff7f04;
+  border-radius: 20% 0 0 20%;
+}
+
+.container-bancolombia {
+  width: 1000px;
+  height: 100%;
+  background-color: #ff7f04;
+  column-count: 2;
+  margin-top: 10px !important;
+  margin: auto;
+}
+
+.container-bancolombiaInfo {
+  width: 1000px;
+  height: 100%;
+  background-color: #ff7f04;
+  margin-top: 90px !important;
+  margin: auto;
+}
+
 /*-------------------- DONAR -------------------- */
 
 /*# sourceMappingURL=dona.css.map */
