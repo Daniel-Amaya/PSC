@@ -50,11 +50,11 @@ class Carpetas{
                 throw new Exception("La extensión del achivo no es de imagen");
             }
 
-            if(move_uploaded_file($fileTMP, '../publico/images/'.$dir)){
+            if(move_uploaded_file($fileTMP, '../../publico/images/'.$dir)){
                 
                 $numberName = rand(0, 987654321);
-                $newName = '../publico/images/'.$folder.'/'.$numberName.".png";
-                rename('../publico/images/'.$dir, $newName);
+                $newName = '../../publico/images/'.$folder.'/'.$numberName.".png";
+                rename('../../publico/images/'.$dir, $newName);
                 
                 return $folder."/".$numberName.".png";
 

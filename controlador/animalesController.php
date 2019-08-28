@@ -134,6 +134,40 @@ class AnimalesController extends Animal{
         }
     }
 
+    // Animalitos Admin
+
+    public function mostrarAnimalitosAdmin(){
+        try {
+            $animales = parent::dataAnimal('');
+
+            if($animales->rowCount() > 0){
+        
+                foreach($animales as $datos){
+        
+                    $fotos = Foto::dataFotos($datos[0]);
+                    $urlFotoPerfil = $fotos->fetch();
+        
+                    echo "<div class='card-adopta'>
+                        <div><img src='publico/images/$urlFotoPerfil[1]'></div>
+                        <div class='nombre'>$datos[1]</div>
+                        <div class='info'>Especie: $datos[2]</div>
+                        <div>
+                            <a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[9]\"])'>Eliminar</a>
+                            <a href='?editar=$datos[0]' class='btn_naranja'>Edit/Ver</a>
+                            <a href='?fotos=$datos[0]' class='btn_naranja'>Agg/Bor foto</a>
+        
+                        </div>
+                    </div>";
+        
+                }
+            }else{
+                echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja'>Agregar una mascota</a></div>";
+            }
+        } catch (Exception $e) {
+            exit("ERROR AL MOSTRAR LOS ANIMALITOS: ".$e->getMessage());
+        }
+    }
+
     public function formularioEditarAnimalito($id){
         try{
             $datos = parent::dataAnimal($id);
@@ -222,52 +256,7 @@ class AnimalesController extends Animal{
         }
     }
 
-    public function mostrarYeliminarFotos($id){
-        try {
-            $animales = parent::dataAnimal($id);
 
-            if($animales->rowCount() > 0){
-        
-                $datos = $animales->fetch();
-                $fotos = Foto::dataFotos($datos[0]);
-        
-                
-
-                    $fotos->fetch();
-                    
-                    echo "
-                    <div class='galeriaCRUD margin-menu'>
-                        <div class='buttonsAction'>
-                        <p>Agregar y eliminar fotos del animalito $datos[1]</p>
-                        <button class='btn_cafe'>Nueva imagen</button>
-                        <button class='btn_cafe'>Terminar</button>
-                    </div>
-                    
-                    <div class='galeria' id='galeriaCRUD'>";
-                    if($fotos->rowCount() > 0){
-                    foreach($fotos as $todas){
-                        echo "<div class='divImage'>
-                        <span onclick='' class='deleteImg'><i class='fas fa-times'></i></span>
-                        <img class='imgCRUD' src='publico/images/$todas[1]'>
-                        </div> ";
-                    }
-                }else{
-                    echo "<div> No se han encontrado fotos para este animal </div>";
-                }
-        
-                echo " 
-                    </div>
-                </div>";
-            }
-        
-            echo "<script>
-            classNames('animalitos')[0].remove();
-            </script>";
-
-        } catch (Exception $e) {
-            exit("ERROR AL MOSTRAR FOTOS: ".$e->getMessage());
-        }
-    }
 }
 
 

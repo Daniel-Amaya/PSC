@@ -3,6 +3,7 @@
 include '../../modelo/connect.php';
 include '../../modelo/animales.php';
 include '../../modelo/fotos.php';
+require '../animalesController.php';
 
 // Agregar animalito
 
@@ -27,32 +28,9 @@ if(isset($_POST['nombreAn']) && isset($_POST['especie']) && isset($_POST['raza']
         Animal::editAnimal($_POST['nombreE'], $_POST['especieE'], $_POST['razaE'], $_POST['colorE'], $_POST['sexoE'], $_POST['esterilizadoE'], $_POST['descripcionE'], $_POST['procedenciaE'], $_POST['idE']);
     }
     // Mostrar animalitos
-
-    $animales = Animal::dataAnimal('');
-
-    if($animales->rowCount() > 0){
-
-        foreach($animales as $datos){
-
-            $fotos = Foto::dataFotos($datos[0]);
-            $urlFotoPerfil = $fotos->fetch();
-
-            echo "<div class='card-adopta'>
-                <div><img src='publico/images/$urlFotoPerfil[1]'></div>
-                <div class='nombre'>$datos[1]</div>
-                <div class='info'>Especie: $datos[2]</div>
-                <div>
-                    <a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[9]\"])'>Eliminar</a>
-                    <a href='?editar=$datos[0]' class='btn_naranja'>Edit/Ver</a>
-                    <a href='?fotos=$datos[0]' class='btn_naranja'>Agg/Bor foto</a>
-
-                </div>
-            </div>";
-
-        }
-    }else{
-        echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja'>Agregar una mascota</a></div>";
-    }
+    
+    AnimalesController::mostrarAnimalitosAdmin();
+    
 
 }
 

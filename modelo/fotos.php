@@ -49,6 +49,33 @@ class Foto extends Conexion{
             exit("ERROR: ".$e->getMessage());
         }
     }
+
+    public function deleteFoto($cod, $dir){
+        $con = parent::conectar();
+        try{
+
+            $url = "../../publico/images/".$dir;
+
+            $eliminarFoto = unlink($url);
+
+            if($eliminarFoto == true){
+
+                $query = $con->prepare("DELETE FROM fotos WHERE cod=:cod");
+                $query->bindParam(":cod", $cod);
+                $query->execute();
+                if($query->errorCode() != "00000"){
+                    throw new Exception("No ha sido posible eliminar la foto de la base de datos");
+                }
+
+            }else{
+                echo "0%%";
+            }
+        }catch(Exception $e){
+            exit("ERROR AL ELIMINAR FOTO: ".$e->getMessage());
+        }
+    }
+
+
 }
 
 

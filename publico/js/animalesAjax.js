@@ -45,7 +45,7 @@ function formRegistrarAnimalito(ht){
         let inputFile = id('nuevaFoto');
         inputFile.addEventListener('change', function(){
             if(this.files.length > 0){
-                fotosAjax(e[2]);
+                fotosAjaxN(e[2]);
             }
         });
         
@@ -54,7 +54,7 @@ function formRegistrarAnimalito(ht){
 
 // Función para enviar foto seleccionada 
 
-function fotosAjax(folder){
+function fotosAjaxN(folder){
     let inputFile = id('nuevaFoto');
     
     fData = new FormData;
@@ -66,15 +66,14 @@ function fotosAjax(folder){
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             var e = this.responseText;
-            // console.log(e);
         }
     });
 
-    ht.open('POST','controlador/fotosController.php');
+    ht.open('POST','controlador/ajax/fotosAjax.php');
     ht.send(fData);
 }
 
-
+// Agregar nuevo animalito
 
 var form = id('newAnimalito');
 
@@ -169,9 +168,7 @@ function eliminarComfirm(data){
 
 }
 
-
 // Editar datos del animalito
-
 
 function editarAnimalito(){
 

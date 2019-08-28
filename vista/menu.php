@@ -5,11 +5,11 @@
         <li class="response-item"><a class="rayita-blanca" href="index.php">Inicio</a></li>
         <li class="response-item"><a class="rayita-blanca" href="">Fundación</a></li>
         <li class="response-item"><a class="rayita-blanca" href="adoptar.php">Adoptar</a></li>
-        <li class="response-item"><a class="rayita-blanca" href="">Donar</a></li>
+        <li class="response-item"><a class="rayita-blanca" href="donar.php">Donar</a></li>
         <li><a href="" class='rayita-blanca'>Iniciar Sesión    </a></li>
         <li><a href="" class='rayita-blanca'>Visitanos         </a></li>
         <li><a href="" class='rayita-blanca'>Sobre la fundación</a></li>
-        <li><a href="" class='rayita-blanca'>No C que poner    </a></li>
+        <li><a href="" class='rayita-blanca'>Quienes Somos     </a></li>
     </ul>
 </header>
 <nav>

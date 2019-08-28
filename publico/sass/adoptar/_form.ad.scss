@@ -104,17 +104,7 @@
     display: inline-block;
 }
 
-.deleteImg{
-    position: absolute;
-    top: 0;
-    right: -7px;
-    padding: 5px 8px;
-    font-size: 20px;
-    background: $color-principal;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-}
+
 
 
 /*-------------------------------*\
@@ -160,13 +150,27 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     }
 
     .imgCRUD{
-        width: 300px;
-        height: auto;
-        // object-fit: scale-down;
-        background: black;
-        box-shadow: 0px 0px 10px black;
-        margin: 0px 15px;
-        border-radius: 10px;
+        margin: 10px;
+        max-width: 250px;
+        position: relative;
+        max-height: 250px;
+        object-fit: cover;
+        box-shadow: 0px 0px 1px black;
     }
     
+}
+
+.deleteImg{
+    line-height: 20px;
+    padding: 10px;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    right: -7px;
+    font-size: 20px;
+    background: #ff7f04;
+    border-radius: 50%;
+    color: white;
+    z-index: 2;
+    cursor: pointer;
 }
