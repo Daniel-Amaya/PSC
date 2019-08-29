@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-08-2019 a las 18:20:40
+-- Tiempo de generación: 29-08-2019 a las 13:47:25
 -- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Versión de PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -59,10 +59,8 @@ CREATE TABLE `animales` (
 --
 
 INSERT INTO `animales` (`id`, `nombre`, `especie`, `raza`, `color`, `sexo`, `esterilizado`, `descripcion`, `procedencia`, `carpeta`) VALUES
-(1, 'Perry', 'perro', 'pitbull', 'cafÃ©', 'M', 1, 0x6b6c73646a66666b6c6a6c6b7364, 'MedellÃ­n Villa SofÃ­a', 'Perry113814625'),
-(2, 'Perry', 'pitbull', 'cafÃ©', 'si', 'P', 0, 0x6a686b686b686b6a, 'agregar', 'Perry57966764'),
-(3, 'Perry', 'Gato', 'pitbull', 'cafÃ©', 'F', 1, 0x44534664, 'MedellÃ­n Villa SofÃ­a', 'Perry93818741'),
-(4, 'Perry', 'Gato', 'pitbull', 'cafÃ©', 'F', 0, 0x4a736b6168646a6b736164, 'MedellÃ­n Villa SofÃ­a', 'Perry89260501');
+(9, 'Violeta', 'Gato', 'pitbull', 'negro', 'M', 0, 0x657277706a726fc3b1657772, 'medellÃ­n Robledo Aures', 'Violeta102226682'),
+(10, 'Perry', 'Gato', 'pitbull', 'negro', 'M', 1, 0x46454466, 'medellÃ­n Robledo Aures', 'Perry29657351');
 
 -- --------------------------------------------------------
 
@@ -120,6 +118,16 @@ CREATE TABLE `fotos` (
   `direccion` varchar(30) NOT NULL,
   `idAnimal` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `fotos`
+--
+
+INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`) VALUES
+(9, 'Violeta102226682/718480195.png', 9),
+(10, 'Violeta102226682/714975714.png', 9),
+(19, 'Perry29657351/207085994.png', 10),
+(21, 'Perry29657351/99600719.png', 10);
 
 -- --------------------------------------------------------
 
@@ -284,7 +292,7 @@ ALTER TABLE `adopciones`
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
@@ -302,7 +310,7 @@ ALTER TABLE `compromisoesterilizacion`
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntasadopcion`
