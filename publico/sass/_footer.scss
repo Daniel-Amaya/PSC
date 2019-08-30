@@ -3,7 +3,9 @@
 \*-------------------------------*/
 
 footer{
+    position: absolute;
     width: 100%;
+    z-index: 900;
     display: grid;
     padding: 10px 100px;
     grid-template-columns:repeat(2, 1fr);

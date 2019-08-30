@@ -43,10 +43,10 @@
                     <option value="medicacion">Medicación</option>
             </select>
 
-        <h4>Suba aquí una foto del resivo para comprobar la donación</h4>
+        <h4>Suba aquí una foto del recivo para comprobar la donación</h4>
                     <label for="comprobanteFoto" class="">Agregar foto:</label>
                     <input type="file" name="comprobanteFoto" id="comprobanteFoto" class="" accept="image/*"> 
-        <h4>Si tienes algo que decirnoslo escribelo aquí</h4>
+        <h4>Si tienes algo que decirnos escribelo aquí</h4>
                     <textarea name="mensajeDonacion" placeholder="Mensaje" rows="4"></textarea> <br>
 
                     <input type="submit" value="Enviar">
