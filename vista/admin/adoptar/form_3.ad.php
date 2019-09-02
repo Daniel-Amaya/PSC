@@ -26,6 +26,4 @@
 
     <script src="publico/js/animalesAjax.js"></script>
 
-    <script src="publico/js/shadowMenuBlanco.js"></script>
-
 </div>

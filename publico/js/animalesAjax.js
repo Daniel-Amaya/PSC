@@ -20,7 +20,7 @@ function animalesAjax(send, action){
 // Función para eliminar y mostrar los datos de los perritos
 
 function mostrarEliminarAnimalito(ht){
-    classNames('adopta-ad')[0].innerHTML = ht.responseText;
+    id('mostrarAnimalitos').innerHTML = ht.responseText;
 }
 
 // Funcion para enviar datos del registro
@@ -72,6 +72,22 @@ function fotosAjaxN(folder){
     ht.open('POST','controlador/ajax/fotosAjax.php');
     ht.send(fData);
 }
+
+// Buscar según el fitro 
+
+var formB = id('buscarAnimalitos');
+
+formB.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var nombreB = this.getElementsByClassName('nombreAn')[0].value,
+    especieB = this.getElementsByClassName('especie')[0].value,
+    razaB = this.getElementsByClassName('raza')[0].value,
+    colorB = this.getElementsByClassName('color')[0].value,
+    sexoB  = this.getElementsByClassName('sexo')[0].value;
+
+    animalesAjax("buscar=true&nombreB="+nombreB+"&especieB"+especieB+"&razaB="+razaB+"&colorB="+colorB+"&sexoB="+sexoB, mostrarEliminarAnimalito);
+});
 
 // Agregar nuevo animalito
 

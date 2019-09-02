@@ -17,12 +17,13 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
     <script>
     classNames('animalitos')[0].remove();
     </script>
-    <div class='galeriaCRUD margin-menu'>
+    <div class='galeriaCRUD margin-menu padding-menu'>
         <div class='buttonsAction'>
             <p>Agregar y eliminar fotos del animalito <span id='NF'></span></p>
-            <form action='' enctype='multipart/form-data' id='NFF'>
+            <form action='' enctype='multipart/form-data' id='NFF' method='POST'>
                 <button class='btn_cafe'><label for='nFoto'>Nueva imagen</label></button>
             <input type='file' id='nFoto' style='display:none'>
+            <input type='submit' value='enviar'>
             </form>
             <button class='btn_cafe'>Terminar</button>
         </div>

@@ -10,6 +10,10 @@
     outline: none;
     @include transitions(0.5s);
     cursor: pointer;
+
+    &.btn_largo{
+        width: 100% !important;
+    }
 }
 
 .btn_rojo{
@@ -44,8 +48,6 @@
         color: $color-principal;
     }
 }
-
-
 
 
 

@@ -19,6 +19,10 @@
     
 }
 
+.col-ms-6{
+    width: 50%;
+}
+
 .grid{
     display: grid;
 }
@@ -35,10 +39,11 @@
 .margin-menu{
     margin-top: 85px;
     margin-bottom: 15px;
+    transition: 1s;
 }
 
 .padding-menu{
-   padding-left: 270px; 
+   padding-left: 280px; 
    min-height: 700px;
    min-width: 100%;
 }

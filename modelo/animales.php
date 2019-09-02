@@ -120,6 +120,25 @@ class Animal extends Conexion{
             exit('ERROR EDITAR ANIMAL: '.$e->getMessage());
         }
     }
+
+    public function searchAnimal($nombre, $especie, $raza, $color, $sexo){
+        $con = parent::conectar();
+        try {
+            $query = $con->prepare("SELECT * FROM animales WHERE nombre LIKE :nombre  OR especie =:especie OR raza=:raza OR color LIKE :color OR sexo=:sexo");
+            
+            $query->bindParam(':nombre', "%$nombre%");
+            $query->bindParam(':especie', $especie);
+            $query->bindParam(':raza', $raza);
+            $query->bindParam(':color', "%$color%");
+            $query->bindParam(':sexo', $sexo);
+            $query->execute();
+
+            return $query;
+
+        } catch (Exception $e) {
+            exit("ERROR AL BUSCAR UN ANIMALITO: ".$e->getMessage());
+        }
+    }
 }
 
 

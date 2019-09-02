@@ -1,6 +1,3 @@
-const color_principal = "#ff7f04";
-const id = document.getElementById.bind(document);
-
 // menú hamburgesa
 function menu(){
     var menu = id('menu');

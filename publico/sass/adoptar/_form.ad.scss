@@ -3,29 +3,11 @@
 \*-------------------------------*/
 
 .fielNewAnimalito{
-    width: 40%;
     border: solid 0.5px transparent;
-    border-radius: 10px;
-    margin-left: 50px;
-    &::before{
-        content: '';
-        width: 45%;
-        height: 50%;
-        @include transforms(rotate(30deg));
-        background: $color-principal;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    &::after{
-        content: '';
-        width: 20%;
-        height: 50%;
-        @include transforms(rotate(-30deg));
-        background: $color-principal;
-        position: absolute;
-        right: 30%;
-        bottom: 0;
+
+    form{
+        width: 60%;
+        margin: auto;
     }
 }
 

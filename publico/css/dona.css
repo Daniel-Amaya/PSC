@@ -1,3 +1,4 @@
+@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -13,7 +14,6 @@
 /*-------------------------------*\
            ELEMENTOSHTML
 \*-------------------------------*/
-@import url("../fonts/PatuaOne-Regular.ttf");
 * {
   margin: 0;
   padding: 0;
@@ -75,6 +75,10 @@ button {
   width: 45%;
 }
 
+.col-ms-6 {
+  width: 50%;
+}
+
 .grid {
   display: grid;
 }
@@ -89,11 +93,13 @@ button {
 .margin-menu {
   margin-top: 85px;
   margin-bottom: 15px;
+  transition: 1s;
 }
 
 .padding-menu {
-  padding-left: 270px;
-  min-height: 100%;
+  padding-left: 280px;
+  min-height: 700px;
+  min-width: 100%;
 }
 
 .center {
@@ -130,6 +136,9 @@ button {
   -o-transition: 0.5s;
   -moz-transition: 0.5s;
   cursor: pointer;
+}
+.btn_largo.btn_naranja, .btn_largo.btn_cafe, .btn_largo.btn_rojo {
+  width: 100% !important;
 }
 
 .btn_rojo {
@@ -645,6 +654,9 @@ button {
 /*-------------------------------*\
            FINCAJAGATO 
 \*-------------------------------*/
+/*-------------------------------*\
+           GATOCOLGANDO 
+\*-------------------------------*/
 .boxInput textarea, .boxInput select, .boxInput input {
   width: 100%;
   border: solid 0.5px grey;
@@ -918,7 +930,7 @@ nav div.nav-items ul li a {
              FINMENU
 \*-------------------------------*/
 /*-------------------------------*\
-        MENULATERALADMINISTRADOR
+      MENULATERALADMINISTRADOR
 \*-------------------------------*/
 .menuLateral {
   transition: 1s;
@@ -926,11 +938,12 @@ nav div.nav-items ul li a {
   -o-transition: 1s;
   -moz-transition: 1s;
   width: 270px;
+  color: white;
   position: fixed;
   top: 73px;
   left: 0;
   background: #ff7f04;
-  box-shadow: 0px 10px 15px black;
+  box-shadow: 0px 10px 5px black;
 }
 .menuLateral .nav-logo {
   margin: auto;
@@ -962,6 +975,7 @@ nav div.nav-items ul li a {
 \*-------------------------------*/
 footer {
   position: absolute;
+  min-height: fit-content !important;
   width: 100%;
   z-index: 900;
   display: grid;
@@ -970,6 +984,10 @@ footer {
   grid-auto-rows: minmax(20px, auto);
   row-gap: 15px;
   border-top: solid 2px #ff7f04;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
 }
 @media only screen and (max-width: 500px) {
   footer {
@@ -982,6 +1000,10 @@ footer {
   footer {
     padding: 0;
   }
+}
+footer.padding-menu {
+  padding-left: 300px;
+  padding-right: 20px;
 }
 @media only screen and (max-width: 500px) {
   footer div {

@@ -31,23 +31,19 @@ function eliminarFoto(ruta){
 
 id('NFF').addEventListener('submit', function(e){
     e.preventDefault();
-});
 
+});
 
 function fotoNueva(folder, idF){
 
-    let inputFile = id('nFoto');
+    let fileInput = id('nFoto');
     
-    // if(inputFile.files.length > 0){
-        fotos = new FormData;
-        fotos.append('carpetaN', folder);
-        fotos.append('fotos', idF);
-        fotos.append('fotoN', inputFile.files[0]);
-        alert(fotos.fotos);
-       return fotos;
-
-    // }
-
-    
+    if(fileInput.files.length > 0){
+        var datosEnviar = new FormData;
+        datosEnviar.append('fotos', idF);
+        datosEnviar.append('carpetaN', folder);
+        datosEnviar.append('fotoN', fileInput.files[0]);
+        fotosAjax(datosEnviar, mostrarFotos);
+    }
 
 }

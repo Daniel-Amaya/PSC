@@ -4,6 +4,7 @@
 
 footer{
     position: absolute;
+    min-height: fit-content !important;
     width: 100%;
     z-index: 900;
     display: grid;
@@ -12,9 +13,15 @@ footer{
     grid-auto-rows: minmax(20px, auto);
     row-gap: 15px;
     border-top: solid 2px $color-principal;
+    @include transitions(1s);
     @include column-one(500px);
     @include respond-to(500px){
         padding: 0;
+    }
+
+    &.padding-menu{
+        padding-left: 300px;
+        padding-right: 20px;
     }
     div{
         @include respond-to(500px){

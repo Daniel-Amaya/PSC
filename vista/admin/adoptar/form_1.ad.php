@@ -4,11 +4,12 @@
         
         <form action="" method="post" class='newAnimalito' id='newAnimalito'>
             <div class="boxInput">
-                <input type="text" placeholder="nombre del perrito" name='nombreAn'>
+                <input type="text" placeholder="nombre del animalito" name='nombreAn'>
             </div>
 
             <div class="boxInput">
                 <select name="especie">
+                    <option value="">Especie</option>
                     <option value="Perro">Perro</option>
                     <option value="Gato">Gato</option>
                 </select>

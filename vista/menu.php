@@ -6,7 +6,7 @@
         <li class="response-item"><a class="rayita-blanca" href="">Fundación</a></li>
         <li class="response-item"><a class="rayita-blanca" href="adoptar.php">Adoptar</a></li>
         <li class="response-item"><a class="rayita-blanca" href="donar.php">Donar</a></li>
-        <li><a href="" class='rayita-blanca'>Iniciar Sesión    </a></li>
+        <li><a href="iniciar-sesion.php" class='rayita-blanca'>Iniciar Sesión    </a></li>
         <li><a href="" class='rayita-blanca'>Visitanos         </a></li>
         <li><a href="" class='rayita-blanca'>Sobre la fundación</a></li>
         <li><a href="" class='rayita-blanca'>Quienes Somos     </a></li>

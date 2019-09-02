@@ -231,3 +231,66 @@
         }
     }
 }
+
+
+// Admin
+
+.titleAnimalitos{
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.animalitosInfo{
+    border-spacing: 0;
+    border-collapse: inherit; 
+    min-width: 80%;
+    margin: auto;
+
+    thead{
+        background: $color-principal;
+        th{
+            @for $i from 2 through 4{
+                &:nth-child(#{$i}){
+                    padding: 4px 15px;
+                }
+        
+            }
+
+            color: white;
+            // background: $color-principal;
+            font-weight: 800;
+            padding: 5px;
+            border: solid 1px $color-principal;
+        }
+    }
+
+    tbody{
+        background: whitesmoke;
+        tr{
+            cursor: pointer;
+            transition: .5s;
+            background: rgba(212, 212, 212, 0.377);
+            &:hover{
+                background: rgb(255, 255, 255);
+            }
+        }
+   
+        td{
+            font-weight: 100;
+            padding: 4px 0;
+            text-align: center;
+            border-bottom: solid 1px rgba(212, 212, 212, 0.548);
+            a{
+                height: 40px;
+                padding: 1px 20px;
+            }
+
+            img{
+                width: 45px;
+                height: 45px;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

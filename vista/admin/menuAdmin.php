@@ -4,15 +4,19 @@
         <img src="publico/images/logo.jpeg">
     </div> 
 
-    <h3>PSC - Administrador</h3>
+    <h3 class='indicador'>PSC - Administrador</h3>
     <hr>
 
-    <ul>
+    <ul class='navegador'>
         <li><a href="" clas='rayita-blanca'>Vacunas</a></li>
         <li><a href="" clas='rayita-blanca'>Calendario</a></li>
-        <li><a href="" clas='rayita-blanca'>Animalitos</a></li>
+        <li><a href="adoptar.php" clas='rayita-blanca'>Animalitos</a></li>
         <li><a href="" clas='rayita-blanca'>Apadrinajes</a></li>
         <li><a href="" clas='rayita-blanca'>Donaciones</a></li>
+    </ul>
+
+    <ul id='nuevosBotones'>
+        
     </ul>
 </header>
 <nav>
@@ -20,10 +24,7 @@
         <ul class="row">
             <li><span onclick='menuL()' class='pointer'><i class="fa fa-bars"></i></span></li>
             <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
-            <li><a class="rayita-naranja" href="">Vacunas</a></li>
-            <li><a class="rayita-naranja" href="adoptar.php">Animalitos</a></li>
             <li><a class="rayita-naranja" href="">Adopciones</a></li>
-            <li><a class="rayita-naranja" href="">Apadrinamientos</a></li>
             <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li>
 
         </ul>
@@ -36,5 +37,5 @@
         <img src="publico/images/logo.jpeg">
     </div>
 </nav>
-<script src="publico/js/menu.js"></script>
+<script src="publico/js/shadowMenuNaranja.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>
