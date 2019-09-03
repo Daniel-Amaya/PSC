@@ -4,7 +4,7 @@
         <img src="publico/images/logo.jpeg">
     </div> 
 
-    <h3 class='indicador'>PSC - Administrador</h3>
+    <h3 class='indicador'>PSC - Usuario</h3>
     <hr>
 
     <ul id='navegador'>
@@ -23,10 +23,10 @@
     <div class="nav-items">
         <ul class="row">
             <li><span onclick='menuL()' class='pointer'><i class="fa fa-bars"></i></span></li>
-            <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
-            <li><a class="rayita-naranja"  href="">Usuarios</a></li>
-            <li><a class="rayita-naranja" href="">Adopciones</a></li>
-            <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li>
+            <li><a class="rayita-naranja" href="index.php">Adoptar</a></li>
+            <li><a class="rayita-naranja"  href="">Apadrinar</a></li>
+            <li><a class="rayita-naranja" href="">Donar</a></li>
+            <li><a class="rayita-naranja" href="donar.php">Contacto</a></li>
 
         </ul>
     </div>

@@ -16,6 +16,8 @@ classNames('newAn')[0].addEventListener('click', function(){
     classNames('titleAnimalitos')[0].style.display = 'none';
 });
 
+
+
 </script>
 
 <script src="publico/js/modal.js"></script>
@@ -83,3 +85,12 @@ classNames('newAn')[0].addEventListener('click', function(){
         </table>
 
     </section>
+
+    <script>
+
+    function agregarAnimalitos(){
+        classNames('animalitosInfo')[0].style.display = 'none';
+        classNames('fielNewAnimalito')[0].style.display = 'block';
+        classNames('titleAnimalitos')[0].style.display = 'none';
+    }
+    </script>

@@ -22,4 +22,12 @@ function edad($añoNacimiento){
     return $edad;
 }
 
+function esterilizado($data){
+    if($data == 1){
+        return "Sí";
+    }else{
+        return "No";
+    }
+}
+
 ?>

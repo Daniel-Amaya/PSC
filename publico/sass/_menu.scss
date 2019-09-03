@@ -195,3 +195,29 @@ nav{
     padding: 0 !important;
     
 }
+
+.config-dropdown{
+    position: relative;
+    overflow: hidden;
+    ul{
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        box-shadow: 0 0 5px black;
+        li{
+            padding: 10px 30px;
+            background: $color-principal;
+            a{
+                color: black;
+            }
+        }
+    }
+    &:hover{
+        overflow: visible;
+        ul{
+            height: fit-content;
+            overflow: visible;
+        }
+    }
+}

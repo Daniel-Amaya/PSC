@@ -1,0 +1,30 @@
+.navegador-tabs{
+    padding: 20px 100px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    display: flex;
+    color: black;
+    li{
+        width: 25%;
+        text-align: center;
+
+        &.tabSelection{
+           background: $color-principal;
+           color: white;
+           border-radius: 20px;
+        }
+    }
+}
+
+.misMascotas{
+    width: 80%;
+    margin: auto;
+    .headerMascotas{
+        display: flex;
+        background: $color-principal;
+        color: white;
+    }
+    .bodyMascotas{
+        padding: 40px;
+    }
+}

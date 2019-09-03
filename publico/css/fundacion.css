@@ -705,9 +705,9 @@ button {
 }
 .boxInput .error {
   position: absolute;
-  bottom: 3px;
-  font-size: 18px;
-  right: 2px;
+  bottom: -20px;
+  font-size: 14px;
+  right: 13px;
   color: red;
 }
 
@@ -1050,6 +1050,32 @@ nav div.nav-items ul li a {
   height: 0;
   overflow: hidden;
   padding: 0 !important;
+}
+
+.config-dropdown {
+  position: relative;
+  overflow: hidden;
+}
+.config-dropdown ul {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  box-shadow: 0 0 5px black;
+}
+.config-dropdown ul li {
+  padding: 10px 30px;
+  background: #ff7f04;
+}
+.config-dropdown ul li a {
+  color: black;
+}
+.config-dropdown:hover {
+  overflow: visible;
+}
+.config-dropdown:hover ul {
+  height: fit-content;
+  overflow: visible;
 }
 
 /*-------------------------------*\

@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -15,6 +14,7 @@
 /*-------------------------------*\
            ELEMENTOSHTML
 \*-------------------------------*/
+@import url("../fonts/PatuaOne-Regular.ttf");
 * {
   margin: 0;
   padding: 0;
@@ -706,9 +706,9 @@ button {
 }
 .boxInput .error {
   position: absolute;
-  bottom: 3px;
-  font-size: 18px;
-  right: 2px;
+  bottom: -20px;
+  font-size: 14px;
+  right: 13px;
   color: red;
 }
 
@@ -1051,6 +1051,32 @@ nav div.nav-items ul li a {
   height: 0;
   overflow: hidden;
   padding: 0 !important;
+}
+
+.config-dropdown {
+  position: relative;
+  overflow: hidden;
+}
+.config-dropdown ul {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  box-shadow: 0 0 5px black;
+}
+.config-dropdown ul li {
+  padding: 10px 30px;
+  background: #ff7f04;
+}
+.config-dropdown ul li a {
+  color: black;
+}
+.config-dropdown:hover {
+  overflow: visible;
+}
+.config-dropdown:hover ul {
+  height: fit-content;
+  overflow: visible;
 }
 
 /*-------------------------------*\
@@ -1433,6 +1459,23 @@ footer div.copyright {
 /*-------------------------------*\
       FINMENSAJEAMBIENTEINDEX
 \*-------------------------------*/
+.navegador-tabs {
+  padding: 20px 100px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  color: black;
+}
+.navegador-tabs li {
+  width: 25%;
+  text-align: center;
+}
+.navegador-tabs li.tabSelection {
+  background: #ff7f04;
+  color: white;
+  border-radius: 20px;
+}
+
 /*-------------------- INDEX -------------------- */
 /*-------------------- ADOPTAR -------------------- */
 .adopta-grid {

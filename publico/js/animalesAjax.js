@@ -202,9 +202,6 @@ function editarAnimalito(){
         procedE = this.getElementsByTagName('input')[6].value,
         idE = id('idE').value;
         esterE = document.getElementsByName('esterilizadoE');
-
-        alert(edadE);
-
         
 
         if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && edadE != "" && descripE != "" && procedE != "" && idE != ""){

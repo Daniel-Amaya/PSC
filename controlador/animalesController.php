@@ -92,7 +92,7 @@ class AnimalesController extends Animal{
                                         <li>$datos[4]</li>
                                         <li>".genero($datos[5])."</li>
                                         <li>".edad($datos[6])."</li>
-                                        <li>$datos[7]</li>
+                                        <li>".esterilizado($datos[7])."</li>
                                     </ul>
                                 </div>
                                 <div class='col'>
@@ -152,7 +152,7 @@ class AnimalesController extends Animal{
                     $urlFotoPerfil = $fotos->fetch();
         
                     echo " <tr onclick='crearModal(\" $datos[1] \", 
-                    \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>$datos[5]</li><li>".edad($datos[6])."</li><li>$datos[7]</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'>
+                    \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>".genero($datos[5])."</li><li>".edad($datos[6])."</li><li>".esterilizado($datos[7])."</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'>
 
                         <td><img src='publico/images/$urlFotoPerfil[1]'></td>
                         <td>$datos[1]</td>
@@ -178,7 +178,7 @@ class AnimalesController extends Animal{
         
                 }
             }else{
-                echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja'>Agregar una mascota</a></div>";
+                echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja' onclick='agregarAnimalitos()'>Agregar una mascota</a></div>";
             }
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR LOS ANIMALITOS: ".$e->getMessage());
@@ -236,7 +236,7 @@ class AnimalesController extends Animal{
 
                     <div class='boxInput'>
                         <label for='especieE'>Especie</label>
-                        <select name='especieE' value='$datos[2]'>
+                        <select name='especieE'>
                             <option value='Perro'>Perro</option>
                             <option value='Gato'>Gato</option>
                         </select>
@@ -255,7 +255,7 @@ class AnimalesController extends Animal{
                     <div class='boxInput'>
                     <label for='sexoE'>Sexo</label>
 
-                        <select name='sexoE' value='$datos[5]'>
+                        <select name='sexoE'>
                             // <option value='>Sexo</option>
                             <option value='M'>Masculino</option>
                             <option value='F'>Femenino</option>

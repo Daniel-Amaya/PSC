@@ -18,7 +18,8 @@ if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
     require 'vista/admin/index/principal.ind.php';
     
 }else if($_SESSION['sesion_rol'] == "u"){
-   
+   require 'vista/usuario/menuUser.php';
+   require 'vista/usuario/index/tabsFunctions.php';
 }
 
 require 'vista/footer.php';
