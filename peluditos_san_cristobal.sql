@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-08-2019 a las 13:47:25
+-- Tiempo de generación: 02-09-2019 a las 21:57:11
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -48,6 +48,7 @@ CREATE TABLE `animales` (
   `raza` varchar(25) NOT NULL,
   `color` varchar(30) NOT NULL,
   `sexo` char(1) NOT NULL,
+  `edad` int(11) NOT NULL,
   `esterilizado` tinyint(1) NOT NULL,
   `descripcion` tinyblob NOT NULL,
   `procedencia` varchar(30) NOT NULL,
@@ -58,9 +59,14 @@ CREATE TABLE `animales` (
 -- Volcado de datos para la tabla `animales`
 --
 
-INSERT INTO `animales` (`id`, `nombre`, `especie`, `raza`, `color`, `sexo`, `esterilizado`, `descripcion`, `procedencia`, `carpeta`) VALUES
-(9, 'Violeta', 'Gato', 'pitbull', 'negro', 'M', 0, 0x657277706a726fc3b1657772, 'medellÃ­n Robledo Aures', 'Violeta102226682'),
-(10, 'Perry', 'Gato', 'pitbull', 'negro', 'M', 1, 0x46454466, 'medellÃ­n Robledo Aures', 'Perry29657351');
+INSERT INTO `animales` (`id`, `nombre`, `especie`, `raza`, `color`, `sexo`, `edad`, `esterilizado`, `descripcion`, `procedencia`, `carpeta`) VALUES
+(9, 'Violeta', 'Perro', 'pitbull', 'negro', 'F', 0, 1, 0x426562652042656265736974616120756161, 'medellÃ­n Robledo Aures', 'Violeta102226682'),
+(10, 'Perry', 'Perro', 'pitbull', 'negro', 'F', 2014, 1, 0x46454466, 'medellÃ­n Robledo Aures', 'Perry29657351'),
+(11, 'Violeta', 'Gato', 'pitbull', 'negro', 'M', 0, 1, 0x6a686a6b686a6b686a6b686a6b, 'medellÃ­n Robledo Aures', 'Violeta68025559'),
+(13, 'Perry', 'Gato', 'pitbull', 'negro', 'M', 0, 1, 0x46535344464653534446, 'FGGGD', 'Perry5414973'),
+(14, 'v i ', 'Perro', 'pitbull', 'negro', 'M', 0, 1, 0x72667265, 'refrf', 'v i 69268814'),
+(15, 'bocky', 'Gato', 'pitbull', 'negro', 'F', 0, 1, 0x4a4847484a4748, 'medellÃ­n Robledo Aures', 'bocky75434855'),
+(16, 'bocky', 'Perro', 'pitbull', 'negro', 'M', 2017, 1, 0x6473667364736664, 'medellÃ­n Robledo Aures', 'bocky77463090');
 
 -- --------------------------------------------------------
 
@@ -115,7 +121,7 @@ CREATE TABLE `compromisoesterilizacion` (
 
 CREATE TABLE `fotos` (
   `cod` int(10) UNSIGNED NOT NULL,
-  `direccion` varchar(30) NOT NULL,
+  `direccion` varchar(100) NOT NULL,
   `idAnimal` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -125,9 +131,21 @@ CREATE TABLE `fotos` (
 
 INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`) VALUES
 (9, 'Violeta102226682/718480195.png', 9),
-(10, 'Violeta102226682/714975714.png', 9),
 (19, 'Perry29657351/207085994.png', 10),
-(21, 'Perry29657351/99600719.png', 10);
+(23, 'Violeta68025559/869196582.png', 11),
+(24, 'Violeta68025559/858222202.png', 11),
+(25, 'Violeta68025559/355359795.png', 11),
+(31, 'Perry5414973/903719648.png', 13),
+(32, 'Perry5414973/767444392.png', 13),
+(33, 'Perry5414973/349505701.png', 13),
+(34, 'v i 69268814/87216814.png', 14),
+(35, 'v i 69268814/664336353.png', 14),
+(36, 'bocky75434855/187086921.png', 15),
+(37, 'bocky75434855/394472230.png', 15),
+(39, 'bocky77463090/115191890.png', 16),
+(40, 'bocky77463090/856277763.png', 16),
+(41, 'bocky77463090/588580549.png', 16),
+(42, 'Violeta102226682/961331049.png', 9);
 
 -- --------------------------------------------------------
 
@@ -184,8 +202,20 @@ CREATE TABLE `usuarios` (
   `correo` varchar(30) NOT NULL,
   `telefono` varchar(11) NOT NULL,
   `cedula` varchar(15) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `rol` char(1) NOT NULL,
+  `foto` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `correo`, `telefono`, `cedula`, `password`, `rol`, `foto`) VALUES
+(1, 'michy', 'batsuayi', 'michy21@gmail.com', '2213231', '23424234', '$2y$10$zQiTa.Em5LJ0cl6YxLGjKesx0RBk3lhHmJqHzN5d.RsVn0hRtJe8a', 'a', ''),
+(2, 'Juan David', 'Mosquera MuÃ±oz', 'juanDavid@gmail.com', '89213474897', '1000000000', '$2y$10$Mm94QGw18PaMXLNzfLwOGeiKw9NG1Fmi5w6gWjOw3RDhvDLvTrlBa', 'u', ''),
+(3, 'Daniel', 'Amaya ', 'amayasad@gmail.com', '122134324', '432324234', '$2y$10$ohWsDPErI7So5MYiZDRS4OQcCbdSvNcg9cJpSG/Q/0NWAi1ZOAaKu', 'u', ''),
+(4, 'Sofia', 'Cano', 'sdsdad@gmail.com', '232432', '434433', '$2y$10$jNGKQHgHzV2fhzQRvRDWHeWqU.GYtKdjCzO51oUu30jpauxvi6h9O', 'u', '');
 
 -- --------------------------------------------------------
 
@@ -292,7 +322,7 @@ ALTER TABLE `adopciones`
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
@@ -310,7 +340,7 @@ ALTER TABLE `compromisoesterilizacion`
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntasadopcion`
@@ -328,7 +358,7 @@ ALTER TABLE `respuestasadopcion`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `vacunas`
