@@ -13,7 +13,7 @@ class FotosController extends Foto{
 
                 echo $datos[0] . "%%";
 
-                echo $datos[9] . "%%";
+                echo $datos[10] . "%%";
 
                 echo $datos[1] . "%%";
                     

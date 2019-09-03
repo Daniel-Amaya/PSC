@@ -43,7 +43,17 @@ function fotoNueva(folder, idF){
         datosEnviar.append('fotos', idF);
         datosEnviar.append('carpetaN', folder);
         datosEnviar.append('fotoN', fileInput.files[0]);
-        fotosAjax(datosEnviar, mostrarFotos);
+        
+        ht = new XMLHttpRequest;
+
+        ht.addEventListener('readystatechange', function(){
+            if(this.readyState == 4 && this.status == 200){
+                mostrarFotos(this);
+            }
+        });
+    
+        ht.open('POST','controlador/ajax/fotosAjax.php');
+        ht.send(datosEnviar);
     }
 
 }
