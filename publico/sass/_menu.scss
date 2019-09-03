@@ -163,6 +163,12 @@ nav{
         width: 100%;
         text-align: center;
         margin: 10px 0;
+        position: relative;
+        i{
+            position: absolute;
+            top: 5px;
+            right: 10%;
+        }
     }
     hr{
         border-color: white;
@@ -170,11 +176,22 @@ nav{
     }
 
     ul{
+        // @include transitions(1s);
         width: 100%;
         padding: 10px;
         li{
             text-align: center;
             background: rgba(255, 145, 4, 0.753);
+            &:hover{
+                background: $color-principal;
+            }
         }
     }
+}
+
+.recojer-menu{
+    height: 0;
+    overflow: hidden;
+    padding: 0 !important;
+    
 }

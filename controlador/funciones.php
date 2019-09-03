@@ -10,4 +10,16 @@ function genero($data){
     }
 }
 
+function edad($añoNacimiento){
+    $añoActual = date('Y');
+    $edad = ($añoActual-$añoNacimiento);
+    if($edad == 0){
+        $edad = "Menos de un año";
+    }else{
+        $edad = $edad. " años";
+    }
+
+    return $edad;
+}
+
 ?>

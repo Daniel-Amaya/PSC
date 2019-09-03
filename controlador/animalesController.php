@@ -83,6 +83,7 @@ class AnimalesController extends Animal{
                                         <li>Raza:</li>
                                         <li>Color:</li>
                                         <li>Sexo:</li>
+                                        <li>Edad:</li>
                                         <li>Esterilizado:</li>
                                     </ul>
                                     <ul>
@@ -90,7 +91,8 @@ class AnimalesController extends Animal{
                                         <li>$datos[3]</li>
                                         <li>$datos[4]</li>
                                         <li>".genero($datos[5])."</li>
-                                        <li>$datos[6]</li>
+                                        <li>".edad($datos[6])."</li>
+                                        <li>$datos[7]</li>
                                     </ul>
                                 </div>
                                 <div class='col'>
@@ -101,7 +103,7 @@ class AnimalesController extends Animal{
                                     <div>
                                         <h3>Descripción:</h3>
                                         <p>
-                                            $datos[7]
+                                            $datos[8]
                                         </p>
                                     </div>
                                     
@@ -138,6 +140,8 @@ class AnimalesController extends Animal{
 
     public function mostrarAnimalitosAdmin(){
         try {
+
+            require_once '../funciones.php';
             $animales = parent::dataAnimal('');
 
             if($animales->rowCount() > 0){
@@ -147,14 +151,16 @@ class AnimalesController extends Animal{
                     $fotos = Foto::dataFotos($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
         
-                    echo " <tr>
+                    echo " <tr onclick='crearModal(\" $datos[1] \", 
+                    \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>$datos[5]</li><li>".edad($datos[6])."</li><li>$datos[7]</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'>
+
                         <td><img src='publico/images/$urlFotoPerfil[1]'></td>
                         <td>$datos[1]</td>
                         <td>$datos[2]</td>
                         <td>$datos[3]</td>
                         <td><a href='?fotos=$datos[0]' class='btn_cafe'>Fotos</a></td>
                         <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
-                        <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[9]\"])'>Eliminar</a></td>
+                        <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
                     
                     </tr> ";
                     
@@ -250,10 +256,15 @@ class AnimalesController extends Animal{
                     <label for='sexoE'>Sexo</label>
 
                         <select name='sexoE' value='$datos[5]'>
-                            <option value='>Sexo</option>
+                            // <option value='>Sexo</option>
                             <option value='M'>Masculino</option>
                             <option value='F'>Femenino</option>
                         </select>
+                    </div>
+
+                    <div class='boxInput'>
+                        <label for='edad'>Fecha de nacimiento</label>
+                        <input type='number' name='edad' value='$datos[6]'>
                     </div>
 
                     <div class='boxInput'>
@@ -266,12 +277,12 @@ class AnimalesController extends Animal{
 
                     <div class='boxInput'>
                         <label for='descripcionE'>Descripción</label>
-                        <textarea name='descripcionE' placeholder='descripcion del animalito' rows='4'>$datos[7]</textarea>
+                        <textarea name='descripcionE' placeholder='descripcion del animalito' rows='4'>$datos[8]</textarea>
                     </div>
 
                     <div class='boxInput'>
                         <label for='procedenciaE'>Procedencia</label>
-                        <input type='text' name='procedenciaE' placeholder='procedencia' value='$datos[8]'>
+                        <input type='text' name='procedenciaE' placeholder='procedencia' value='$datos[9]'>
                     </div>
 
                     <input type='hidden' id='idE' value='$datos[0]'>

@@ -13,6 +13,7 @@
     width: 100%;
     padding: 10px;
     color: $color-principal;
+    position: relative;
 
     input{
         @extend %campos;
@@ -53,6 +54,14 @@
         // color: $color-principal;
         font-size: 17px;
         font-weight: 600;
+    }
+
+    .error{
+        position: absolute;
+        bottom: 3px;
+        font-size: 18px;
+        right: 2px;
+        color: red;
     }
 }
 

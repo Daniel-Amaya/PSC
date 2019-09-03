@@ -294,3 +294,19 @@
         }
     }
 }
+
+.animalitosAdminInfo{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    color: white;
+    ul{
+        width: 50%;
+        margin: 10px;
+        li{
+            margin: 4px;
+            padding: 10px;
+            background: $color-principal-tra;
+        }
+    }
+}

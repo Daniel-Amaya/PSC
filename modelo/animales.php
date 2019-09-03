@@ -9,17 +9,19 @@ class Animal extends Conexion{
     public $raza;
     public $color;
     public $sexo;
+    public $edad;
     public $esterilizado;
     public $descripcion;
     public $procedencia;    
 
-    public function __construct($nombre, $especie, $raza, $color, $sexo, $esterilizado, $descripcion, $procedencia){
+    public function __construct($nombre, $especie, $raza, $color, $sexo, $edad, $esterilizado, $descripcion, $procedencia){
 
         $this->nombre = $nombre;
         $this->especie = $especie;
         $this->raza = $raza;
         $this->color = $color;
         $this->sexo = $sexo;
+        $this->edad = $edad;
         $this->esterilizado = $esterilizado;
         $this->descripcion = $descripcion;
         $this->procedencia = $procedencia;
@@ -32,13 +34,14 @@ class Animal extends Conexion{
             $dir = new Carpetas;
             $carpeta = $dir->carpetaDePerrito($nombre);
             
-            $query = $con->prepare("INSERT INTO animales (nombre, especie, raza, color, sexo, esterilizado, descripcion, procedencia, carpeta) VALUES (:nombre, :especie, :raza, :color, :sexo, :esterilizado, :descripcion, :procedencia, :carpeta)");
+            $query = $con->prepare("INSERT INTO animales (nombre, especie, raza, color, sexo, edad, esterilizado, descripcion, procedencia, carpeta) VALUES (:nombre, :especie, :raza, :color, :sexo, :edad, :esterilizado, :descripcion, :procedencia, :carpeta)");
 
             $query->bindParam(':nombre', $nombre);
             $query->bindParam(':especie', $especie);
             $query->bindParam(':raza', $raza);
             $query->bindParam(':color', $color);
             $query->bindParam(':sexo', $sexo);
+            $query->bindParam(':edad', $edad);
             $query->bindParam(':esterilizado', $esterilizado);
             $query->bindParam(':descripcion', $descripcion);
             $query->bindParam(':procedencia', $procedencia);
@@ -93,17 +96,18 @@ class Animal extends Conexion{
         }
     }
 
-    public function editAnimal($nombre, $especie, $raza, $color, $sexo, $esterilizado, $descripcion, $procedencia, $id){
+    public function editAnimal($nombre, $especie, $raza, $color, $sexo, $edad, $esterilizado, $descripcion, $procedencia, $id){
         $con = parent::conectar();
         try{
 
-            $query = $con->prepare("UPDATE animales SET nombre=:nombre, especie=:especie, raza=:raza, color=:color, sexo=:sexo, esterilizado=:esterilizado, descripcion=:descripcion, procedencia=:procedencia WHERE id=:id");
+            $query = $con->prepare("UPDATE animales SET nombre=:nombre, especie=:especie, raza=:raza, color=:color, sexo=:sexo, edad=:edad, esterilizado=:esterilizado, descripcion=:descripcion, procedencia=:procedencia WHERE id=:id");
 
             $query->bindParam(':nombre', $nombre);
             $query->bindParam(':especie', $especie);
             $query->bindParam(':raza', $raza);
             $query->bindParam(':color', $color);
             $query->bindParam(':sexo', $sexo);
+            $query->bindParam(':edad', $edad);
             $query->bindParam(':esterilizado', $esterilizado);
             $query->bindParam(':descripcion', $descripcion);
             $query->bindParam(':procedencia', $procedencia);
@@ -111,7 +115,7 @@ class Animal extends Conexion{
             $query->execute();
 
             if($query->errorCode() != "00000"){
-                echo "0%%";
+                echo "0%%"+$query->errorInfo();
             }else{
                 echo "1%%";
             }

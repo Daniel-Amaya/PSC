@@ -702,7 +702,6 @@ button {
   font-size: 17px;
   font-weight: 600;
 }
-
 .boxCheck {
   padding: 10px;
 }
@@ -956,6 +955,12 @@ nav div.nav-items ul li a {
   width: 100%;
   text-align: center;
   margin: 10px 0;
+  position: relative;
+}
+.menuLateral h3 i {
+  position: absolute;
+  top: 5px;
+  right: 10%;
 }
 .menuLateral hr {
   border-color: white;
@@ -968,6 +973,15 @@ nav div.nav-items ul li a {
 .menuLateral ul li {
   text-align: center;
   background: rgba(255, 145, 4, 0.753);
+}
+.menuLateral ul li:hover {
+  background: #ff7f04;
+}
+
+.recojer-menu {
+  height: 0;
+  overflow: hidden;
+  padding: 0 !important;
 }
 
 /*-------------------------------*\

@@ -7,7 +7,7 @@
     <h3 class='indicador'>PSC - Administrador</h3>
     <hr>
 
-    <ul class='navegador'>
+    <ul id='navegador'>
         <li><a href="" clas='rayita-blanca'>Vacunas</a></li>
         <li><a href="" clas='rayita-blanca'>Calendario</a></li>
         <li><a href="adoptar.php" clas='rayita-blanca'>Animalitos</a></li>
@@ -24,6 +24,7 @@
         <ul class="row">
             <li><span onclick='menuL()' class='pointer'><i class="fa fa-bars"></i></span></li>
             <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
+            <li><a class="rayita-naranja"  href="">Usuarios</a></li>
             <li><a class="rayita-naranja" href="">Adopciones</a></li>
             <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li>
 
@@ -32,10 +33,15 @@
     <div class="nav-logo row">
         <ul class="row">
             <li style="padding:20px"><span onclick='' class='pointer'><i class="far fa-calendar-times"></i></span></li>
-            <li style="padding:20px"><span onclick='' class='pointer'><i class="fas fa-cog"></i></span></li>
+            <li style="padding:20px"><span onclick='' class='pointer'><i class="fas fa-cog">
+                <ul>
+                    <li><a id='cerrarSesion' href="controlador/validar/logout.php">Salir</a></li>
+                </ul>
+            </i></span></li>
         </ul>
         <img src="publico/images/logo.jpeg">
     </div>
 </nav>
+<!-- <script src="publico/js/ajax/cerrarSesion.js"></script> -->
 <script src="publico/js/shadowMenuNaranja.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>

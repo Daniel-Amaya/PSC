@@ -673,6 +673,7 @@ button {
   width: 100%;
   padding: 10px;
   color: #ff7f04;
+  position: relative;
 }
 .boxInput textarea {
   resize: none;
@@ -702,6 +703,13 @@ button {
 .boxInput label {
   font-size: 17px;
   font-weight: 600;
+}
+.boxInput .error {
+  position: absolute;
+  bottom: 3px;
+  font-size: 18px;
+  right: 2px;
+  color: red;
 }
 
 .boxCheck {
@@ -1016,6 +1024,12 @@ nav div.nav-items ul li a {
   width: 100%;
   text-align: center;
   margin: 10px 0;
+  position: relative;
+}
+.menuLateral h3 i {
+  position: absolute;
+  top: 5px;
+  right: 10%;
 }
 .menuLateral hr {
   border-color: white;
@@ -1028,6 +1042,15 @@ nav div.nav-items ul li a {
 .menuLateral ul li {
   text-align: center;
   background: rgba(255, 145, 4, 0.753);
+}
+.menuLateral ul li:hover {
+  background: #ff7f04;
+}
+
+.recojer-menu {
+  height: 0;
+  overflow: hidden;
+  padding: 0 !important;
 }
 
 /*-------------------------------*\
@@ -1690,6 +1713,22 @@ footer div.copyright {
   object-fit: cover;
 }
 
+.animalitosAdminInfo {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  color: white;
+}
+.animalitosAdminInfo ul {
+  width: 50%;
+  margin: 10px;
+}
+.animalitosAdminInfo ul li {
+  margin: 4px;
+  padding: 10px;
+  background: rgba(255, 125, 4, 0.753);
+}
+
 /*-------------------------------*\
     FORMULARIO NUEVO ANIMALITO 
 \*-------------------------------*/
@@ -1868,6 +1907,22 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
 }
 .containerIS fieldset .boxInput {
   margin: 25px auto;
+}
+
+.crear-cuenta {
+  border: transparent;
+  padding: 0px 50px;
+}
+.crear-cuenta form {
+  padding: 30px;
+  margin: auto;
+  text-align: center;
+}
+.crear-cuenta form h2 {
+  margin: 10px 0;
+}
+.crear-cuenta form i {
+  font-size: 90px;
 }
 
 /*-------------------- INICIAR SESIÓN -------------------- */

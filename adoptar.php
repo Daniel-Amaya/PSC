@@ -1,13 +1,15 @@
 <?php
 
+session_start();
+
 require 'vista/header.php';
 
-if(1 == 2){
+if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
+
     require 'vista/menu.php';
     require 'vista/general/adoptar/adopta.ad.php';
-    require 'vista/footer.php';
 
-}else{
+}else if($_SESSION['sesion_rol'] == 'a'){
     
     require 'vista/admin/menuAdmin.php';
     require 'vista/admin/adoptar/animalitos.ad.php';
@@ -15,7 +17,12 @@ if(1 == 2){
     require 'vista/admin/adoptar/form_2.ad.php';
     require 'vista/admin/adoptar/form_3.ad.php';
     require 'vista/admin/adoptar/formEditAn.ad.php';
-    require 'vista/footer.php';
+
+
+}else if($_SESSION['sesion_rol'] == "u"){
+    
 }
+
+require 'vista/footer.php';
 
 ?>

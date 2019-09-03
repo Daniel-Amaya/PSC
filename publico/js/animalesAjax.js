@@ -101,21 +101,22 @@ form.addEventListener('submit', function(e){
     razaAn = this.getElementsByTagName('input')[1].value,
     colorAn = this.getElementsByTagName('input')[2].value,
     sexoAn = this.getElementsByTagName('select')[1].value,
+    edadAn = this.getElementsByTagName('input')[3].value,
     descripAn = this.getElementsByTagName('textarea')[0].value,
-    procedAn = this.getElementsByTagName('input')[5].value,
+    procedAn = this.getElementsByTagName('input')[6].value,
     esterAn = document.getElementsByName('esterilizado');
 
     
 
-    if(nombreAn != "" && especieAn != "" && razaAn != "" && colorAn != "" && sexoAn != "" && descripAn != "" && procedAn != ""){
+    if(nombreAn != "" && especieAn != "" && razaAn != "" && colorAn != "" && sexoAn != "" && edadAn != "" && descripAn != "" && procedAn != ""){
 
         if(esterAn[0].checked){
 
-            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=1"+"&sexo="+sexoAn+"&descripcion="+descripAn+"&procedencia="+procedAn, formRegistrarAnimalito);
+            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=1"+"&sexo="+sexoAn+"&edad="+edadAn+"&descripcion="+descripAn+"&procedencia="+procedAn, formRegistrarAnimalito);
 
         }else{
 
-            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=0"+"&sexo="+sexoAn+"&descripcion="+descripAn+"&procedencia="+procedAn, formRegistrarAnimalito);
+            animalesAjax('nombreAn='+nombreAn+"&especie="+especieAn+"&raza="+razaAn+"&color="+colorAn+"&esterilizado=0"+"&sexo="+sexoAn+"&edad="+edadAn+"&descripcion="+descripAn+"&procedencia="+procedAn, formRegistrarAnimalito);
 
         }
 
@@ -196,18 +197,21 @@ function editarAnimalito(){
         razaE = this.getElementsByTagName('input')[1].value,
         colorE = this.getElementsByTagName('input')[2].value,
         sexoE = this.getElementsByTagName('select')[1].value,
+        edadE = this.getElementsByTagName('input')[3].value,
         descripE = this.getElementsByTagName('textarea')[0].value,
-        procedE = this.getElementsByTagName('input')[5].value,
+        procedE = this.getElementsByTagName('input')[6].value,
         idE = id('idE').value;
         esterE = document.getElementsByName('esterilizadoE');
 
+        alert(edadE);
+
         
 
-        if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && descripE != "" && procedE != "" && idE != ""){
+        if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && edadE != "" && descripE != "" && procedE != "" && idE != ""){
 
             if(esterE[0].checked){
 
-                animalesAjax('nombreE='+nombreE+"&especieE="+especieE+"&razaE="+razaE+"&colorE="+colorE+"&esterilizadoE=1"+"&sexoE="+sexoE+"&descripcionE="+descripE+"&procedenciaE="+procedE+"&idE="+idE, function(ht){
+                animalesAjax('nombreE='+nombreE+"&especieE="+especieE+"&razaE="+razaE+"&colorE="+colorE+"&esterilizadoE=1"+"&sexoE="+sexoE+"&edadE="+edadE+"&descripcionE="+descripE+"&procedenciaE="+procedE+"&idE="+idE, function(ht){
                     let e = ht.responseText;
                     e = e.split('%%', 2);
                     
@@ -255,7 +259,7 @@ function editarAnimalito(){
 
             }else{
 
-                animalesAjax('nombreE='+nombreE+"&especieE="+especieE+"&razaE="+razaE+"&colorE="+colorE+"&esterilizadoE=0"+"&sexoE="+sexoE+"&descripcionE="+descripE+"&procedenciaE="+procedE+"&idE="+idE, function(ht){
+                animalesAjax('nombreE='+nombreE+"&especieE="+especieE+"&razaE="+razaE+"&colorE="+colorE+"&esterilizadoE=0"+"&sexoE="+sexoE+"&edadE="+edadE+"&descripcionE="+descripE+"&procedenciaE="+procedE+"&idE="+idE, function(ht){
                     let e = ht.responseText;
                     e = e.split('%%', 2);
                     

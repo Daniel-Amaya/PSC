@@ -1,8 +1,5 @@
 <?php
 
-session_start();
-
-$_SESSION['login'] = "admin";
 include 'modelo/connect.php';
 include 'modelo/animales.php';
 include 'modelo/fotos.php';
@@ -20,6 +17,8 @@ classNames('newAn')[0].addEventListener('click', function(){
 });
 
 </script>
+
+<script src="publico/js/modal.js"></script>
 
 <div class="animalitos margin-menu padding-menu">
 

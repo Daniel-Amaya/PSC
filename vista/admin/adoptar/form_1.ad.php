@@ -33,6 +33,10 @@
             </div>
 
             <div class="boxInput">
+                <input type="number" name="edad" placeholder='Año de nacimiento'>
+            </div>
+
+            <div class="boxInput">
                 <h3>¿Esterilizado?</h3>
                 <label for="si">Sí</label>
                 <input type="radio" name="esterilizado" id="si" value='si'>

@@ -7,9 +7,9 @@ require '../animalesController.php';
 
 // Agregar animalito
 
-if(isset($_POST['nombreAn']) && isset($_POST['especie']) && isset($_POST['raza']) && isset($_POST['color']) &&isset($_POST['sexo']) && isset($_POST['esterilizado']) && isset($_POST['descripcion']) && isset($_POST['procedencia'])){
+if(isset($_POST['nombreAn']) && isset($_POST['especie']) && isset($_POST['raza']) && isset($_POST['color']) &&isset($_POST['sexo']) && isset($_POST['edad']) && isset($_POST['esterilizado']) && isset($_POST['descripcion']) && isset($_POST['procedencia'])){
 
-    $animal = new Animal($_POST['nombreAn'], $_POST['especie'], $_POST['raza'], $_POST['color'], $_POST['sexo'], $_POST['esterilizado'], $_POST['descripcion'], $_POST['procedencia']);
+    $animal = new Animal($_POST['nombreAn'], $_POST['especie'], $_POST['raza'], $_POST['color'], $_POST['sexo'],$_POST['edad'],  $_POST['esterilizado'], $_POST['descripcion'], $_POST['procedencia']);
 
 }else{
 
@@ -24,9 +24,11 @@ if(isset($_POST['nombreAn']) && isset($_POST['especie']) && isset($_POST['raza']
 
     // Editar animalitos
 
-    if(isset($_POST['nombreE']) && isset($_POST['especieE']) && isset($_POST['razaE']) && isset($_POST['colorE']) &&isset($_POST['sexoE']) && isset($_POST['esterilizadoE']) && isset($_POST['descripcionE']) && isset($_POST['procedenciaE']) && $_POST['idE']){
-        Animal::editAnimal($_POST['nombreE'], $_POST['especieE'], $_POST['razaE'], $_POST['colorE'], $_POST['sexoE'], $_POST['esterilizadoE'], $_POST['descripcionE'], $_POST['procedenciaE'], $_POST['idE']);
+    if(isset($_POST['nombreE']) && isset($_POST['especieE']) && isset($_POST['razaE']) && isset($_POST['colorE']) &&isset($_POST['sexoE']) && isset($_POST['edadE']) && isset($_POST['esterilizadoE']) && isset($_POST['descripcionE']) && isset($_POST['procedenciaE']) && $_POST['idE']){
+
+        Animal::editAnimal($_POST['nombreE'], $_POST['especieE'], $_POST['razaE'], $_POST['colorE'], $_POST['sexoE'], $_POST['edadE'],  $_POST['esterilizadoE'], $_POST['descripcionE'], $_POST['procedenciaE'], $_POST['idE']);
     }
+
     // Mostrar animalitos
 
     if(isset($_POST['buscar']) && !empty($_POST['buscar'])){
