@@ -189,6 +189,32 @@ nav{
     }
 }
 
+.menuW{
+    background: white;
+    
+}
+
+.menuLW{
+    background: white;
+    color: black !important;
+    hr{
+        border-color: black;
+        background: black;
+    }
+    li{
+        background: whitesmoke !important;
+        a{
+            color: black;
+        }
+        &:hover{
+            background: $color-principal-tra !important;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+
 .recojer-menu{
     height: 0;
     overflow: hidden;

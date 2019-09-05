@@ -59,10 +59,11 @@
 .errNoData{
     padding: 10px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transforms(translate(-50%, -50%));
+    top: 20%;
+    left: 10%;
+    // @include transforms(translate(-50%, -50%));
 }
+
 
 
 

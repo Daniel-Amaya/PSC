@@ -1,4 +1,4 @@
-<header id='menuL' class='menuLateral'>
+<header id='menuL' class='menuLateral menuLW'>
     <!-- <span class='pointer'><i class="fas fa-times"></i></span> -->
     <div class="nav-logo row">
         <img src="publico/images/logo.jpeg">
@@ -8,11 +8,11 @@
     <hr>
 
     <ul id='navegador'>
-        <li><a href="" clas='rayita-blanca'>Vacunas</a></li>
-        <li><a href="" clas='rayita-blanca'>Calendario</a></li>
-        <li><a href="adoptar.php" clas='rayita-blanca'>Animalitos</a></li>
-        <li><a href="" clas='rayita-blanca'>Apadrinajes</a></li>
-        <li><a href="" clas='rayita-blanca'>Donaciones</a></li>
+        <li><a href="" clas='rayita-naranja'>Adoptar</a></li>
+        <li><a href="" clas='rayita-naranja'>Apadrinar</a></li>
+        <li><a href="adoptar.php" clas='rayita-naranja'>Donar</a></li>
+        <li><a href="" clas='rayita-naranja'>Contacto</a></li>
+        <li><a href="" clas='rayita-naranja'>Donaciones</a></li>
     </ul>
 
     <ul id='nuevosBotones'>
@@ -43,5 +43,5 @@
     </div>
 </nav>
 <!-- <script src="publico/js/ajax/cerrarSesion.js"></script> -->
-<script src="publico/js/shadowMenuNaranja.js"></script>
+<script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>

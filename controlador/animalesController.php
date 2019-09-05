@@ -36,7 +36,8 @@ class AnimalesController extends Animal{
                     </div>";
                 }
             }else{
-                echo "<div class='errNoData'>No hay animalitos disponibles  :(</div>";
+                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
+                include 'vista/vacio.php';
             }
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
@@ -179,6 +180,12 @@ class AnimalesController extends Animal{
                 }
             }else{
                 echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja' onclick='agregarAnimalitos()'>Agregar una mascota</a></div>";
+                echo "<tr>
+                <td rowspan='7' colspan='7'>";
+                include '../../vista/vacio.php';
+                echo 
+                "</td>
+                </tr>";
             }
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR LOS ANIMALITOS: ".$e->getMessage());

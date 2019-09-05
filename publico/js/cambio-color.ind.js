@@ -46,11 +46,11 @@ window.addEventListener('scroll', function(){
 
     if(window.pageYOffset >= messagepa.offsetTop-200){
         for(let i = 0; i < links.length; i++){
-            links[i].style.color = "white";
-            links[i].classList = "rayita-blanca";
+            links[i].style.color = "black";
+            links[i].classList = "rayita-naranja";
         }
-        menuC.style.color = "white";
-        menuC.style.background = 'lightgreen';
+        menuC.style.color = "black";
+        menuC.style.background = 'white';
     }
     if(window.pageYOffset >= donaind.offsetTop-200){
         for(let i = 0; i < links.length; i++){
