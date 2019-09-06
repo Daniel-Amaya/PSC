@@ -865,25 +865,25 @@ $total-swings: length($swings);
   }
 }
 
-@keyframes swing {
-  @include swing();
-}
+// @keyframes swing {
+//   @include swing();
+// }
 
-@keyframes swing-leg {
-  @include swing(.1);
-}
+// @keyframes swing-leg {
+//   @include swing(.1);
+// }
 
-@keyframes swing-tail {
-  @include swing(-.4);
-}
+// @keyframes swing-tail {
+//   @include swing(-.4);
+// }
 
-@keyframes reverse-swing {
-  @include swing(-1);
-}
+// @keyframes reverse-swing {
+//   @include swing(-1);
+// }
 
-@keyframes face {
-  @include swing(-.5, swing-face);
-}
+// @keyframes face {
+//   @include swing(-.5, swing-face);
+// }
 
 @keyframes fade-in {
   from {
@@ -2953,3 +2953,5 @@ $k-right-ear: (
 }
 
 // Palomas
+
+

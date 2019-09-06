@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -15,6 +14,7 @@
 /*-------------------------------*\
            ELEMENTOSHTML
 \*-------------------------------*/
+@import url("../fonts/PatuaOne-Regular.ttf");
 * {
   margin: 0;
   padding: 0;

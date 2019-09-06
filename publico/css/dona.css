@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -15,6 +14,7 @@
 /*-------------------------------*\
            ELEMENTOSHTML
 \*-------------------------------*/
+@import url("../fonts/PatuaOne-Regular.ttf");
 * {
   margin: 0;
   padding: 0;
@@ -1042,151 +1042,6 @@ button {
   }
   100% {
     transform: translateY(0.4rem);
-  }
-}
-@keyframes swing {
-  0% {
-    transform: rotate(5deg);
-  }
-  12.5% {
-    transform: rotate(-10deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  37.5% {
-    transform: rotate(-15deg);
-  }
-  50% {
-    transform: rotate(23deg);
-  }
-  62.5% {
-    transform: rotate(-23deg);
-  }
-  75% {
-    transform: rotate(15deg);
-  }
-  87.5% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(5deg);
-  }
-}
-@keyframes swing-leg {
-  0% {
-    transform: rotate(0.5deg);
-  }
-  12.5% {
-    transform: rotate(-1deg);
-  }
-  25% {
-    transform: rotate(1deg);
-  }
-  37.5% {
-    transform: rotate(-1.5deg);
-  }
-  50% {
-    transform: rotate(2.3deg);
-  }
-  62.5% {
-    transform: rotate(-2.3deg);
-  }
-  75% {
-    transform: rotate(1.5deg);
-  }
-  87.5% {
-    transform: rotate(-1deg);
-  }
-  100% {
-    transform: rotate(0.5deg);
-  }
-}
-@keyframes swing-tail {
-  0% {
-    transform: rotate(-2deg);
-  }
-  12.5% {
-    transform: rotate(4deg);
-  }
-  25% {
-    transform: rotate(-4deg);
-  }
-  37.5% {
-    transform: rotate(6deg);
-  }
-  50% {
-    transform: rotate(-9.2deg);
-  }
-  62.5% {
-    transform: rotate(9.2deg);
-  }
-  75% {
-    transform: rotate(-6deg);
-  }
-  87.5% {
-    transform: rotate(4deg);
-  }
-  100% {
-    transform: rotate(-2deg);
-  }
-}
-@keyframes reverse-swing {
-  0% {
-    transform: rotate(-5deg);
-  }
-  12.5% {
-    transform: rotate(10deg);
-  }
-  25% {
-    transform: rotate(-10deg);
-  }
-  37.5% {
-    transform: rotate(15deg);
-  }
-  50% {
-    transform: rotate(-23deg);
-  }
-  62.5% {
-    transform: rotate(23deg);
-  }
-  75% {
-    transform: rotate(-15deg);
-  }
-  87.5% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(-5deg);
-  }
-}
-@keyframes face {
-  0% {
-    transform: translateX(-2.5px);
-  }
-  12.5% {
-    transform: translateX(5px);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  37.5% {
-    transform: translateX(7.5px);
-  }
-  50% {
-    transform: translateX(-11.5px);
-  }
-  62.5% {
-    transform: translateX(11.5px);
-  }
-  75% {
-    transform: translateX(-7.5px);
-  }
-  87.5% {
-    transform: translateX(5px);
-  }
-  100% {
-    transform: translateX(-2.5px);
   }
 }
 @keyframes fade-in {
@@ -4545,6 +4400,7 @@ footer div.copyright {
 }
 
 .donaciones {
+  width: 110%;
   background-color: white;
   padding: 15px;
   margin-left: 20px;
@@ -4552,6 +4408,10 @@ footer div.copyright {
   color: black;
   margin-bottom: 20px;
   box-shadow: black 0px 0px 5px;
+  text-align: justify;
+}
+.donaciones h3, .donaciones h1 {
+  text-align: center;
 }
 
 .col-cg {
@@ -4574,21 +4434,24 @@ footer div.copyright {
   border-radius: 20% 0 0 20%;
 }
 
-.container-bancolombia {
-  width: 1000px;
+.doscolumnas {
+  width: 100%;
   height: 100%;
-  background-color: #ff7f04;
   column-count: 2;
   margin-top: 10px !important;
   margin: auto;
 }
 
-.container-bancolombiaInfo {
-  width: 1000px;
-  height: 100%;
-  background-color: #ff7f04;
-  margin-top: 90px !important;
-  margin: auto;
+.quedonar {
+  background-color: whitesmoke;
+  height: 150px;
+  width: 90%;
+  margin-left: 20px;
+  padding: 5px;
+}
+.quedonar img {
+  height: 150px;
+  width: 50%;
 }
 
 /*-------------------- DONAR -------------------- */

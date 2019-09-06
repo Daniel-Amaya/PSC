@@ -3,20 +3,34 @@
  <div class="col-6">
     
     <div class="textos-modal donaciones">
-    <h1>Donaciones</h1>
-        <p><h3>¿Que es donar?</h3>
+
+    <h1>Donaciones</h1> <br>
+<div class="doscolumnas">
+        <p><h3>¿Que es donar?</h3> <br>
         Donar es dar algo de valor para ayudar al bienestar del otro 
         entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
            <h3> ¿Para que donar? </h3> <br>
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, quae iste molestiae explicabo debitis cumque iure earum eligendi temporibus odio velit porro! Pariatur?</p>
-           <h3>  ¿Como puedo donar? </h3> <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, </p>
+</div> <br>
+            <h3>  ¿Como puedo donar? </h3> <br>
            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
         </p>
-        <a href="#" id="abrir-modal" style="border: 1px solid red; border-radius: 5px; 
-        padding: 3px; color:red; ">Bancolombia</a>
+        <br>
+<div class="doscolumnas">
+    <div class="quedonar"> <img src="publico/images/donar.jpg" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, consequuntur! Fuga repellat dolor ab sapiente molestias ipsum id ea distinctio dicta iure. Blanditiis officiis beatae laborum nostrum nemo?</div>
+    <div class="quedonar"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, consequuntur! Fuga repellat dolor ab sapiente molestias ipsum id ea distinctio dicta iure. Blanditiis officiis beatae laborum nostrum nemo?</div>
+</div> <br> 
+       <p>Para poder donar debes
+         <a href="iniciar-sesion.php" class="rayita-naranja" style="color: Orange;">Iniciar Sesión</a> 
+        / Si no tienes cuenta <a href="crear-cuenta.php" class="rayita-naranja" style="color: Orange;"> Registrate aquí
+        </a> 
+        <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
+        </p>
+        <!-- <a href="#" id="abrir-modal" style="border: 1px solid red; border-radius: 5px; 
+        padding: 3px; color:red; ">Bancolombia</a> -->
     </div>
 
-    <div id="miModal" class="modal">
+    <!-- <div id="miModal" class="modal">
         <div class="flex-modal" id="flex-modal">
             <div class="contenido-modal">
               <div class="modal-header flex-modal">
@@ -58,7 +72,7 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 <script src="publico/js/modal.js"></script>
