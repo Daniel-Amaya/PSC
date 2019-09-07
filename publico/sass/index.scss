@@ -3,12 +3,14 @@
 @import 'components/variables';
 @import 'components/mixins';
 @import 'components/selectors';
+@import 'components/animales';
 @import 'index/section1.ind';
 @import 'index/adopta-dona.ind';
 @import 'index/message.ind';
 
 // Usuario
 
+@import 'animalitos/perroAzul';
 @import 'index/tabsUsuario';
 
 /*-------------------- INDEX -------------------- */

@@ -11,77 +11,30 @@
 /** 
     Colores de animales 
 **/
-.adopta-grid .filtro a::before {
-  content: "";
-  position: absolute;
-  width: 0px;
-  height: 2px;
-  bottom: -5%;
-  left: 50%;
-  transform-origin: center;
-  transition: 1s;
-  -webkit-transition: 1s;
-  -o-transition: 1s;
-  -moz-transition: 1s;
+aside {
+  width: 370px;
 }
 
-.adopta-grid {
-  display: grid;
-  width: 100%;
-  padding: 0 40px;
-  grid-template-columns: repeat(10, 1fr);
+.adoptargeneral {
+  display: flex;
 }
-.adopta-grid .filtro {
-  justify-items: center;
-  align-items: center;
-  grid-area: 1/1/2/3;
-  padding: 30px 25px;
-  background: #ff7f04;
-  color: white;
-}
-.adopta-grid .filtro a {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin: 20px auto;
-  color: white;
-  text-align: center;
-}
-.adopta-grid .filtro a::before {
-  background: white;
-}
-.adopta-grid .filtro a:hover::before {
-  width: 50%;
-  left: 25%;
-}
-.adopta-grid .indic {
+
+.adopta-message {
+  display: flex;
   justify-content: center;
-  grid-area: 1/1/4/4;
-  display: flex;
-  height: fit-content;
-}
-.adopta-grid .indic strong {
-  font-size: 35px;
-  font-weight: 700;
-  padding: 0 10px;
-  color: black;
-  text-shadow: 0px 5px 2px #ff7f04;
-}
-.adopta-grid .indic p {
-  padding: 0 30px;
-  display: flex;
   align-items: center;
+  text-align: center;
+  padding: 100px 30px 50px 30px;
 }
-.adopta-grid .adopta-ad {
-  position: relative;
-  grid-area: 1/3/2/11;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto, minmax(auto, max-content));
-  padding: 20px;
-  grid-gap: 20px 5px;
+
+.animalitosAdoptar {
+  margin-top: 20px;
 }
-.adopta-grid .adopta-ad .perfil {
+.animalitosAdoptar .card-adopta {
+  margin: 10px auto;
+}
+
+.perfil {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, min-content);
@@ -90,20 +43,20 @@
   background: whitesmoke;
   padding: 10px;
 }
-.adopta-grid .adopta-ad .perfil .general {
+.perfil .general {
   grid-area: info;
   max-height: 200px;
   display: grid;
   grid-template-areas: "foto nombre nombre nombre";
   grid-auto-rows: max-content;
 }
-.adopta-grid .adopta-ad .perfil .general .foto-perfil {
+.perfil .general .foto-perfil {
   margin: auto;
   grid-area: foto;
   width: 200px;
   height: 200px;
 }
-.adopta-grid .adopta-ad .perfil .general .foto-perfil img {
+.perfil .general .foto-perfil img {
   width: 100%;
   height: 100% !important;
   border-radius: 50%;
@@ -111,7 +64,7 @@
   background: whitesmoke;
   border: solid 1px #ff7f04;
 }
-.adopta-grid .adopta-ad .perfil .general .name {
+.perfil .general .name {
   grid-area: nombre;
   width: 70%;
   height: 100%;
@@ -121,44 +74,44 @@
   font-size: 30px;
   font-weight: 800;
 }
-.adopta-grid .adopta-ad .perfil #control-tabs {
+.perfil #control-tabs {
   padding: 20px;
 }
-.adopta-grid .adopta-ad .perfil #control-tabs button {
+.perfil #control-tabs button {
   background: #e62303;
   color: white;
   padding: 10px;
 }
-.adopta-grid .adopta-ad .perfil .info {
+.perfil .info {
   background: white;
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
 }
-.adopta-grid .adopta-ad .perfil .info .col {
+.perfil .info .col {
   display: flex;
   flex-wrap: wrap;
   width: 50%;
   padding: 20px;
   justify-content: center;
 }
-.adopta-grid .adopta-ad .perfil .info .col div {
+.perfil .info .col div {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.adopta-grid .adopta-ad .perfil .info .col ul {
+.perfil .info .col ul {
   width: 35%;
   margin: 5px;
 }
-.adopta-grid .adopta-ad .perfil .info .col ul li {
+.perfil .info .col ul li {
   margin: 5px;
   padding: 5px;
   background: #ff7f04;
   color: white;
 }
-.adopta-grid .adopta-ad .perfil .info .col h3 {
+.perfil .info .col h3 {
   width: 100%;
   align-self: flex-end;
   padding: 5px;
@@ -256,6 +209,359 @@
   margin: 4px;
   padding: 10px;
   background: rgba(255, 125, 4, 0.753);
+}
+
+@keyframes tail {
+  6.6666666667% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  16.6666666667% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(30deg);
+  }
+  26.6666666667% {
+    transform: rotate(-2deg);
+  }
+  46.6666666667% {
+    transform: rotate(10deg);
+  }
+  53.3333333333% {
+    transform: rotate(-5deg);
+  }
+  56.6666666667% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes body {
+  6.6666666667% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(1.15);
+  }
+  16.6666666667% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(1.25);
+  }
+  26.6666666667% {
+    transform: scaleY(1);
+  }
+  46.6666666667% {
+    transform: scaleY(1.15);
+  }
+  53.3333333333% {
+    transform: scaleY(1);
+  }
+  56.6666666667% {
+    transform: scaleY(1.15);
+  }
+}
+@keyframes left-whisker {
+  6.6666666667% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  16.6666666667% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  26.6666666667% {
+    transform: rotate(0deg);
+  }
+  46.6666666667% {
+    transform: rotate(10deg);
+  }
+  53.3333333333% {
+    transform: rotate(-5deg);
+  }
+  56.6666666667% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes right-whisker {
+  6.6666666667% {
+    transform: rotate(180deg);
+  }
+  10% {
+    transform: rotate(190deg);
+  }
+  16.6666666667% {
+    transform: rotate(180deg);
+  }
+  20% {
+    transform: rotate(175deg);
+  }
+  26.6666666667% {
+    transform: rotate(190deg);
+  }
+  46.6666666667% {
+    transform: rotate(180deg);
+  }
+  53.3333333333% {
+    transform: rotate(185deg);
+  }
+  56.6666666667% {
+    transform: rotate(175deg);
+  }
+}
+@keyframes left-ear {
+  0% {
+    transform: rotate(-20deg);
+  }
+  6.6666666667% {
+    transform: rotate(-6deg);
+  }
+  13.3333333333% {
+    transform: rotate(-15deg);
+  }
+  26.6666666667% {
+    transform: rotate(-15deg);
+  }
+  33.3333333333% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(-30deg);
+  }
+  46.6666666667% {
+    transform: rotate(0deg);
+  }
+  53.3333333333% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(-15deg);
+  }
+  93.3333333333% {
+    transform: rotate(-6deg);
+  }
+  100% {
+    transform: rotateZ(-6deg);
+  }
+}
+@keyframes right-ear {
+  0% {
+    transform: rotateZ(-16deg);
+  }
+  6.6666666667% {
+    transform: rotateZ(-16deg);
+  }
+  13.3333333333% {
+    transform: rotateZ(-19deg);
+  }
+  26.6666666667% {
+    transform: rotateZ(-19deg);
+  }
+  33.3333333333% {
+    transform: rotateZ(-30deg);
+  }
+  36.6666666667% {
+    transform: rotateZ(-19deg);
+  }
+  37.3333333333% {
+    transform: rotateZ(-30deg);
+  }
+  38% {
+    transform: rotateZ(-19deg);
+  }
+  40% {
+    transform: rotateZ(-19deg);
+  }
+  40.6666666667% {
+    transform: rotateZ(-30deg);
+  }
+  41.3333333333% {
+    transform: rotateZ(-19deg);
+  }
+  46.6666666667% {
+    transform: rotateZ(-9deg);
+  }
+  53.3333333333% {
+    transform: rotateZ(-9deg);
+  }
+  60% {
+    transform: rotateZ(-19deg);
+  }
+  60.6666666667% {
+    transform: rotateZ(-30deg);
+  }
+  61.3333333333% {
+    transform: rotateZ(-19deg);
+  }
+  62.6666666667% {
+    transform: rotateZ(-19deg);
+  }
+  63.3333333333% {
+    transform: rotateZ(-30deg);
+  }
+  64% {
+    transform: rotateZ(-19deg);
+  }
+  80% {
+    transform: rotateZ(-19deg);
+  }
+  93.3333333333% {
+    transform: rotateZ(-16deg);
+  }
+  100% {
+    transform: rotateZ(-16deg);
+  }
+}
+.main {
+  height: 400px;
+  width: 370px;
+  position: relative;
+}
+.main .stand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  height: 20px;
+  width: 200px;
+  border-radius: 20px;
+  background-color: #fd6e72;
+  z-index: 2;
+}
+.main .stand::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%);
+  height: 10px;
+  width: 50px;
+  border-radius: 20px;
+  background-color: #ACD8FC;
+  box-shadow: 0 10px 0 #ACD8FC, 0 20px 0 #ACD8FC, 0 30px 0 #ACD8FC, 0 40px 0 #ACD8FC, 0 50px 0 #ACD8FC, 0 60px 0 #ACD8FC, 0 70px 0 #ACD8FC, 0 80px 0 #ACD8FC, 0 90px 0 #ACD8FC, 0 100px 0 #ACD8FC, 0 110px 0 #ACD8FC, 0 120px 0 #ACD8FC, 0 130px 0 #ACD8FC, 0 140px 0 #ACD8FC, 0 150px 0 #ACD8FC, 0 160px 0 #ACD8FC, 0 170px 0 #ACD8FC;
+}
+.main .cat {
+  width: 110px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 50px);
+  right: 130px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+}
+.main .cat .body {
+  width: 110px;
+  height: 50px;
+  background-color: #745260;
+  position: absolute;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  animation: body 12s none infinite;
+}
+.main .cat .head {
+  content: "";
+  width: 70px;
+  height: 35px;
+  background-color: #745260;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: -40px;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.tail-container {
+  position: absolute;
+  right: 0;
+  bottom: -13px;
+  z-index: 3;
+}
+
+.tail {
+  position: absolute;
+  height: 30px;
+  width: 14px;
+  bottom: -10px;
+  right: 0;
+  border-bottom-right-radius: 5px;
+  background: #745260;
+  z-index: 0;
+}
+.tail > .tail {
+  animation: tail 12s none infinite;
+  height: 100%;
+  width: 14px;
+  transform-origin: left;
+  border-bottom-left-radius: 20px 20px;
+  border-bottom-right-radius: 20px 20px;
+  border-top-right-radius: 40px;
+}
+
+.ear {
+  position: absolute;
+  left: 4px;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 20px solid #745260;
+  transform: rotate(-30deg);
+  animation: left-ear 12s both infinite;
+}
+.ear + .ear {
+  animation: right-ear 12s both infinite;
+  top: -12px;
+  left: 30px;
+}
+
+.nose {
+  position: absolute;
+  bottom: 10px;
+  left: -10px;
+  background-color: #fd6e72;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+}
+
+.whisker-container {
+  position: absolute;
+  bottom: 5px;
+  left: -36px;
+  width: 20px;
+  height: 10px;
+  transform-origin: right;
+  animation: left-whisker 12s both infinite;
+}
+.whisker-container:nth-child(2) {
+  left: -20px;
+  bottom: 12px;
+  transform-origin: right;
+  transform: rotate(180deg);
+  animation: right-whisker 12s both infinite;
+}
+
+.whisker {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border: 1px solid #fdf9de;
+  transform-origin: 100% 0;
+  transform: rotate(10deg);
+}
+.whisker:last-child {
+  top: 0;
+  transform: rotate(-20deg);
 }
 
 /*-------------------------------*\

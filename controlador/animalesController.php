@@ -8,12 +8,7 @@ class AnimalesController extends Animal{
 
     public function mostrarDatosDeTodosGeneral(){
         try{
-            echo "
-            <div class='indic'>
-                <p>Aquí podrás encontrar nuestros animalitos disponibles para adoptar</p> <hr>
-                <strong>Adoptar</strong>
-            </div>";
-        
+            
             $animales = parent::dataAnimal('');
         
             if($animales->rowCount() > 0){

@@ -6,14 +6,51 @@ include 'modelo/fotos.php';
 
 ?>
 
-<section class='margin-menu adopta-grid'>
+<section class='margin-menu adoptargeneral'>
 
-    <aside class="filtro">
-        <p>Para poder adoptar, debes contar con una cuenta en nuestra página oficial.</p>
-        <a href="">iniciar sesión</a> <a href="">crear cuenta</a>
+    <aside>
+        <p class='adopta-message'>Podrás ver algunos animalitos disponibles para adoptar, pero recuerda que primero debes inciar sesión, si no tienes una cuenta, no esperes más para crear una</p>
+
+        <div class="main">
+            <span class="stand"></span>
+            <div class="cat">
+            <div class="body"></div>
+            <div class="head">
+            <div class="ear"></div>
+            <div class="ear"></div>
+            </div>
+            <div class="face">
+            <div class="nose"></div>
+            <div class="whisker-container">
+            <div class="whisker"></div>
+            <div class="whisker"></div>
+            </div>
+            <div class="whisker-container">
+            <div class="whisker"></div>
+            <div class="whisker"></div>
+            </div>
+            </div>
+            <div class="tail-container">
+            <div class="tail">
+                <div class="tail">
+                <div class="tail">
+                    <div class="tail">
+                    <div class="tail">
+                        <div class="tail">
+                        <div class="tail"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
     </aside>
 
-    <div class='grid adopta-ad'>
+    <div class='row animalitosAdoptar'>
+
         <?php 
         require 'controlador/get/adoptarData.php';
         ?>
@@ -22,4 +59,4 @@ include 'modelo/fotos.php';
 
 </section>
 
-<script src="publico/js/shadowMenuNaranja.js"></script>
+<script src="publico/js/shadowMenuBlanco.js"></script>
