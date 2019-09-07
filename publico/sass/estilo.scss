@@ -1,6 +1,7 @@
-@import 'variables';
-@import 'mixins';
-@import 'html';
+@import 'components/variables';
+@import 'components/mixins';
+@import 'components/selectors';
+@import 'components/html';
 
 @import 'components/components'; 
 @import 'components/buttons'; 
@@ -8,35 +9,14 @@
 @import 'components/boxInputs';
 @import 'components/objetos';
 @import 'components/modal';
+@import 'components/cards';
 
 @import url('../fonts/PatuaOne-Regular.ttf');
-@import 'menu';
-@import 'footer';
-
-/*-------------------- INDEX -------------------- */
-
-@import 'index/section1.ind';
-@import 'index/adopta-dona.ind';
-@import 'index/message.ind';
-
-// Usuario
-
-@import 'index/tabsUsuario';
-
-/*-------------------- INDEX -------------------- */
-
-/*-------------------- ADOPTAR -------------------- */
-
-@import 'adoptar/adopta.ad';
-@import 'adoptar/form.ad';
-
-/*-------------------- ADOPTAR -------------------- */
+@import 'components/menu';
+@import 'components/footer';
 
 
-/*-------------------- INICIAR SESIÓN -------------------- */
 
-@import 'iniciarSesion/form.is';
-/*-------------------- INICIAR SESIÓN -------------------- */
 
 
 

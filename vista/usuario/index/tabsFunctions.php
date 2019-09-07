@@ -7,28 +7,6 @@
     </ul> 
 
     <div class="tabBox">
-        <div class="misMascotas">
-            <div class="headerMascotas">
-                <h1 class='col-ms-6'>Perry El Ornitorrinco</h1> <span class='col-ms-6'>Fecha de adopción: 2019/07/02</span>
-            </div>
-            <div class="bodyMascotas">
-                <div class="row">
-                    <div class="infoMascotas">
-                        <ul>
-                            <li>Especie: Perro</li>
-                            <li>Raza: Pitbull</li>
-                            <li>Color: negro</li>
-                            <li>Edad: 2 años</li>
-                        </ul>
-                    </div>
-                    <div class="foto">
-                        <img src="publico/images/p1.jpg">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tabBox">
     <div class="husky">
         <div class="mane">
             <div class="coat"></div>
@@ -72,7 +50,7 @@
         </div>
         </div>
 
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none">
         <defs>
 
             
@@ -99,7 +77,10 @@
         <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
             </filter>
         </defs> 
-        </svg>
+        </svg> -->
+    </div>
+    <div class="tabBox">
+    
     </div>
     <div class="tabBox">
 3

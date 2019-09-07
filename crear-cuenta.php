@@ -1,5 +1,6 @@
 <?php
 
+require 'vista/general/crearCuenta/links.cc.php';
 require 'controlador/validar/validarSesion.php';
 require 'vista/header.php';
 require 'vista/menu.php';

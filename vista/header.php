@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
     <link rel="icon" href="publico/images/logo.png">
     <link rel="stylesheet" href="publico/css/estilo.css">
+    <?php
+    if(isset($linksStyles) && !empty($linksStyles)){
+        for($i = 0; $i < count($linksStyles); $i++){
+            echo "<link rel='stylesheet' href='publico/css/$linksStyles[$i]'>";
+        }
+    }
+    ?>
     <script src="publico/js/main.js"></script>
-    <title>Peluditos San Cristobal</title>
+    <title><?php if(isset($nombrePagina)) echo $nombrePagina ?> PSC</title>
 
 </head>
 <body>

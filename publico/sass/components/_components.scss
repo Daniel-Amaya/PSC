@@ -64,6 +64,29 @@
     // @include transforms(translate(-50%, -50%));
 }
 
+.titulo{
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	letter-spacing: 1px;
+	margin-right: -1px;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+	text-align: center;
+	color: #333;
+	position: relative;
+}
+.titulo::after{
+	content: "";
+	width: 8rem;
+	height: .5rem;
+	background-color: #ff7f04;
+	position: absolute;
+	bottom: -2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 2rem; 
+}
+
 
 
 

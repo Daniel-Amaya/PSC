@@ -1,0 +1,6 @@
+<?php 
+
+$linksStyles = ['index.css']; 
+
+
+?>

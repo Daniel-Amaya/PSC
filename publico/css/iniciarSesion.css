@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/*-------------------- INICIAR SESIÓN -------------------- */
+/*------------------------------*\
+    $COLORES
+\*-------------------------------*/
+/**
+    Colores principales de la pagina
+**/
+/** 
+    Colores de redes sociales
+**/
+/** 
+    Colores de animales 
+**/
+.containerIS {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
+  position: relative;
+  border-radius: 33px;
+  overflow: hidden;
+}
+.containerIS::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  transform: skew(-10deg);
+  -webkit-transform: skew(-10deg);
+  -o-transform: skew(-10deg);
+  -ms-transform: skew(-10deg);
+  -moz-transform: skew(-10deg);
+  background: #ff7f04;
+  left: 60%;
+  z-index: -1;
+}
+.containerIS fieldset {
+  border: transparent;
+  padding: 50px;
+  text-align: center;
+}
+.containerIS fieldset form {
+  padding: 0 50px;
+}
+.containerIS fieldset .boxInput {
+  margin: 25px auto;
+}
+
+.crear-cuenta {
+  border: transparent;
+  padding: 0px 50px;
+}
+.crear-cuenta form {
+  padding: 30px;
+  margin: auto;
+  text-align: center;
+}
+.crear-cuenta form h2 {
+  margin: 10px 0;
+}
+.crear-cuenta form i {
+  font-size: 90px;
+}
+
+/*-------------------- INICIAR SESIÓN -------------------- */
+
+/*# sourceMappingURL=iniciarsesion.css.map */

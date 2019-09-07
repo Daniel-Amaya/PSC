@@ -2,17 +2,6 @@
                 MENU
 \*-------------------------------*/
 
-%rayita-menu{
-    content: '';
-    position: absolute;
-    width: 0px;
-    height: 2px;
-    bottom: -5%;
-    left: 50%;
-    transform-origin: center;
-    @include transitions(1s);
-
-}
 .rayita-naranja{
     color: $negro;
     @include transitions(.5s);    

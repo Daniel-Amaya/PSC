@@ -1,26 +1,7 @@
-@import 'variables';
-@import 'mixins';
-@import 'html';
-
-@import 'components/components'; 
-@import 'components/buttons'; 
-@import 'components/animales';
-@import 'components/boxInputs';
-@import 'components/modal';
-
-@import url('../fonts/PatuaOne-Regular.ttf');
-@import 'menu';
-@import 'footer';
-
-/*-------------------- INDEX -------------------- */
-
-@import 'index/section1.ind';
-@import 'index/adopta-dona.ind';
-@import 'index/message.ind';
-
-/*-------------------- INDEX -------------------- */
 /*-------------------- DONAR -------------------- */
 
+@import 'components/variables';
+@import 'components/mixins';
 @import 'donar/dona.don';
 
 /*-------------------- DONAR -------------------- */

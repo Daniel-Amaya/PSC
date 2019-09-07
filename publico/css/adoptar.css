@@ -1,0 +1,406 @@
+/*-------------------- ADOPTAR -------------------- */
+/*------------------------------*\
+    $COLORES
+\*-------------------------------*/
+/**
+    Colores principales de la pagina
+**/
+/** 
+    Colores de redes sociales
+**/
+/** 
+    Colores de animales 
+**/
+.adopta-grid .filtro a::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  bottom: -5%;
+  left: 50%;
+  transform-origin: center;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+}
+
+.adopta-grid {
+  display: grid;
+  width: 100%;
+  padding: 0 40px;
+  grid-template-columns: repeat(10, 1fr);
+}
+.adopta-grid .filtro {
+  justify-items: center;
+  align-items: center;
+  grid-area: 1/1/2/3;
+  padding: 30px 25px;
+  background: #ff7f04;
+  color: white;
+}
+.adopta-grid .filtro a {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 20px auto;
+  color: white;
+  text-align: center;
+}
+.adopta-grid .filtro a::before {
+  background: white;
+}
+.adopta-grid .filtro a:hover::before {
+  width: 50%;
+  left: 25%;
+}
+.adopta-grid .indic {
+  justify-content: center;
+  grid-area: 1/1/4/4;
+  display: flex;
+  height: fit-content;
+}
+.adopta-grid .indic strong {
+  font-size: 35px;
+  font-weight: 700;
+  padding: 0 10px;
+  color: black;
+  text-shadow: 0px 5px 2px #ff7f04;
+}
+.adopta-grid .indic p {
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+.adopta-grid .adopta-ad {
+  position: relative;
+  grid-area: 1/3/2/11;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, minmax(auto, max-content));
+  padding: 20px;
+  grid-gap: 20px 5px;
+}
+.adopta-grid .adopta-ad .perfil {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-areas: "info" "tabs";
+  grid-area: 1/1/auto/4;
+  background: whitesmoke;
+  padding: 10px;
+}
+.adopta-grid .adopta-ad .perfil .general {
+  grid-area: info;
+  max-height: 200px;
+  display: grid;
+  grid-template-areas: "foto nombre nombre nombre";
+  grid-auto-rows: max-content;
+}
+.adopta-grid .adopta-ad .perfil .general .foto-perfil {
+  margin: auto;
+  grid-area: foto;
+  width: 200px;
+  height: 200px;
+}
+.adopta-grid .adopta-ad .perfil .general .foto-perfil img {
+  width: 100%;
+  height: 100% !important;
+  border-radius: 50%;
+  object-fit: contain;
+  background: whitesmoke;
+  border: solid 1px #ff7f04;
+}
+.adopta-grid .adopta-ad .perfil .general .name {
+  grid-area: nombre;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+.adopta-grid .adopta-ad .perfil #control-tabs {
+  padding: 20px;
+}
+.adopta-grid .adopta-ad .perfil #control-tabs button {
+  background: #e62303;
+  color: white;
+  padding: 10px;
+}
+.adopta-grid .adopta-ad .perfil .info {
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.adopta-grid .adopta-ad .perfil .info .col {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
+}
+.adopta-grid .adopta-ad .perfil .info .col div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.adopta-grid .adopta-ad .perfil .info .col ul {
+  width: 35%;
+  margin: 5px;
+}
+.adopta-grid .adopta-ad .perfil .info .col ul li {
+  margin: 5px;
+  padding: 5px;
+  background: #ff7f04;
+  color: white;
+}
+.adopta-grid .adopta-ad .perfil .info .col h3 {
+  width: 100%;
+  align-self: flex-end;
+  padding: 5px;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  padding: 10px;
+  margin: 10px 0;
+}
+.galeria .imageItem {
+  margin: 10px;
+  max-width: 250px;
+  position: relative;
+  max-height: 250px;
+}
+.galeria .imageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0px 0px 1px black;
+}
+
+.titleAnimalitos {
+  padding: 40px 10%;
+  text-align: center;
+}
+
+.animalitosInfo {
+  border-spacing: 0;
+  border-collapse: inherit;
+  min-width: 80%;
+  position: relative;
+  margin: auto;
+}
+.animalitosInfo thead {
+  background: #ff7f04;
+}
+.animalitosInfo thead th {
+  color: white;
+  font-weight: 800;
+  padding: 5px;
+  border: solid 1px #ff7f04;
+}
+.animalitosInfo thead th:nth-child(2) {
+  padding: 4px 15px;
+}
+.animalitosInfo thead th:nth-child(3) {
+  padding: 4px 15px;
+}
+.animalitosInfo thead th:nth-child(4) {
+  padding: 4px 15px;
+}
+.animalitosInfo tbody {
+  background: whitesmoke;
+}
+.animalitosInfo tbody tr {
+  cursor: pointer;
+  transition: 0.5s;
+  background: rgba(212, 212, 212, 0.377);
+}
+.animalitosInfo tbody tr:hover {
+  background: white;
+}
+.animalitosInfo tbody td {
+  font-weight: 100;
+  padding: 4px 0;
+  text-align: center;
+  border-bottom: solid 1px rgba(212, 212, 212, 0.548);
+}
+.animalitosInfo tbody td a {
+  height: 40px;
+  padding: 1px 20px;
+}
+.animalitosInfo tbody td img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.animalitosAdminInfo {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  color: white;
+}
+.animalitosAdminInfo ul {
+  width: 50%;
+  margin: 10px;
+}
+.animalitosAdminInfo ul li {
+  margin: 4px;
+  padding: 10px;
+  background: rgba(255, 125, 4, 0.753);
+}
+
+/*-------------------------------*\
+    FORMULARIO NUEVO ANIMALITO 
+\*-------------------------------*/
+.fielNewAnimalito {
+  border: solid 0.5px transparent;
+}
+.fielNewAnimalito form {
+  width: 60%;
+  margin: auto;
+}
+
+/*-------------------------------*\
+  FIN FORMULARIO NUEVO ANIMALITO 
+\*-------------------------------*/
+/*-------------------------------*\
+ FORMULARIO FOTOS NUEVO ANIMALITO 
+\*-------------------------------*/
+.newAnimalito {
+  font-family: sans-serif;
+  width: 100%;
+  padding: 30px;
+}
+
+.fotos {
+  position: relative;
+  overflow: hidden;
+}
+.fotos::before {
+  content: "";
+  width: 50%;
+  height: 100px;
+  background: #ff7f04;
+  position: absolute;
+  z-index: -1;
+  bottom: -50%;
+  right: 0;
+  transform: skew(-60deg);
+  -webkit-transform: skew(-60deg);
+  -o-transform: skew(-60deg);
+  -ms-transform: skew(-60deg);
+  -moz-transform: skew(-60deg);
+}
+
+.dataAnimalito {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.dataAnimalito table {
+  padding: 15px;
+  border: solid 1px #ff7f04;
+  border-radius: 10px;
+}
+.dataAnimalito table th {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}
+.dataAnimalito table td {
+  border-top: 1px solid #ff7f04;
+  padding: 10px;
+}
+
+#imagesBox {
+  margin: 20px 0;
+}
+#imagesBox img {
+  width: 100px;
+  height: 100px;
+  object-fit: scale-down;
+  background: black;
+  margin: 10px 5px;
+  border-radius: 10px;
+}
+
+.divImage {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  margin: 3px;
+  display: inline-block;
+}
+
+/*-------------------------------*\
+FINFORMULARIO FOTOS NUEVO ANIMALITO 
+\*-------------------------------*/
+.form_2, .form_3 {
+  border: solid 0.5px transparent;
+  display: none;
+}
+
+/*-------------------------------*\
+ FORMULARIO VACUNAS DEL ANIMALITO 
+\*-------------------------------*/
+.form_3 form {
+  width: 40%;
+  padding: 20px;
+}
+
+/*-------------------------------*\
+FINFORMULARIO VACUNAS DEL ANIMALITO 
+\*-------------------------------*/
+.galeriaCRUD {
+  display: flex;
+  padding: 10px;
+}
+.galeriaCRUD .buttonsAction {
+  width: 20%;
+  padding: 2%;
+  border: solid 1px #ff7f04;
+  background: #ff7f04;
+  color: white;
+}
+.galeriaCRUD .buttonsAction * {
+  margin: 5px 1px;
+}
+.galeriaCRUD .imgCRUD {
+  margin: 10px;
+  max-width: 250px;
+  position: relative;
+  max-height: 250px;
+  object-fit: cover;
+  box-shadow: 0px 0px 1px black;
+}
+
+.deleteImg {
+  line-height: 20px;
+  padding: 10px;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: -7px;
+  font-size: 20px;
+  background: #ff7f04;
+  border-radius: 50%;
+  color: white;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/*-------------------- ADOPTAR -------------------- */
+
+/*# sourceMappingURL=adoptar.css.map */

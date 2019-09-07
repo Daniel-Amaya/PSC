@@ -1,133 +1,69 @@
-<div class="titulo">
-    <h1>Adopta</h1>
-    <p>Conoce muchas más mascotas que desean ser adoptadas <a href="">Conocer</a></p>
-</div>
 
 <div class="adopta-index">
-    <div class="card-perrito">
-        <div class="slider">
-            <img src="publico/images/p1.jpg">
-            <img src="publico/images/p2.jpg">
-            <img src="publico/images/p3.jpg">
-            <div class="controls"></div>
+
+    <h1 class='titulo'>Adopta</h1>
+
+    <div class="row">
+
+        <div class="card-adopta marg">
+            <div class="image_card">
+                <img src="publico/images/p1.jpg">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th>$datos[1]</th>
+                    <th>$datos[2]</th>
+                </tbody>
+            </table>
+            <div class="btns_card">
+                <a href="" class='btn_naranja'>Adoptar</a>
+                <a href="" class='btn_naranja'>Conocer</a>
+            </div>
         </div>
-        <div class="btns-pr">
-            <button class="btn_naranja">Adopta</button>
-            <button class="btn_naranja">Info
-                <div class="info-perrito">
-                    <h4>Información</h4>
-                    <span> edad: 1 año</span>
-                    <span>encontrado en: Robledo el Diamante</span>
-                    <span>Especie: Perro</span>
-                    <a href="">Conocer más</a>
-                </div>
-            </button>
+
+        <div class="card-adopta marg">
+            <div class="image_card">
+                <img src="publico/images/p1.jpg">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th>$datos[1]</th>
+                    <th>$datos[2]</th>
+                </tbody>
+            </table>
+            <div class="btns_card">
+                <a href="" class='btn_naranja'>Adoptar</a>
+                <a href="" class='btn_naranja'>Conocer</a>
+            </div>
+        </div>
+
+        <div class="card-historia marg">
+            <div class="image">
+                <img src="publico/images/dani.jpg" alt="">
+            </div>
+
+            <h2 class="card_h_titulo">El perrito de don Michy</h2>
+
+            <p class='card_h_text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi iste officia assumenda, possimus minus cum modi aliquam facilis distinctio. Officia quisquam ut quidem odio ratione at quae necessitatibus ipsa corporis?</p>
+
+            <div class="conocemas"><a href="">Conocer más historias</a></div>
+
+            <div class="invAdopta">Puedes hacer parte de estas lindas historias adoptando</div>
+
         </div>
     </div>
 
-    <div class="card-perrito">
-        <div class="slider">
-            <img src="publico/images/p1.jpg">
-            <img src="publico/images/p2.jpg">
-            <img src="publico/images/p3.jpg">
-            <div class="controls"></div>
-        </div>
-        <div class="btns-pr">
-            <button class="btn_naranja">Adopta</button>
-            <button class="btn_naranja">Info
-                <div class="info-perrito">
-                    <h4>Información</h4>
-                    <span> edad: 1 año</span>
-                    <span>encontrado en: Robledo el Diamante</span>
-                    <span>Especie: Perro</span>
-                    <a href="">Conocer más</a>
-                </div>
-            </button>
-        </div>
-    </div>
-
-    <div class="card-perrito">
-        <div class="slider">
-            <img src="publico/images/p1.jpg">
-            <img src="publico/images/p2.jpg">
-            <img src="publico/images/p3.jpg">
-            <div class="controls"></div>
-        </div>
-        <div class="btns-pr">
-            <button class="btn_naranja">Adopta</button>
-            <button class="btn_naranja">Info
-                <div class="info-perrito">
-                    <h4>Información</h4>
-                    <span> edad: 1 año</span>
-                    <span>encontrado en: Robledo el Diamante</span>
-                    <span>Especie: Perro</span>
-                    <a href="">Conocer más</a>
-                </div>
-            </button>
-        </div>
-    </div> 
-
-    <div class="card-perrito">
-        <div class="slider">
-            <img src="publico/images/p1.jpg">
-            <img src="publico/images/p2.jpg">
-            <img src="publico/images/p3.jpg">
-            <div class="controls"></div>
-        </div>
-        <div class="btns-pr">
-            <button class="btn_naranja">Adopta</button>
-            <button class="btn_naranja">Info
-                <div class="info-perrito">
-                    <h4>Información</h4>
-                    <span> edad: 1 año</span>
-                    <span>encontrado en: Robledo el Diamante</span>
-                    <span>Especie: Perro</span>
-                    <a href="">Conocer más</a>
-                </div>
-            </button>
-        </div>
-    </div>
-
-    <div class="card-perrito">
-        <div class="slider">
-            <img src="publico/images/p1.jpg">
-            <img src="publico/images/p2.jpg">
-            <img src="publico/images/p3.jpg">
-            <div class="controls"></div>
-        </div>
-        <div class="btns-pr">
-            <button class="btn_naranja">Adopta</button>
-            <button class="btn_naranja">Info
-                <div class="info-perrito">
-                    <h4>Información</h4>
-                    <span> edad: 1 año</span>
-                    <span>encontrado en: Robledo el Diamante</span>
-                    <span>Especie: Perro</span>
-                    <a href="">Conocer más</a>
-                </div>
-            </button>
-        </div>
-    </div>
-
-    <div class="card-perrito">
-        <div class="slider">
-            <img src="publico/images/p1.jpg">
-            <img src="publico/images/p2.jpg">
-            <img src="publico/images/p3.jpg">
-            <div class="controls"></div>
-        </div>
-        <div class="btns-pr">
-            <button class="btn_naranja">Adopta</button>
-            <button class="btn_naranja">Info
-                <div class="info-perrito">
-                    <h4>Información</h4>
-                    <span> edad: 1 año</span>
-                    <span>encontrado en: Robledo el Diamante</span>
-                    <span>Especie: Perro</span>
-                    <a href="">Conocer más</a>
-                </div>
-            </button>
-        </div>
-    </div> 
 </div> 
 <script src="publico/js/card-adopta.ind.js"></script>

@@ -2,6 +2,7 @@
 
 session_start();
 
+require 'vista/general/index/links.ind.php';
 require 'vista/header.php';
 
 if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){

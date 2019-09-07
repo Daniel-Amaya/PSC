@@ -24,14 +24,22 @@ class AnimalesController extends Animal{
                     $urlFotoPerfil = $fotos->fetch();
         
                     echo "<div class='card-adopta'>
-                        <div><img src='publico/images/$urlFotoPerfil[1]'></div>
-                        <div class='nombre'>$datos[1]</div>
-                        <div class='info'>Especie: $datos[2]</div>
-                        <div>
+                        <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Especie</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <th>$datos[1]</th>
+                                <th>$datos[2]</th>
+                            </tbody>
+                        </table>
+                        <div class='btns_card'>
                             <a href='' class='btn_naranja'>Adoptar</a>
-                            <a href='' class='btn_naranja'>Apadrinar</a>
                             <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-        
                         </div>
                     </div>";
                 }
@@ -320,8 +328,6 @@ class AnimalesController extends Animal{
         }
     }
 
-
 }
-
 
 ?>

@@ -140,77 +140,8 @@
             }
         }
     }
-
-
-    .card-adopta{
-        border-radius: 5px;
-        overflow: hidden;
-        background: whitesmoke;
-        position: relative;
-        height: 270px;
-        width: 270px;
-        display: flex;
-        flex-direction: column;
-
-        &:hover{
-            div:nth-child(4){
-                bottom: 0%;
-            }
-        }
-
-        div:nth-child(1){
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            display: flex;
-            img{
-                height: 100%;
-                width: 100%;
-                object-fit: scale-down;
-            }
-        }
-        .nombre{
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 3px 7px;
-            min-width: 30%;
-            text-align: center;
-            background: $color-principal-tra;
-            color: white;
-        }
-        .info{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            padding: 3px 15px;
-            min-width: 30%;
-            background: $color-principal-tra;
-            color: white;
-
-        }
-
-        div:nth-child(4){
-            background: rgba(255, 255, 255, 0.651);
-            position: absolute;
-            bottom: -15%;
-            left: 0;
-            height: 15%;
-            width: 100%;
-            display: flex;
-            @include transitions(0.5s);
-            a{
-                padding: 5px;
-                margin: auto;
-                // color: white;
-                display: block;
-                width: max-content;
-                // background: rgb(255, 0, 43);
-                // border-radius: 5px;
-            }
-        }
-    }
 }
+
 
 .galeria{
     display: flex;

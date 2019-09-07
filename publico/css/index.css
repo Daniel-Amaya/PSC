@@ -1,0 +1,243 @@
+/*-------------------- INDEX -------------------- */
+/*------------------------------*\
+    $COLORES
+\*-------------------------------*/
+/**
+    Colores principales de la pagina
+**/
+/** 
+    Colores de redes sociales
+**/
+/** 
+    Colores de animales 
+**/
+/*-------------------------------*\
+           INDEXPAISAJE
+\*-------------------------------*/
+.inicio {
+  width: 100%;
+  height: 700px;
+  background: lightblue;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 4fr 1fr;
+  grid-auto-rows: minmax(20px, auto);
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+@media only screen and (max-width: 500px) {
+  .inicio {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+}
+.inicio .cols {
+  padding: 20px;
+}
+.inicio .cols:nth-child(2) {
+  text-align: center;
+  z-index: 1;
+}
+.inicio .cols:last-child {
+  background: green;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  height: 70%;
+  margin: 48px 0 0 0;
+}
+@media only screen and (max-width: 500px) {
+  .inicio .cols:last-child {
+    grid-column-start: 1;
+    grid-column-end: auto;
+  }
+}
+
+/*-------------------------------*\
+          FININDEXPAISAJE
+\*-------------------------------*/
+/*-------------------------------*\
+            INDEXADOPTA
+\*-------------------------------*/
+.adopta-index {
+  width: 100%;
+  padding: 50px;
+}
+.adopta-index .marg {
+  margin: 10px 20px;
+}
+
+/*-------------------------------*\
+          FININDEXADOPTA
+\*-------------------------------*/
+/*-------------------------------*\
+             INDEXDONA
+\*-------------------------------*/
+.dona-ind {
+  min-height: 500px;
+  height: fit-content;
+  width: 100%;
+  margin: 20px 0;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+@media only screen and (max-width: 500px) {
+  .dona-ind {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+}
+.dona-ind div:nth-child(1) {
+  padding: 20%;
+}
+.dona-ind .col-cg {
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 500px) {
+  .dona-ind .col-cg {
+    height: 700px;
+    border-radius: 50%;
+  }
+}
+.dona-ind .col-cg div {
+  padding: 0 !important;
+}
+.dona-ind .col-cg:before {
+  content: "";
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  z-index: -2;
+  background: #ff7f04;
+  border-radius: 20% 0 0 20%;
+}
+
+/*-------------------------------*\
+           FININDEXDONA
+\*-------------------------------*/
+/*-------------------------------*\
+       MENSAJEAMBIENTEINDEX
+\*-------------------------------*/
+.message {
+  position: relative;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0px 0px 10px black;
+  margin: 20px auto;
+  grid-auto-rows: minmax(100px, 200px);
+  grid-auto-columns: minmax(100px, 320px);
+  grid-template-areas: "inte inte info info" "inte inte info info";
+}
+.message::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: lightgreen;
+  border-radius: 0 50%;
+}
+
+.media {
+  grid-area: inte;
+  padding: 20px;
+  position: relative;
+}
+
+.info-message {
+  align-items: center;
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+  grid-area: info;
+  margin: auto;
+  padding: 10% 20% 10% 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/*-------------------------------*\
+      FINMENSAJEAMBIENTEINDEX
+\*-------------------------------*/
+.navegador-tabs {
+  padding: 20px 100px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  color: black;
+}
+.navegador-tabs li {
+  cursor: pointer;
+  width: 25%;
+  text-align: center;
+}
+.navegador-tabs li.tabSelection {
+  background: #ff7f04;
+  color: white;
+  border-radius: 20px;
+}
+
+.tabBox {
+  padding: 30px;
+}
+
+.misMascotas {
+  width: 70%;
+  margin: auto;
+  overflow: hidden;
+}
+.misMascotas .headerMascotas {
+  margin: 10px;
+  box-shadow: 0px 0px 5px black;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  background: #ff7f04;
+  color: white;
+}
+.misMascotas .headerMascotas span {
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.misMascotas .bodyMascotas {
+  margin: 10px;
+  box-shadow: 0px 0px 5px black;
+  border-radius: 30px;
+  padding: 10px 30px;
+}
+.misMascotas .bodyMascotas .row div {
+  width: 50%;
+  padding: 10px;
+}
+.misMascotas .bodyMascotas .infoMascotas ul li {
+  font-size: 18px;
+  padding: 15px;
+}
+.misMascotas .bodyMascotas .foto {
+  max-height: 280px;
+}
+.misMascotas .bodyMascotas .foto img {
+  object-fit: scale-down;
+  height: 100%;
+  background: whitesmoke;
+}
+
+/*-------------------- INDEX -------------------- */
+
+/*# sourceMappingURL=index.css.map */
