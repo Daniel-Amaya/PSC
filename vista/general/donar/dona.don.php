@@ -1,7 +1,10 @@
- <div class="container-donar adopta-grid" >
- 
+<div class="containertitulo margin-menu"  >
+<h1 class="titulo center">Donaciones</h1>
+</div>
+<div class="container-donar adopta-grid" >
+
  <div class="col-6">
-    
+ 
     <div class="textos-modal donaciones">
 
     <h1>Donaciones</h1> <br>
@@ -16,63 +19,24 @@
            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
         </p>
         <br>
-<div class="doscolumnas">
-    <div class="quedonar"> <img src="publico/images/donar.jpg" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, consequuntur! Fuga repellat dolor ab sapiente molestias ipsum id ea distinctio dicta iure. Blanditiis officiis beatae laborum nostrum nemo?</div>
-    <div class="quedonar"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, consequuntur! Fuga repellat dolor ab sapiente molestias ipsum id ea distinctio dicta iure. Blanditiis officiis beatae laborum nostrum nemo?</div>
-</div> <br> 
-       <p>Para poder donar debes
-         <a href="iniciar-sesion.php" class="rayita-naranja" style="color: Orange;">Iniciar Sesión</a> 
-        / Si no tienes cuenta <a href="crear-cuenta.php" class="rayita-naranja" style="color: Orange;"> Registrate aquí
+<div class="containerquedonar">
+    <div class="quedonar1"> 
+        <img src="publico/images/donar.jpg" class="quedonarCont">
+         <p class="quedonarCont"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, </p>
+    </div>
+    <div class="quedonar2"> 
+        <img src="publico/images/donar.jpg" class="quedonarCont">
+         <p class="quedonarCont"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, </p>
+    </div>
+</div> <br>
+    
+       <p style="Margin-left: 40px;">Para poder donar debes
+         <a href="iniciar-sesion.php"  style="color: Orange;">Iniciar Sesión</a> 
+        / Si no tienes cuenta <a href="crear-cuenta.php"  style="color: Orange;"> Registrate aquí
         </a> 
         <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
         </p>
-        <!-- <a href="#" id="abrir-modal" style="border: 1px solid red; border-radius: 5px; 
-        padding: 3px; color:red; ">Bancolombia</a> -->
     </div>
-
-    <!-- <div id="miModal" class="modal">
-        <div class="flex-modal" id="flex-modal">
-            <div class="contenido-modal">
-              <div class="modal-header flex-modal">
-                <h2>Pasos para donar por Bancolombia</h2>
-                <span class="close-modal" id="close-modal">&times;</span>
-              </div> 
-              <div class="modal-body">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque veritatis eum l
-                    abore ex, illum amet. Corrupti possimus incidunt numquam architecto consectetur m
-                    met fugiat, corporis aliquam voluptas non, aperiam vel eos!</p> <br>
-                    <p>
- <form action="" method="post" class='' id=''>
-       <h4>¿Cuanto va a donar?</h4>
-            <select name="valorDonacion">
-                    <option value="diezmil">10.000$</option>
-                    <option value="veintemil">20.000$</option>
-                    <option value="treintamil">30.000$</option>
-                    <option value="otrovalor">Otro valor</option>
-            </select>
-
-        <h4>¿A que le gustaria que fuera dirigida su donación?</h4>
-            <select name="direccionDonacion">
-                    <option value="alimentacion">Alimentación</option>
-                    <option value="medicacion">Medicación</option>
-            </select>
-
-        <h4>Suba aquí una foto del recivo para comprobar la donación</h4>
-                    <label for="comprobanteFoto" class="">Agregar foto:</label>
-                    <input type="file" name="comprobanteFoto" id="comprobanteFoto" class="" accept="image/*"> 
-        <h4>Si tienes algo que decirnos escribelo aquí</h4>
-                    <textarea name="mensajeDonacion" placeholder="Mensaje" rows="4"></textarea> <br>
-
-                    <input type="submit" value="Enviar">
-</form>
-                    </p>
-              </div> 
-              <div class="modal-footer">
-                    <a href="bancolombia.php"><h3>Para realizar la donacion da click aquí</h3></a>
-              </div>
-            </div>
-        </div>
-    </div> -->
 
 </div>
 <script src="publico/js/modal.js"></script>
@@ -110,4 +74,4 @@
     </div>
 </div>
 
-<script src="publico/js/shadowMenuNaranja.js"></script>
+<script src="publico/js/shadowMenuBlanco.js"></script>

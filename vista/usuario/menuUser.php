@@ -10,7 +10,7 @@
     <ul id='navegador'>
         <li><a href="" clas='rayita-naranja'>Adoptar</a></li>
         <li><a href="" clas='rayita-naranja'>Apadrinar</a></li>
-        <li><a href="adoptar.php" clas='rayita-naranja'>Donar</a></li>
+        <li><a href="donar.usu.php" clas='rayita-naranja'>Donar</a></li>
         <li><a href="" clas='rayita-naranja'>Contacto</a></li>
         <li><a href="" clas='rayita-naranja'>Donaciones</a></li>
     </ul>
