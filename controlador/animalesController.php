@@ -64,72 +64,93 @@ class AnimalesController extends Animal{
 
             echo "
                 <div class='perfil'>
-                    <div class='general'>
-                        <div class='foto-perfil'>
+
+                    <div class='header'>
+                        <div class='btn_tabs'>
+                            <i class='fas fa-info-circle'></i>
+                            <i class='fas fa-image'></i>
+                            <i class='fas fa-syringe'></i>
+                        </div>
+                        
+                        <div class='fotoPerfil'>
                             <img src='publico/images/$urlFotoPerfil[1]'>
                         </div>
-                        <div class='name'>
-                            $datos[1] <hr>
-                            <div id='control-tabs'>
-                                <button>Información</button>
-                                <button>Galeria</button>
-                            </div>
+                        
+                        <h2 class='nombreAnimal'>$datos[1]</h2>
+
+                    <div class='adoptadoORadoptar'>
+                    <span>información legal de la adopción</span>
+                    <strong>Fecha de adopción: 2016/05/20</strong>
+                    </div>
+
+                    </div>
+
+
+                    <div class='perfilTabsItems'>
+                        <div class='descripcion'>
+                            <h4>Descripción</h4>
+                            <p>$datos[8]</p>
+                        </div>
+
+                        <div class='informacion'>
+                            <table>
+                                <tr>
+                                    <td>Especie:</td>
+                                    <td>$datos[2]</td>
+                                </tr>
+                                <tr>
+                                    <td>Raza:</td>
+                                    <td>$datos[3]</td>
+                                </tr>
+                                <tr>
+                                    <td>Color:</td>
+                                    <td>$datos[4]</td>
+                                </tr>
+                                <tr>
+                                    <td>Sexo:</td>
+                                    <td>".genero($datos[5])."</td>
+                                </tr>
+                                <tr>
+                                    <td>Edad:</td>
+                                    <td>".edad($datos[6])."</td>
+                                </tr>
+                                <tr>
+                                    <td>Esterilizado:</td>
+                                    <td>".esterilizado($datos[7])."</td>
+                                </tr>
+                                <tr>
+                                    <td>Procedencia:</td>
+                                    <td>$datos[9]</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
 
-                    <div id='tabs'>
-
-                        <div class='tab-item'>
-                            <div class='info'>
-                                <div class='col'>
-                                    <ul>
-                                        <li>Especie:</li>
-                                        <li>Raza:</li>
-                                        <li>Color:</li>
-                                        <li>Sexo:</li>
-                                        <li>Edad:</li>
-                                        <li>Esterilizado:</li>
-                                    </ul>
-                                    <ul>
-                                        <li>$datos[2]</li>
-                                        <li>$datos[3]</li>
-                                        <li>$datos[4]</li>
-                                        <li>".genero($datos[5])."</li>
-                                        <li>".edad($datos[6])."</li>
-                                        <li>".esterilizado($datos[7])."</li>
-                                    </ul>
-                                </div>
-                                <div class='col'>
-                                    <div>
-                                        <h3>Lugar de Procedencia</h3>
-                                        <p>Medellin, Robledo</p>
-                                    </div>
-                                    <div>
-                                        <h3>Descripción:</h3>
-                                        <p>
-                                            $datos[8]
-                                        </p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class='tab-item'>
-                            <div class='galeria'>
-
-                            ";
-
+                    <div class='perfilTabsItems'>
+                        <div class='fotos'>
+                            "; 
                             foreach($fotos as $urlsTodas){
-                                echo "<div class='imageItem'><img src='publico/images/$urlsTodas[1]'></div>";
+                                echo "<img src='publico/images/$urlsTodas[1]'>";
                             }
-
-                    echo " </div>
+                            echo "
                         </div>
                     </div>
+
+                    <div class='perfilTabsItems'>
+                        <div class='vacunas'>
+                            <h3>Vacunas aplicadas:</h3>
+                            <div class='vacuna'>
+                            rataviru 
+                                <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    ";
+                    echo " 
                     <script src='publico/js/perfilTabs.js'></script>
                     <script>
-                    tabs();
+                    perfilTabs();
                     </script>
                     ";
             }else{

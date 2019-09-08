@@ -76,6 +76,7 @@ aside{
 }
 
 .animalitosAdoptar{
+    width: 100%;
     margin-top: 20px; 
     .card-adopta{
         margin: 10px auto;
@@ -83,108 +84,192 @@ aside{
 }
 
 .perfil{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, min-content);
-    grid-template-areas: 'info' 'tabs';
-    grid-area: 1 / 1 / auto / 4;
-    background: whitesmoke;
-    padding: 10px;
-    .general{
-        grid-area: info;
-        max-height: 200px;
-        display: grid;
-        grid-template-areas: 'foto nombre nombre nombre';
-        grid-auto-rows: max-content;
-        .foto-perfil{
-            margin: auto;
-            grid-area: foto;
-            width: 200px;
-            height: 200px;
+    margin: auto;
+    width: 90%;
+    padding: 4%;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(100,100,100,0.5);
+    position: relative;
+    .header{
+        display: flex;
+        position: relative;
+        .fotoPerfil{
+            width: 204px;
+            height: 204px;
+            border-radius: 100%;
+            overflow: hidden;
             img{
                 width: 100%;
-                height: 100% !important;
-                border-radius: 50%;
-                object-fit: contain;
-                background: whitesmoke;
-                border: solid 1px $color-principal;
+                height: 100%;
+                object-fit: cover;
             }
-        }
-        .name{
-            grid-area: nombre;
-            width: 70%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-size: 30px;
-            font-weight: 800;
-        }
+       }
+       .btn_tabs{
+            position: absolute;
+            right: 10px;
+            top: 20px;
+            i{
+                font-size: 40px;
+                margin: 0 30px;
+            }
+    
+       }
+       .nombreAnimal{
+            position: absolute;
+            top: 70px;
+            right: 40%;
+            font-size: 40px;
+       }
     }
-    #control-tabs{
-        padding: 20px;
-        button{
-            background: $color-secundario;
-            color: white;
-            padding: 10px;
+
+
+   .adoptadoORadoptar{
+       display: flex;
+       font-size: 16px;
+       position: absolute;
+       right: 30px;
+       bottom: 10px;
+        strong{
+            margin: 0 10px;
         }
-    }
-    .info{
-        background: white;
+        span{
+            margin: 0 10px;
+            color: gray;
+        }
+   }
+
+   .perfilTabsItems{
         display: flex;
-        flex-wrap: wrap;
-        margin: 10px;
-        .col{
-            display: flex;
-            flex-wrap: wrap;
-            width: 50%;
-            padding: 20px;
-            justify-content: center;
-            div{
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            ul{
-                width: 35%;
-                margin: 5px;
-                li{
-                    margin: 5px;
-                    padding: 5px;
-                    background: $color-principal;
-                    color: white;
+        margin-top: 20px;
+   }
+
+   // Primer tab - Información
+
+   .descripcion{
+        background: whitesmoke;
+        padding: 30px;
+        width: 40%;
+        border-radius: 44px;
+        margin: 0 auto;
+        p{
+            margin: 10px 0;
+        }
+   }
+   .informacion{
+       padding: 30px;
+       width: 50%;
+       background: whitesmoke;
+       border-radius: 44px;
+       margin: auto;
+       tr{
+           position: relative;
+          &::before{
+              content: '';
+              width: 100%;
+              height: 1px;
+              position: absolute;
+              background:rgba(128, 128, 128, 0.141);
+              bottom: 0px;
+              left: 0;
+              z-index: 5;
+          } 
+          td{
+              padding: 2px;
+              width: 50%;
+              &:nth-child(2){
+                  text-align: right;
+              }
+          }
+       }
+   }
+
+   // Primer tab - Información
+
+   // Segundo tab - Fotos
+
+   .fotos{
+       padding: 20px;
+       border-radius: 44px;
+       display: flex;
+       width: 90%;
+       margin: auto;
+       img{
+           border-radius: 10px;
+           margin: 5px;
+           width: 200px;
+           height: 200px;
+           object-fit: cover;
+           border: solid 1px rgba(128, 128, 128, 0.141);
+       }
+   }
+
+   // Segundo tab - Fotos
+
+   // Tercer tab - Vacunas
+
+   .vacunas{
+       width: 70%;
+       margin: auto;
+       border-radius: 44px;
+       background: whitesmoke;
+       padding: 40px;
+       .vacuna{
+           background: white;
+           border-radius: 20px;
+           box-shadow: 0px 0px 10px rgba(100,100,100,0.5);
+           text-align: center;
+           margin: 10px 0;
+           position: relative;
+
+           &:hover{
+               .descripcionVacuna{
+                   display: block;
+               }
+           }
+            .descripcionVacuna{
+
+                display: none;
+                position: absolute;
+                right: -5px;
+                background: rgb(199, 199, 199);
+                border-radius: 20px;
+                color: white;
+                max-width: 200px;
+                padding: 20px;
+                i{
+                    position: absolute;
+                    top: -20px;
+                    font-size: 30px;
+                    color: rgb(199, 199, 199); 
                 }
+
             }
-            h3{
-                width: 100%;
-                align-self: flex-end;
-                padding: 5px;
-            }
-        }
-    }
+       }
+   }
+
+
 }
 
 
-.galeria{
-    display: flex;
-    flex-wrap: wrap;
-    background: white;
-    padding: 10px;
-    margin: 10px 0;
-    .imageItem{
-        margin: 10px;
-        max-width: 250px;
-        position: relative;
-        max-height: 250px;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            box-shadow: 0px 0px 1px black;
-        }
-    }
-}
+// .galeria{
+//     display: flex;
+//     flex-wrap: wrap;
+//     background: white;
+//     padding: 10px;
+//     margin: 10px 0;
+//     .imageItem{
+//         margin: 10px;
+//         max-width: 250px;
+//         position: relative;
+//         max-height: 250px;
+//         img{
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//             box-shadow: 0px 0px 1px black;
+//         }
+//     }
+// }
 
 
 // Admin

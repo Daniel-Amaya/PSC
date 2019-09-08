@@ -24,7 +24,7 @@
     <div class="nav-items">
         <ul class="row">
             <li><span onclick='menuL()' class='pointer'><i class="fa fa-bars"></i></span></li>
-            <li><a class="rayita-naranja" href="index.php">Adoptar</a></li>
+            <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
             <li><a class="rayita-naranja"  href="">Apadrinar</a></li>
             <li><a class="rayita-naranja" href="">Donar</a></li>
             <li><a class="rayita-naranja" href="donar.php">Contacto</a></li>

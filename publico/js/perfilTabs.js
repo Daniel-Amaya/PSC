@@ -1,26 +1,28 @@
-function tabs(){
-    var div_tabs = id('tabs');
-    var tabs = div_tabs.getElementsByClassName('tab-item');
-    for(let i = 0; i < tabs.length; i++){
+function perfilTabs(){
+    var tabButtons = classNames('btn_tabs')[0].getElementsByTagName('i');
+    var tabs = classNames('perfilTabsItems');
+
+    var indic = 0;
+
+    for(let i = 0; i < tabButtons.length; i++){
+
         tabs[i].style.display = 'none';
-    }
 
-    var controls_tabs = id('control-tabs');
-    var controls = controls_tabs.getElementsByTagName('button');
-    for(let i = 0; i < controls.length; i++){
-        controls[i].addEventListener('click', function(){
+        tabButtons[i].addEventListener('click', function(){
+        for(let e = 0; e < tabButtons.length; e++){
+            tabs[e].style.display = 'none';
+        }
 
-            tabs[i].style.display = 'block';
-            if(tabs[i-1]){
-                tabs[i-1].style.display = "none";
-            }
+            indic = i;
+            tabs[indic].style.display = 'flex';
 
-            if(tabs[i+1]){
-                tabs[i+1].style.display = "none";
-            }
         });
+
+
     }
 
-    tabs[0].style.display = "block";
+    tabs[indic].style.display = "flex";
+
 
 }
+
