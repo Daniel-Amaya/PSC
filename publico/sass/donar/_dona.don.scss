@@ -98,3 +98,52 @@ float: left;
   width: 50%;
   float: left
 }
+
+
+
+.donacionesAlimentos{
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  margin-left: 50px;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(100,100,100,0.5);
+  text-align: justify;
+      h3,h1{
+        text-align: center;
+      }
+}
+
+.grisColor{
+  background: whitesmoke;
+  background-color: whitesmoke;
+  padding: 15px;
+}
+
+
+.boxInputGris input[type=submit] {
+  width: 100%;
+  border: solid 0.5px grey;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgb(158, 158, 158);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    border: solid 1px transparent !important;
+    outline: none;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    -moz-transition: 0.5s;
+    cursor: pointer;
+
+    &:hover{
+      background: white;
+      border-color: rgb(158, 158, 158) !important;
+      color: rgb(158, 158, 158);
+  }
+}

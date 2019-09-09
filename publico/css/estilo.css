@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -12,6 +11,7 @@
 /** 
     Colores de animales 
 **/
+@import url("../fonts/PatuaOne-Regular.ttf");
 .rayita-blanca::before, .rayita-naranja::before {
   content: "";
   position: absolute;
@@ -159,7 +159,7 @@ button {
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/
-.btn_naranja, .btn_cafe, .btn_rojo {
+.btn_gris, .btn_naranja, .btn_cafe, .btn_rojo {
   padding: 10px;
   color: white;
   border-radius: 10px;
@@ -171,7 +171,7 @@ button {
   -moz-transition: 0.5s;
   cursor: pointer;
 }
-.btn_largo.btn_naranja, .btn_largo.btn_cafe, .btn_largo.btn_rojo {
+.btn_largo.btn_gris, .btn_largo.btn_naranja, .btn_largo.btn_cafe, .btn_largo.btn_rojo {
   width: 100% !important;
 }
 
@@ -200,6 +200,15 @@ button {
   background: white;
   border-color: #ff7f04 !important;
   color: #ff7f04;
+}
+
+.btn_gris {
+  background: #9e9e9e;
+}
+.btn_gris:hover {
+  background: white;
+  border-color: #9e9e9e !important;
+  color: #9e9e9e;
 }
 
 /*-------------------------------*\
