@@ -222,8 +222,6 @@ $k-right-ear: (
 // }
 
 
-
-
 .husky {
   animation: squiggly-anim 0.3s infinite;
   height: 60vmin;
@@ -389,9 +387,7 @@ $k-right-ear: (
     top: 20%;
     left: 15%;
     transform-origin: top left;
-    transform:
-      skewX(30deg)
-      rotate(-5deg);
+    @include transforms(skewX(30deg) rotate(-5deg));
   }
   
   &:after {
@@ -401,7 +397,7 @@ $k-right-ear: (
     background: $color-primary;
     left: 32%;
     transform-origin: top left;
-    transform: rotate(-5deg);
+    @include transforms(rotate(-5deg));
   }
   
   + .ear {
@@ -475,7 +471,7 @@ $k-right-ear: (
   }
   
   &:after {
-    transform: rotateY(180deg);
+    @include transforms(rotateY(180deg));
     left: initial;    
     right: 0;
   }
@@ -512,9 +508,7 @@ $k-right-ear: (
     background: $color-primary;
     height: 100%;
     width: 50%;
-    transform:
-      translateX(-20%)
-      skewX(-30deg);
+    @include transforms(translateX(-20%) skewX(-30deg));
     transform-origin: left bottom;
     border-radius: 0 30% 0 60%;
   }
@@ -554,7 +548,7 @@ $k-right-ear: (
     width: 30%;
     right: 23%;
     border-top-right-radius: 100% 80%;
-    transform: rotate(47deg);
+    @include transforms(rotate(47deg));
     transform-origin: bottom right;
   }
 }
@@ -567,7 +561,7 @@ $k-right-ear: (
   transform-origin: bottom right;
   left: 10%;
   top: 21%;
-  transform: rotate(25deg) skewX(-30deg) ;
+  @include transforms(rotate(25deg) skewX(-30deg));
 }
 
 .legs {
@@ -617,13 +611,13 @@ $k-right-ear: (
       background: $color-lighter;
       height: 100%;
       width: 100%;
-      transform: skewY(-30deg) skewX(10deg);
+      @include transforms(skewY(-30deg) skewX(10deg));
       transform-origin: top right;
     }
     
     + .leg {
       right: 0;
-      transform: rotateY(180deg);
+      @include transforms(rotateY(180deg));
       
       &:before {
         background: $color-light;
@@ -671,8 +665,8 @@ $k-right-ear: (
     transform-origin: center right;
     border-top-left-radius: 50% 50%;
     border-bottom-left-radius: 50% 50%;
-    transform: rotate(26deg);
-    transform: rotate(0deg);
+    @include transforms(rotate(26deg));
+    @include transforms(rotate(0deg));
   }
   
   .husky > & {

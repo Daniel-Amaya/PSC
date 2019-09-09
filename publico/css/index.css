@@ -467,6 +467,195 @@
 /*-------------------------------*\
       FINMENSAJEAMBIENTEINDEX
 \*-------------------------------*/
+/*-------------------------------*\
+             CAJAGATO 
+\*-------------------------------*/
+.cajaGatito {
+  width: 200px;
+  background-color: #ffff9d;
+  position: relative;
+  height: 120px;
+  background-image: radial-gradient(#f7dd5e 5px, transparent 5px);
+  background-size: 35px 35px;
+  background-position: -5px -12px;
+  top: 60px;
+}
+.cajaGatito .b1, .cajaGatito .b2 {
+  background-color: #f7dd5e;
+  height: 8px;
+  width: 50px;
+  position: relative;
+}
+.cajaGatito .b1 {
+  right: 48px;
+  bottom: -8px;
+  transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+}
+.cajaGatito .b2 {
+  left: 198px;
+  bottom: 8px;
+  transform-origin: left;
+  transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+}
+.cajaGatito .gato {
+  position: relative;
+  bottom: 40px;
+  left: 40px;
+  z-index: -1;
+  transition: 1s;
+}
+.cajaGatito .gato .cara {
+  height: 140px;
+  width: 120px;
+  background-color: white;
+  border-radius: 50%;
+}
+.cajaGatito .gato .cara .abajo {
+  height: 40px;
+  background-color: white;
+  width: 140px;
+  border-radius: 0 0 140px 140px;
+  position: relative;
+  top: 60px;
+  right: 10px;
+}
+.cajaGatito .gato .cara .oreja-d, .cajaGatito .gato .cara .oreja-i {
+  height: 0;
+  width: 0;
+  border-bottom: 35px solid white;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  position: relative;
+}
+.cajaGatito .gato .cara .oreja-d {
+  bottom: 55px;
+  transform: rotate(-40deg);
+  -webkit-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+}
+.cajaGatito .gato .cara .oreja-i {
+  bottom: 90px;
+  left: 87px;
+  transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+}
+.cajaGatito .gato .cara .ojo-d, .cajaGatito .gato .cara .ojo-i {
+  height: 15px;
+  width: 13px;
+  position: relative;
+}
+.cajaGatito .gato .cara .ojo-i {
+  bottom: 85px;
+  left: 25px;
+}
+.cajaGatito .gato .cara .ojo-d {
+  bottom: 70px;
+  left: 83px;
+}
+.cajaGatito .gato .cara .ojo {
+  background-color: #434343;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  animation: bink 2s infinite;
+  -webkit-animation: bink 2s infinite;
+  -o-animation: bink 2s infinite;
+  -moz-animation: bink 2s infinite;
+}
+.cajaGatito .gato .cara .nariz {
+  width: 0;
+  height: 0;
+  border-top: 10px solid pink;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: relative;
+  bottom: 72px;
+  left: 48px;
+}
+.cajaGatito .gato .gorro {
+  height: 0;
+  width: 0;
+  border-bottom: 100px solid #ff5c9f;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  position: relative;
+  bottom: 220px;
+  left: 40px;
+  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+}
+.cajaGatito .gato .gorro .estrella {
+  position: relative;
+}
+.cajaGatito .gato .gorro .estrella .d1, .cajaGatito .gato .gorro .estrella .d2, .cajaGatito .gato .gorro .estrella .d3, .cajaGatito .gato .gorro .estrella .d4 {
+  background: #ffff9d;
+  height: 40px;
+  width: 5px;
+  position: relative;
+}
+.cajaGatito .gato .gorro .estrella .d1 {
+  bottom: 20px;
+}
+.cajaGatito .gato .gorro .estrella .d2 {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  bottom: 60px;
+}
+.cajaGatito .gato .gorro .estrella .d3 {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  bottom: 100px;
+}
+.cajaGatito .gato .gorro .estrella .d4 {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  bottom: 140px;
+}
+.cajaGatito:hover .gato {
+  transform: translateY(-55px);
+  -webkit-transform: translateY(-55px);
+  -o-transform: translateY(-55px);
+  -ms-transform: translateY(-55px);
+  -moz-transform: translateY(-55px);
+}
+
+@keyframes bink {
+  20% {
+    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+  }
+}
+/*-------------------------------*\
+           FINCAJAGATO 
+\*-------------------------------*/
 @keyframes head {
   0% {
     transform: rotate(0);
@@ -1179,6 +1368,10 @@
   left: 15%;
   transform-origin: top left;
   transform: skewX(30deg) rotate(-5deg);
+  -webkit-transform: skewX(30deg) rotate(-5deg);
+  -o-transform: skewX(30deg) rotate(-5deg);
+  -ms-transform: skewX(30deg) rotate(-5deg);
+  -moz-transform: skewX(30deg) rotate(-5deg);
 }
 .ear:after {
   width: 70%;
@@ -1188,6 +1381,10 @@
   left: 32%;
   transform-origin: top left;
   transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
 }
 .ear + .ear {
   animation: right-ear 12s both infinite;
@@ -1254,6 +1451,10 @@
 }
 .lips:after {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
   left: initial;
   right: 0;
 }
@@ -1290,6 +1491,10 @@
   height: 100%;
   width: 50%;
   transform: translateX(-20%) skewX(-30deg);
+  -webkit-transform: translateX(-20%) skewX(-30deg);
+  -o-transform: translateX(-20%) skewX(-30deg);
+  -ms-transform: translateX(-20%) skewX(-30deg);
+  -moz-transform: translateX(-20%) skewX(-30deg);
   transform-origin: left bottom;
   border-radius: 0 30% 0 60%;
 }
@@ -1327,6 +1532,10 @@
   right: 23%;
   border-top-right-radius: 100% 80%;
   transform: rotate(47deg);
+  -webkit-transform: rotate(47deg);
+  -o-transform: rotate(47deg);
+  -ms-transform: rotate(47deg);
+  -moz-transform: rotate(47deg);
   transform-origin: bottom right;
 }
 
@@ -1339,6 +1548,10 @@
   left: 10%;
   top: 21%;
   transform: rotate(25deg) skewX(-30deg);
+  -webkit-transform: rotate(25deg) skewX(-30deg);
+  -o-transform: rotate(25deg) skewX(-30deg);
+  -ms-transform: rotate(25deg) skewX(-30deg);
+  -moz-transform: rotate(25deg) skewX(-30deg);
 }
 
 .legs {
@@ -1383,11 +1596,19 @@
   height: 100%;
   width: 100%;
   transform: skewY(-30deg) skewX(10deg);
+  -webkit-transform: skewY(-30deg) skewX(10deg);
+  -o-transform: skewY(-30deg) skewX(10deg);
+  -ms-transform: skewY(-30deg) skewX(10deg);
+  -moz-transform: skewY(-30deg) skewX(10deg);
   transform-origin: top right;
 }
 .front-legs > .leg + .leg {
   right: 0;
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 .front-legs > .leg + .leg:before {
   background: #9EB6D7;
@@ -1430,7 +1651,15 @@
   border-top-left-radius: 50% 50%;
   border-bottom-left-radius: 50% 50%;
   transform: rotate(26deg);
+  -webkit-transform: rotate(26deg);
+  -o-transform: rotate(26deg);
+  -ms-transform: rotate(26deg);
+  -moz-transform: rotate(26deg);
   transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
 }
 .husky > .tail {
   border-top-left-radius: 10% 50%;
