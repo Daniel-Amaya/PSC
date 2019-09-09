@@ -29,6 +29,7 @@
 .btn_cafe{
     @extend %btns;
     background: sienna;
+ 
 
     &:hover{
         background: white;
@@ -49,6 +50,17 @@
     }
 }
 
+.btn_gris{
+
+    @extend %btns;
+    background: rgb(158, 158, 158);
+
+    &:hover{
+        background: white;
+        border-color: rgb(158, 158, 158) !important;
+        color: rgb(158, 158, 158);
+    }
+}
 
 
 /*-------------------------------*\

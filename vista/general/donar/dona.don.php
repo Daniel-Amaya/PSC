@@ -39,7 +39,7 @@
     </div>
 
 </div>
-<script src="publico/js/modal.js"></script>
+
 
 
 <div class="col-cg margin-menu" style=" "> 
