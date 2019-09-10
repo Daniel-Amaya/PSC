@@ -84,6 +84,23 @@ class Usuario extends Conexion{
             exit("ERROR AL INICIAR SESIÓN: ".$e->getMessage());
         }
     }
+
+    public function dataUsuarios($id){
+        $con = parent::conectar();
+        try{
+            if($id != ""){
+                $query = $con->prepare("SELECT * FROM usuarios WHERE id=:id");
+                $query->bindParam(':id', $id);
+                $query->execute();
+            }else{
+                $query = $con->query("SELECT * FROM usuarios");
+            }
+
+            return $query;
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR DATOS DE LOS USUARIOS");
+        }
+    }
 }
 
 ?>

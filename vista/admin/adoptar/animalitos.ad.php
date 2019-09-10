@@ -1,6 +1,5 @@
 <?php
 
-include 'modelo/connect.php';
 include 'modelo/animales.php';
 include 'modelo/fotos.php';
 
@@ -25,7 +24,6 @@ classNames('newAn')[0].addEventListener('click', function(){
 <div class="animalitos margin-menu padding-menu">
 
     <section class=''>
-
    
         <aside id="filtro" style='display: none'>
             <button class="btn_cafe" onclick="">Agregar un nuevo animalito</button><br><br>

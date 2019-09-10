@@ -361,6 +361,10 @@
 .adopta-index .marg {
   margin: 10px 20px;
 }
+.adopta-index .row {
+  justify-content: center;
+  align-items: center;
+}
 
 /*-------------------------------*\
           FININDEXADOPTA

@@ -6,9 +6,12 @@
 .adopta-index{
     width: 100%;
     padding: 50px;
-    
     .marg{
         margin: 10px 20px;
+    }
+    .row{
+        justify-content: center;
+        align-items: center;
     }
 }
 

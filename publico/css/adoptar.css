@@ -108,22 +108,16 @@ aside {
   border-radius: 44px;
   margin: auto;
 }
+.perfil .informacion table {
+  width: 100%;
+}
 .perfil .informacion tr {
   position: relative;
-}
-.perfil .informacion tr::before {
-  content: "";
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  background: rgba(128, 128, 128, 0.141);
-  bottom: 0px;
-  left: 0;
-  z-index: 5;
 }
 .perfil .informacion tr td {
   padding: 2px;
   width: 50%;
+  border-bottom: 0.5px solid rgba(158, 158, 158, 0.534);
 }
 .perfil .informacion tr td:nth-child(2) {
   text-align: right;

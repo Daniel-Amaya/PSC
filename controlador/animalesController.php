@@ -344,6 +344,9 @@ class AnimalesController extends Animal{
         }
     }
 
+    // Animalitos usuario
+    
+
 }
 
 ?>

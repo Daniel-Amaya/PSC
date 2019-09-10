@@ -114,7 +114,6 @@ function tabsUser(){
 
         });
 
-
     }
 
     tabs[indic].style.display = "block";

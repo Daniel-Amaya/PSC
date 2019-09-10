@@ -66,7 +66,6 @@
                         <div class="d2"></div>
                         <div class="d3"></div>
                         <div class="d4"></div>
-
                     </div>
                 </div>
             </div>

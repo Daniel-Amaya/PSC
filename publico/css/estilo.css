@@ -2300,10 +2300,7 @@ nav div.nav-items ul li a {
   color: black;
 }
 .menuLW li:hover {
-  background: rgba(255, 125, 4, 0.753) !important;
-}
-.menuLW li:hover a {
-  color: white;
+  background: white !important;
 }
 
 .recojer-menu {

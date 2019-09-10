@@ -196,10 +196,8 @@ nav{
             color: black;
         }
         &:hover{
-            background: $color-principal-tra !important;
-            a{
-                color: white;
-            }
+            background: white !important;
+            
         }
     }
 }

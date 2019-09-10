@@ -19,9 +19,9 @@ if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
     require 'vista/admin/adoptar/form_3.ad.php';
     require 'vista/admin/adoptar/formEditAn.ad.php';
 
-
 }else if($_SESSION['sesion_rol'] == "u"){
-    
+
+    require 'vista/usuario/menuUser.php';    
 }
 
 require 'vista/footer.php';
