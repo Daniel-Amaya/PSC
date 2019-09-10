@@ -22,6 +22,7 @@ footer{
     &.padding-menu{
         padding-left: 300px;
         padding-right: 20px;
+        min-height: min-content;
     }
     div{
         @include respond-to(500px){

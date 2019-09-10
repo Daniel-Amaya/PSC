@@ -36,9 +36,9 @@
             <div class="p-message">
             <div class="rope"></div>
             <ul>
-                <li class='tabsItemUser'> <strong>Dinero</strong></li>
-                <li class="middle tabsItemUser"> <strong>Medicamentos</strong></li>
-                <li class='tabsItemUser'> <strong> Alimento</strong></li>
+                <li class='tabsItemUser pointer'> <strong>Dinero</strong></li>
+                <li class="middle tabsItemUser pointer"> <strong>Medicamentos</strong></li>
+                <li class='tabsItemUser pointer'> <strong> Alimento</strong></li>
             </ul>
             </div>
         </div>
