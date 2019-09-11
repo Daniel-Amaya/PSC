@@ -98,7 +98,7 @@ class Usuario extends Conexion{
 
             return $query;
         }catch(Exception $e){
-            exit("ERROR AL MOSTRAR DATOS DE LOS USUARIOS");
+            exit("ERROR AL MOSTRAR DATOS DE LOS USUARIOS: " . $e->getMessage());
         }
     }
 }

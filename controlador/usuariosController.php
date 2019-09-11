@@ -8,7 +8,7 @@ class UsuariosController extends Usuario{
             $datos = $datos->fetch();
             return $datos;
         } catch (Exception $e) {
-            exit("ERROR AL MOSTRAR DATOS DEL USUARIO");
+            exit("ERROR AL MOSTRAR DATOS DEL USUARIO: ".$e->getMessage());
         }
     }
 }

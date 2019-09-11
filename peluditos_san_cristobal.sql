@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-09-2019 a las 21:57:11
+-- Tiempo de generación: 10-09-2019 a las 20:43:05
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -32,8 +32,16 @@ CREATE TABLE `adopciones` (
   `numAdopcion` int(10) UNSIGNED NOT NULL,
   `idAnimalAdoptado` int(10) UNSIGNED NOT NULL,
   `idUsuario` int(10) UNSIGNED NOT NULL,
-  `codEsterilizacion` int(10) UNSIGNED NOT NULL
+  `fechaAdopcion` date NOT NULL,
+  `codEsterilizacion` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `adopciones`
+--
+
+INSERT INTO `adopciones` (`numAdopcion`, `idAnimalAdoptado`, `idUsuario`, `fechaAdopcion`, `codEsterilizacion`) VALUES
+(2, 17, 2, '2019-03-05', NULL);
 
 -- --------------------------------------------------------
 
@@ -60,13 +68,12 @@ CREATE TABLE `animales` (
 --
 
 INSERT INTO `animales` (`id`, `nombre`, `especie`, `raza`, `color`, `sexo`, `edad`, `esterilizado`, `descripcion`, `procedencia`, `carpeta`) VALUES
-(9, 'Violeta', 'Perro', 'pitbull', 'negro', 'F', 0, 1, 0x426562652042656265736974616120756161, 'medellÃ­n Robledo Aures', 'Violeta102226682'),
-(10, 'Perry', 'Perro', 'pitbull', 'negro', 'F', 2014, 1, 0x46454466, 'medellÃ­n Robledo Aures', 'Perry29657351'),
-(11, 'Violeta', 'Gato', 'pitbull', 'negro', 'M', 0, 1, 0x6a686a6b686a6b686a6b686a6b, 'medellÃ­n Robledo Aures', 'Violeta68025559'),
-(13, 'Perry', 'Gato', 'pitbull', 'negro', 'M', 0, 1, 0x46535344464653534446, 'FGGGD', 'Perry5414973'),
-(14, 'v i ', 'Perro', 'pitbull', 'negro', 'M', 0, 1, 0x72667265, 'refrf', 'v i 69268814'),
-(15, 'bocky', 'Gato', 'pitbull', 'negro', 'F', 0, 1, 0x4a4847484a4748, 'medellÃ­n Robledo Aures', 'bocky75434855'),
-(16, 'bocky', 'Perro', 'pitbull', 'negro', 'M', 2017, 1, 0x6473667364736664, 'medellÃ­n Robledo Aures', 'bocky77463090');
+(17, 'Perry', 'Perro', 'pitbull', 'negro', 'M', 2019, 1, 0x457320756e20706f71756973206c6f636f206e616461206dc3a173, 'medellÃ­n Belen Altavista', 'Perry83638987'),
+(18, 'Hunsky', 'Perro', 'Pitbull', 'Negro', 'M', 2017, 0, 0x457320756e207065727269746f20616c6761726574652c20657320617a756c2079206d7579206c696e646f, 'Robledo Bello Horizonte - Mede', 'Hunsky98941757'),
+(19, 'Hunsky', 'Gato', 'Egipcio', 'Blanco', 'F', 2019, 1, 0x4573206d7579206c696e646f2c20706f7271756520657320756e206761746f20, 'Robledo Bello Horizonte - Mede', 'Hunsky29102904'),
+(20, 'mishi', 'Gato', 'Egipcio', 'Blanco', 'M', 2018, 1, 0x53697369204368696d626f7461206465206761746f206d6920706170c3a1, 'Robledo Bello Horizonte - Mede', 'mishi91464195'),
+(21, 'Bebesita', 'Perro', 'Pitbull', 'CafÃ©', 'M', 2019, 1, 0x4c65206775737461206174616361722061206c6f73206c6164726f6e6573, 'Robledo Bello Horizonte - Mede', 'Bebesita22331012'),
+(22, 'Bebesita', 'Gato', 'Egipcio', 'Morado', 'M', 2017, 1, 0x556e6120646573637269706369c3b36e206c6f207375666963696f656e74656d656e7465206c61726761207061726120686163657220766572206269656e20656c20637561647269746f20646f6e646520657374c3a16e206c617320646573637269706369706f6e657320, 'Robledo Bello Horizonte - Mede', 'Bebesita29161084');
 
 -- --------------------------------------------------------
 
@@ -87,7 +94,10 @@ CREATE TABLE `animalesvacunados` (
 
 CREATE TABLE `apadrinamientos` (
   `idUsuario` int(10) UNSIGNED NOT NULL,
-  `idAnimal` int(10) UNSIGNED NOT NULL
+  `idAnimal` int(10) UNSIGNED NOT NULL,
+  `colaboracion` varchar(10) NOT NULL,
+  `cantidad` varchar(50) NOT NULL,
+  `cadaTiempo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,22 +140,24 @@ CREATE TABLE `fotos` (
 --
 
 INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`) VALUES
-(9, 'Violeta102226682/718480195.png', 9),
-(19, 'Perry29657351/207085994.png', 10),
-(23, 'Violeta68025559/869196582.png', 11),
-(24, 'Violeta68025559/858222202.png', 11),
-(25, 'Violeta68025559/355359795.png', 11),
-(31, 'Perry5414973/903719648.png', 13),
-(32, 'Perry5414973/767444392.png', 13),
-(33, 'Perry5414973/349505701.png', 13),
-(34, 'v i 69268814/87216814.png', 14),
-(35, 'v i 69268814/664336353.png', 14),
-(36, 'bocky75434855/187086921.png', 15),
-(37, 'bocky75434855/394472230.png', 15),
-(39, 'bocky77463090/115191890.png', 16),
-(40, 'bocky77463090/856277763.png', 16),
-(41, 'bocky77463090/588580549.png', 16),
-(42, 'Violeta102226682/961331049.png', 9);
+(50, 'Hunsky98941757/67367471.png', 18),
+(51, 'Hunsky98941757/449635302.png', 18),
+(52, 'Hunsky98941757/646295977.png', 18),
+(53, 'Hunsky98941757/133088204.png', 18),
+(54, 'Hunsky29102904/464577419.png', 19),
+(55, 'Hunsky29102904/862957278.png', 19),
+(56, 'Hunsky29102904/31068465.png', 19),
+(57, 'Hunsky29102904/193921344.png', 19),
+(61, 'mishi91464195/707988353.png', 20),
+(62, 'mishi91464195/190291313.png', 20),
+(63, 'Bebesita22331012/414152245.png', 21),
+(64, 'Bebesita22331012/308274716.png', 21),
+(65, 'Bebesita29161084/515615820.png', 22),
+(66, 'Bebesita29161084/218770285.png', 22),
+(67, 'Bebesita29161084/907284482.png', 22),
+(68, 'Perry83638987/734323766.png', 17),
+(69, 'Perry83638987/691627504.png', 17),
+(70, 'Perry83638987/74274343.png', 17);
 
 -- --------------------------------------------------------
 
@@ -226,7 +238,8 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `correo`, `telefono`, `cedu
 CREATE TABLE `vacunas` (
   `cod` int(10) UNSIGNED NOT NULL,
   `especie` varchar(30) NOT NULL,
-  `vacuna` varchar(30) NOT NULL
+  `vacuna` varchar(30) NOT NULL,
+  `descripcion` tinyblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -238,7 +251,7 @@ CREATE TABLE `vacunas` (
 --
 ALTER TABLE `adopciones`
   ADD PRIMARY KEY (`numAdopcion`),
-  ADD KEY `fk_adopcionesAnimales` (`idAnimalAdoptado`),
+  ADD UNIQUE KEY `unique_idAnimalesAdoptados` (`idAnimalAdoptado`),
   ADD KEY `fk_adopcionesUsuarios` (`idUsuario`),
   ADD KEY `fk_adopcionesEsterilizacion` (`codEsterilizacion`);
 
@@ -316,13 +329,13 @@ ALTER TABLE `vacunas`
 -- AUTO_INCREMENT de la tabla `adopciones`
 --
 ALTER TABLE `adopciones`
-  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
@@ -340,7 +353,7 @@ ALTER TABLE `compromisoesterilizacion`
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntasadopcion`

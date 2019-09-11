@@ -156,6 +156,16 @@ button {
   border-radius: 2rem;
 }
 
+.title {
+  margin: 10px auto;
+  width: 90%;
+  padding: 10px;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px #646464;
+}
+
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/

@@ -78,10 +78,10 @@ class AnimalesController extends Animal{
                         
                         <h2 class='nombreAnimal'>$datos[1]</h2>
 
-                    <div class='adoptadoORadoptar'>
+                    <!-- <div class='adoptadoORadoptar'>
                     <span>información legal de la adopción</span>
                     <strong>Fecha de adopción: 2016/05/20</strong>
-                    </div>
+                    </div> -->
 
                     </div>
 
@@ -145,7 +145,7 @@ class AnimalesController extends Animal{
                             </div>
                         </div>
                     </div>
-
+                </div>
                     ";
                     echo " 
                     <script src='publico/js/perfilTabs.js'></script>
@@ -164,6 +164,7 @@ class AnimalesController extends Animal{
     // Animalitos Admin
 
     public function mostrarAnimalitosAdmin(){
+        $con = parent::conectar();
         try {
 
             require_once '../funciones.php';
@@ -172,35 +173,41 @@ class AnimalesController extends Animal{
             if($animales->rowCount() > 0){
         
                 foreach($animales as $datos){
-        
+
                     $fotos = Foto::dataFotos($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
-        
-                    echo " <tr onclick='crearModal(\" $datos[1] \", 
-                    \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>".genero($datos[5])."</li><li>".edad($datos[6])."</li><li>".esterilizado($datos[7])."</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'>
 
-                        <td><img src='publico/images/$urlFotoPerfil[1]'></td>
+                    $verfifcarAdopcion = $con->prepare("SELECT * FROM adopciones WHERE idAnimalAdoptado = :idAnimal");
+                    $verfifcarAdopcion->bindParam(':idAnimal', $datos[0]);
+                    $verfifcarAdopcion->execute();
+
+                    if($verfifcarAdopcion->rowCount() > 0){
+                        echo " <tr>
+                        <td style='background: red' onclick='crearModal(\" $datos[1] \", 
+                        \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>".genero($datos[5])."</li><li>".edad($datos[6])."</li><li>".esterilizado($datos[7])."</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'><img src='publico/images/$urlFotoPerfil[1]'></td>
                         <td>$datos[1]</td>
                         <td>$datos[2]</td>
                         <td>$datos[3]</td>
                         <td><a href='?fotos=$datos[0]' class='btn_cafe'>Fotos</a></td>
                         <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                         <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
-                    
+                        
                     </tr> ";
+                    }else{
+
+                        echo " <tr>
+                            <td onclick='crearModal(\" $datos[1] \", 
+                            \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>".genero($datos[5])."</li><li>".edad($datos[6])."</li><li>".esterilizado($datos[7])."</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'><img src='publico/images/$urlFotoPerfil[1]'></td>
+                            <td>$datos[1]</td>
+                            <td>$datos[2]</td>
+                            <td>$datos[3]</td>
+                            <td><a href='?fotos=$datos[0]' class='btn_cafe'>Fotos</a></td>
+                            <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
+                            <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
+                            
+                        </tr> ";
+                    }
                     
-                    // echo "<div class='card-adopta'>
-                    //     <div><img src='publico/images/$urlFotoPerfil[1]'></div>
-                    //     <div class='nombre'>$datos[1]</div>
-                    //     <div class='info'>Especie: $datos[2]</div>
-                    //     <div>
-                    //         <a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[9]\"])'>Eliminar</a>
-                    //         <a href='?editar=$datos[0]' class='btn_naranja'>Edit/Ver</a>
-                    //         <a href='?fotos=$datos[0]' class='btn_naranja'>Agg/Bor foto</a>
-        
-                    //     </div>
-                    // </div>";
-        
                 }
             }else{
                 echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja' onclick='agregarAnimalitos()'>Agregar una mascota</a></div>";
@@ -346,7 +353,173 @@ class AnimalesController extends Animal{
 
     // Animalitos usuario
     
+    public function mostrarAnimalesAdoptados($idUsuario){
 
+        $con = parent::conectar();
+        try {
+            $query = $con->prepare("SELECT animales.*, usuarios.id AS idUsuario, adopciones.numAdopcion, adopciones.fechaAdopcion  FROM adopciones, usuarios, animales WHERE animales.id = idAnimalAdoptado AND adopciones.idUsuario = usuarios.id AND usuarios.id = :idUsuario");
+            $query->bindParam(':idUsuario', $idUsuario);
+            $query->execute();
+
+            if($query->rowCount() > 0){
+
+                require_once 'controlador/funciones.php';
+                require_once 'modelo/fotos.php';
+
+                foreach ($query as $datos) {
+
+
+                    $datosF = $datos[0];
+                    $fotos = Foto::dataFotos($datosF[0]);
+    
+                    $urlFotoPerfil = $fotos->fetch();
+                    echo "
+                    <div class='perfil'>
+    
+                        <div class='header'>
+                            <div class='btn_tabs'>
+                                <i class='fas fa-info-circle'></i>
+                                <i class='fas fa-image'></i>
+                                <i class='fas fa-syringe'></i>
+                            </div>
+                            
+                            <div class='fotoPerfil'>
+                                <img src='publico/images/$urlFotoPerfil'>
+                            </div>
+                            
+                            <h2 class='nombreAnimal'>$datos[1]</h2>
+    
+                        <div class='adoptadoORadoptar'>
+                        <span>información legal de la adopción</span>
+                        <strong>Fecha de adopción: $datos[13]</strong>
+                        </div>
+    
+                        </div>
+    
+                        <div class='perfilTabsItems'>
+                            <div class='descripcion'>
+                                <h4>Descripción</h4>
+                                <p>$datos[8]</p>
+                            </div>
+    
+                            <div class='informacion'>
+                                <table>
+                                    <tr>
+                                        <td>Especie:</td>
+                                        <td>$datos[2]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raza:</td>
+                                        <td>$datos[3]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Color:</td>
+                                        <td>$datos[4]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sexo:</td>
+                                        <td>".genero($datos[5])."</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Edad:</td>
+                                        <td>".edad($datos[6])."</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Esterilizado:</td>
+                                        <td>".esterilizado($datos[7])."</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Procedencia:</td>
+                                        <td>$datos[9]</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+    
+                        <div class='perfilTabsItems'>
+                            <div class='fotos'>
+                                "; 
+                                foreach($fotos as $urlsTodas){
+                                    echo "<img src='publico/images/$urlsTodas[1]'>";
+                                }
+                                echo "
+                            </div>
+                        </div>
+    
+                        <div class='perfilTabsItems'>
+                            <div class='vacunas'>
+                                <h3>Vacunas aplicadas:</h3>
+                                <div class='vacuna'>
+                                rataviru 
+                                    <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        ";
+                        echo " 
+                        <script src='publico/js/perfilTabs.js'></script>
+                        <script>
+                        perfilTabs();
+                        </script>
+                        ";
+                }
+            }else{
+                echo " <div class='noAdopcion'>
+
+                <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
+                <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Adoptar</a></div>
+
+                <div class='husky'>
+                <div class='mane'>
+                    <div class='coat'></div>
+                </div>
+                <div class='body'>
+                    <div class='head'>
+                    <div class='ear'></div>
+                    <div class='ear'></div>
+                    <div class='face'>
+                        <div class='eye'></div>
+                        <div class='eye'></div>
+                        <div class='nose'></div>
+                        <div class='mouth'>
+                        <div class='lips'></div>
+                        <div class='tongue'></div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class='torso'></div>
+                </div>
+                <div class='legs'>
+                    <div class='front-legs'>
+                    <div class='leg'></div>
+                    <div class='leg'></div>
+                    </div>
+                    <div class='hind-leg'>
+                    </div>
+                </div>
+                <div class='tail'>
+                    <div class='tail'>
+                    <div class='tail'>
+                        <div class='tail'>
+                        <div class='tail'>
+                            <div class='tail'>
+                            <div class='tail'></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                
+                </div> ";
+            }
+        } catch (Exception $e) {
+            exit("ERROR AL MOSTRAR ANIMALITO]: ".$e->getMessage());
+        }
+    }
 }
 
 ?>

@@ -1755,6 +1755,172 @@
   background: whitesmoke;
 }
 
+.noAdopcion {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 10px auto;
+}
+.noAdopcion .mensajeAdopta, .noAdopcion .mensajeApadrina {
+  max-width: 300px;
+  text-align: center;
+  position: absolute;
+}
+.noAdopcion .mensajeAdopta .btn_naranja, .noAdopcion .mensajeApadrina .btn_naranja {
+  padding: 3px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+.noAdopcion .mensajeAdopta {
+  top: 20%;
+  left: 4%;
+}
+.noAdopcion .mensajeApadrina {
+  top: 40%;
+  right: 4%;
+}
+
+.perfil {
+  margin: auto;
+  width: 90%;
+  padding: 4%;
+  border-radius: 32px;
+  box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
+  position: relative;
+}
+.perfil .header {
+  display: flex;
+  position: relative;
+}
+.perfil .header .fotoPerfil {
+  width: 204px;
+  height: 204px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.perfil .header .fotoPerfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.perfil .header .btn_tabs {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+.perfil .header .btn_tabs i {
+  font-size: 40px;
+  margin: 0 30px;
+}
+.perfil .header .nombreAnimal {
+  position: absolute;
+  top: 70px;
+  right: 40%;
+  font-size: 40px;
+}
+.perfil .adoptadoORadoptar {
+  display: flex;
+  font-size: 16px;
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+}
+.perfil .adoptadoORadoptar strong {
+  margin: 0 10px;
+}
+.perfil .adoptadoORadoptar span {
+  margin: 0 10px;
+  color: gray;
+}
+.perfil .perfilTabsItems {
+  display: flex;
+  margin-top: 20px;
+}
+.perfil .descripcion {
+  background: whitesmoke;
+  padding: 30px;
+  width: 40%;
+  border-radius: 44px;
+  margin: 0 auto;
+}
+.perfil .descripcion p {
+  margin: 10px 0;
+}
+.perfil .informacion {
+  padding: 30px;
+  width: 50%;
+  background: whitesmoke;
+  border-radius: 44px;
+  margin: auto;
+}
+.perfil .informacion table {
+  width: 100%;
+}
+.perfil .informacion tr {
+  position: relative;
+}
+.perfil .informacion tr td {
+  padding: 2px;
+  width: 50%;
+  border-bottom: 0.5px solid rgba(158, 158, 158, 0.534);
+}
+.perfil .informacion tr td:nth-child(2) {
+  text-align: right;
+}
+.perfil .fotos {
+  padding: 20px;
+  border-radius: 44px;
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+.perfil .fotos img {
+  border-radius: 10px;
+  margin: 5px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: solid 1px rgba(128, 128, 128, 0.141);
+}
+.perfil .vacunas {
+  width: 70%;
+  margin: auto;
+  border-radius: 44px;
+  background: whitesmoke;
+  padding: 40px;
+}
+.perfil .vacunas .vacuna {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
+  text-align: center;
+  margin: 10px 0;
+  position: relative;
+}
+.perfil .vacunas .vacuna:hover .descripcionVacuna {
+  display: block;
+}
+.perfil .vacunas .vacuna .descripcionVacuna {
+  display: none;
+  position: absolute;
+  right: -5px;
+  background: #c7c7c7;
+  border-radius: 20px;
+  color: white;
+  max-width: 200px;
+  padding: 20px;
+}
+.perfil .vacunas .vacuna .descripcionVacuna i {
+  position: absolute;
+  top: -20px;
+  font-size: 30px;
+  color: #c7c7c7;
+}
+
 /*-------------------- INDEX -------------------- */
 
 /*# sourceMappingURL=index.css.map */
