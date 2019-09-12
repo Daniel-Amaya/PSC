@@ -1,7 +1,7 @@
 <section class='margin-menu padding-menu boxPerroAzul'>
     <ul class='navegador-tabs'>
         <li class='tabsItemUser'><strong>Mis mascotas</strong></li>
-        <li class='tabsItemUser'><strong>Mis apadrinajes</strong></li>
+        <li class='tabsItemUser'><strong>Mis apadrinamientos</strong></li>
         <li class='tabsItemUser'><strong>Mis donaciones</strong></li>
         <li class='tabsItemUser'><strong>Mi información</strong></li>
     </ul> 
@@ -47,16 +47,52 @@
     </div>
 
     <div class="tabBox">
-        <h2 class="title">Mis apadrinajes</h2>
+        <h2 class="title">Mis apadrinamientos</h2>
         <?php
         require 'vista/vacio.php';
         ?>
     </div>
+
     <div class="tabBox">
-3
+        <h2 class="title">Mis donaciones</h2>
+
     </div>
+
     <div class="tabBox">
-4
+        <h2 class="title">Mi información</h2>
+        <div class="perfilUsuario">
+
+            <div class="header">
+                <div class="fotoPerfil">
+                    <img src="publico/images/<?php echo $datosDelUsuario[8] ?>">
+                </div>
+                <div class="btn_editar">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <div class="nombreUsuario">
+                    <?php 
+                    echo $datosDelUsuario[1] . ' ' . $datosDelUsuario[2];
+                    ?>
+                </div>
+            </div>
+
+            <div class="informacion">
+                <table>
+                    <tr>
+                        <td>Correo:</td>
+                        <td><?php echo $datosDelUsuario[3] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Teléfono:</td>
+                        <td><?php echo $datosDelUsuario[4] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Cedula:</td>
+                        <td><?php echo $datosDelUsuario[5] ?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </section>
 

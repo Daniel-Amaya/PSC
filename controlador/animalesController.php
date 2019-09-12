@@ -1,9 +1,5 @@
 <?php 
 
-// require '../modelo/connect.php';
-// require '../modelo/animales.php';
-
-
 class AnimalesController extends Animal{
 
     public function mostrarDatosDeTodosGeneral(){
@@ -354,8 +350,7 @@ class AnimalesController extends Animal{
     // Animalitos usuario
     
     public function mostrarAnimalesAdoptados($idUsuario){
-
-        $con = parent::conectar();
+            $con = parent::conectar();
         try {
             $query = $con->prepare("SELECT animales.*, usuarios.id AS idUsuario, adopciones.numAdopcion, adopciones.fechaAdopcion  FROM adopciones, usuarios, animales WHERE animales.id = idAnimalAdoptado AND adopciones.idUsuario = usuarios.id AND usuarios.id = :idUsuario");
             $query->bindParam(':idUsuario', $idUsuario);
@@ -372,6 +367,7 @@ class AnimalesController extends Animal{
                     $fotos = Foto::dataFotos($datos[0]);
     
                     $urlFotoPerfil = $fotos->fetch();
+
                     echo "
                     <div class='perfil'>
     
@@ -519,6 +515,7 @@ class AnimalesController extends Animal{
             exit("ERROR AL MOSTRAR ANIMALITO]: ".$e->getMessage());
         }
     }
+    
 }
 
 ?>

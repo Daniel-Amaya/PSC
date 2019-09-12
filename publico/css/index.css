@@ -1924,6 +1924,70 @@
   color: #c7c7c7;
 }
 
+.perfilUsuario {
+  margin: auto;
+  width: 90%;
+  padding: 4%;
+  border-radius: 32px;
+  box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
+  position: relative;
+}
+.perfilUsuario .header {
+  display: flex;
+  position: relative;
+}
+.perfilUsuario .header .fotoPerfil {
+  width: 204px;
+  height: 204px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.perfilUsuario .header .fotoPerfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.perfilUsuario .header .btn_editar {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+.perfilUsuario .header .btn_editar i {
+  font-size: 40px;
+  margin: 0 30px;
+}
+.perfilUsuario .header .nombreUsuario {
+  padding: 0 200px;
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+.perfilUsuario .informacion {
+  margin: 10px auto;
+  padding: 30px;
+  width: 90%;
+  background: whitesmoke;
+  border-radius: 44px;
+}
+.perfilUsuario .informacion table {
+  margin: auto;
+  width: 50%;
+}
+.perfilUsuario .informacion tr {
+  position: relative;
+}
+.perfilUsuario .informacion tr td {
+  padding: 2px;
+  width: 50%;
+  border-bottom: 0.5px solid rgba(158, 158, 158, 0.534);
+}
+.perfilUsuario .informacion tr td:nth-child(2) {
+  text-align: right;
+}
+
 /*-------------------- INDEX -------------------- */
 
 /*# sourceMappingURL=index.css.map */
