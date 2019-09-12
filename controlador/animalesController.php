@@ -363,14 +363,13 @@ class AnimalesController extends Animal{
 
             if($query->rowCount() > 0){
 
-                require_once 'controlador/funciones.php';
                 require_once 'modelo/fotos.php';
+
+                require_once 'controlador/funciones.php';
 
                 foreach ($query as $datos) {
 
-
-                    $datosF = $datos[0];
-                    $fotos = Foto::dataFotos($datosF[0]);
+                    $fotos = Foto::dataFotos($datos[0]);
     
                     $urlFotoPerfil = $fotos->fetch();
                     echo "
@@ -384,7 +383,7 @@ class AnimalesController extends Animal{
                             </div>
                             
                             <div class='fotoPerfil'>
-                                <img src='publico/images/$urlFotoPerfil'>
+                                <img src='publico/images/$urlFotoPerfil[1]'>
                             </div>
                             
                             <h2 class='nombreAnimal'>$datos[1]</h2>

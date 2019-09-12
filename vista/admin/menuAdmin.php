@@ -7,7 +7,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
 
 ?>
 
-<header id='menuL' class='menuLateral'>
+<header id='menuL' class='menuLateral menuLW'>
     <!-- <span class='pointer'><i class="fas fa-times"></i></span> -->
     <div class="nav-logo row">
         <?php
@@ -59,5 +59,5 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
     </div>
 </nav>
 <!-- <script src="publico/js/ajax/cerrarSesion.js"></script> -->
-<script src="publico/js/shadowMenuNaranja.js"></script>
+<script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>

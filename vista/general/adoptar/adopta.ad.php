@@ -9,7 +9,10 @@ include 'modelo/fotos.php';
 <section class='margin-menu adoptargeneral'>
 
     <aside>
-        <p class='adopta-message'>Podrás ver algunos animalitos disponibles para adoptar, pero recuerda que primero debes inciar sesión, si no tienes una cuenta, no esperes más para crear una</p>
+        <div class='adopta-message'>
+            <h3 class='titulo'>Adopta</h3>
+            Podrás ver algunos animalitos disponibles para adoptar, pero recuerda que primero debes inciar sesión, si no tienes una cuenta, no esperes más para crear una
+</div>
 
         <div class="main">
             <span class="stand"></span>

@@ -66,25 +66,26 @@
 
 .titulo{
 	text-transform: uppercase;
-	font-size: 1.3rem;
-	letter-spacing: 1px;
-	margin-right: -1px;
+    /* font-size: 1.3rem; */
+    /* letter-spacing: 1px; */
+    /* margin-right: -1px; */
     margin-bottom: 4rem;
-    margin-top: 2rem;
-	text-align: center;
-	color: #333;
-	position: relative;
+    margin-top: 7rem;
+    text-align: center;
+    color: #333;
+    position: relative;
 }
 .titulo::after{
-	content: "";
-	width: 8rem;
-	height: .5rem;
-	background-color: #ff7f04;
-	position: absolute;
-	bottom: -2rem;
-	left: 50%;
-	transform: translateX(-50%);
-	border-radius: 2rem; 
+	font-weight: 700;
+    content: "";
+    width: 8rem;
+    height: 0.5rem;
+    background-color: #ff7f04;
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    @include transforms(translateX(-50%));
+    border-radius: 2rem;
 }
 
 .title{

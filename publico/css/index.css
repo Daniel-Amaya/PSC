@@ -365,6 +365,9 @@
   justify-content: center;
   align-items: center;
 }
+.adopta-index .titulo {
+  margin: 0 0 70px 0 !important;
+}
 
 /*-------------------------------*\
           FININDEXADOPTA

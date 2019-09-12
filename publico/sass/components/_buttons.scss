@@ -16,6 +16,19 @@
     }
 }
 
+%btnsB{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    @include transitions(0.5s);
+    cursor: pointer;
+    background: white;
+    &:hover{
+        color: black !important;
+        border-color: black !important; 
+    }
+}
+
 .btn_rojo{
     @extend %btns;
     background: $color-secundario;
@@ -60,6 +73,14 @@
         border-color: rgb(158, 158, 158) !important;
         color: rgb(158, 158, 158);
     }
+}
+
+.btnB_cafe{
+    @extend %btnsB;
+    border: sienna solid 1px;
+    color: sienna !important;
+
+    
 }
 
 

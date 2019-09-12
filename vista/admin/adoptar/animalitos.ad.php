@@ -7,7 +7,7 @@ include 'modelo/fotos.php';
 
 <script>
 
-cambiarEstructura('Animalitos', [['#', 'btn_cafe newAn', 'Agregar animalito']]);
+cambiarEstructura('Animalitos', [['#', 'btnB_cafe newAn', 'Agregar animalito']]);
 
 classNames('newAn')[0].addEventListener('click', function(){
     classNames('animalitosInfo')[0].style.display = 'none';
