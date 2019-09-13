@@ -5,19 +5,7 @@ include 'modelo/fotos.php';
 
 ?>
 
-<script>
-
-cambiarEstructura('Animalitos', [['#', 'btnB_cafe newAn', 'Agregar animalito']]);
-
-classNames('newAn')[0].addEventListener('click', function(){
-    classNames('divTableDatos')[0].style.display = 'none';
-    classNames('fielNewAnimalito')[0].style.display = 'block';
-    classNames('titleAnimalitos')[0].style.display = 'none';
-});
-
-</script>
-
-<script src="publico/js/modal.js"></script>
+<!-- <script src="publico/js/modal.js"></script> -->
 
 <div class="animalitos margin-menu padding-menu">
 
@@ -57,11 +45,22 @@ classNames('newAn')[0].addEventListener('click', function(){
             </form> 
         </aside>
 
-        <h3 class='titleAnimalitos'>
+        <h3 class='textoDeTitulo'>
         Aquí vas a encontrar todos los animalitos registrados, puedes usar el filtro para buscar mejor los animalitos:
         </h3>
 
         <div class="divTableDatos">
+            <div class="navTable">
+                <div class="buttonsTable">
+                    <button class='btn_naranja btn_largo' onclick="agregarAnimalitos()">Agregar animalito</button>
+                </div>
+                <div class="nombreIndicador">
+                    Animalitos
+                </div>
+                <div class="buscarTable">
+                    <i class='fas fa-search'></i>
+                </div>
+            </div>
             <table class='animalitosInfo'>
                 <thead>
                     <tr>
@@ -69,6 +68,7 @@ classNames('newAn')[0].addEventListener('click', function(){
                         <th>Nombre</th>
                         <th>Especie</th>
                         <th>Adoptado</th>
+                        <th>Vacunas</th>
                         <th>Fotos</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
@@ -89,6 +89,6 @@ classNames('newAn')[0].addEventListener('click', function(){
     function agregarAnimalitos(){
         classNames('divTableDatos')[0].style.display = 'none';
         classNames('fielNewAnimalito')[0].style.display = 'block';
-        classNames('titleAnimalitos')[0].style.display = 'none';
+        classNames('textoDeTitulo')[0].style.display = 'none';
     }
     </script>

@@ -41,11 +41,6 @@ aside {
   margin: 10px auto;
 }
 
-.titleAnimalitos {
-  padding: 40px 10%;
-  text-align: center;
-}
-
 .animalitosInfo {
   border-spacing: 0;
   border-collapse: inherit;
@@ -813,8 +808,29 @@ FINFORMULARIO FOTOS NUEVO ANIMALITO
 /*-------------------------------*\
  FORMULARIO VACUNAS DEL ANIMALITO 
 \*-------------------------------*/
+.form_3 .titulo {
+  margin-top: 20px;
+}
 .form_3 form {
-  width: 40%;
+  padding: 20px;
+}
+.form_3 .vacunasBox {
+  margin: 20px 0;
+  width: 50%;
+}
+.form_3 .vacunasBox label {
+  margin-left: 30px;
+}
+.form_3 .infoVacunasSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  height: 250px;
+  width: 50%;
+  border-radius: 44px;
+  background: whitesmoke;
   padding: 20px;
 }
 
@@ -866,6 +882,26 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   box-shadow: 5px 5px 15px rgba(100, 100, 100, 0.5);
   background: white;
   border-radius: 44px;
+}
+.divTableDatos .navTable {
+  display: flex;
+}
+.divTableDatos .navTable .buttonsTable {
+  min-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divTableDatos .navTable .nombreIndicador {
+  min-width: 60%;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 900;
+}
+.divTableDatos .navTable .buscarTable {
+  width: 10%;
+  font-size: 40px;
+  text-align: right;
 }
 .divTableDatos table {
   width: 100%;

@@ -33,7 +33,7 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
         </div>
 
 
-        <script src='publico/js/fotosAjax.js'></script> 
+        <script src='publico/js/ajax/fotosAjax.js'></script> 
         <script>
             document.addEventListener('DOMLoadedContent', fotosAjax('fotos=".$_GET['fotos']."', mostrarFotos));
     </script>";

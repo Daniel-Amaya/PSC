@@ -29,9 +29,6 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <li><a href="" clas='rayita-naranja'>Contacto</a></li>
     </ul>
 
-    <ul id='nuevosBotones'>
-        
-    </ul>
 </header>
 
 <nav>

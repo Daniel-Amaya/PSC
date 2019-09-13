@@ -7,6 +7,27 @@
     background: white;
     border-radius: 44px;
 
+    .navTable{
+        display: flex;
+        .buttonsTable{
+            min-width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nombreIndicador{
+            min-width: 60%;
+            font-size: 40px;
+            text-align: center;
+            font-weight: 900;
+        }
+        .buscarTable{
+            width: 10%;
+            font-size: 40px;
+            text-align: right;
+        }
+    }
+
     table{
         width: 100%;
         border-spacing: 0 20px;

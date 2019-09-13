@@ -171,6 +171,11 @@ button {
   box-shadow: 0px 0px 15px #646464;
 }
 
+.textoDeTitulo {
+  padding: 40px 10%;
+  text-align: center;
+}
+
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/

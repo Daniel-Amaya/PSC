@@ -166,8 +166,29 @@ FINFORMULARIO FOTOS NUEVO ANIMALITO
 \*-------------------------------*/
 
 .form_3{
+    .titulo{
+        margin-top: 20px;
+    }
     form{
-        width: 40%;
+        padding: 20px;
+    }
+    .vacunasBox{
+        margin: 20px 0;
+        width: 50%;
+        label{
+            margin-left: 30px;
+        }
+    }
+    .infoVacunasSelect{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+        height: 250px;
+        width: 50%;
+        border-radius: 44px;
+        background: whitesmoke;
         padding: 20px;
     }
 }

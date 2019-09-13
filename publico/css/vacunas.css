@@ -1,0 +1,105 @@
+/*-------------------- VACUNAS -------------------- */
+/*------------------------------*\
+    $COLORES
+\*-------------------------------*/
+/**
+    Colores principales de la pagina
+**/
+/** 
+    Colores de redes sociales
+**/
+/** 
+    Colores de animales 
+**/
+.divTableDatos {
+  margin: 0 auto;
+  width: 90%;
+  padding: 5%;
+  box-shadow: 5px 5px 15px rgba(100, 100, 100, 0.5);
+  background: white;
+  border-radius: 44px;
+}
+.divTableDatos .navTable {
+  display: flex;
+}
+.divTableDatos .navTable .buttonsTable {
+  min-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divTableDatos .navTable .nombreIndicador {
+  min-width: 60%;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 900;
+}
+.divTableDatos .navTable .buscarTable {
+  width: 10%;
+  font-size: 40px;
+  text-align: right;
+}
+.divTableDatos table {
+  width: 100%;
+  border-spacing: 0 20px;
+  border-collapse: inherit;
+}
+.divTableDatos table thead {
+  background: rgba(212, 212, 212, 0.58);
+}
+.divTableDatos table thead tr, .divTableDatos table thead td, .divTableDatos table thead th {
+  background: rgba(212, 212, 212, 0.58);
+}
+.divTableDatos table tbody tr {
+  margin: 10px 0;
+  box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
+}
+
+.mostrarVacunas td {
+  width: 50%;
+  text-align: center;
+}
+.mostrarVacunas .vacuna {
+  width: 98%;
+  margin: auto;
+  background: white;
+}
+.mostrarVacunas .vacuna:hover .informacionVacuna {
+  height: 200px;
+  padding: 0px 10px;
+}
+.mostrarVacunas .vacuna .nameAndButtons {
+  padding: 5px 10px;
+  box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
+  display: flex;
+}
+.mostrarVacunas .vacuna .nameAndButtons .nombreVacuna {
+  width: 95%;
+}
+.mostrarVacunas .vacuna .informacionVacuna {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
+  height: 0px;
+  overflow: hidden;
+  margin: 10px 0;
+  padding: 0px 10px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+.mostrarVacunas .noVacunas {
+  margin: auto;
+  height: 200px;
+  width: 98%;
+  box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*-------------------- VACUNAS -------------------- */
+
+/*# sourceMappingURL=vacunas.css.map */

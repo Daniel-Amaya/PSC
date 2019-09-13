@@ -26,41 +26,5 @@ function menuL(){
     
 }
 
- 
-function cambiarEstructura(nombre, botones){
-
-    menu.getElementsByClassName('indicador')[0].textContent = nombre;
-    let i = document.createElement('i');
-    i.className = 'fas fa-angle-down';
-    menu.getElementsByClassName('indicador')[0].appendChild(i);
-    let navegador = id('navegador');
-    navegador.classList.add('recojer-menu');
-
-    menu.getElementsByClassName('indicador')[0].addEventListener('click', function(){
-
-        let nuevosbtn = id('nuevosBotones');
-        if(navegador.classList == 'recojer-menu'){
-            nuevosbtn.classList.add('recojer-menu');
-            navegador.classList.remove('recojer-menu');
-        }else{
-            nuevosbtn.classList.remove('recojer-menu');
-            navegador.classList.add('recojer-menu');
-        }
-
-    });
-    for(let i = 0; i < botones.length; i++){
-        let li = document.createElement('li');
-        let ahref = document.createElement('a');
-        ahref.href = botones[i][0];
-        ahref.className = botones[i][1];
-        ahref.innerHTML = botones[i][2];
-        li.appendChild(ahref);
-
-        id('nuevosBotones').appendChild(li);
-    }
-
-
-}
-
 
 

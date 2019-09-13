@@ -24,17 +24,16 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
     <hr>
 
     <ul id='navegador'>
-        <li><a href="" clas='rayita-blanca'>Vacunas</a></li>
+        <li><a href="vacunas.php" clas='rayita-blanca'>Vacunas</a></li>
         <li><a href="" clas='rayita-blanca'>Calendario</a></li>
         <li><a href="animalitos.php" clas='rayita-blanca'>Animalitos</a></li>
         <li><a href="" clas='rayita-blanca'>Apadrinajes</a></li>
         <li><a href="" clas='rayita-blanca'>Donaciones</a></li>
     </ul>
 
-    <ul id='nuevosBotones'>
-        
-    </ul>
 </header>
+
+
 <nav>
     <div class="nav-items">
         <ul class="row">
