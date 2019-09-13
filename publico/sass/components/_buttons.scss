@@ -10,9 +10,12 @@
     outline: none;
     @include transitions(0.5s);
     cursor: pointer;
+    text-align: center;
 
     &.btn_largo{
+        display: block;
         width: 100% !important;
+        
     }
 }
 

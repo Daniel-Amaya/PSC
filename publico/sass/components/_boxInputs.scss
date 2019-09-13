@@ -12,7 +12,6 @@
 .boxInput{
     width: 100%;
     padding: 10px;
-    color: $color-principal;
     position: relative;
 
     input{
@@ -62,6 +61,21 @@
         font-size: 14px;
         right: 13px;
         color: red;
+    }
+}
+
+.boxRadio{
+    padding: 10px;
+    display: flex;
+
+    .pregunta{
+        margin-right: 10px;
+    }
+
+    label{
+        font-size: 17px;
+        font-weight: 600;
+        margin: 0 10px;
     }
 }
 

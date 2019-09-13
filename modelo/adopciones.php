@@ -6,10 +6,14 @@ class Adopcion extends Conexion{
         $con = parent::conectar();
         try {
             if($idUsuario != ""){
-                $query = $con->prepare("SELECT * FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = :idUsuario");
+
+                $query = $con->prepare("SELECT animales.*, usuarios.id AS idUsuario, adopciones.numAdopcion, adopciones.fechaAdopcion  FROM adopciones, usuarios, animales WHERE animales.id = idAnimalAdoptado AND adopciones.idUsuario = usuarios.id AND usuarios.id = :idUsuario");
+
                 $query->bindParam(':idUsuario', $idUsuario);
                 $query->execute();
+
             }else{
+
                 $query = $con->query("SELECT * FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id");
             }
 

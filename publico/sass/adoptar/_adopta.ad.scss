@@ -31,27 +31,6 @@ aside{
 
 
 
-// .galeria{
-//     display: flex;
-//     flex-wrap: wrap;
-//     background: white;
-//     padding: 10px;
-//     margin: 10px 0;
-//     .imageItem{
-//         margin: 10px;
-//         max-width: 250px;
-//         position: relative;
-//         max-height: 250px;
-//         img{
-//             width: 100%;
-//             height: 100%;
-//             object-fit: cover;
-//             box-shadow: 0px 0px 1px black;
-//         }
-//     }
-// }
-
-
 // Admin
 
 .titleAnimalitos{
@@ -67,7 +46,6 @@ aside{
     margin: auto;
 
     thead{
-        background: $color-principal;
         th{
             @for $i from 2 through 4{
                 &:nth-child(#{$i}){
@@ -75,23 +53,16 @@ aside{
                 }
         
             }
-
-            color: white;
-            // background: $color-principal;
-            font-weight: 800;
-            padding: 5px;
-            border: solid 1px $color-principal;
+            padding: 10px 0;
         }
     }
 
     tbody{
         background: whitesmoke;
         tr{
-            cursor: pointer;
             transition: .5s;
-            background: rgba(212, 212, 212, 0.377);
             &:hover{
-                background: rgb(255, 255, 255);
+
             }
         }
    
@@ -99,7 +70,6 @@ aside{
             font-weight: 100;
             padding: 4px 0;
             text-align: center;
-            border-bottom: solid 1px rgba(212, 212, 212, 0.548);
             a{
                 height: 40px;
                 padding: 1px 20px;

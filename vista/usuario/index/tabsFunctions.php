@@ -10,15 +10,14 @@
         <h2 class="title">Mis mascotas</h2>
 
        <?php
-       require_once 'modelo/animales.php';
-       require_once 'controlador/animalesController.php';
+       require_once 'modelo/adopciones.php';
+       require_once 'controlador/adopcionesController.php';
 
-       AnimalesController::mostrarAnimalesAdoptados($_SESSION['sesion_usuario']['id']);
+       AdopcionesController::mostrarMiAnimalAdoptado($_SESSION['sesion_usuario']['id']);
         ?>
 
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:flex">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:flex">
             <defs>
-
                 
                 <filter id="squiggly-0">
                 <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
@@ -43,7 +42,7 @@
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
                 </filter>
             </defs> 
-            </svg> -->
+        </svg> -->
     </div>
 
     <div class="tabBox">
@@ -64,7 +63,13 @@
 
             <div class="header">
                 <div class="fotoPerfil">
-                    <img src="publico/images/<?php echo $datosDelUsuario[8] ?>">
+                <?php if($datosDelUsuario[8] == ""){
+                    echo " <img src='publico/images/fotoPerfilVacia.png'>";
+                }else{
+                    echo " <img src='publico/images/$datosDelUsuario[8]'>";
+                }
+                 ?>
+                    <img src="publico/images/$datosDelUsuario[8]">
                 </div>
                 <div class="btn_editar">
                     <i class="fas fa-user-edit"></i>

@@ -26,7 +26,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
     <ul id='navegador'>
         <li><a href="" clas='rayita-blanca'>Vacunas</a></li>
         <li><a href="" clas='rayita-blanca'>Calendario</a></li>
-        <li><a href="adoptar.php" clas='rayita-blanca'>Animalitos</a></li>
+        <li><a href="animalitos.php" clas='rayita-blanca'>Animalitos</a></li>
         <li><a href="" clas='rayita-blanca'>Apadrinajes</a></li>
         <li><a href="" clas='rayita-blanca'>Donaciones</a></li>
     </ul>

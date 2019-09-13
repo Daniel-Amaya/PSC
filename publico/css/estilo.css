@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -11,7 +12,6 @@
 /** 
     Colores de animales 
 **/
-@import url("../fonts/PatuaOne-Regular.ttf");
 .rayita-blanca::before, .rayita-naranja::before {
   content: "";
   position: absolute;
@@ -185,8 +185,10 @@ button {
   -o-transition: 0.5s;
   -moz-transition: 0.5s;
   cursor: pointer;
+  text-align: center;
 }
 .btn_largo.btn_gris, .btn_largo.btn_naranja, .btn_largo.btn_cafe, .btn_largo.btn_rojo {
+  display: block;
   width: 100% !important;
 }
 
@@ -200,6 +202,10 @@ button {
   -moz-transition: 0.5s;
   cursor: pointer;
   background: white;
+}
+.btnB_cafe:hover {
+  color: black !important;
+  border-color: black !important;
 }
 
 .btn_rojo {
@@ -241,10 +247,6 @@ button {
 .btnB_cafe {
   border: sienna solid 1px;
   color: sienna !important;
-}
-.btnB_cafe:hover {
-  color: black !important;
-  border-color: black !important;
 }
 
 /*-------------------------------*\
@@ -1836,7 +1838,6 @@ button {
 .boxInput {
   width: 100%;
   padding: 10px;
-  color: #ff7f04;
   position: relative;
 }
 .boxInput textarea {
@@ -1874,6 +1875,19 @@ button {
   font-size: 14px;
   right: 13px;
   color: red;
+}
+
+.boxRadio {
+  padding: 10px;
+  display: flex;
+}
+.boxRadio .pregunta {
+  margin-right: 10px;
+}
+.boxRadio label {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 10px;
 }
 
 .boxCheck {

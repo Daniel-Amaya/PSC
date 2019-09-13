@@ -178,12 +178,14 @@ class AnimalesController extends Animal{
                     $verfifcarAdopcion->execute();
 
                     if($verfifcarAdopcion->rowCount() > 0){
-                        echo " <tr>
-                        <td style='background: red' onclick='crearModal(\" $datos[1] \", 
-                        \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>".genero($datos[5])."</li><li>".edad($datos[6])."</li><li>".esterilizado($datos[7])."</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'><img src='publico/images/$urlFotoPerfil[1]'></td>
+
+                        $idsAdopcion = $verfifcarAdopcion->fetch();
+                        echo " 
+                    <tr>
+                        <td onclick=''><img src='publico/images/$urlFotoPerfil[1]'></td>
                         <td>$datos[1]</td>
                         <td>$datos[2]</td>
-                        <td>$datos[3]</td>
+                        <td><a href='adoptar.php?adopcion=$idsAdopcion[0]'>Ver adopción</a></td>
                         <td><a href='?fotos=$datos[0]' class='btn_cafe'>Fotos</a></td>
                         <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                         <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
@@ -191,12 +193,12 @@ class AnimalesController extends Animal{
                     </tr> ";
                     }else{
 
-                        echo " <tr>
-                            <td onclick='crearModal(\" $datos[1] \", 
-                            \" <div class=animalitosAdminInfo><ul><li>Especie:</li><li>Raza:</li><li>Color:</li><li>Sexo:</li><li>Edad:</li><li>Esterilizado:</li><li>Procedencia:</li></ul><ul><li>$datos[2]</li><li>$datos[3]</li><li>$datos[4]</li><li>".genero($datos[5])."</li><li>".edad($datos[6])."</li><li>".esterilizado($datos[7])."</li><li>$datos[9]</li></ul></div> \", \" <button class=btn_cafe>Editar</button><button class=btn_cafe>Ver fotos</button> \" );'><img src='publico/images/$urlFotoPerfil[1]'></td>
+                        echo " 
+                        <tr>
+                            <td onclick=''><img src='publico/images/$urlFotoPerfil[1]'></td>
                             <td>$datos[1]</td>
                             <td>$datos[2]</td>
-                            <td>$datos[3]</td>
+                            <td>No</td>
                             <td><a href='?fotos=$datos[0]' class='btn_cafe'>Fotos</a></td>
                             <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                             <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
@@ -258,18 +260,21 @@ class AnimalesController extends Animal{
             if($datos->rowCount() > 0){
                 $datos = $datos->fetch();
 
-                echo "<fieldset class='fielNewAnimalito margin-menu padding-menu'>
+                $foto = Foto::dataFotos($datos[0]);
+                $fotoDePerfil = $foto->fetch();
 
-                <h2 class='center'>Editar datos de la mascota</h2>
+                echo "<fieldset class='editarAnimalito padding-menu'>
+
+                <h2 class='titulo'>Editar mascota</h2>
+
+                <div class='row'>
                 
-                <form method='post' class='newAnimalito' id='editAnimalito'>
+                <form method='post' id='editAnimalito'>
                     <div class='boxInput'>
-                        <label for='nombreAnE'>Nombre del animalito</label>
                         <input type='text' placeholder='nombre del perrito' name='nombreAnE' value='$datos[1]'>
                     </div>
-
+                        
                     <div class='boxInput'>
-                        <label for='especieE'>Especie</label>
                         <select name='especieE'>
                             <option value='Perro'>Perro</option>
                             <option value='Gato'>Gato</option>
@@ -277,67 +282,102 @@ class AnimalesController extends Animal{
                     </div>
 
                     <div class='boxInput'>
-                        <label for='razaE'>Raza</label>
                         <input type='text' placeholder='raza' name='razaE' value='$datos[3]'>
                     </div>
 
                     <div class='boxInput'>
-                        <label for='colorE'>Color</label>
                         <input type='text' placeholder='color' name='colorE' value='$datos[4]'>
                     </div>
 
                     <div class='boxInput'>
-                    <label for='sexoE'>Sexo</label>
-
+                    
                         <select name='sexoE'>
                             // <option value='>Sexo</option>
                             <option value='M'>Masculino</option>
                             <option value='F'>Femenino</option>
                         </select>
                     </div>
+                    
+                        <div class='boxInput'>
+                            <input type='number' name='edad' value='$datos[6]'>
+                        </div>
 
-                    <div class='boxInput'>
-                        <label for='edad'>Fecha de nacimiento</label>
-                        <input type='number' name='edad' value='$datos[6]'>
-                    </div>
-
-                    <div class='boxInput'>
-                        <h3>¿Esterilizado?</h3>
+                    <div class='boxRadio'>
+                        <h3 class='pregunta'>¿Esterilizado?</h3>
                         <label for='si'>Sí</label>
                         <input type='radio' name='esterilizadoE' id='si' value='si'>
                         <label for='no'>No</label>
                         <input type='radio' name='esterilizadoE' id='no' value='no'>
                     </div>
-
+                        
                     <div class='boxInput'>
-                        <label for='descripcionE'>Descripción</label>
                         <textarea name='descripcionE' placeholder='descripcion del animalito' rows='4'>$datos[8]</textarea>
                     </div>
-
+                        
                     <div class='boxInput'>
-                        <label for='procedenciaE'>Procedencia</label>
                         <input type='text' name='procedenciaE' placeholder='procedencia' value='$datos[9]'>
                     </div>
 
                     <input type='hidden' id='idE' value='$datos[0]'>
-
-
+                    
+                    
                     <div class='boxInput'>
                         <input type='submit' value='Enviar cambios'>
-                        
                     </div>
-
+                    
                 </form>
-                <div class='boxInput' style='margin: auto; width: 53%'>
-                <button class='btn_naranja btn_largo' onclick='window.location = \"adoptar.php\"' >Cancelar</button>
+                
+                <div class='informacionPrevia'>
+                    <div class='fotoPerfil'><img src='publico/images/$fotoDePerfil[1]'></div>
+                    <h4>Información previa</h4>
+            
+                    <table>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td>$datos[1]</td>
+                        </tr>
+                        <tr>
+                            <td>Especie</td>
+                            <td>$datos[2]</td>
+                        </tr>
+                        <tr>
+                            <td>Raza</td>
+                            <td>$datos[3]</td>
+                        </tr>
+                        <tr>
+                            <td>Color:</td>
+                            <td>$datos[4]</td>
+                        </tr>
+                        <tr>
+                            <td>Edad:</td>
+                            <td>$datos[5]</td>
+                        </tr>
+                        <tr>
+                            <td>Sexo:</td>
+                            <td>$datos[6]</td>
+                        </tr>
+                        <tr>
+                            <td>Esterilizado:</td>
+                            <td>$datos[7]</td>
+                        </tr>
+                        <tr>
+                            <td>Procedencia:</td>
+                            <td>$datos[9]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+                        
+                        <div class='boxInput' style='margin: auto; width: 53%'>
+                        <button class='btn_naranja btn_largo' onclick='window.location = \"animalitos.php\"' >Cancelar</button>
                 </div>
                     
             </fieldset>";
 
-            echo "<script>
-            classNames('animalitos')[0].style.display = 'none';
-            editarAnimalito();
-            </script>";
+                echo "<script>
+                classNames('animalitos')[0].style.display = 'none';
+                editarAnimalito();
+                </script>";
             
             }else{
                 echo "File No Found";
@@ -349,172 +389,172 @@ class AnimalesController extends Animal{
 
     // Animalitos usuario
     
-    public function mostrarAnimalesAdoptados($idUsuario){
-            $con = parent::conectar();
-        try {
-            $query = $con->prepare("SELECT animales.*, usuarios.id AS idUsuario, adopciones.numAdopcion, adopciones.fechaAdopcion  FROM adopciones, usuarios, animales WHERE animales.id = idAnimalAdoptado AND adopciones.idUsuario = usuarios.id AND usuarios.id = :idUsuario");
-            $query->bindParam(':idUsuario', $idUsuario);
-            $query->execute();
+    // public function mostrarAnimalesAdoptados($idUsuario){
+    //         $con = parent::conectar();
+    //     try {
+    //         $query = $con->prepare("SELECT animales.*, usuarios.id AS idUsuario, adopciones.numAdopcion, adopciones.fechaAdopcion  FROM adopciones, usuarios, animales WHERE animales.id = idAnimalAdoptado AND adopciones.idUsuario = usuarios.id AND usuarios.id = :idUsuario");
+    //         $query->bindParam(':idUsuario', $idUsuario);
+    //         $query->execute();
 
-            if($query->rowCount() > 0){
+    //         if($query->rowCount() > 0){
 
-                require_once 'modelo/fotos.php';
+    //             require_once 'modelo/fotos.php';
 
-                require_once 'controlador/funciones.php';
+    //             require_once 'controlador/funciones.php';
 
-                foreach ($query as $datos) {
+    //             foreach ($query as $datos) {
 
-                    $fotos = Foto::dataFotos($datos[0]);
+    //                 $fotos = Foto::dataFotos($datos[0]);
     
-                    $urlFotoPerfil = $fotos->fetch();
+    //                 $urlFotoPerfil = $fotos->fetch();
 
-                    echo "
-                    <div class='perfil'>
+    //                 echo "
+    //                 <div class='perfil'>
     
-                        <div class='header'>
-                            <div class='btn_tabs'>
-                                <i class='fas fa-info-circle'></i>
-                                <i class='fas fa-image'></i>
-                                <i class='fas fa-syringe'></i>
-                            </div>
+    //                     <div class='header'>
+    //                         <div class='btn_tabs'>
+    //                             <i class='fas fa-info-circle'></i>
+    //                             <i class='fas fa-image'></i>
+    //                             <i class='fas fa-syringe'></i>
+    //                         </div>
                             
-                            <div class='fotoPerfil'>
-                                <img src='publico/images/$urlFotoPerfil[1]'>
-                            </div>
+    //                         <div class='fotoPerfil'>
+    //                             <img src='publico/images/$urlFotoPerfil[1]'>
+    //                         </div>
                             
-                            <h2 class='nombreAnimal'>$datos[1]</h2>
+    //                         <h2 class='nombreAnimal'>$datos[1]</h2>
     
-                        <div class='adoptadoORadoptar'>
-                        <span>información legal de la adopción</span>
-                        <strong>Fecha de adopción: $datos[13]</strong>
-                        </div>
+    //                     <div class='adoptadoORadoptar'>
+    //                     <span>información legal de la adopción</span>
+    //                     <strong>Fecha de adopción: $datos[13]</strong>
+    //                     </div>
     
-                        </div>
+    //                     </div>
     
-                        <div class='perfilTabsItems'>
-                            <div class='descripcion'>
-                                <h4>Descripción</h4>
-                                <p>$datos[8]</p>
-                            </div>
+    //                     <div class='perfilTabsItems'>
+    //                         <div class='descripcion'>
+    //                             <h4>Descripción</h4>
+    //                             <p>$datos[8]</p>
+    //                         </div>
     
-                            <div class='informacion'>
-                                <table>
-                                    <tr>
-                                        <td>Especie:</td>
-                                        <td>$datos[2]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Raza:</td>
-                                        <td>$datos[3]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Color:</td>
-                                        <td>$datos[4]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sexo:</td>
-                                        <td>".genero($datos[5])."</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Edad:</td>
-                                        <td>".edad($datos[6])."</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Esterilizado:</td>
-                                        <td>".esterilizado($datos[7])."</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Procedencia:</td>
-                                        <td>$datos[9]</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+    //                         <div class='informacion'>
+    //                             <table>
+    //                                 <tr>
+    //                                     <td>Especie:</td>
+    //                                     <td>$datos[2]</td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td>Raza:</td>
+    //                                     <td>$datos[3]</td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td>Color:</td>
+    //                                     <td>$datos[4]</td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td>Sexo:</td>
+    //                                     <td>".genero($datos[5])."</td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td>Edad:</td>
+    //                                     <td>".edad($datos[6])."</td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td>Esterilizado:</td>
+    //                                     <td>".esterilizado($datos[7])."</td>
+    //                                 </tr>
+    //                                 <tr>
+    //                                     <td>Procedencia:</td>
+    //                                     <td>$datos[9]</td>
+    //                                 </tr>
+    //                             </table>
+    //                         </div>
+    //                     </div>
     
-                        <div class='perfilTabsItems'>
-                            <div class='fotos'>
-                                "; 
-                                foreach($fotos as $urlsTodas){
-                                    echo "<img src='publico/images/$urlsTodas[1]'>";
-                                }
-                                echo "
-                            </div>
-                        </div>
+    //                     <div class='perfilTabsItems'>
+    //                         <div class='fotos'>
+    //                             "; 
+    //                             foreach($fotos as $urlsTodas){
+    //                                 echo "<img src='publico/images/$urlsTodas[1]'>";
+    //                             }
+    //                             echo "
+    //                         </div>
+    //                     </div>
     
-                        <div class='perfilTabsItems'>
-                            <div class='vacunas'>
-                                <h3>Vacunas aplicadas:</h3>
-                                <div class='vacuna'>
-                                rataviru 
-                                    <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        ";
-                        echo " 
-                        <script src='publico/js/perfilTabs.js'></script>
-                        <script>
-                        perfilTabs();
-                        </script>
-                        ";
-                }
-            }else{
-                echo " <div class='noAdopcion'>
+    //                     <div class='perfilTabsItems'>
+    //                         <div class='vacunas'>
+    //                             <h3>Vacunas aplicadas:</h3>
+    //                             <div class='vacuna'>
+    //                             rataviru 
+    //                                 <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                     ";
+    //                     echo " 
+    //                     <script src='publico/js/perfilTabs.js'></script>
+    //                     <script>
+    //                     perfilTabs();
+    //                     </script>
+    //                     ";
+    //             }
+    //         }else{
+    //             echo " <div class='noAdopcion'>
 
-                <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
-                <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Adoptar</a></div>
+    //             <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
+    //             <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Adoptar</a></div>
 
-                <div class='husky'>
-                <div class='mane'>
-                    <div class='coat'></div>
-                </div>
-                <div class='body'>
-                    <div class='head'>
-                    <div class='ear'></div>
-                    <div class='ear'></div>
-                    <div class='face'>
-                        <div class='eye'></div>
-                        <div class='eye'></div>
-                        <div class='nose'></div>
-                        <div class='mouth'>
-                        <div class='lips'></div>
-                        <div class='tongue'></div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class='torso'></div>
-                </div>
-                <div class='legs'>
-                    <div class='front-legs'>
-                    <div class='leg'></div>
-                    <div class='leg'></div>
-                    </div>
-                    <div class='hind-leg'>
-                    </div>
-                </div>
-                <div class='tail'>
-                    <div class='tail'>
-                    <div class='tail'>
-                        <div class='tail'>
-                        <div class='tail'>
-                            <div class='tail'>
-                            <div class='tail'></div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
+    //             <div class='husky'>
+    //             <div class='mane'>
+    //                 <div class='coat'></div>
+    //             </div>
+    //             <div class='body'>
+    //                 <div class='head'>
+    //                 <div class='ear'></div>
+    //                 <div class='ear'></div>
+    //                 <div class='face'>
+    //                     <div class='eye'></div>
+    //                     <div class='eye'></div>
+    //                     <div class='nose'></div>
+    //                     <div class='mouth'>
+    //                     <div class='lips'></div>
+    //                     <div class='tongue'></div>
+    //                     </div>
+    //                 </div>
+    //                 </div>
+    //                 <div class='torso'></div>
+    //             </div>
+    //             <div class='legs'>
+    //                 <div class='front-legs'>
+    //                 <div class='leg'></div>
+    //                 <div class='leg'></div>
+    //                 </div>
+    //                 <div class='hind-leg'>
+    //                 </div>
+    //             </div>
+    //             <div class='tail'>
+    //                 <div class='tail'>
+    //                 <div class='tail'>
+    //                     <div class='tail'>
+    //                     <div class='tail'>
+    //                         <div class='tail'>
+    //                         <div class='tail'></div>
+    //                         </div>
+    //                     </div>
+    //                     </div>
+    //                 </div>
+    //                 </div>
+    //             </div>
+    //             </div>
 
                 
-                </div> ";
-            }
-        } catch (Exception $e) {
-            exit("ERROR AL MOSTRAR ANIMALITO]: ".$e->getMessage());
-        }
-    }
+    //             </div> ";
+    //         }
+    //     } catch (Exception $e) {
+    //         exit("ERROR AL MOSTRAR ANIMALITO]: ".$e->getMessage());
+    //     }
+    // }
     
 }
 
