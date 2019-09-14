@@ -3,9 +3,13 @@ let flex = document.getElementById('flex-modal');
 let abrir = document.getElementById('abrir-modal');
 let cerrar = document.getElementById('close-modal');
 
-abrir.addEventListener('click',function(){
-    modal.style.display = 'block';
-});
+
+if(abrir){
+
+    abrir.addEventListener('click',function(){
+        modal.style.display = 'block';
+    });
+}
 
 cerrar.addEventListener('click',function(){
     modal.style.display = 'none';

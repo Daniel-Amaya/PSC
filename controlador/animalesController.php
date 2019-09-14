@@ -186,7 +186,7 @@ class AnimalesController extends Animal{
                         <td>$datos[1]</td>
                         <td>$datos[2]</td>
                         <td><a href='adoptar.php?adopcion=$idsAdopcion[0]'>Ver adopción</a></td>
-                        <td><a href='?fotos=$datos[0]' class='btn_cafe'>ver</a></td>
+                        <td><a href='?vacunas=$datos[0]' class='btn_cafe'>ver</a></td>
                         <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
                         <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                         <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
@@ -200,7 +200,7 @@ class AnimalesController extends Animal{
                             <td>$datos[1]</td>
                             <td>$datos[2]</td>
                             <td>No</td>
-                            <td><a href='?fotos=$datos[0]' class='btn_cafe'>Ver </a></td>
+                            <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Ver </a></td>
                             <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
                             <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                             <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>

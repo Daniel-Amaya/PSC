@@ -60,7 +60,7 @@
   text-align: center;
 }
 .mostrarVacunas .vacuna {
-  width: 98%;
+  width: 95%;
   margin: auto;
   background: white;
 }
@@ -93,7 +93,7 @@
 .mostrarVacunas .noVacunas {
   margin: auto;
   height: 200px;
-  width: 98%;
+  width: 95%;
   box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
   display: flex;
   justify-content: center;

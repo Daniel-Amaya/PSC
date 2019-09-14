@@ -203,7 +203,6 @@ function editarAnimalito(){
         idE = id('idE').value;
         esterE = document.getElementsByName('esterilizadoE');
         
-
         if(nombreE != "" && especieE != "" && razaE != "" && colorE != "" && sexoE != "" && edadE != "" && descripE != "" && procedE != "" && idE != ""){
 
             if(esterE[0].checked){

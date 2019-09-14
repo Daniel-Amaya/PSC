@@ -30,55 +30,17 @@
 
                 <tfoot>
                     <td id="vacunasCanino">
-
-                        <div class="vacuna">
-                            <div class="nameAndButtons">
-                                <span class="editar pointer"><i class='fas fa-pencil-alt'></i></span>
-                                <h4 class="nombreVacuna">Neumococo</h4>
-                                <span class='eliminar pointer'><i class="fas fa-trash"></i></span>
-                            </div>
-
-                            <div class="informacionVacuna">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, a!
-                            </div>
-                        </div>
-
-                        <div class="vacuna">
-                            <div class="nameAndButtons">
-                                <span class="editar pointer"><i class='fas fa-pencil-alt'></i></span>
-                                <h4 class="nombreVacuna">Neumococo</h4>
-                                <span class='eliminar pointer'><i class="fas fa-trash"></i></span>
-                            </div>
-
-                            <div class="informacionVacuna">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, a!
-                            </div>
-                        </div>
-
-                        <div class="vacuna">
-                            <div class="nameAndButtons">
-                                <span class="editar pointer"><i class='fas fa-pencil-alt'></i></span>
-                                <h4 class="nombreVacuna">Neumococo</h4>
-                                <span class='eliminar pointer'><i class="fas fa-trash"></i></span>
-                            </div>
-
-                            <div class="informacionVacuna">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, a!
-                            </div>
-                        </div>
-
+                    
                     </td>
 
                     <td id="vacunasFelino">
-                        <div class="noVacunas">
-                            No se ha encontrado vacunas para felinos
-                        </div>
+                        
+
                     </td>
                 </tfoot>
-
-
-
                             
             </table>
         </div>
 </div>
+
+<script src="publico/js/ajax/vacunasAjax.js"></script>
