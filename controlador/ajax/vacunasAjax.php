@@ -10,8 +10,15 @@ if(isset($_POST['especie']) && !empty($_POST['especie'])){
         Vacuna::deleteVacuna($_POST['eliminar']);
     }
 
+    if(isset($_POST['nomVacuna']) && !empty($_POST['nomVacuna']) && isset($_POST['desVacuna']) && !empty($_POST['desVacuna']) && isset($_POST['especieV']) && !empty($_POST['especieV'])){
+        new Vacuna($_POST['especieV'], $_POST['nomVacuna'], $_POST['desVacuna']);
+    }
+
+    if(isset($_POST['ENV']) && !empty($_POST['ENV']) && isset($_POST['EDV']) && !empty($_POST['EDV']) && isset($_POST['codE']) && !empty($_POST['codE'])){
+        Vacuna::updateVacunas($_POST['especie'], $_POST['ENV'], $_POST['EDV'], $_POST['codE']);
+    }
+
     VacunasController::mostrarVacunasCrud($_POST['especie']);
 }
-
 
 ?>

@@ -16,7 +16,7 @@ class Vacuna extends Conexion{
 
         $query = $con->prepare("INSERT INTO vacunas SET especie=:especie, vacuna=:vacuna ,descripcion = :descripcion");
         $query->bindParam(':especie', $this->especie);
-        $query->bindParam(':vacuna', $this->especie);
+        $query->bindParam(':vacuna', $this->vacuna);
         $query->bindParam(':descripcion', $this->descripcion);
         $query->execute();
 
@@ -54,6 +54,27 @@ class Vacuna extends Conexion{
             
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR VACUNAS" . $e->getMessage());
+        }
+    }
+
+    public function updateVacunas($especie, $vacuna, $descripcion, $cod){
+        $con = parent::conectar();
+        try {
+            $query = $con->prepare("UPDATE vacunas SET especie=:especie, vacuna=:vacuna, descripcion=:descr WHERE cod=:cod");
+            $query->bindParam(':especie', $especie);
+            $query->bindParam(':vacuna', $vacuna);
+            $query->bindParam(':descr', $descripcion);
+            $query->bindParam(':cod', $cod);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0%%";
+            }else{
+                echo "1%%";
+            }
+
+        } catch (Exception $e) {
+            exit("ERROR AL EDITAR VACUNAS".$e->getMessage());
         }
     }
 }

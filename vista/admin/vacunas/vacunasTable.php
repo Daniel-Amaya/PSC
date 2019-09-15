@@ -8,7 +8,7 @@
 
             <div class="navTable">
                 <div class="buttonsTable">
-                    <button class='btn_naranja btn_largo'>Agregar vacuna</button>
+                    <button class='btn_naranja btn_largo' onclick="nuevaModal()">Agregar vacuna</button>
                 </div>
 
                 <div class="nombreIndicador">

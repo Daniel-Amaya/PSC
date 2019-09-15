@@ -1,5 +1,3 @@
-document.body.style.overflowX = "hidden";
-
 document.addEventListener('DOMLoadedContent', animalesAjax('', mostrarEliminarAnimalito));
 
 function animalesAjax(send, action){
@@ -29,6 +27,8 @@ function formRegistrarAnimalito(ht){
     var e = JSON.parse(ht.responseText);
     if(e[1] == true){
 
+        id('idAnimalitoVacunas').value = e[0];
+        
         // Llevar al formulario siguiente
         classNames('fielNewAnimalito')[0].style.display = "none";
         classNames('form_2')[0].style.display = "block";
@@ -51,6 +51,43 @@ function formRegistrarAnimalito(ht){
         
     }
 }
+
+// Función enviar vacunas seleccionadas 
+
+id('agregarVacunas').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    let codsVacunas = [];
+    var idAnimalito = id('idAnimalitoVacunas').value;
+    var vacunasSeleccionadas = this.getElementsByTagName('input');
+    for(let i = 1; i < vacunasSeleccionadas.length; i++){
+        if(vacunasSeleccionadas[i].checked){
+            codsVacunas.push(vacunasSeleccionadas[i].value);
+        }
+    }
+
+    ht = new XMLHttpRequest;
+
+    ht.addEventListener('readystatechange', function(){
+        if(this.readyState == 4 && this.status == 200){
+            e = this.responseText;
+            if(e != ""){
+                alert(e);
+            }else{
+                window.location = 'animalitos.php';
+            }
+        }
+    });
+
+    console.log(codsVacunas);
+
+    ht.open('POST','controlador/ajax/VacunasAnimalesAjax.php');
+    ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
+    ht.send('codsVacunas='+codsVacunas+"&idAnimal="+idAnimalito);
+    
+
+    
+});
 
 // Función para enviar foto seleccionada 
 
@@ -75,9 +112,7 @@ function fotosAjaxN(folder){
 
 // Buscar según el fitro 
 
-var formB = id('buscarAnimalitos');
-
-formB.addEventListener('submit', function(e){
+id('buscarAnimalitos').addEventListener('submit', function(e){
     e.preventDefault();
 
     var nombreB = this.getElementsByClassName('nombreAn')[0].value,
@@ -89,11 +124,10 @@ formB.addEventListener('submit', function(e){
     animalesAjax("buscar=true&nombreB="+nombreB+"&especieB"+especieB+"&razaB="+razaB+"&colorB="+colorB+"&sexoB="+sexoB, mostrarEliminarAnimalito);
 });
 
+
 // Agregar nuevo animalito
 
-var form = id('newAnimalito');
-
-form.addEventListener('submit', function(e){
+id('newAnimalito').addEventListener('submit', function(e){
     e.preventDefault();
 
     var nombreAn = this.getElementsByTagName('input')[0].value,
@@ -124,13 +158,25 @@ form.addEventListener('submit', function(e){
         id('esp').textContent = especieAn;
         id('raz').textContent = razaAn;
         id('col').textContent = colorAn;
+
+        id('nom2').textContent = nombreAn;
+        id('esp2').textContent = especieAn;
+        id('raz2').textContent = razaAn;
+        id('col2').textContent = colorAn;
         if(sexoAn == "F"){
-            id('gen').textContent = "Femenino";
+            id('gen2').textContent = "Femenino";
         }else{
-            id('gen').textContent = "Masculino";
+            id('gen2').textContent = "Masculino";
         }
-        id('pro').textContent = procedAn;
+
+        id('pro2').textContent = procedAn;
+        for(let r = 0; r < classNames('nombreMascota').length; r++){
+            classNames('nombreMascota')[r].textContent = nombreAn;
+        }
+
     }
+
+
     
 });
 

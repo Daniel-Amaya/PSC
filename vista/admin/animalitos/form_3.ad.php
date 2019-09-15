@@ -1,7 +1,9 @@
     <fieldset class="form_3">
         <h2 class='titulo'>Agregar vacunas a <span class='nombreMascota'></span></h2>
-        <form action="" method="post" class='row'>
+        <form action="" method="post" class='row' id='agregarVacunas'>
             
+            <input type="hidden" id='idAnimalitoVacunas'>
+
             <div class="col-ms-6">
 
                 <div class='agregarVacunasAnimalitos'>
@@ -12,7 +14,35 @@
                         <div class="vacunasBox">
 
                             <h4 class='center'>Vacunas para caninos:</h4><br>
-                            <div class="boxRadio">
+
+                            <script>
+                            var form = id('newAnimalito');
+
+                            form.addEventListener('submit', function(e){
+                                e.preventDefault();
+
+                                let especieAn = this.getElementsByTagName('select')[0].value;
+
+                                if(especieAn != ""){
+                                    ht = new XMLHttpRequest;
+
+                                    ht.addEventListener('readystatechange', function(){
+                                        if(this.readyState == 4 && this.status == 200){
+                                            e = this.responseText;
+
+                                            classNames('vacunasBox')[0].innerHTML += e;
+                                        }
+                                    });
+
+                                    ht.open('POST','controlador/ajax/vacunasAnimalesAjax.php');
+                                    ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
+                                    ht.send('especie='+especieAn);
+                                }
+
+                            });
+                            
+                            </script>
+                            <!-- <div class="boxRadio">
                                 <input type="checkbox" name="vacuna" id='vacuna1'>
                                 <label for="vacuna1">Rataviru</label>
                             </div>
@@ -25,7 +55,7 @@
                             <div class="boxRadio">
                                 <input type="checkbox" name="vacuna" id='vacuna1'>
                                 <label for="vacuna1">Rataviru</label>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -45,29 +75,29 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="2" id='nom'>Perry el perrito</th>
+                                <th colspan="2" id='nom2'>Perry el perrito</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Especie:</td>
-                                <td id='esp'>Perro</td>
+                                <td id='esp2'>Perro</td>
                             </tr>
                             <tr>
                                 <td>Raza:</td>
-                                <td id='raz'>Pitbull</td>
+                                <td id='raz2'>Pitbull</td>
                             </tr>
                             <tr>
                                 <td>Color:</td>
-                                <td id='col'>Blanco</td>
+                                <td id='col2'>Blanco</td>
                             </tr>
                             <tr>
                                 <td>Genero:</td>
-                                <td id='gen'>Masculino</td>
+                                <td id='gen2'>Masculino</td>
                             </tr>
                             <tr>
                                 <td>Procedencia:</td>
-                                <td id='pro'>Medellín Belén Altavista</td>
+                                <td id='pro2'>Medellín Belén Altavista</td>
                             </tr>
                         </tbody>
                     </table>

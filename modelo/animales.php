@@ -36,15 +36,15 @@ class Animal extends Conexion{
             
             $query = $con->prepare("INSERT INTO animales (nombre, especie, raza, color, sexo, edad, esterilizado, descripcion, procedencia, carpeta) VALUES (:nombre, :especie, :raza, :color, :sexo, :edad, :esterilizado, :descripcion, :procedencia, :carpeta)");
 
-            $query->bindParam(':nombre', $nombre);
-            $query->bindParam(':especie', $especie);
-            $query->bindParam(':raza', $raza);
-            $query->bindParam(':color', $color);
-            $query->bindParam(':sexo', $sexo);
-            $query->bindParam(':edad', $edad);
-            $query->bindParam(':esterilizado', $esterilizado);
-            $query->bindParam(':descripcion', $descripcion);
-            $query->bindParam(':procedencia', $procedencia);
+            $query->bindParam(':nombre', $this->nombre);
+            $query->bindParam(':especie', $this->especie);
+            $query->bindParam(':raza', $this->raza);
+            $query->bindParam(':color', $this->color);
+            $query->bindParam(':sexo', $this->sexo);
+            $query->bindParam(':edad', $this->edad);
+            $query->bindParam(':esterilizado', $this->esterilizado);
+            $query->bindParam(':descripcion', $this->descripcion);
+            $query->bindParam(':procedencia', $this->procedencia);
             $query->bindParam(':carpeta', $carpeta);
 
             $query->execute();
@@ -55,7 +55,12 @@ class Animal extends Conexion{
 
             }else{
 
-                $json = [1, true, $carpeta];
+                $id = $con->prepare("SELECT id FROM animales WHERE carpeta=:carpeta");
+                $id->bindParam(':carpeta', $carpeta);
+                $id->execute();
+                $id = $id->fetch(); 
+                
+                $json = [$id[0], true, $carpeta];
 
                 $json = json_encode($json);
 

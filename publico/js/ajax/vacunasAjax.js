@@ -1,10 +1,3 @@
-document.addEventListener('DOMContentLoaded', function(){
-
-    vacunasAjax('especie=canina', vacunascanina);
-    vacunasAjax('especie=felina', vacunasfelina);
-
-});
-
 function vacunasAjax(send, action){
 
     var ht = new XMLHttpRequest;
@@ -45,3 +38,84 @@ function vacunasfelina(ht){
         id('vacunasFelino').innerHTML = e[0];
     }
 }
+
+function llenarVacunas(idV,nombre, descripcion, especie){
+
+    let modal = id('editarVacuna');
+    let flex = modal.getElementsByClassName('flex-modal')[0];
+
+    if(modal.style.display = 'none'){
+        modal.style.display = 'block';
+    }else{
+        modal.style.display = 'none';
+    }
+
+    window.addEventListener('click', function(e){
+        if(e.target == flex){
+            modal.style.display = 'none';
+        }
+    });
+
+    let idI = modal.getElementsByTagName('input')[0];
+    let nombreI = modal.getElementsByTagName('input')[1];
+    let descripcionT = modal.getElementsByTagName('textarea')[0];
+    let ple = id('ple');
+
+    idI.value = idV;
+    nombreI.value = nombre;
+    descripcionT.value = descripcion;
+    ple.innerText = especie;
+
+}
+
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    vacunasAjax('especie=canina', vacunascanina);
+    vacunasAjax('especie=felina', vacunasfelina);
+
+
+    // Agregar 
+
+    id('agregarVacuna').addEventListener('submit', function(e){
+        e.preventDefault();
+
+        nombre = this.getElementsByTagName('input')[0].value;
+        descripcion = this.getElementsByTagName('textarea')[0].value;
+        especie = this.getElementsByTagName('select')[0].value;
+
+        if(nombre != "" && descripcion != "" && especie != ""){
+            if(especie == "felina"){
+                vacunasAjax('especie=felina&nomVacuna='+nombre+'&desVacuna='+descripcion+"&especieV="+especie, vacunasfelina);
+                this.parentNode.parentNode.parentNode.style.display = 'none';
+            }else{
+                vacunasAjax('especie=canina&nomVacuna='+nombre+'&desVacuna='+descripcion+"&especieV="+especie, vacunascanina);
+                this.parentNode.parentNode.parentNode.style.display = 'none';
+            }
+        }
+    });
+
+    // Editar
+
+    id('editarVacunas').addEventListener('submit', function(e){
+        e.preventDefault();
+
+        cod = this.getElementsByTagName('input')[0].value;
+        nombre = this.getElementsByTagName('input')[1].value;
+        descripcion = this.getElementsByTagName('textarea')[0].value;
+        especie = id('ple').textContent;
+
+        if(nombre != "" && descripcion != "" && especie != ""){
+            if(especie == "felina"){
+                vacunasAjax('especie=felina&ENV='+nombre+'&EDV='+descripcion+"&codE="+cod, vacunasfelina);
+                this.parentNode.parentNode.parentNode.style.display = 'none';
+            }else{
+                vacunasAjax('especie=canina&ENV='+nombre+'&EDV='+descripcion+"&codE="+cod, vacunascanina);
+                this.parentNode.parentNode.parentNode.style.display = 'none';
+            }
+        }
+    });
+
+});
+
+
