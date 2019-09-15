@@ -12,7 +12,6 @@ if(isset($_POST['especie']) && !empty($_POST['especie'])){
 
     $codsVacunas = explode(',', $_POST['codsVacunas']);
 
-
     for($i = 0; $i < count($codsVacunas); $i++){
 
         VacunasController::aplicarVacunas($codsVacunas[$i], $_POST['idAnimal']);

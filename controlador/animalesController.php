@@ -170,7 +170,7 @@ class AnimalesController extends Animal{
         
                 foreach($animales as $datos){
 
-                    $fotos = Foto::dataFotos($datos[0]);
+                    $fotos = Foto::fotoPerfil($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
 
                     $verfifcarAdopcion = $con->prepare("SELECT * FROM adopciones WHERE idAnimalAdoptado = :idAnimal");

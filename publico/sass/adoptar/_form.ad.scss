@@ -201,27 +201,73 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
 
 .galeriaCRUD{
     display: flex;
-    padding: 10px;
 
-    .buttonsAction{
-        width: 20%;
-        padding: 2%;
-        border: solid 1px $color-principal;
-        background: $color-principal;
-        color: white;
-        *{
-            margin: 5px 1px;
+    .fotoPerfil{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+        overflow: hidden;
+        img{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 100%;
         }
-        
     }
+}
 
-    .imgCRUD{
-        margin: 10px;
-        max-width: 250px;
-        position: relative;
-        max-height: 250px;
+.divImage{
+    margin: 10px 20px;
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    border-radius: 30px;
+    &:hover{
+        .buttonsImg{
+            bottom: 0px;
+        }
+    }
+    img{
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        box-shadow: 0px 0px 1px black;
+    }
+    .buttonsImg{
+        height: 40px;
+        position: absolute;
+        left: 0;
+        @include transitions(1s);
+        bottom: -40px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.534);
+        span{
+            cursor: pointer;
+            display: block;
+            width: 50%;
+            padding: 5px;
+            text-align: center;
+            font-size: 25px; 
+            font-weight: 900;
+        }
+    }
+}
+
+.naw80{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonsAction{
+    width: 30%;
+    padding: 10px 0;
+    color: white;
+
+    button{
+        margin: 5px 1px;
     }
     
 }

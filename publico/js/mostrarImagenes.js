@@ -13,6 +13,10 @@ function mostrarImagenesSeleccionadas(){
             newSpan.textContent = "No se ha seleccionado ninguna imagen";
         }else{
 
+            if(imagesBox.getElementsByTagName('h3')[0]){
+                imagesBox.getElementsByTagName('h3')[0].remove();
+            }
+
             for(let i = 0; i < file.length; i++){
                 
                 inputFile.fileList += file[i];
@@ -46,9 +50,9 @@ var fileTypes = [
 
 function validarTipoDeImagen(file) {
     for(var i = 0; i < fileTypes.length; i++) {
-    if(file.type === fileTypes[i]) {
-        return true;
-    }
+        if(file.type === fileTypes[i]) {
+            return true;
+        }
     }
 
     return false;

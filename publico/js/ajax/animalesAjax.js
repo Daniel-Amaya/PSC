@@ -45,7 +45,12 @@ function formRegistrarAnimalito(ht){
         let inputFile = id('nuevaFoto');
         inputFile.addEventListener('change', function(){
             if(this.files.length > 0){
-                fotosAjaxN(e[2]);
+                var numberImages = id('imagesBox').getElementsByClassName('divImage');
+                if(numberImages.length == 1){
+                    fotosAjaxN(e[2], 1);
+                }else{
+                    fotosAjaxN(e[2], 0);
+                }
             }
         });
         
@@ -85,16 +90,17 @@ id('agregarVacunas').addEventListener('submit', function(e){
     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
     ht.send('codsVacunas='+codsVacunas+"&idAnimal="+idAnimalito);
     
-
     
 });
 
+
 // Función para enviar foto seleccionada 
 
-function fotosAjaxN(folder){
+function fotosAjaxN(folder, perfil){
     let inputFile = id('nuevaFoto');
     
     fData = new FormData;
+    fData.append('perfil', perfil);
     fData.append('carpeta', folder);
     fData.append('foto', inputFile.files[0]);
 

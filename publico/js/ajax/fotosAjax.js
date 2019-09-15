@@ -16,9 +16,10 @@ function fotosAjax(send, action){
 
 function mostrarFotos(ht){
     let e = ht.responseText;
-    e = e.split('%%', 4);
+    e = e.split('%%', 5);
     id('NF').textContent = e[2];
-    id('galeriaCRUD').innerHTML = e[3];
+    id('fotoPerfil').innerHTML = e[3];
+    id('galeriaCRUD').innerHTML = e[4];
 
     let inputFile = id('nFoto');
     inputFile.setAttribute('onchange', 'fotoNueva("'+e[1]+'",'+e[0]+')');
@@ -28,10 +29,6 @@ function eliminarFoto(ruta){
      
 }
 
-id('NFF').addEventListener('submit', function(e){
-    e.preventDefault();
-
-});
 
 function fotoNueva(folder, idF){
 

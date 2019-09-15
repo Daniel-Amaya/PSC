@@ -17,20 +17,29 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
     <script>
     classNames('animalitos')[0].remove();
     </script>
-    <div class='galeriaCRUD margin-menu padding-menu'>
-        <div class='buttonsAction'>
-            <p>Agregar y eliminar fotos del animalito <span id='NF'></span></p>
-            <form action='' enctype='multipart/form-data' id='NFF' method='POST'>
-                <button class='btn_cafe'><label for='nFoto'>Nueva imagen</label></button>
-            <input type='file' id='nFoto' style='display:none'>
-            </form>
-            <button class='btn_cafe'>Terminar</button>
-        </div>
+    <div class='margin-menu padding-menu'>
         
-            <div class='galeria' id='galeriaCRUD'>
-                
+        <div class='textoDeTitulo row'>
+            <h3 class='naw80'>
+                Agregar o eliminar las fotos de  <span id='NF'> </span>
+            </h3>
+            <div class='buttonsAction'>
+                <button class='btn_naranja btn_largo'><label for='nFoto'>Nueva imagen</label></button>
+                <input type='file' id='nFoto' style='display:none'>
+                <button class='btn_naranja btn_largo'>Terminar</button>
             </div>
+            
         </div>
+
+        <div class='galeriaCRUD'>
+            <div class='fotoPerfil'>
+                <div id='fotoPerfil'></div>
+                <h2>Foto de perfil</h2>
+            </div>
+            <div class='galeria' id='galeriaCRUD'></div>
+        </div>
+
+    </div>
 
 
         <script src='publico/js/ajax/fotosAjax.js'></script> 

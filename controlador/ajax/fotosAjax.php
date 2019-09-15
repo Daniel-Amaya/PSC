@@ -13,7 +13,7 @@ if(isset($_POST['carpeta'])){
     $id = Foto::seleccionarId($_POST['carpeta']);
 
     echo $id;
-    $foto = new Foto($id, $agregarFoto);
+    $foto = new Foto($id, $agregarFoto, $_POST['perfil']);
 
 
 }elseif(isset($_POST['fotos']) && !empty($_POST['fotos'])){
@@ -27,7 +27,7 @@ if(isset($_POST['carpeta'])){
         require '../carpetasController.php';
         $agregarFoto = Carpetas::agregarFotos($_POST['carpetaN'], $_FILES['fotoN']['name'], $_FILES['fotoN']['tmp_name']);
 
-        $foto = new Foto($_POST['fotos'], $agregarFoto);
+        $foto = new Foto($_POST['fotos'], $agregarFoto, 0);
 
     }
 
