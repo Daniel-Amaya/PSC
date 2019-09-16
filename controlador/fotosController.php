@@ -24,13 +24,17 @@ class FotosController extends Foto{
 
                     if($fotos->rowCount() > 0){
                     foreach($fotos as $todas){
-                        echo "<div class='divImage'>
-                        <img class='imgCRUD' src='publico/images/$todas[1]'>
-                        <div class='buttonsImg'>
-                            <span onclick='fotosAjax(\"fotos=$datos[0]&eliminar=$todas[0]&dir=$todas[1]\", mostrarFotos)' class=''><i class='fas fa-times'></i></span>
-                            <span><i class='fas fa-person'></i></span>
-                        </div>
-                        </div>";
+                        if($todas[3] != 1){
+
+                            echo "<div class='divImage'>
+                            <img class='imgCRUD' src='publico/images/$todas[1]'>
+                            <div class='buttonsImg'>
+                                <span onclick='fotosAjax(\"fotos=$datos[0]&eliminar=$todas[0]&dir=$todas[1]\", mostrarFotos)' class=''><i class='fas fa-times'></i></span>
+                                <span onclick='fotosAjax(\"fotos=$datos[0]&codAnterior=$fotoPerfil[0]&codNueva=$todas[0]\", mostrarFotos)'><i class='fas fa-user-alt'></i></span>
+                            </div>
+                            </div>";
+                        }
+                        
                     }
                 }else{
                     echo "<div class='errorNoData'> No se han encontrado fotos para este animal </div>";
@@ -47,6 +51,30 @@ class FotosController extends Foto{
 
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR FOTOS: ".$e->getMessage());
+        }
+    }
+
+    public function nuevaFotoPerfil($codAnterior, $codNuevo){
+        $con = parent::conectar();
+        try {
+            $cambiarActual = $con->prepare("UPDATE fotos SET perfil=0 WHERE cod=:codAnterior");
+            $cambiarActual->bindParam(":codAnterior", $codAnterior);
+            $cambiarActual->execute();
+            if($cambiarActual->errorCode() == "00000"){
+                $actualizar = $con->prepare("UPDATE fotos SET perfil = 1 WHERE cod=:codNuevo");
+                $actualizar->bindParam(':codNuevo', $codNuevo);
+                $actualizar->execute();
+
+                if($actualizar->errorCode() != "00000"){
+                    throw new Exception("ESA VERGA SE PUTIÓ 1");
+                }
+
+            }else{
+                throw new Exception("ESA VERGA SE PUTIÓ");
+            }
+            
+        } catch (Exception $e) {
+            exit("ERROR AL CAMBIAR LA FOTO DE PERFIL: ".$e->getMessage());
         }
     }
 

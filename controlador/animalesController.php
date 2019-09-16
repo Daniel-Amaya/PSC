@@ -56,7 +56,11 @@ class AnimalesController extends Animal{
                 $datos = $animales->fetch();
                 $fotos = Foto::dataFotos($datos[0]);
 
-                $urlFotoPerfil = $fotos->fetch();
+                $urlFotoPerfil = Foto::fotoPerfil($datos[0]);
+                $urlFotoPerfil = $urlFotoPerfil->fetch();
+
+                $vacunas = VacunasController::mostrarVacunasAplicadas($datos[0]);
+
 
             echo "
                 <div class='perfil'>
@@ -134,11 +138,16 @@ class AnimalesController extends Animal{
 
                     <div class='perfilTabsItems'>
                         <div class='vacunas'>
-                            <h3>Vacunas aplicadas:</h3>
-                            <div class='vacuna'>
-                            rataviru 
-                                <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
-                            </div>
+                            <h3>Vacunas aplicadas:</h3> "; 
+
+                            foreach($vacunas AS $vacuna){
+                                echo "<div class='vacuna'>
+                                $vacuna[4]
+                                    <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> $vacuna[5]</div>
+                                </div>";
+                            }
+                            
+                            echo " 
                         </div>
                     </div>
                 </div>
@@ -262,7 +271,7 @@ class AnimalesController extends Animal{
             if($datos->rowCount() > 0){
                 $datos = $datos->fetch();
 
-                $foto = Foto::dataFotos($datos[0]);
+                $foto = Foto::fotoPerfil($datos[0]);
                 $fotoDePerfil = $foto->fetch();
 
                 echo "<fieldset class='editarAnimalito padding-menu'>
@@ -391,173 +400,211 @@ class AnimalesController extends Animal{
 
     // Animalitos usuario
     
-    // public function mostrarAnimalesAdoptados($idUsuario){
-    //         $con = parent::conectar();
-    //     try {
-    //         $query = $con->prepare("SELECT animales.*, usuarios.id AS idUsuario, adopciones.numAdopcion, adopciones.fechaAdopcion  FROM adopciones, usuarios, animales WHERE animales.id = idAnimalAdoptado AND adopciones.idUsuario = usuarios.id AND usuarios.id = :idUsuario");
-    //         $query->bindParam(':idUsuario', $idUsuario);
-    //         $query->execute();
-
-    //         if($query->rowCount() > 0){
-
-    //             require_once 'modelo/fotos.php';
-
-    //             require_once 'controlador/funciones.php';
-
-    //             foreach ($query as $datos) {
-
-    //                 $fotos = Foto::dataFotos($datos[0]);
-    
-    //                 $urlFotoPerfil = $fotos->fetch();
-
-    //                 echo "
-    //                 <div class='perfil'>
-    
-    //                     <div class='header'>
-    //                         <div class='btn_tabs'>
-    //                             <i class='fas fa-info-circle'></i>
-    //                             <i class='fas fa-image'></i>
-    //                             <i class='fas fa-syringe'></i>
-    //                         </div>
-                            
-    //                         <div class='fotoPerfil'>
-    //                             <img src='publico/images/$urlFotoPerfil[1]'>
-    //                         </div>
-                            
-    //                         <h2 class='nombreAnimal'>$datos[1]</h2>
-    
-    //                     <div class='adoptadoORadoptar'>
-    //                     <span>información legal de la adopción</span>
-    //                     <strong>Fecha de adopción: $datos[13]</strong>
-    //                     </div>
-    
-    //                     </div>
-    
-    //                     <div class='perfilTabsItems'>
-    //                         <div class='descripcion'>
-    //                             <h4>Descripción</h4>
-    //                             <p>$datos[8]</p>
-    //                         </div>
-    
-    //                         <div class='informacion'>
-    //                             <table>
-    //                                 <tr>
-    //                                     <td>Especie:</td>
-    //                                     <td>$datos[2]</td>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <td>Raza:</td>
-    //                                     <td>$datos[3]</td>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <td>Color:</td>
-    //                                     <td>$datos[4]</td>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <td>Sexo:</td>
-    //                                     <td>".genero($datos[5])."</td>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <td>Edad:</td>
-    //                                     <td>".edad($datos[6])."</td>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <td>Esterilizado:</td>
-    //                                     <td>".esterilizado($datos[7])."</td>
-    //                                 </tr>
-    //                                 <tr>
-    //                                     <td>Procedencia:</td>
-    //                                     <td>$datos[9]</td>
-    //                                 </tr>
-    //                             </table>
-    //                         </div>
-    //                     </div>
-    
-    //                     <div class='perfilTabsItems'>
-    //                         <div class='fotos'>
-    //                             "; 
-    //                             foreach($fotos as $urlsTodas){
-    //                                 echo "<img src='publico/images/$urlsTodas[1]'>";
-    //                             }
-    //                             echo "
-    //                         </div>
-    //                     </div>
-    
-    //                     <div class='perfilTabsItems'>
-    //                         <div class='vacunas'>
-    //                             <h3>Vacunas aplicadas:</h3>
-    //                             <div class='vacuna'>
-    //                             rataviru 
-    //                                 <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
-    //                             </div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //                     ";
-    //                     echo " 
-    //                     <script src='publico/js/perfilTabs.js'></script>
-    //                     <script>
-    //                     perfilTabs();
-    //                     </script>
-    //                     ";
-    //             }
-    //         }else{
-    //             echo " <div class='noAdopcion'>
-
-    //             <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
-    //             <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Adoptar</a></div>
-
-    //             <div class='husky'>
-    //             <div class='mane'>
-    //                 <div class='coat'></div>
-    //             </div>
-    //             <div class='body'>
-    //                 <div class='head'>
-    //                 <div class='ear'></div>
-    //                 <div class='ear'></div>
-    //                 <div class='face'>
-    //                     <div class='eye'></div>
-    //                     <div class='eye'></div>
-    //                     <div class='nose'></div>
-    //                     <div class='mouth'>
-    //                     <div class='lips'></div>
-    //                     <div class='tongue'></div>
-    //                     </div>
-    //                 </div>
-    //                 </div>
-    //                 <div class='torso'></div>
-    //             </div>
-    //             <div class='legs'>
-    //                 <div class='front-legs'>
-    //                 <div class='leg'></div>
-    //                 <div class='leg'></div>
-    //                 </div>
-    //                 <div class='hind-leg'>
-    //                 </div>
-    //             </div>
-    //             <div class='tail'>
-    //                 <div class='tail'>
-    //                 <div class='tail'>
-    //                     <div class='tail'>
-    //                     <div class='tail'>
-    //                         <div class='tail'>
-    //                         <div class='tail'></div>
-    //                         </div>
-    //                     </div>
-    //                     </div>
-    //                 </div>
-    //                 </div>
-    //             </div>
-    //             </div>
-
+    public function mostrarDatosDeTodosUsuario(){
+        $con = parent::conectar();
+        try{
+            
+            $animales = $con->query("SELECT * FROM animales, adopciones WHERE id != idAnimalAdoptado");
+        
+            if($animales->rowCount() > 0){
+        
+                echo "
+                    <div class='adoptaAnimalitoUser'>
                 
-    //             </div> ";
-    //         }
-    //     } catch (Exception $e) {
-    //         exit("ERROR AL MOSTRAR ANIMALITO]: ".$e->getMessage());
-    //     }
-    // }
-    
+                ";
+                $cont = 0;
+                foreach($animales as $datos) {
+
+                    $cont++;
+
+                    if($cont == 3){
+
+                        echo '<div class="boxPerrito"><div class="dog">
+                        <div class="heart heart--1"></div>
+                        <div class="heart heart--2"></div>
+                        <div class="heart heart--3"></div>
+                        <div class="heart heart--4"></div>
+                        <div class="head">
+                                <div class="year year--left"></div>
+                                <div class="year year--right"></div>
+                                <div class="nose"></div>	
+                            <div class="face">
+                                <div class="eye eye--left"></div>
+                                <div class="eye eye--right"></div>
+                                <div class="mouth"></div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="cheast"></div>
+                            <div class="back"></div>
+                            <div class="legs">
+                                <div class="legs__front legs__front--left"></div>
+                                <div class="legs__front legs__front--right"></div>
+                                <div class="legs__back legs__back--left"></div>
+                                <div class="legs__back legs__back--right"></div>
+                            </div>
+                            <div class="tail"></div>
+                        </div>
+                    </div></div>';
+                    }
+
+        
+                    $fotos = Foto::dataFotos($datos[0]);
+                    $urlFotoPerfil = $fotos->fetch();
+        
+                    echo "<div class='card-adopta'>
+                        <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Especie</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <th>$datos[1]</th>
+                                <th>$datos[2]</th>
+                            </tbody>
+                        </table>
+                        <div class='btns_card'>
+                            <a href='' class='btn_naranja'>Adoptar</a>
+                            <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                        </div>
+                    </div>";
+                }
+            echo "</div>";
+
+            }else{
+                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
+                include 'vista/vacio.php';
+            }
+
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
+        }
+
+    }
+
+    public function mostrarPerfilUsuario($id){
+        
+        try{
+
+            require_once 'funciones.php';
+            $animales = parent::dataAnimal($id);
+
+            if($animales->rowCount() > 0){
+
+                $datos = $animales->fetch();
+                $fotos = Foto::dataFotos($datos[0]);
+
+                $urlFotoPerfil = Foto::fotoPerfil($datos[0]);
+                $urlFotoPerfil = $urlFotoPerfil->fetch();
+
+                $vacunas = VacunasController::mostrarVacunasAplicadas($datos[0]);
+
+            echo "
+                <div class='perfil'>
+
+                    <div class='header'>
+                        <div class='btn_tabs'>
+                            <i class='fas fa-info-circle'></i>
+                            <i class='fas fa-image'></i>
+                            <i class='fas fa-syringe'></i>
+                        </div>
+                        
+                        <div class='fotoPerfil'>
+                            <img src='publico/images/$urlFotoPerfil[1]'>
+                        </div>
+                        
+                        <h2 class='nombreAnimal'>$datos[1]</h2>
+
+                        <div class='adoptadoORadoptar'>
+                            <button class='btn_naranja'>Adoptar</button>
+                            <button class='btn_naranja'>Apadrinar</button>
+                        </div> 
+
+                    </div>
+
+
+                    <div class='perfilTabsItems'>
+                        <div class='descripcion'>
+                            <h4>Descripción</h4>
+                            <p>$datos[8]</p>
+                        </div>
+
+                        <div class='informacion'>
+                            <table>
+                                <tr>
+                                    <td>Especie:</td>
+                                    <td>$datos[2]</td>
+                                </tr>
+                                <tr>
+                                    <td>Raza:</td>
+                                    <td>$datos[3]</td>
+                                </tr>
+                                <tr>
+                                    <td>Color:</td>
+                                    <td>$datos[4]</td>
+                                </tr>
+                                <tr>
+                                    <td>Sexo:</td>
+                                    <td>".genero($datos[5])."</td>
+                                </tr>
+                                <tr>
+                                    <td>Edad:</td>
+                                    <td>".edad($datos[6])."</td>
+                                </tr>
+                                <tr>
+                                    <td>Esterilizado:</td>
+                                    <td>".esterilizado($datos[7])."</td>
+                                </tr>
+                                <tr>
+                                    <td>Procedencia:</td>
+                                    <td>$datos[9]</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class='perfilTabsItems'>
+                        <div class='fotos'>
+                            "; 
+                            foreach($fotos as $urlsTodas){
+                                echo "<img src='publico/images/$urlsTodas[1]'>";
+                            }
+                            echo "
+                        </div>
+                    </div>
+
+                    <div class='perfilTabsItems'>
+                        <div class='vacunas'>
+                            <h3>Vacunas aplicadas:</h3> "; 
+
+                            foreach($vacunas AS $vacuna){
+                                echo "<div class='vacuna'>
+                                $vacuna[4]
+                                    <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> $vacuna[5]</div>
+                                </div>";
+                            }
+                            
+                            echo " 
+                        </div>
+                    </div>
+                </div>
+                    ";
+                    echo " 
+                    <script src='publico/js/perfilTabs.js'></script>
+                    <script>
+                    perfilTabs();
+                    </script>
+                    ";
+            }else{
+                echo "<div class='errNoData'>No se ha encontrado ningúna mascota con esta identificación</div>";
+            }
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LA INFORMACIÓN DEL ANIMALITO: ".$e->getMessage());
+        }
+    }
 }
 
 ?>

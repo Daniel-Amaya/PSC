@@ -21,7 +21,8 @@ if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
 
 }else if($_SESSION['sesion_rol'] == "u"){
 
-    require 'vista/usuario/menuUser.php';    
+    require 'vista/usuario/menuUser.php';
+    require 'vista/usuario/adoptar/animales.ad.php';    
 }
 
 require 'vista/footer.php';

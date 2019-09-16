@@ -101,7 +101,8 @@
        padding: 20px;
        border-radius: 44px;
        display: flex;
-       width: 90%;
+       flex-wrap: wrap;
+       width: 95%;
        margin: auto;
        img{
            border-radius: 10px;

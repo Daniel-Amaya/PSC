@@ -1,6 +1,5 @@
 <?php 
 
-
 if(isset($_POST['carpeta'])){
 
     require '../carpetasController.php';
@@ -22,6 +21,10 @@ if(isset($_POST['carpeta'])){
     require_once '../../modelo/animales.php';
     require_once '../../modelo/fotos.php';
     require_once '../fotosController.php';
+
+    if(isset($_POST['codAnterior']) && !empty($_POST['codAnterior']) && isset($_POST['codNueva']) && !empty($_POST['codNueva'])){
+        FotosController::nuevaFotoPerfil($_POST['codAnterior'], $_POST['codNueva']);
+    }
 
     if(isset($_POST['carpetaN']) && isset($_FILES['fotoN'])){
         require '../carpetasController.php';

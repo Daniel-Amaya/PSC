@@ -59,6 +59,21 @@ class VacunasController extends Vacuna{
             exit("ERROR AL AÑADIR VACUNA: ".$e->getMessage());
         }
     }
+
+    public function mostrarVacunasAplicadas($idAnimal){
+        $con = parent::conectar();
+        try {
+
+            $query = $con->prepare("SELECT * FROM animalesvacunados INNER JOIN vacunas ON codVacuna = cod WHERE idAnimal=:idAnimal");
+            $query->bindParam(':idAnimal', $idAnimal);
+            $query->execute();
+
+            return $query;
+
+        } catch (Exception $e) {
+            exit("ERROR AL MOSTRAR VACUNAS APLICADAS: ".$e->getMessage());
+        }
+    }
 }
 
 ?>

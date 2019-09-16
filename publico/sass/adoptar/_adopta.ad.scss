@@ -56,9 +56,9 @@ aside{
         background: whitesmoke;
         tr{
             transition: .5s;
-            &:hover{
+            // &:hover{
 
-            }
+            // }
         }
    
         td{
@@ -93,5 +93,26 @@ aside{
             padding: 10px;
             background: $color-principal-tra;
         }
+    }
+}
+
+// Usuario 
+
+.adoptaAnimalitoUser{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    
+    @include respond-to(1000px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(500px){
+        grid-template-columns: 1fr;
+    }
+
+
+    .card-adopta{
+        margin: 20px auto;
     }
 }

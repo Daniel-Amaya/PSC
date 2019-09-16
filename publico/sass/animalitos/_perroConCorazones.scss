@@ -29,12 +29,20 @@ $total-steps: 20;
 $interval: 200ms;
 $easing: ease-out;
 
-.dog {
-	position: absolute;
-	top: 52%;
+.boxPerrito{
 	width: 50vmin;
 	height: 40vmin;
+	position: relative;
+	margin: 10px;
+}
+.dog {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 40vmin;
+	height: 30vmin;
 	z-index: $z-index-dog;
+	@include transforms(translate(-50%, 0));
 }
 .heart{
 	position: absolute;

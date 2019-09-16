@@ -12,11 +12,17 @@ class AdopcionesController extends Adopcion{
 
                 require_once 'controlador/funciones.php';
 
+                require_once 'modelo/vacunas.php';
+                require_once 'controlador/vacunasController.php';
+
                 foreach ($adopciones as $datos) {
 
                     $fotos = Foto::dataFotos($datos[0]);
     
-                    $urlFotoPerfil = $fotos->fetch();
+                    $urlFotoPerfil = Foto::fotoPerfil($datos[0]);
+                    $urlFotoPerfil = $urlFotoPerfil->fetch();
+
+                    $vacunas = VacunasController::mostrarVacunasAplicadas($datos[0]);
 
                     echo "
                     <div class='perfil'>
@@ -94,10 +100,16 @@ class AdopcionesController extends Adopcion{
                         <div class='perfilTabsItems'>
                             <div class='vacunas'>
                                 <h3>Vacunas aplicadas:</h3>
-                                <div class='vacuna'>
-                                rataviru 
-                                    <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> Quien sabe pa que sirve esa joda</div>
-                                </div>
+
+                                ";
+
+                                foreach($vacunas AS $vacuna){
+                                    echo "<div class='vacuna'>
+                                    $vacuna[4]
+                                        <div class='descripcionVacuna'><i class='fas fa-caret-up'></i> $vacuna[5]</div>
+                                    </div>";
+                                }
+                                echo "
                             </div>
                         </div>
                     </div>

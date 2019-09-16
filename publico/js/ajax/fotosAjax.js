@@ -17,7 +17,7 @@ function fotosAjax(send, action){
 function mostrarFotos(ht){
     let e = ht.responseText;
     e = e.split('%%', 5);
-    id('NF').textContent = e[2];
+    id('NF').textContent = " "+e[2];
     id('fotoPerfil').innerHTML = e[3];
     id('galeriaCRUD').innerHTML = e[4];
 

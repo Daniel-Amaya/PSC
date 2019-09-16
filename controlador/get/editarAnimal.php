@@ -21,7 +21,7 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
         
         <div class='textoDeTitulo row'>
             <h3 class='naw80'>
-                Agregar o eliminar las fotos de  <span id='NF'> </span>
+                Agregar o eliminar las fotos de  <span id='NF' style='display: contents'> </span>
             </h3>
             <div class='buttonsAction'>
                 <button class='btn_naranja btn_largo'><label for='nFoto'>Nueva imagen</label></button>

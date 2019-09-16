@@ -86,10 +86,9 @@ class Foto extends Conexion{
                     }
     
                 }else{
-                    echo "0%%";
+                    throw new Exception("No se eliminado la foto");
                 }
             }
-
            
         }catch(Exception $e){
             exit("ERROR AL ELIMINAR FOTO: ".$e->getMessage());

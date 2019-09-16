@@ -43,6 +43,7 @@ class Vacuna extends Conexion{
             exit("ERROR AL BORRAR LA VACUNA: ".$e->getMessage());
         }
     }
+    
     public function dataVacunas($especie){
         $con = parent::conectar();
         try {

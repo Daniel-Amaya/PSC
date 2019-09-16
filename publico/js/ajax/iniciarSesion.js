@@ -15,10 +15,8 @@ id('iniciarSesion').addEventListener('submit', function(e){
                 if(e == "1"){
                     window.location = 'index.php';
                 }else{
-                    let error = document.createElement('div');
-                    error.className = 'error';
-                    error.textContent = e;
-                    id('iniciarSesion').getElementsByClassName('boxInput')[1].appendChild(error);
+                  
+                    id('error').textContent = e;
                     
                 }
             }
