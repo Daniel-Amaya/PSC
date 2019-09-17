@@ -168,7 +168,7 @@ button {
   text-align: center;
   font-size: 25px;
   border-radius: 20px;
-  box-shadow: 0px 0px 15px #646464;
+  box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
 }
 
 .textoDeTitulo {
@@ -2013,6 +2013,7 @@ button {
   padding: 3px 15px;
 }
 .card-adopta .btns_card {
+  display: flex;
   padding: 10px 40px;
 }
 .card-adopta .btns_card a {

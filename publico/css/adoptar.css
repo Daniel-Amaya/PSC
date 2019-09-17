@@ -36,9 +36,11 @@ aside {
 .animalitosAdoptar {
   width: 100%;
   margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .animalitosAdoptar .card-adopta {
-  margin: 10px auto;
+  margin: 10px 20px;
 }
 
 .animalitosInfo {
@@ -115,6 +117,13 @@ aside {
 }
 .adoptaAnimalitoUser .card-adopta {
   margin: 20px auto;
+}
+
+.buscador-mascotas {
+  position: relative;
+  right: -150px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 @keyframes tail {
@@ -595,6 +604,7 @@ aside {
   display: none;
   position: absolute;
   right: -5px;
+  z-index: 2;
   background: #c7c7c7;
   border-radius: 20px;
   color: white;
@@ -1012,8 +1022,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   -ms-transform: translate(-50%, 0);
   -moz-transform: translate(-50%, 0);
 }
-
-.heart {
+.dog .heart {
   position: absolute;
   width: 6%;
   height: 7%;
@@ -1041,29 +1050,28 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     opacity: 0;
   }
 }
-.heart--1 {
+.dog .heart--1 {
   top: -25%;
   left: 15%;
   animation: heart-beat 2s ease-out infinite 1.5s;
 }
-.heart--2 {
+.dog .heart--2 {
   top: -36%;
   left: 7%;
   animation: heart-beat 2s ease-out infinite 1s;
 }
-.heart--3 {
+.dog .heart--3 {
   top: -48%;
   left: 14%;
   animation: heart-beat 2s ease-out infinite 0.5s;
 }
-.heart--4 {
+.dog .heart--4 {
   top: -53%;
   left: -3%;
   animation: heart-beat 2s ease-out infinite;
 }
-
-.heart:before,
-.heart:after {
+.dog .heart:before,
+.dog .heart:after {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1071,19 +1079,16 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-radius: 50%;
   background-color: #e64356;
 }
-
-.heart:after {
+.dog .heart:after {
   bottom: 0px;
   left: -53%;
 }
-
-.heart:before {
+.dog .heart:before {
   top: -53%;
   right: 0px;
   transform: rotate(45deg);
 }
-
-.body {
+.dog .body {
   position: absolute;
   width: 100%;
   height: 50%;
@@ -1094,8 +1099,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-bottom-left-radius: 30% 40%;
   z-index: 3;
 }
-
-.cheast {
+.dog .cheast {
   position: absolute;
   width: 45%;
   height: 100%;
@@ -1106,7 +1110,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-bottom-left-radius: 40% 40%;
   z-index: 4;
 }
-.cheast:after, .cheast:before {
+.dog .cheast:after, .dog .cheast:before {
   position: absolute;
   content: "";
   width: 7%;
@@ -1114,17 +1118,16 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-radius: 39%;
   background-color: #fff;
 }
-.cheast:after {
+.dog .cheast:after {
   top: 36%;
   left: 3%;
   transform: rotate(-1deg);
 }
-.cheast:before {
+.dog .cheast:before {
   top: 19%;
   left: -4%;
 }
-
-.head {
+.dog .head {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1138,8 +1141,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     transform: translateX(-3px) rotate(3deg);
   }
 }
-
-.tail {
+.dog .tail {
   position: absolute;
   top: -14%;
   left: 92%;
@@ -1162,7 +1164,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     transform: rotate(70deg) translateX(10px) translateY(2px);
   }
 }
-.tail:before {
+.dog .tail:before {
   position: absolute;
   content: "";
   top: -8%;
@@ -1181,8 +1183,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     transform: translateX(3px);
   }
 }
-
-.legs {
+.dog .legs {
   position: absolute;
   top: 97%;
   left: 0;
@@ -1201,7 +1202,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     transform: translateY(0px);
   }
 }
-.legs__front, .legs__back {
+.dog .legs__front, .dog .legs__back {
   width: 10%;
   height: 100%;
   background-color: #f79e38;
@@ -1209,7 +1210,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 100%;
 }
-.legs__front:after, .legs__back:after {
+.dog .legs__front:after, .dog .legs__back:after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1219,24 +1220,23 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 100%;
 }
-.legs__front--left {
+.dog .legs__front--left {
   left: 38%;
   transform: rotate(1deg);
 }
-.legs__front--right {
+.dog .legs__front--right {
   left: 20%;
   transform: rotate(-4deg);
 }
-.legs__back--left {
+.dog .legs__back--left {
   left: 69%;
   transform: rotate(-7deg);
 }
-.legs__back--right {
+.dog .legs__back--right {
   left: 85%;
   transform: rotate(2deg);
 }
-
-.face {
+.dog .face {
   height: 40%;
   width: 42%;
   position: absolute;
@@ -1248,12 +1248,12 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-bottom-left-radius: 35% 21%;
   z-index: 6;
 }
-.face:after, .face:before {
+.dog .face:after, .dog .face:before {
   content: "";
   position: absolute;
   background-color: #f79e38;
 }
-.face:after {
+.dog .face:after {
   width: 27%;
   left: 7%;
   height: 23%;
@@ -1265,7 +1265,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-bottom-right-radius: 52% 0%;
   box-shadow: rgba(0, 0, 0, 0.1) 2px -6px 11px 1px;
 }
-.face:before {
+.dog .face:before {
   width: 55%;
   left: 42%;
   top: 0%;
@@ -1273,8 +1273,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-radius: 23% 7% 16% 12%;
   transform: rotate(0deg) scaleX(-1);
 }
-
-.eye {
+.dog .eye {
   width: 6%;
   height: 6%;
   position: absolute;
@@ -1294,14 +1293,13 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     opacity: 0;
   }
 }
-.eye--left {
+.dog .eye--left {
   left: 27%;
 }
-.eye--right {
+.dog .eye--right {
   left: 46%;
 }
-
-.mouth {
+.dog .mouth {
   background-color: transparent;
   border-color: #000;
   width: 44%;
@@ -1320,11 +1318,10 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-left-color: transparent;
   transform: rotate(-41deg);
 }
-
-.year {
+.dog .year {
   position: absolute;
 }
-.year--left {
+.dog .year--left {
   top: -40%;
   left: 3%;
   height: 47%;
@@ -1352,7 +1349,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     transform: rotate(-40deg);
   }
 }
-.year--right {
+.dog .year--right {
   top: -39%;
   left: 19%;
   height: 38%;
@@ -1381,8 +1378,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     transform: rotate(-320deg);
   }
 }
-
-.nose {
+.dog .nose {
   position: absolute;
   width: 24%;
   height: 24%;
@@ -1394,7 +1390,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   border-top-left-radius: 11% 43%;
   transform: rotate(12deg);
 }
-.nose:after {
+.dog .nose:after {
   content: "";
   position: absolute;
   width: 50%;

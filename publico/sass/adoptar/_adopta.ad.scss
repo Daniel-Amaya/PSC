@@ -23,8 +23,10 @@ aside{
 .animalitosAdoptar{
     width: 100%;
     margin-top: 20px; 
+    justify-content: center;
+    align-items: center;
     .card-adopta{
-        margin: 10px auto;
+        margin: 10px 20px;
     }
 }
 
@@ -115,4 +117,11 @@ aside{
     .card-adopta{
         margin: 20px auto;
     }
+}
+
+.buscador-mascotas{
+    position: relative;
+    right: -150px;
+    font-size: 30px;
+    cursor: pointer;
 }

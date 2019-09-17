@@ -1971,6 +1971,7 @@
   display: none;
   position: absolute;
   right: -5px;
+  z-index: 2;
   background: #c7c7c7;
   border-radius: 20px;
   color: white;
