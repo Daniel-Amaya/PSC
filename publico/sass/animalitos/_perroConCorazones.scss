@@ -44,6 +44,11 @@ $easing: ease-out;
 	z-index: $z-index-dog;
 	@include transforms(translate(-50%, 0));
 
+	@include respond-toH(800px){
+        width: 30vmin;
+        height: 20vmin;
+    }
+
 	.heart{
 		position: absolute;
 		width: 6%;

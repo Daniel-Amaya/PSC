@@ -29,7 +29,12 @@ class AnimalesController extends Animal{
                             </tbody>
                         </table>
                         <div class='btns_card'>
-                            <a href='' class='btn_naranja'>Adoptar</a>
+                            <a href='' class='btn_naranja buttonCorazones'>Adoptar
+                                <div class='AnimacionCorazones cor1'></div>
+                                <div class='AnimacionCorazones cor2'></div>
+                                <div class='AnimacionCorazones cor3'></div>
+                                <div class='AnimacionCorazones cor4'></div>
+                            </a>
                             <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
                         </div>
                     </div>";
@@ -417,6 +422,8 @@ class AnimalesController extends Animal{
 
                     $cont++;
 
+
+                    // Perrito 
                     if($cont == 3){
 
                         echo '<div class="boxPerrito"><div class="dog">
@@ -448,6 +455,60 @@ class AnimalesController extends Animal{
                     </div></div>';
                     }
 
+                    // Otro perrito
+                    if($cont == 6){
+                        echo '	
+                        <div class="corgi">
+            
+                            <div class="head">
+                                <div class="ear ear--r"></div>
+                                <div class="ear ear--l"></div>
+            
+                                <div class="eye eye--left"></div>
+                                <div class="eye eye--right"></div>
+            
+                                <div class="face">
+                                    <div class="face__white">
+                                        <div class=" face__orange face__orange--l"></div>
+                                        <div class=" face__orange face__orange--r"></div>
+                                    </div>
+                                </div>
+            
+                                <div class="face__curve"></div>
+            
+                                <div class="mouth">
+            
+                                    <div class="nose"></div>
+                                    <div class="mouth__left">
+                                        <div class="mouth__left--round"></div>
+                                        <div class="mouth__left--sharp"></div>
+                                    </div>
+                                    
+                                    <div class="lowerjaw">
+                                        <div class="lips"></div>
+                                        <div class="tongue test"></div>
+                                    </div>
+            
+                                    <div class="snout"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="neck__back"></div>
+                            <div class="neck__front"></div>
+            
+                            <div class="body">
+                                <div class="body__chest"></div>
+                            </div>
+            
+                            <div class="foot foot__left foot__front foot__1"></div>
+                            <div class="foot foot__right foot__front foot__2"></div>
+                            <div class="foot foot__left foot__back foot__3"></div>
+                            <div class="foot foot__right foot__back foot__4"></div>
+            
+                            <div class="tail test"></div>
+                        </div>';
+                    }
+
         
                     $fotos = Foto::dataFotos($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
@@ -467,7 +528,12 @@ class AnimalesController extends Animal{
                             </tbody>
                         </table>
                         <div class='btns_card'>
-                            <a href='' class='btn_naranja'>Adoptar</a>
+                            <a href='' class='btn_naranja buttonCorazones'>Adoptar
+                                <div class='AnimacionCorazones cor1'></div>
+                                <div class='AnimacionCorazones cor2'></div>
+                                <div class='AnimacionCorazones cor3'></div>
+                                <div class='AnimacionCorazones cor4'></div>
+                            </a>
                             <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
                         </div>
                     </div>";

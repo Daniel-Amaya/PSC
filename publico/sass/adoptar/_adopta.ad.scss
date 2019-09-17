@@ -100,6 +100,84 @@ aside{
 
 // Usuario 
 
+.buttonCorazones{
+    position: relative;
+
+    .AnimacionCorazones{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color:#e64356;
+        border-bottom-right-radius: 23%;
+        opacity: 0;
+        animation-fill-mode: both;
+    
+        &::before, &::after{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: "";
+            border-radius: 50%;
+            background-color:
+            #e64356;
+        }
+    
+        &::before{
+            top: -53%;
+            right: 0px;
+            transform: rotate(45deg);
+        }
+        &::after{
+            bottom: 0px;
+            left: -53%;
+        }
+    
+        &.cor1{
+            top: -125%;
+            left: 115%;
+        }
+    
+        &.cor2{
+            top: -136%;
+            left: 17%;
+            
+        }
+    
+        &.cor3{
+            top: -148%;
+            left: 114%;
+        }
+    
+        &.cor4{
+            top: -153%;
+            left: -13%;
+        }
+    
+        @keyframes hoverCorazones {
+            0% { transform: scale(0.75) rotate(35deg); opacity: 1; }
+            5%, 15%, 25% { transform: scale(1) rotate(35deg); }
+            10%, 20% { transform: scale(0.75) rotate(35deg); }
+            70% { opacity: 1;}
+            100% {transform: rotate(35deg)  translateY(-40px) translateX(-40px); opacity: 0;}
+        }
+    }
+
+    &:hover{
+        .cor1{
+            animation: hoverCorazones 2s ease-out 1 1.5s;
+        }
+        .cor2{
+            animation: hoverCorazones 2s ease-out 1 1s;
+        }
+        .cor3{
+            animation: hoverCorazones 2s ease-out 1 .5s;
+        }
+        .cor4{
+            animation: hoverCorazones 2s ease-out 1;
+        }
+    }
+}
+
 .adoptaAnimalitoUser{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -125,3 +203,9 @@ aside{
     font-size: 30px;
     cursor: pointer;
 }
+
+#buscadorAnimalitos{
+    padding: 50px 100px;
+    text-align: center;
+}
+

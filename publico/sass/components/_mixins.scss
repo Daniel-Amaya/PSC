@@ -25,6 +25,12 @@
         @content;
     }
 }
+
+@mixin respond-toH($height) {
+    @media only screen and (min-height: $height){
+        @content;
+    }
+}
 @mixin column-one($width) {
     @media only screen and (max-width: $width){
         grid-template-columns:repeat(1, 1fr);

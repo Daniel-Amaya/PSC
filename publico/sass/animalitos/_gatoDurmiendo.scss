@@ -202,95 +202,96 @@ $tail-interval: (11 - 7.5) / $tail-wags;
       // border-radius: 10px 10px 0 10px;
     }
   }
-  
-}
 
-.tail-container{
-  position: absolute;
-  right: 0;
-  bottom: -13px;
-  z-index: 3;
-}
-.tail {
-  position: absolute;
-  height: 30px;
-  width: 14px;
-  bottom: -10px;
-  right: 0;
-  border-bottom-right-radius: 5px;
-  background: $purple;
-  z-index: 0;
-  
-  > .tail {
-    animation: tail $duration none infinite;
-    height: 100%;
+  .tail-container{
+    position: absolute;
+    right: 0;
+    bottom: -13px;
+    z-index: 3;
+  }
+  .tail {
+    position: absolute;
+    height: 30px;
     width: 14px;
-    // bottom: -26%;
-    transform-origin: left;
-    border-bottom-left-radius: 20px 20px;
-    border-bottom-right-radius: 20px 20px;
-    border-top-right-radius: 40px;
-    // transform: rotate(30deg);
+    bottom: -10px;
+    right: 0;
+    border-bottom-right-radius: 5px;
+    background: $purple;
+    z-index: 0;
+    
+    > .tail {
+      animation: tail $duration none infinite;
+      height: 100%;
+      width: 14px;
+      // bottom: -26%;
+      transform-origin: left;
+      border-bottom-left-radius: 20px 20px;
+      border-bottom-right-radius: 20px 20px;
+      border-top-right-radius: 40px;
+      // transform: rotate(30deg);
+    }
   }
-}
-.ear{
-  position: absolute;
-  left: 4px;
-  top: -4px;
-  width: 0; 
-  height: 0; 
-  border-left: 12px solid transparent;
-  border-right:12px solid transparent;
-  border-bottom:20px solid $purple;
-  transform: rotate(-30deg);
-  animation: left-ear $duration both infinite;
+  .ear{
+    position: absolute;
+    left: 4px;
+    top: -4px;
+    width: 0; 
+    height: 0; 
+    border-left: 12px solid transparent;
+    border-right:12px solid transparent;
+    border-bottom:20px solid $purple;
+    transform: rotate(-30deg);
+    animation: left-ear $duration both infinite;
+    
+     + .ear {
+       animation: right-ear $duration both infinite;
+       top: -12px;
+       left: 30px;
+       // transform: rotate(-20deg);
+    }
+  }
+    .nose{
+      position: absolute;
+      bottom: 10px;
+      left: -10px;
+      background-color: $pink;
+      height: 5px;
+      width: 5px;
+      border-radius: 50%;
+  }
+    .whisker-container {
+      position: absolute;
+      bottom: 5px;
+      left: -36px;
+      width: 20px;
+      height: 10px;
+      transform-origin: right;
+      animation: left-whisker $duration both infinite;
   
-   + .ear {
-     animation: right-ear $duration both infinite;
-     top: -12px;
-     left: 30px;
-     // transform: rotate(-20deg);
+      &:nth-child(2) {
+          left: -20px;
+          bottom:12px;
+          transform-origin: right;
+          transform: rotate(180deg);
+          animation: right-whisker $duration both infinite;
+  
+  
+      }
   }
+                                  
+  .whisker {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      border: 1px solid $cream;
+      transform-origin: 100% 0;
+      transform: rotate(10deg);
+  
+      &:last-child {
+          top: 0;
+          transform: rotate(-20deg);
+      }
+  }
+  
 }
-  .nose{
-    position: absolute;
-    bottom: 10px;
-    left: -10px;
-    background-color: $pink;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-}
-  .whisker-container {
-    position: absolute;
-    bottom: 5px;
-    left: -36px;
-    width: 20px;
-    height: 10px;
-    transform-origin: right;
-    animation: left-whisker $duration both infinite;
 
-    &:nth-child(2) {
-        left: -20px;
-        bottom:12px;
-        transform-origin: right;
-        transform: rotate(180deg);
-        animation: right-whisker $duration both infinite;
-
-
-    }
-}
-                                
-.whisker {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    border: 1px solid $cream;
-    transform-origin: 100% 0;
-    transform: rotate(10deg);
-
-    &:last-child {
-        top: 0;
-        transform: rotate(-20deg);
-    }
-}
