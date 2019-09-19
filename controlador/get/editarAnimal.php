@@ -48,6 +48,13 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
     </script>";
                 
 
+}elseif(isset($_GET['vacunas']) && !empty($_GET['vacunas'])){
+
+    require_once 'controlador/funciones.php';
+    require_once 'modelo/animales.php';
+    require_once 'controlador/animalesController.php';
+
+    AnimalesController::editarVacunas($_GET['vacunas']);
 }
 
 

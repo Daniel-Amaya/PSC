@@ -2,6 +2,83 @@
 
 class AdopcionesController extends Adopcion{
     
+
+    // Administrador
+
+    public function adopcionesRecientes(){
+        $con = parent::conectar();
+        try {
+            $query = $con->query("SELECT usuarios.id, usuarios.nombre, animales.* FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id ORDER BY numAdopcion DESC LIMIT 5");
+            
+            if($query->rowCount() > 0){
+                foreach($query AS $datos){
+                    echo " 
+                    <tr>
+                        <th>$datos[3]</th>
+                        <th>$datos[1]</th>
+                    </tr>";
+                    
+                }
+            }else{
+                echo "<tr><th colspan='2'>No se ha realizado ninguna adopción</th></tr>";
+            }
+            
+        } catch (Exception $e) {
+            exit("ERROR AL MOSTRAR ADOPCIONES RECIENTES: ".$e->getMessage());
+        }
+    }
+
+    public function adopcionesConCompromiso(){
+        $con = parent::conectar();
+        try {
+            $query = $con->query("SELECT usuarios.id, usuarios.nombre, animales.* FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id and codEsterilizacion != null ORDER BY numAdopcion DESC LIMIT 5");
+            
+            if($query->rowCount() > 0){
+                foreach($query AS $datos){
+                    echo " 
+                    <tr>
+                        <th><i class='fas fa-eye'></i></th>
+                        <th>$datos[3]</th>
+                        <th>$datos[1]</th>
+                    </tr>";
+                    
+                }
+            }else{
+                echo "<tr><th colspan='3' >No se encuentra ninguna adopción con compromiso de esterilización</th></tr>";
+            }
+            
+        } catch (Exception $e) {
+            exit("ERROR AL MOSTRAR ADOPCIONES RECIENTES: ".$e->getMessage());
+        }   
+    }
+
+    public function todasLasAdopciones(){
+        try{
+            $adopciones = parent::dataAdopciones('');
+
+            if($adopciones->rowCount() > 0){
+
+                foreach($adopciones AS $datos){
+                    echo "<tr>
+                        <th>$datos[1]</th>
+                        <th>$datos[12] $datos[13]</th>
+                        <th>$datos[23]</th>
+                        <th><a href='$datos[20]'><i class='fas fa-eye'></i></a></th>";
+
+                        if($datos[24] != null){
+                            echo "<th><a href='$datos[24]'><i class='fas fa-eye'></i></a></th>";
+                        }else{
+                            echo "<th>No aplica</th>";
+                        }
+                    echo 
+                    "</tr>";
+                }
+            }
+        }catch(Exception $e){
+            exit("ERROR: ".$e->getMessage());
+        }
+    }
+    // Usuario
     public function mostrarMiAnimalAdoptado($idUsuario){
         try {
             $adopciones = parent::dataAdopciones($idUsuario);

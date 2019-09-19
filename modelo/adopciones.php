@@ -14,7 +14,7 @@ class Adopcion extends Conexion{
 
             }else{
 
-                $query = $con->query("SELECT * FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id");
+                $query = $con->query("SELECT animales.*, usuarios.*, adopciones.* FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id");
             }
 
             return $query;

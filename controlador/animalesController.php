@@ -403,6 +403,69 @@ class AnimalesController extends Animal{
         }
     }
 
+    public function editarVacunas($id){
+        try {
+
+            $datos = parent::dataAnimal($id);
+
+            $datos = $datos->fetch();
+            $fotos = Foto::fotoPerfil($datos[0]);
+            $foto = $fotos->fetch();
+            echo "
+            <fieldset class='padding-menu'>
+                <h2 class='titulo'>Agregar vacunas a <span class='nombreMascota'>$datos[1]</span></h2>
+                
+                <form action='' method='post' class='row'>
+                    <input type='hidden' id='idAnimalitoVacunas' value='$datos[0]'>
+                    
+                    <div class='col-ms-6'>
+                        
+                    </div>
+                    <div class='col-ms-6'>
+                        
+                        <div class='informacionPrevia'>
+                            <div class='fotoPerfil'><img src='publico/images/$foto[1]'></div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan='2' id='nom2'>$datos[1]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Especie:</td>
+                                        <td>$datos[2]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raza:</td>
+                                        <td>$datos[3]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Color:</td>
+                                        <td>$datos[4]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Genero:</td>
+                                        <td>".genero($datos[5])."</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Procedencia:</td>
+                                        <td>$datos[8]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                        
+                    </div>
+                
+                </form>
+            </fieldset>";
+        } catch (Exception $e) {
+            exit("ERROR A: ".$e->getMessage());
+        }
+    }
+
     // Animalitos usuario
     
     public function mostrarDatosDeTodosUsuario(){
