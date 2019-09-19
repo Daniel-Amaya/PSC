@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2019 a las 12:09:09
+-- Tiempo de generación: 19-09-2019 a las 18:23:34
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -99,7 +99,6 @@ INSERT INTO `animalesvacunados` (`codVacuna`, `idAnimal`) VALUES
 (14, 42),
 (13, 43),
 (15, 43),
-(17, 43),
 (14, 45),
 (14, 45),
 (14, 47);
@@ -162,7 +161,7 @@ INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`, `perfil`) VALUES
 (68, 'Perry83638987/734323766.png', 17, 1),
 (69, 'Perry83638987/691627504.png', 17, 0),
 (70, 'Perry83638987/74274343.png', 17, 0),
-(71, 'Hunsky108567285/551395160.png', 23, 1),
+(71, 'Hunsky108567285/551395160.png', 23, 0),
 (72, 'Hunsky108567285/314345849.png', 23, 0),
 (74, 'Bebesita32921580/720249749.png', 24, 0),
 (77, 'Bebesita32921580/10119535.png', 24, 1),
@@ -173,9 +172,9 @@ INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`, `perfil`) VALUES
 (123, 'mishi12618800/815016171.png', 38, 0),
 (127, 'Luis Miguel65565197/300478373.png', 41, 1),
 (128, 'Hunsky103984969/374387715.png', 42, 0),
-(130, 'Mishi26464047/495469619.png', 43, 1),
+(130, 'Mishi26464047/495469619.png', 43, 0),
 (131, 'Mishi26464047/944342162.png', 43, 0),
-(132, 'Mishi26464047/767274083.png', 43, 1),
+(132, 'Mishi26464047/767274083.png', 43, 0),
 (133, 'Mishi26464047/917005991.png', 43, 0),
 (134, 'Dulce62954265/983867439.png', 45, 1),
 (135, 'Dulce62954265/856758800.png', 45, 0),
@@ -188,7 +187,15 @@ INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`, `perfil`) VALUES
 (142, 'Luis Miguel55309034/733681122.png', 47, 1),
 (144, 'Perry83638987/500996034.png', 17, 0),
 (145, 'Perry83638987/488412745.png', 17, 0),
-(147, 'Perry83638987/207527761.png', 17, 0);
+(147, 'Perry83638987/207527761.png', 17, 0),
+(150, 'Hunsky108567285/583503175.png', 23, 0),
+(151, 'Hunsky108567285/170824167.png', 23, 1),
+(152, 'Hunsky108567285/61645907.png', 23, 0),
+(153, 'Hunsky108567285/818591999.png', 23, 0),
+(155, 'Mishi26464047/8540728.png', 43, 1),
+(157, 'Mishi26464047/87755319.png', 43, 0),
+(158, 'Mishi26464047/698723061.png', 43, 0),
+(159, 'Mishi26464047/783129734.png', 43, 1);
 
 -- --------------------------------------------------------
 
@@ -232,6 +239,19 @@ CREATE TABLE `respuestasadopcion` (
   `respuesta` blob NOT NULL,
   `numPregunta` int(10) UNSIGNED NOT NULL,
   `idUsuario` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitudesadopcion`
+--
+
+CREATE TABLE `solicitudesadopcion` (
+  `cod` int(10) UNSIGNED NOT NULL,
+  `idUsuario` int(10) UNSIGNED NOT NULL,
+  `fechaSolicitud` date NOT NULL,
+  `idAnimal` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -282,10 +302,10 @@ CREATE TABLE `vacunas` (
 INSERT INTO `vacunas` (`cod`, `especie`, `vacuna`, `descripcion`) VALUES
 (1, 'canina', 'Rataviru', 0x416c2063756d706c697220342c203620792037206d65736573),
 (2, 'felina', 'Neumococo', 0x416c2061c3b16f2c20616c2061c3b16f2079206d6564696f20792061206c6f7320352061c3b16f73),
-(13, 'felina', 'felina', 0x4375726172206c61206772697061),
+(13, 'felina', 'felina', 0x54752063756572706f2065732074616e2070726f766f63616e7465),
 (14, 'canina', 'AntiDengue', 0x50726576656e697220656c2064656e67756520656e206c6f73207065727269746f73),
 (15, 'felina', 'AntiDengue', 0x506172612070726576656e697220656c2064656e67756520656e206c6f732067617469746f7320792074696772657320),
-(17, 'felina', 'qqqqq', 0x52656c6c656e617220656c206573706163696f206e656365736172696f);
+(18, 'canina', 'DengueAnti', 0x50617261206e6f206861636572206e6164612070616e610a);
 
 --
 -- Índices para tablas volcadas
@@ -355,6 +375,14 @@ ALTER TABLE `respuestasadopcion`
   ADD KEY `fk_usuarioRespuesta` (`idUsuario`);
 
 --
+-- Indices de la tabla `solicitudesadopcion`
+--
+ALTER TABLE `solicitudesadopcion`
+  ADD PRIMARY KEY (`cod`),
+  ADD KEY `idUsuario` (`idUsuario`),
+  ADD KEY `idAnimal` (`idAnimal`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -398,7 +426,7 @@ ALTER TABLE `compromisoesterilizacion`
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntasadopcion`
@@ -413,6 +441,12 @@ ALTER TABLE `respuestasadopcion`
   MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `solicitudesadopcion`
+--
+ALTER TABLE `solicitudesadopcion`
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -422,7 +456,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `vacunas`
 --
 ALTER TABLE `vacunas`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas
@@ -468,6 +502,13 @@ ALTER TABLE `fotos`
 ALTER TABLE `respuestasadopcion`
   ADD CONSTRAINT `fk_preguntaRespuesta` FOREIGN KEY (`numPregunta`) REFERENCES `preguntasadopcion` (`numPregunta`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_usuarioRespuesta` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `solicitudesadopcion`
+--
+ALTER TABLE `solicitudesadopcion`
+  ADD CONSTRAINT `solicitudesadopcion_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `solicitudesadopcion_ibfk_2` FOREIGN KEY (`idAnimal`) REFERENCES `animales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
