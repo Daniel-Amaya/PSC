@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -12,6 +11,7 @@
 /** 
     Colores de animales 
 **/
+@import url("../fonts/PatuaOne-Regular.ttf");
 .rayita-blanca::before, .rayita-naranja::before {
   content: "";
   position: absolute;
@@ -2130,15 +2130,15 @@ button {
 }
 
 header {
-  background: #ff7f04;
+  background: white;
   top: 0;
   padding: 20px;
   position: fixed;
   height: 100%;
-  width: 25%;
-  left: -25%;
+  width: 270px;
+  left: -270px;
   z-index: 4;
-  color: white !important;
+  color: black !important;
   box-shadow: 0px 0px 0px black;
   transition: 1s;
   -webkit-transition: 1s;
@@ -2167,7 +2167,7 @@ header ul li a {
   -webkit-transition: 1s;
   -o-transition: 1s;
   -moz-transition: 1s;
-  color: white;
+  color: black;
   position: relative;
 }
 
@@ -2223,6 +2223,51 @@ nav div.nav-items ul li a {
   nav div.nav-items ul li a {
     display: none;
   }
+}
+
+.menuLateralGen {
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+  color: white;
+  position: fixed;
+  background: #ff7f04;
+  box-shadow: 0px 10px 5px black;
+}
+.menuLateralGen .nav-logo {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.menuLateralGen h3 {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  position: relative;
+}
+.menuLateralGen h3 i {
+  position: absolute;
+  top: 5px;
+  right: 10%;
+}
+.menuLateralGen hr {
+  border-color: white;
+  background: white;
+}
+.menuLateralGen ul {
+  width: 100%;
+  padding: 10px;
+}
+.menuLateralGen ul li {
+  text-align: center;
+  background: rgba(255, 145, 4, 0.753);
+}
+.menuLateralGen ul li:hover {
+  background: #ff7f04;
 }
 
 /*-------------------------------*\
@@ -2298,6 +2343,10 @@ nav div.nav-items ul li a {
 }
 .menuLW li:hover {
   background: white !important;
+}
+.menuLW p {
+  text-align: center;
+  margin-top: 50px;
 }
 
 .recojer-menu {

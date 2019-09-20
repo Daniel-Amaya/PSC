@@ -29,6 +29,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <li><a href="adoptar.php">Adopciones</a></li>
         <li><a href="">Apadrinamientos</a></li>
         <li><a href="">Donaciones</a></li>
+
     </ul>
 
 </header>
@@ -41,6 +42,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
             <li><a class="rayita-naranja"  href="">Usuarios</a></li>
             <li><a class="rayita-naranja" href="">Calendario</a></li>
             <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li>
+
 
         </ul>
     </div>

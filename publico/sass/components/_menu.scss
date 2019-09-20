@@ -38,15 +38,15 @@
     
 }
 header{
-    background: $color-principal;
+    background: white;
     top: 0;
     padding: 20px;
     position: fixed;
     height: 100%;
-    width: 25%;
-    left: -25%;
+    width: 270px;
+    left: -270px;
     z-index: 4;
-    color: $blanco !important;
+    color: black !important;
     box-shadow: 0px 0px 0px black;
     @include respond-to(500px){
         width: 50%;
@@ -64,12 +64,14 @@ header{
             }
             a{
                 @include transitions(1s);
-                color: $blanco;
+                color: black;
                 position: relative;
 
             }
         }
     }
+  
+
 }
 
 .menu-res{
@@ -122,6 +124,52 @@ nav{
     }
 }
 
+
+.menuLateralGen{
+    @include transitions(1s);
+    
+    color: white;
+    position: fixed;
+    background: $color-principal;
+    box-shadow: 0px 10px 5px black;
+    .nav-logo{
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    h3{
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+        position: relative;
+        i{
+            position: absolute;
+            top: 5px;
+            right: 10%;
+        }
+    }
+    hr{
+        border-color: white;
+        background: white;
+    }
+
+    ul{
+        // @include transitions(1s);
+        width: 100%;
+        padding: 10px;
+        li{
+            text-align: center;
+            background: rgba(255, 145, 4, 0.753);
+            &:hover{
+                background: $color-principal;
+            }
+        }
+    }
+}
 /*-------------------------------*\
              FINMENU
 \*-------------------------------*/
@@ -197,6 +245,10 @@ nav{
             background: white !important;
             
         }
+    }
+    p{
+        text-align: center;
+        margin-top: 50px;
     }
 }
 

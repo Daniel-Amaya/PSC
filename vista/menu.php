@@ -1,15 +1,24 @@
 
-<header id='menu'>
+<header id='menu' class="menuW menuLW menuLateralGen">
     <span class='pointer'><i class="fas fa-times"></i></span>
     <ul>
+    <div class="nav-logo row">
+    
+      
+        <img src='publico/images/logo.png'>
+     
+
+    </div> 
         <li class="response-item"><a class="rayita-blanca" href="index.php">Inicio</a></li>
         <li class="response-item"><a class="rayita-blanca" href="fundacion.php">Fundación</a></li>
         <li class="response-item"><a class="rayita-blanca" href="adoptar.php">Adoptar</a></li>
         <li class="response-item"><a class="rayita-blanca" href="donar.php">Donar</a></li>
-        <li><a href="iniciar-sesion.php" class='rayita-blanca'>Iniciar Sesión    </a></li>
-        <li><a href="" class='rayita-blanca'>Visitanos         </a></li>
-        <li><a href="" class='rayita-blanca'>Sobre la fundación</a></li>
-        <li><a href="" class='rayita-blanca'>Quienes Somos     </a></li>
+        <li><a href="iniciar-sesion.php" class=''>Iniciar Sesión    </a></li>
+        <li><a href="" class=''>Visitanos         </a></li>
+        <li><a href="" class=''>Sobre la fundación</a></li>
+        <li><a href="" class=''>Quienes Somos     </a></li>
+
+        <p>"Sin voz pero con dignidad"</p>
     </ul>
 </header>
 <nav>
