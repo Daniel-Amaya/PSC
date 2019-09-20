@@ -53,8 +53,15 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
     require_once 'controlador/funciones.php';
     require_once 'modelo/animales.php';
     require_once 'controlador/animalesController.php';
+    require_once 'modelo/vacunas.php';
+
+    echo " <script>
+    classNames('animalitos')[0].remove();
+    </script>";
 
     AnimalesController::editarVacunas($_GET['vacunas']);
+
+    
 }
 
 

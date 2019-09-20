@@ -200,7 +200,7 @@ class AnimalesController extends Animal{
                         <td>$datos[1]</td>
                         <td>$datos[2]</td>
                         <td><a href='adoptar.php?adopcion=$idsAdopcion[0]'>Ver adopción</a></td>
-                        <td><a href='?vacunas=$datos[0]' class='btn_cafe'>ver</a></td>
+                        <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas</a></td>
                         <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
                         <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                         <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
@@ -214,7 +214,7 @@ class AnimalesController extends Animal{
                             <td>$datos[1]</td>
                             <td>$datos[2]</td>
                             <td>No</td>
-                            <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Ver </a></td>
+                            <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas </a></td>
                             <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
                             <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
                             <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
@@ -404,6 +404,7 @@ class AnimalesController extends Animal{
     }
 
     public function editarVacunas($id){
+        $con = parent::conectar();
         try {
 
             $datos = parent::dataAnimal($id);
@@ -411,16 +412,63 @@ class AnimalesController extends Animal{
             $datos = $datos->fetch();
             $fotos = Foto::fotoPerfil($datos[0]);
             $foto = $fotos->fetch();
+            $vacunas = Vacuna::dataVacunas($datos[2]);
+
             echo "
-            <fieldset class='padding-menu'>
-                <h2 class='titulo'>Agregar vacunas a <span class='nombreMascota'>$datos[1]</span></h2>
+            <fieldset class='padding-menu form_3 margin-menu' style='display:block'>
+                <h2 class='titulo'>Vacunas de <span class='nombreMascota'>$datos[1]</span></h2>
                 
                 <form action='' method='post' class='row'>
                     <input type='hidden' id='idAnimalitoVacunas' value='$datos[0]'>
                     
                     <div class='col-ms-6'>
+                    <div class='agregarVacunasAnimalitos'>
+                        <p> Agrega o elimina las vacunas de $datos[1], las vacunas con punto rojo son las ya aplicadas, si quitas la selección se eliminará la aplicación de la vacuna del animalito</p><br>
+
+                        <div class='row'>
+
+                        <div class='vacunasBox'>
+                            <h3>Vacunas para la especie $datos[2]:</h3>
+                            <br>
+
+                        ";
+
+                        if($vacunas->rowCount() > 0){
+
+                            foreach($vacunas as $vacuna){
+                                $verificarVacunas = $con->query("SELECT * FROM animalesvacunados WHERE idAnimal='$datos[0]'");
+                                
+                                $codVacuna = $verificarVacunas->fetch();
+                                
+                                if($vacuna[0] == $codVacuna[0]){
+                                    
+                                    echo "
+                                    <div class='radioBox'>
+                                    <input type='checkbox' id='vacuna$vacuna[2]' value='$vacuna[0]' checked><label for='vacuna$vacuna[2]'> $vacuna[2]</label> <div style='background: red; width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin: 5px 0px 0px 0px '></div>
+                                    </div>";
+                                }else{
+                                    echo "
+                                    <div class='radioBox'>
+                                        <input type='checkbox' id='vacuna$vacuna[2]' value='$vacuna[0]'><label for='vacuna$vacuna[2]'> $vacuna[2]</label> 
+                                        </div>";
+                                }
+                            }
+                        }else{
+                            echo "<div class='errorVacio'>No hay vacunas disponibles para esta raza</div>";
+                        }
                         
+                        echo "
+                            </div>
+
+                            <div class='infoVacunasSelect'>
+                            Aquí aparecerá la información de la última vacuna seleccionada
+                        </div>
+                            </div>
+                    <input type='submit' value='Terminar' class='btn_naranja btn_largo'>
+
+                        </div>
                     </div>
+
                     <div class='col-ms-6'>
                         
                         <div class='informacionPrevia'>

@@ -88,13 +88,21 @@ class Foto extends Conexion{
                 }else{
                     throw new Exception("No se eliminado la foto");
                 }
+            }else{
+
+                $query = $con->prepare("DELETE FROM fotos WHERE cod=:cod");
+                $query->bindParam(":cod", $cod);
+                $query->execute();
+                if($query->errorCode() != "00000"){
+                    throw new Exception("No ha sido posible eliminar la foto de la base de datos");
+                }
+
             }
            
         }catch(Exception $e){
             exit("ERROR AL ELIMINAR FOTO: ".$e->getMessage());
         }
     }
-
 
 }
 
