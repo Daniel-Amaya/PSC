@@ -1,40 +1,38 @@
 
 <section class='margin-menu padding-menu'>
 
-<h1 class="titulo">Donaciones</h1>
+<h3 class='textoDeTitulo'>
+        Aquí vas a encontrar todas las donaciones realizadas:
+        </h3>
 
-<table class="tabla-donaciones">
-									<thead>
-										<tr>
-										
-											<td>Id</td>
-											<td>Usuario</td>
-											<td>Para</td>
-											<td>Cantidad</td>
-											<td>fecha</td>
-                                            <td>Resivo</td>
-                                            <td>Borrar</td>
-										</tr>
-									</thead>
-									<tbody id="">
-                                    <tr>
-                                      
-                                        <td></td>
-                                        <td>Emily Elizabeth</td>
-                                        <td>Alimentos</td>
-                                        <td>5 libras</td>
-                                        <td>Fecha</td>
-                                        <td>Resivo</td>
+        <div class="divTableDatos">
+            <div class="navTable">
+                
+                <div class="nombreIndicador">
+                    Donaciones
+                </div>
+                <div class="buscarTable">
+                    <i class='fas fa-search'></i>
+                </div>
+            </div>
+            <table class=''>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Usuario</th>
+                        <th>Para</th>
+                        <th>Cantidad</th>
+                        <th>Fecha</th>
+                        <th>Resivo</th>
+                    </tr>
+                </thead>
 
-                                        <td>
-                                     <button class="medida-delete btn btn-borrar">
-                                        Borrar
-                                     </button>
-                                        </td>
-                                                        
-                   </tr>
-									</tbody>
-								</table>
+                <tbody id=''>
+
+                </tbody>
+                            
+            </table>
+        </div>
 
 
        

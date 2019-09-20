@@ -24,11 +24,19 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
     <hr>
 
     <ul id='navegador'>
+<<<<<<< Updated upstream
         <li><a href="vacunas.php">Vacunas</a></li>
         <li><a href="animalitos.php">Animalitos</a></li>
         <li><a href="adoptar.php">Adopciones</a></li>
         <li><a href="">Apadrinamientos</a></li>
         <li><a href="">Donaciones</a></li>
+=======
+        <li><a href="vacunas.php" clas='rayita-blanca'>Vacunas</a></li>
+        <li><a href="" clas='rayita-blanca'>Calendario</a></li>
+        <li><a href="animalitos.php" clas='rayita-blanca'>Animalitos</a></li>
+        <li><a href="" clas='rayita-blanca'>Apadrinamientos</a></li>
+        <li><a href="donar.php" clas='rayita-blanca'>Donaciones</a></li>
+>>>>>>> Stashed changes
     </ul>
 
 </header>
@@ -39,8 +47,13 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
             <li><span onclick='menuL()' class='pointer'><i class="fa fa-bars"></i></span></li>
             <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
             <li><a class="rayita-naranja"  href="">Usuarios</a></li>
+<<<<<<< Updated upstream
             <li><a class="rayita-naranja" href="">Calendario</a></li>
             <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li>
+=======
+            <li><a class="rayita-naranja" href="">Adopciones</a></li>
+            <!-- <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li> -->
+>>>>>>> Stashed changes
 
         </ul>
     </div>
