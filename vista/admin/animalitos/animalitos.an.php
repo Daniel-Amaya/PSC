@@ -46,7 +46,7 @@ include 'modelo/fotos.php';
         </aside>
 
         <h3 class='textoDeTitulo'>
-        Aquí vas a encontrar todos los animalitos registrados, puedes usar el filtro para buscar mejor los animalitos:
+        Aquí vas a encontrar todos los animalitos registrados, puedes usar el buscador para encontrar  los animalitos, para ver el perfil, has clic en la foto:
         </h3>
 
         <div class="divTableDatos">

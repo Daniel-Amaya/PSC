@@ -12,6 +12,11 @@ if(isset($_SESSION['sesion_rol']) && !empty($_SESSION['sesion_rol']) && isset($_
 
         exit();
     }else{
+
+        $_SESSION['sesion_rol'] = '';
+        $_SESSION['sesion_usuario'] = null;
+        session_destroy();
+        
         header('location:index.php');
     }
 

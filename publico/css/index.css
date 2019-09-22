@@ -722,24 +722,6 @@
     -moz-transform: translate(5px);
   }
 }
-.corazones {
-  position: absolute;
-  width: 6%;
-  height: 7%;
-  background-color: #e64356;
-  border-bottom-right-radius: 23%;
-  opacity: 0;
-  animation-fill-mode: both;
-}
-.corazones::before, .corazones::after {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  content: "";
-  border-radius: 50%;
-  background-color: #e64356;
-}
-
 @keyframes head {
   0% {
     transform: rotate(0);
@@ -1915,6 +1897,11 @@
 .perfil .adoptadoORadoptar span {
   margin: 0 10px;
   color: gray;
+}
+.perfil .adoptadoORadoptar .btn_naranja {
+  width: 40%;
+  margin: 3px;
+  max-width: 250px;
 }
 .perfil .perfilTabsItems {
   display: flex;

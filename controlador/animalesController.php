@@ -11,7 +11,7 @@ class AnimalesController extends Animal{
         
                 foreach($animales as $datos) {
         
-                    $fotos = Foto::dataFotos($datos[0]);
+                    $fotos = Foto::fotoPerfil($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
         
                     echo "<div class='card-adopta'>
@@ -132,7 +132,7 @@ class AnimalesController extends Animal{
                     </div>
 
                     <div class='perfilTabsItems'>
-                        <div class='fotos'>
+                        <div class='fotos' id='fotos'>
                             "; 
                             foreach($fotos as $urlsTodas){
                                 echo "<img src='publico/images/$urlsTodas[1]'>";
@@ -158,10 +158,12 @@ class AnimalesController extends Animal{
                 </div>
                     ";
                     echo " 
+                    
                     <script src='publico/js/perfilTabs.js'></script>
                     <script>
                     perfilTabs();
                     </script>
+                    <script src='publico/js/galeriaAnimalitos.js'></script>
                     ";
             }else{
                 echo "<div class='errNoData'>No se ha encontrado ningúna mascota con esta identificación</div>";
@@ -418,12 +420,12 @@ class AnimalesController extends Animal{
             <fieldset class='padding-menu form_3 margin-menu' style='display:block'>
                 <h2 class='titulo'>Vacunas de <span class='nombreMascota'>$datos[1]</span></h2>
                 
-                <form action='' method='post' class='row'>
+                <form action='' method='post' class='row' id='agregarQuitarV'>
                     <input type='hidden' id='idAnimalitoVacunas' value='$datos[0]'>
                     
                     <div class='col-ms-6'>
                     <div class='agregarVacunasAnimalitos'>
-                        <p> Agrega o elimina las vacunas de $datos[1], las vacunas con punto rojo son las ya aplicadas, si quitas la selección se eliminará la aplicación de la vacuna del animalito</p><br>
+                        <p> Agrega o elimina las vacunas de $datos[1], las vacunas con punto rojo son las ya aplicadas, si quitas la selección se eliminará la aplicación de la vacuna al animalito</p><br>
 
                         <div class='row'>
 
@@ -436,25 +438,27 @@ class AnimalesController extends Animal{
                         if($vacunas->rowCount() > 0){
 
                             foreach($vacunas as $vacuna){
-                                $verificarVacunas = $con->query("SELECT * FROM animalesvacunados WHERE idAnimal='$datos[0]'");
-                                
+
+                                $verificarVacunas = $con->query("SELECT * FROM animalesvacunados WHERE idAnimal='$datos[0]' AND codVacuna='$vacuna[0]'");
+
                                 $codVacuna = $verificarVacunas->fetch();
                                 
                                 if($vacuna[0] == $codVacuna[0]){
                                     
                                     echo "
                                     <div class='radioBox'>
-                                    <input type='checkbox' id='vacuna$vacuna[2]' value='$vacuna[0]' checked><label for='vacuna$vacuna[2]'> $vacuna[2]</label> <div style='background: red; width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin: 5px 0px 0px 0px '></div>
+                                        <input type='checkbox' id='vacuna$vacuna[2]' value='$vacuna[0]' checked><label for='vacuna$vacuna[2]'> $vacuna[2]</label> <div style='background: red; width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin: 5px 0px 0px 0px '></div>
                                     </div>";
                                 }else{
                                     echo "
                                     <div class='radioBox'>
                                         <input type='checkbox' id='vacuna$vacuna[2]' value='$vacuna[0]'><label for='vacuna$vacuna[2]'> $vacuna[2]</label> 
-                                        </div>";
+                                    </div>";
                                 }
                             }
+
                         }else{
-                            echo "<div class='errorVacio'>No hay vacunas disponibles para esta raza</div>";
+                            echo "<div class='errorVacio'>No hay vacunas disponibles para esta especie</div>";
                         }
                         
                         echo "
@@ -508,7 +512,8 @@ class AnimalesController extends Animal{
                     </div>
                 
                 </form>
-            </fieldset>";
+            </fieldset>
+            <script src='publico/js/ajax/vacunasAnimalesAjax.js'></script> ";
         } catch (Exception $e) {
             exit("ERROR A: ".$e->getMessage());
         }
@@ -621,7 +626,7 @@ class AnimalesController extends Animal{
                     }
 
         
-                    $fotos = Foto::dataFotos($datos[0]);
+                    $fotos = Foto::fotoPerfil($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
         
                     echo "<div class='card-adopta'>
@@ -744,7 +749,7 @@ class AnimalesController extends Animal{
                     </div>
 
                     <div class='perfilTabsItems'>
-                        <div class='fotos'>
+                        <div class='fotos' id='fotos'>
                             "; 
                             foreach($fotos as $urlsTodas){
                                 echo "<img src='publico/images/$urlsTodas[1]'>";
@@ -774,6 +779,8 @@ class AnimalesController extends Animal{
                     <script>
                     perfilTabs();
                     </script>
+                    <script src='publico/js/galeriaAnimalitos.js'></script>
+
                     ";
             }else{
                 echo "<div class='errNoData'>No se ha encontrado ningúna mascota con esta identificación</div>";

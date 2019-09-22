@@ -57,9 +57,10 @@ class FotosController extends Foto{
     public function nuevaFotoPerfil($codAnterior, $codNuevo){
         $con = parent::conectar();
         try {
-            $cambiarActual = $con->prepare("UPDATE fotos SET perfil=0 WHERE cod=:codAnterior");
+            $cambiarActual = $con->prepare("UPDATE fotos SET perfil= 0 WHERE cod=:codAnterior");
             $cambiarActual->bindParam(":codAnterior", $codAnterior);
             $cambiarActual->execute();
+
             if($cambiarActual->errorCode() == "00000"){
                 $actualizar = $con->prepare("UPDATE fotos SET perfil = 1 WHERE cod=:codNuevo");
                 $actualizar->bindParam(':codNuevo', $codNuevo);

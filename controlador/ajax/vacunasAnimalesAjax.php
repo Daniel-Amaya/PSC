@@ -17,6 +17,11 @@ if(isset($_POST['especie']) && !empty($_POST['especie'])){
         VacunasController::aplicarVacunas($codsVacunas[$i], $_POST['idAnimal']);
 
     }
+    
+}elseif(isset($_POST['elimVacuna']) && !empty($_POST['elimVacuna']) && isset($_POST['idAnimal']) && !empty($_POST['idAnimal'])){
+    
+    VacunasController::quitarVacuna($_POST['elimVacuna'], $_POST['idAnimal']);
 }
+
 
 ?>

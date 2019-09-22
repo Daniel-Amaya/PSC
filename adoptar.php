@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require 'controlador/validar/validarSesionUsuario.php';
 
 require 'vista/general/adoptar/links.ad.php';
 require 'vista/header.php';

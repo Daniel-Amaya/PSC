@@ -5,11 +5,31 @@ if(isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo
 
     require '../../modelo/connect.php';
     require '../../modelo/usuarios.php';
+    require '../usuariosController.php';
 
     if(isset($_POST['rol']) && $_POST['rol'] == "a"){
-        new Usuario($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['password'], 'a', '');
+
+       $validar = UsuariosController::validarCrearCuenta($_POST['cedula'], $_POST['correo']);
+
+        if($validar == 'bien'){
+
+            new Usuario($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['password'], 'a', '');
+        }else{
+            
+            echo $validar;
+        } 
+
     }else{
-        new Usuario($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['password'], 'u', '');
+
+        $validar = UsuariosController::validarCrearCuenta($_POST['cedula'], $_POST['correo']);
+
+        if($validar == 'bien'){
+
+            new Usuario($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['password'], 'u', '');
+
+        }else{
+            echo $validar;
+        }
     }
 
 }

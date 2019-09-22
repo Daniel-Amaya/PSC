@@ -30,7 +30,20 @@ id('crearUsuario').addEventListener('submit', function(e){
                 if(e == "1"){
                     window.location = "index.php";
                 }else{
-                    alert('No se creo el usuario');
+
+                    let recibido = e.split('%%');
+
+                    if(recibido.length > 1){
+                        if(recibido[1] == "correo"){
+
+                            id('crearUsuario').getElementsByClassName('error')[0].textContent = 'El correo ya está en uso, prueba otro';
+
+                        }else{
+
+                            id('crearUsuario').getElementsByClassName('error')[1].textContent = 'La cedula ingresada ya está registrada';
+
+                        }
+                    }
                 }
             }
         });

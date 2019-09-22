@@ -67,6 +67,8 @@
             
     </fieldset>
 
+    <script src="publico/js/validar/validarAgregarAnimalito.js"></script>
+
 
 
 

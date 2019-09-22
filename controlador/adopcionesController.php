@@ -78,7 +78,9 @@ class AdopcionesController extends Adopcion{
             exit("ERROR: ".$e->getMessage());
         }
     }
+
     // Usuario
+
     public function mostrarMiAnimalAdoptado($idUsuario){
         try {
             $adopciones = parent::dataAdopciones($idUsuario);
@@ -165,7 +167,7 @@ class AdopcionesController extends Adopcion{
                         </div>
     
                         <div class='perfilTabsItems'>
-                            <div class='fotos'>
+                            <div class='fotos' id='fotos'>
                                 "; 
                                 foreach($fotos as $urlsTodas){
                                     echo "<img src='publico/images/$urlsTodas[1]'>";
@@ -196,13 +198,15 @@ class AdopcionesController extends Adopcion{
                         <script>
                         perfilTabs();
                         </script>
+                        <script src='publico/js/galeriaAnimalitos.js'></script>
+
                         ";
                 }
             }else{
                 echo " <div class='noAdopcion'>
 
                 <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
-                <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Adoptar</a></div>
+                <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Apadrina</a></div>
 
                 <div class='husky'>
                 <div class='mane'>

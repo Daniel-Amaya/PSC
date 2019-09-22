@@ -60,6 +60,37 @@ class VacunasController extends Vacuna{
         }
     }
 
+    public function quitarVacuna($codVacuna, $idAnimal){
+        $con = parent::conectar();
+        try{
+            
+            $verficarVacuna = $con->prepare("SELECT * FROM animalesvacunados WHERE codVacuna=:cod AND idAnimal=:id");
+            $verficarVacuna->bindParam(':cod', $codVacuna);
+            $verficarVacuna->bindParam(':id', $idAnimal);
+
+            $verficarVacuna->execute();
+
+            if($verficarVacuna->rowCount() > 0){
+                $query = $con->prepare("DELETE FROM animalesvacunados WHERE codVacuna=:cod AND idAnimal=:id");
+                $query->bindParam(':cod', $codVacuna);
+                $query->bindParam(':id', $idAnimal);
+            
+                $query->execute();
+
+                if($query->errorCode() != "00000"){
+                    echo "0%%";
+                }else{
+                    echo "1%%";
+                }
+            }else{
+                echo "1%%";
+            }
+            
+        }catch(Exception $e){
+            exit("ERROR AL QUITAR VACUNA: ".$e->getMessage());
+        }
+    }
+
     public function mostrarVacunasAplicadas($idAnimal){
         $con = parent::conectar();
         try {

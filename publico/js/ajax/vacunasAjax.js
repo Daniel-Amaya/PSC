@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function(){
     vacunasAjax('especie=canina', vacunascanina);
     vacunasAjax('especie=felina', vacunasfelina);
 
-
     // Agregar 
 
     id('agregarVacuna').addEventListener('submit', function(e){
