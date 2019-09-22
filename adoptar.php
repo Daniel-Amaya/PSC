@@ -20,6 +20,7 @@ if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
     require 'vista/usuario/menuUser.php';
     require 'vista/usuario/adoptar/animales.ad.php';
     require 'vista/usuario/adoptar/buscador.ad.php';    
+    
 }
 
 require 'vista/footer.php';

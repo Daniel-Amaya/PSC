@@ -72,7 +72,7 @@ class Animal extends Conexion{
         }
     }
 
-    protected function dataAnimal($id){
+    public function dataAnimal($id){
         $con = parent::conectar();
         try {
             if(empty($id)){
