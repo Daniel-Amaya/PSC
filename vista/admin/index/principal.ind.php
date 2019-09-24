@@ -1,5 +1,5 @@
 <section class="padding-menu margin-menu">
-    
+    <h2 class='titulo'>Inicio administrador</h2>
     <!-- Solicitudes en espera -->
 
     <div class="divTableDatos">
@@ -67,6 +67,7 @@
             </tbody>
         </table>
     </div>
+    
 </section>
 
 <script src='publico/js/modal.js'></script>

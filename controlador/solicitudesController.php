@@ -66,6 +66,25 @@ class SolicitudesController extends Solicitud{
         }
     }
 
+    public function notificaciones($idU){
+        $con = parent::conectar();
+        try{
+            
+            $notificacion = $con->prepare("SELECT * FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND (estado='a un paso' OR estado='rechazada') AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC");
+            $notificacion->bindParam(':idU', $idU);
+            $notificacion->execute();
+
+            if($notificacion->rowCount() > 0){
+                foreach($notificacion->fetchColumn() AS $notificaciones){
+                    $notiJeison = json_encode($notificaciones);
+                    echo $notiJeison . "&&";
+                }
+            }
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR NOTIFICACIONES DE SOLICITUDES: ".$e->getMessage());
+        }
+    }
+
 }
 
 

@@ -169,6 +169,7 @@ id('newAnimalito').addEventListener('submit', function(e){
         id('esp2').textContent = especieAn;
         id('raz2').textContent = razaAn;
         id('col2').textContent = colorAn;
+        id('espVacu').textContent = especieAn;
         if(sexoAn == "F"){
             id('gen2').textContent = "Femenino";
         }else{

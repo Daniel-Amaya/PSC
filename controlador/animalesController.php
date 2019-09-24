@@ -186,6 +186,7 @@ class AnimalesController extends Animal{
         
                 foreach($animales as $datos){
 
+                    $datosj = json_encode($datos);
                     $fotos = Foto::fotoPerfil($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
 
@@ -198,7 +199,7 @@ class AnimalesController extends Animal{
                         $idsAdopcion = $verfifcarAdopcion->fetch();
                         echo " 
                     <tr>
-                        <td onclick=''><img src='publico/images/$urlFotoPerfil[1]'></td>
+                        <td onclick='modalAnimalitos($datosj, \"$urlFotoPerfil[1]\")'><img src='publico/images/$urlFotoPerfil[1]'></td>
                         <td>$datos[1]</td>
                         <td>$datos[2]</td>
                         <td><a href='adoptar.php?adopcion=$idsAdopcion[0]'>Ver adopción</a></td>
@@ -212,7 +213,7 @@ class AnimalesController extends Animal{
 
                         echo " 
                         <tr>
-                            <td onclick=''><img src='publico/images/$urlFotoPerfil[1]'></td>
+                            <td onclick='modalAnimalitos($datosj, \"$urlFotoPerfil[1]\")'><img src='publico/images/$urlFotoPerfil[1]'></td>
                             <td>$datos[1]</td>
                             <td>$datos[2]</td>
                             <td>No</td>

@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="boxInput">
-                        <input type="number" name="edad" placeholder='Año de nacimiento'>
+                        <input type="date" name="edad" placeholder="edad" min="2005-01-01" max="<?php echo date('Y-m-d')?>">
                     </div>
                 </div>
 

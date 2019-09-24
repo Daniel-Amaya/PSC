@@ -13,7 +13,7 @@
 
                         <div class="vacunasBox">
 
-                            <h4 class='center'>Vacunas para caninos:</h4><br>
+                            <h4 class='center'>Vacunas para la especie <span id='espVacu'></span>:</h4><br>
 
                             <script>
                             var form = id('newAnimalito');

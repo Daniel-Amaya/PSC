@@ -11,6 +11,7 @@ require 'vista/admin/animalitos/form_1.an.php';
 require 'vista/admin/animalitos/form_2.an.php';
 require 'vista/admin/animalitos/form_3.an.php';
 require 'vista/admin/animalitos/formEdit.an.php';
+require 'vista/admin/animalitos/modalMostrar.an.php';
 
 require 'vista/footer.php';
 

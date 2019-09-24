@@ -2230,7 +2230,7 @@ button {
   padding: 20px 35px;
   box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
   width: 90%;
-  margin: auto;
+  margin: 20px auto;
   border-radius: 44px;
 }
 .solicitudAdopcion .fotoPerfil {
@@ -2277,15 +2277,6 @@ button {
 }
 .solicitudAdopcion .detallesSolicitud table tr td:nth-child(2) {
   text-align: right;
-}
-
-.soliComunicadas thead {
-  background: #ff7f04 !important;
-  color: white;
-}
-.soliComunicadas thead tr, .soliComunicadas thead th {
-  background: #ff7f04 !important;
-  color: white;
 }
 
 /*-------------------------------*\
@@ -2576,6 +2567,35 @@ nav div.nav-items ul li a {
 .config-dropdown:hover ul {
   height: fit-content;
   overflow: visible;
+}
+
+#notificaciones {
+  width: 350px;
+  z-index: 5;
+  position: absolute;
+  box-shadow: 0 0 15px rgba(100, 100, 100, 0.5);
+  height: 300px;
+  background: white;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+}
+#notificaciones i {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  font-size: 35px;
+  color: white;
+  text-shadow: 0px -10px 15px rgba(100, 100, 100, 0.5);
 }
 
 /*-------------------------------*\

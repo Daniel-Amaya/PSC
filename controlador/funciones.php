@@ -10,13 +10,20 @@ function genero($data){
     }
 }
 
-function edad($añoNacimiento){
+function edad($fecha){
+    $separarFecha = explode('-', $fecha);
+
     $añoActual = date('Y');
-    $edad = ($añoActual-$añoNacimiento);
-    if($edad == 0){
-        $edad = "Menos de un año";
-    }else{
-        $edad = $edad. " años";
+    $años = ($añoActual-$separarFecha[0]);
+    $mesActual = date('m');
+    $meses = ($mesActual - $separarFecha[1]);
+
+    if($años == 0 && $meses != 0){
+        $edad = "{$meses} meses";
+    }elseif($años != 0 && $meses != 0){
+        $edad = "{$años} años y {$meses} meses";
+    }elseif($edad == 0 && $meses == 0){
+        $edad = "Recien nacido";
     }
 
     return $edad;

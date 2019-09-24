@@ -55,6 +55,15 @@
   box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
 }
 
+.soliComunicadas thead {
+  background: #ff7f04 !important;
+  color: white;
+}
+.soliComunicadas thead tr, .soliComunicadas thead th {
+  background: #ff7f04 !important;
+  color: white;
+}
+
 .mostrarVacunas td {
   width: 50%;
   text-align: center;

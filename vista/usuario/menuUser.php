@@ -45,7 +45,13 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
     </div>
     <div class="nav-logo row">
         <ul class="row">
-            <li style="padding:20px"><span onclick='' class='pointer'><i class="far fa-calendar-times"></i></span></li>
+            <li style="padding:20px; position: relative">
+                <span onclick='abrirNotificaciones()' class='pointer'><i class="far fa-bell"></i></span>
+                <ul id="notificaciones" style='display: none'>
+                    <i class="fas fa-caret-up"></i>
+                    
+                </ul>
+            </li>
             <li style="padding:20px" class="config-dropdown"><span onclick='' class='pointer'><i class="fas fa-cog">
                 <ul>
                     <li><a id='cerrarSesion' href="controlador/validar/logout.php">Salir</a></li>
@@ -55,6 +61,6 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <img src="publico/images/logo.jpeg">
     </div>
 </nav>
-<!-- <script src="publico/js/ajax/cerrarSesion.js"></script> -->
+<script src="publico/js/ajax/notificaciones.js"></script>
 <script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>
