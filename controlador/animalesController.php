@@ -521,12 +521,14 @@ class AnimalesController extends Animal{
 
     // Animalitos usuario
     
-    public function mostrarDatosDeTodosUsuario(){
+    public function mostrarDatosDeTodosUsuario($idUsuario){
         $con = parent::conectar();
         try{
             
             $animales = $con->query("SELECT * FROM animales, adopciones WHERE id != idAnimalAdoptado");
         
+
+
             if($animales->rowCount() > 0){
         
                 echo "
@@ -536,8 +538,12 @@ class AnimalesController extends Animal{
                 $cont = 0;
                 foreach($animales as $datos) {
 
-                    $cont++;
+                    $solicitado = $con->prepare("SELECT animales.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
+                    $solicitado->bindParam(':idUsuario', $idUsuario);
+                    $solicitado->bindParam(':idAnimal', $datos[0]);
+                    $solicitado->execute();
 
+                    $cont++;
 
                     // Perrito 
                     if($cont == 3){
@@ -628,31 +634,59 @@ class AnimalesController extends Animal{
         
                     $fotos = Foto::fotoPerfil($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
-        
-                    echo "<div class='card-adopta'>
-                        <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Especie</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <th>$datos[1]</th>
-                                <th>$datos[2]</th>
-                            </tbody>
-                        </table>
-                        <div class='btns_card'>
-                            <a href='' class='btn_naranja buttonCorazones'>Adoptar
-                                <div class='AnimacionCorazones cor1'></div>
-                                <div class='AnimacionCorazones cor2'></div>
-                                <div class='AnimacionCorazones cor3'></div>
-                                <div class='AnimacionCorazones cor4'></div>
-                            </a>
-                            <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-                        </div>
-                    </div>";
+
+                    
+                    if($solicitado->rowCount() > 0){
+
+                        echo "<div class='card-adopta'>
+                            <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th>$datos[1]</th>
+                                    <th>$datos[2]</th>
+                                </tbody>
+                            </table>
+                            <div class='btns_card'>
+                                <a class='btn_rojo btn_largo'>Cancelar solicitud</a>
+                                <!-- <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a> -->
+                            </div>
+                        </div>";
+
+                    }else{
+                           
+                        echo "<div class='card-adopta'>
+                            <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th>$datos[1]</th>
+                                    <th>$datos[2]</th>
+                                </tbody>
+                            </table>
+                            <div class='btns_card'>
+                                <a class='btn_naranja buttonCorazones' onclick='solicitarAdopcion(\"$datos[1]\", \"publico/images/$urlFotoPerfil[1]\", $datos[0], $idUsuario)'>Adoptar
+                                    <div class='AnimacionCorazones cor1'></div>
+                                    <div class='AnimacionCorazones cor2'></div>
+                                    <div class='AnimacionCorazones cor3'></div>
+                                    <div class='AnimacionCorazones cor4'></div>
+                                </a>
+                                <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                            </div>
+                        </div>";
+
+                    }
+
                 }
             echo "</div>";
 
@@ -667,7 +701,7 @@ class AnimalesController extends Animal{
 
     }
 
-    public function mostrarPerfilUsuario($id){
+    public function mostrarPerfilUsuario($id, $idUsuario){
         
         try{
 
@@ -701,7 +735,13 @@ class AnimalesController extends Animal{
                         <h2 class='nombreAnimal'>$datos[1]</h2>
 
                         <div class='adoptadoORadoptar'>
-                            <button class='btn_naranja'>Adoptar</button>
+                            <button class='btn_naranja buttonCorazones' onclick='solicitarAdopcion(\"$datos[1]\", \"publico/images/$urlFotoPerfil[1]\", $datos[0], $idUsuario)'>
+                                Adoptar
+                                <div class='AnimacionCorazones cor1'></div>
+                                <div class='AnimacionCorazones cor2'></div>
+                                <div class='AnimacionCorazones cor3'></div>
+                                <div class='AnimacionCorazones cor4'></div>
+                            </button>
                             <button class='btn_naranja'>Apadrinar</button>
                         </div> 
 

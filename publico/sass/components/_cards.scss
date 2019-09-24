@@ -127,4 +127,68 @@
     }
 }
 
+.solicitudAdopcion{
+    padding: 20px 35px;
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, .5);
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 44px;
+
+    .fotoPerfil{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        img{
+            border-radius: 100%;
+            object-fit: cover;
+            width: 290px;
+            height: 290px;
+            margin: 10px 0;
+        }
+    }
+
+    .dataAnimal{
+        width: 100%;
+        padding: 30px;
+        background: rgba(255, 125, 4, 0.5);
+        border-radius: 20px;
+        ul{
+            text-align: center;
+            justify-content: center;
+        }
+        li{
+            text-align: center;
+            padding: 20px;
+        }
+    }
+    .detallesSolicitud{
+
+        border-radius: 20px;
+        margin-top: 20px; 
+        width: 100%;
+        background: rgba(100, 100, 100, 0.11);
+        table{
+            padding: 20px 10%;
+            width: 100%;
+            td, th{
+                padding: 10px 0;
+            }
+            tr{
+                td{
+                    &:nth-child(2){
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
 

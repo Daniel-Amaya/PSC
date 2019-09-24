@@ -2,7 +2,6 @@
 
 class AdopcionesController extends Adopcion{
     
-
     // Administrador
 
     public function adopcionesRecientes(){
@@ -201,58 +200,165 @@ class AdopcionesController extends Adopcion{
                         <script src='publico/js/galeriaAnimalitos.js'></script>
 
                         ";
+
+                    require 'modelo/solicitudes.php';
+
+                    $solicitudes = Solicitud::dataSolicitud($idUsuario, '');
+    
+                    if($solicitudes->rowCount() > 0){
+                        
+                        echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
+                        foreach($solicitudes AS $solicitud){
+
+                            $fotosSolicitud = Foto::dataFotos($solicitud[0]);
+                            $urlFotoSolicitud = $fotosSolicitud->fetch();
+                            echo "
+                                
+                                <div class='solicitudAdopcion'>
+                                    <div class='row'>
+
+                                        <div class='fotoPerfil'>
+                                            <img src='publico/images/$urlFotoSolicitud[1]'>
+                                            <button class='btn_rojo btn_largo'>Cancelar solicitud</button>
+                                        </div>
+
+                                        <div style='width: 60%'>
+                                            <div class='dataAnimal'>
+                                                <ul class='row'>
+                                                    <li>Para adoptar a: $solicitud[1]</li>
+                                                    <li>De la especie: $solicitud[2]</li>
+                                                </ul>
+                                                <ul>
+                                                    <li>De la raza: $solicitud[3]</li>
+                                                </ul>
+                                            </div>
+                                            <div class='detallesSolicitud'>
+                                                <table>
+                                                    <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
+                                                    <tbody>
+                                                        <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
+                                                        <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                        </div>
+
+                                    </div>
+
+                                </div>";
+                                
+                        }
+    
+                    }
                 }
             }else{
-                echo " <div class='noAdopcion'>
 
-                <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
-                <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Apadrina</a></div>
+                require 'modelo/solicitudes.php';
+                require_once 'modelo/fotos.php';
 
-                <div class='husky'>
-                <div class='mane'>
-                    <div class='coat'></div>
-                </div>
-                <div class='body'>
-                    <div class='head'>
-                    <div class='ear'></div>
-                    <div class='ear'></div>
-                    <div class='face'>
-                        <div class='eye'></div>
-                        <div class='eye'></div>
-                        <div class='nose'></div>
-                        <div class='mouth'>
-                        <div class='lips'></div>
-                        <div class='tongue'></div>
+                $solicitudes = Solicitud::dataSolicitud($idUsuario, '');
+
+                if($solicitudes->rowCount() > 0){
+
+                    echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
+                    
+                    foreach($solicitudes AS $solicitud){
+
+                        $fotosSolicitud = Foto::dataFotos($solicitud[0]);
+                        $urlFotoSolicitud = $fotosSolicitud->fetch();
+
+                        echo " 
+                        <div class='solicitudAdopcion row'>
+
+                            <div class='fotoPerfil'>
+                                <img src='publico/images/$urlFotoSolicitud[1]'>
+                                <button class='btn_rojo btn_largo'>Cancelar solicitud</button>
+                            </div>
+
+                            <div style='width: 60%'>
+                                <div class='dataAnimal'>
+                                    <ul class='row'>
+                                        <li>Para adoptar a: $solicitud[1]</li>
+                                        <li>De la especie: $solicitud[2]</li>
+                                    </ul>
+                                    <ul>
+                                        <li>De la raza: $solicitud[3]</li>
+                                    </ul>
+                                </div>
+                                <div class='detallesSolicitud'>
+                                    <table>
+                                        <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
+                                            <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+
+
+                        </div>";
+                            
+                    }
+
+                }else{
+
+                    echo " <div class='noAdopcion'>
+
+                    <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
+                    <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Apadrina</a></div>
+    
+                    <div class='husky'>
+                    <div class='mane'>
+                        <div class='coat'></div>
+                    </div>
+                    <div class='body'>
+                        <div class='head'>
+                        <div class='ear'></div>
+                        <div class='ear'></div>
+                        <div class='face'>
+                            <div class='eye'></div>
+                            <div class='eye'></div>
+                            <div class='nose'></div>
+                            <div class='mouth'>
+                            <div class='lips'></div>
+                            <div class='tongue'></div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class='torso'></div>
+                    </div>
+                    <div class='legs'>
+                        <div class='front-legs'>
+                        <div class='leg'></div>
+                        <div class='leg'></div>
+                        </div>
+                        <div class='hind-leg'>
                         </div>
                     </div>
-                    </div>
-                    <div class='torso'></div>
-                </div>
-                <div class='legs'>
-                    <div class='front-legs'>
-                    <div class='leg'></div>
-                    <div class='leg'></div>
-                    </div>
-                    <div class='hind-leg'>
-                    </div>
-                </div>
-                <div class='tail'>
-                    <div class='tail'>
                     <div class='tail'>
                         <div class='tail'>
                         <div class='tail'>
                             <div class='tail'>
-                            <div class='tail'></div>
+                            <div class='tail'>
+                                <div class='tail'>
+                                <div class='tail'></div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         </div>
                     </div>
                     </div>
-                </div>
-                </div>
-
+    
+                    
+                    </div> ";
+                }
                 
-                </div> ";
+
+              
             }
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR ANIMALITO ADOPTADO: ".$e->getMessage());

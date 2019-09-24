@@ -2070,6 +2070,41 @@ button {
   object-fit: cover;
 }
 
+.solicitudModal {
+  padding: 60px;
+  width: 75%;
+  text-align: center;
+}
+.solicitudModal .infoSolicitadoYanimalito {
+  width: 70%;
+}
+.solicitudModal .infoSolicitadoYanimalito .info {
+  padding: 20px 0;
+  width: 400px;
+}
+.solicitudModal .infoSolicitadoYanimalito .info li {
+  padding: 10px;
+}
+.solicitudModal .infoAnimalSoli, .solicitudModal .infoSolicitante {
+  margin: 5px;
+}
+.solicitudModal .buttonsSolicitudes {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.solicitudModal .buttonsSolicitudes button {
+  margin: 20px 0;
+}
+.solicitudModal img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: solid 0.5px rgba(100, 100, 100, 0.5);
+}
+
 .card-adopta {
   width: 250px;
   height: 400px;
@@ -2189,6 +2224,68 @@ button {
   text-align: center;
   height: 10%;
   font-weight: 600;
+}
+
+.solicitudAdopcion {
+  padding: 20px 35px;
+  box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
+  width: 90%;
+  margin: auto;
+  border-radius: 44px;
+}
+.solicitudAdopcion .fotoPerfil {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.solicitudAdopcion .fotoPerfil img {
+  border-radius: 100%;
+  object-fit: cover;
+  width: 290px;
+  height: 290px;
+  margin: 10px 0;
+}
+.solicitudAdopcion .dataAnimal {
+  width: 100%;
+  padding: 30px;
+  background: rgba(255, 125, 4, 0.5);
+  border-radius: 20px;
+}
+.solicitudAdopcion .dataAnimal ul {
+  text-align: center;
+  justify-content: center;
+}
+.solicitudAdopcion .dataAnimal li {
+  text-align: center;
+  padding: 20px;
+}
+.solicitudAdopcion .detallesSolicitud {
+  border-radius: 20px;
+  margin-top: 20px;
+  width: 100%;
+  background: rgba(100, 100, 100, 0.11);
+}
+.solicitudAdopcion .detallesSolicitud table {
+  padding: 20px 10%;
+  width: 100%;
+}
+.solicitudAdopcion .detallesSolicitud table td, .solicitudAdopcion .detallesSolicitud table th {
+  padding: 10px 0;
+}
+.solicitudAdopcion .detallesSolicitud table tr td:nth-child(2) {
+  text-align: right;
+}
+
+.soliComunicadas thead {
+  background: #ff7f04 !important;
+  color: white;
+}
+.soliComunicadas thead tr, .soliComunicadas thead th {
+  background: #ff7f04 !important;
+  color: white;
 }
 
 /*-------------------------------*\

@@ -10,11 +10,11 @@ require_once 'modelo/fotos.php';
 
 if(isset($_GET['perfil']) && !empty($_GET['perfil'])){
 
-    animalesController::mostrarPerfilUsuario($_GET['perfil']);
+    animalesController::mostrarPerfilUsuario($_GET['perfil'], $_SESSION['sesion_usuario']['id']);
 
 }else{
 
-    animalesController::mostrarDatosDeTodosUsuario();
+    animalesController::mostrarDatosDeTodosUsuario($_SESSION['sesion_usuario']['id']);
 
 }
 

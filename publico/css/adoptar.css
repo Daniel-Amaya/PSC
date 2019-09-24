@@ -206,6 +206,32 @@ aside {
   text-align: center;
 }
 
+#solicitudModal {
+  text-align: center;
+}
+#solicitudModal .titulo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#solicitudModal .solicitarAdopcion {
+  padding: 30px 50px;
+}
+#solicitudModal .mensajeSolicitud {
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+#solicitudModal img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+#solicitudModal p {
+  width: 50%;
+  padding: 20px;
+}
+
 @keyframes tail {
   6.6666666667% {
     transform: rotate(0);

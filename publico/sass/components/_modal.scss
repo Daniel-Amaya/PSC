@@ -88,3 +88,40 @@
         object-fit: cover;
     }
 }
+
+.solicitudModal{
+    padding: 60px;
+    width: 75%;
+    text-align: center;
+    .infoSolicitadoYanimalito{
+        width: 70%;
+        .info{
+            padding: 20px 0;
+            width: 400px;
+            li{
+                padding: 10px;
+            }
+        }
+    }
+    .infoAnimalSoli, .infoSolicitante{
+        margin: 5px;
+    }
+
+    .buttonsSolicitudes{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        button{
+            margin: 20px 0;
+        }
+    }
+
+    img{
+        width: 230px;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 100%;
+        border: solid .5px rgba(100, 100, 100, .5);
+    }
+}

@@ -41,13 +41,23 @@
         }
     
         tbody{
+
             tr{
                 margin: 10px 0;
                 box-shadow: 0px 0px 10px rgba(100,100,100,0.5);
             }
-
+            
         }
     }
+}
 
-
+.soliComunicadas{
+    thead{
+        background: $color-principal !important;
+        color: white;
+        tr, th{
+            background: $color-principal !important;
+            color: white;
+        }
+    }
 }

@@ -7,7 +7,7 @@
     </ul> 
 
     <div class="tabBox">
-        <h2 class="title">Mis mascotas</h2>
+        <h2 class="titulo">Mis mascotas</h2>
 
        <?php
        require_once 'modelo/adopciones.php';
@@ -46,19 +46,19 @@
     </div>
 
     <div class="tabBox">
-        <h2 class="title">Mis apadrinamientos</h2>
+        <h2 class="titulo">Mis apadrinamientos</h2>
         <?php
         require 'vista/vacio.php';
         ?>
     </div>
 
     <div class="tabBox">
-        <h2 class="title">Mis donaciones</h2>
+        <h2 class="titulo">Mis donaciones</h2>
 
     </div>
 
     <div class="tabBox">
-        <h2 class="title">Mi información</h2>
+        <h2 class="titulo">Mi información</h2>
         <div class="perfilUsuario">
 
             <div class="header">

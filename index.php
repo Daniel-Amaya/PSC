@@ -17,6 +17,7 @@ if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
 
     require 'vista/admin/menuAdmin.php';
     require 'vista/admin/index/principal.ind.php';
+    require 'vista/admin/index/solicitudModal.php';
     
 }else if($_SESSION['sesion_rol'] == "u"){
    require 'vista/usuario/menuUser.php';

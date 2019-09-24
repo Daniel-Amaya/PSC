@@ -5,3 +5,5 @@
         ?>
     </div>
 </div>
+
+<script src="publico/js/ajax/adopcion/solicitarAdopcion.js"></script>
