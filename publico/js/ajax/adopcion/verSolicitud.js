@@ -43,6 +43,7 @@ verSolicitud = (data, fotoAnimalito) => {
         
         // Contactado
         id('contactado').style.display = 'block';
+        id('contactado').removeEventListener('click', contactado);
         id('contactado').addEventListener('click', contactado = () => {
 
             solicitudAjax('contactadoCod='+data[20], accionSolicitud);
@@ -52,6 +53,7 @@ verSolicitud = (data, fotoAnimalito) => {
         // Rechazar
 
         id('rechazar').style.display = 'block';
+        id('rechazar').removeEventListener('click', rechazar);
         id('rechazar').addEventListener('click', rechazar = () => {
             
             let confirmar = confirm('¿Seguro que deseas RECHAZAR la solicitud de '+data['12']+ " para adoptar al animalito "+data[1]);
@@ -68,6 +70,7 @@ verSolicitud = (data, fotoAnimalito) => {
 
         // Proceder
         id('proceder').style.display = 'block';
+        id('proceder').removeEventListener('click', proceder);
         id('proceder').addEventListener('click', proceder = () => {
             
             let confirmar2 = confirm('¿Seguro que deseas ACEPTAR la solicitud de '+data['12']+ " para adoptar al animalito "+data[1]);
@@ -94,6 +97,7 @@ verSolicitud = (data, fotoAnimalito) => {
         // Rechazar
 
         id('rechazar').style.display = 'block';
+        id('rechazar').removeEventListener('click', rechazar);
         id('rechazar').addEventListener('click', rechazar = () => {
             
             let confirmar = confirm('¿Seguro que deseas RECHAZAR la solicitud de '+data['12']+ " para adoptar al animalito "+data[1]);
@@ -111,13 +115,14 @@ verSolicitud = (data, fotoAnimalito) => {
         // Proceder
 
         id('proceder').style.display = 'block';
+        id('proceder').removeEventListener('click', proceder);
         id('proceder').addEventListener('click', proceder = () => {
             
             let confirmar2 = confirm('¿Seguro que deseas ACEPTAR la solicitud de '+data['12']+ " para adoptar al animalito "+data[1]);
 
             if(confirmar2 == true){
 
-                solicitudAjax('rechazarCod='+data[20], accionSolicitud);
+                solicitudAjax('aunpasoCod='+data[20], accionSolicitud);
 
             }else{
                 return true;
@@ -133,10 +138,10 @@ verSolicitud = (data, fotoAnimalito) => {
         id('contactado').removeEventListener('click', contactado);
 
         id('proceder').style.display = 'none';
-        id('proceder').removeEventListener('click', rechazar);
+        id('proceder').removeEventListener('click', proceder);
 
         id('rechazar').textContent = 'Cancelar adopción';
-
+        id('rechazar').removeEventListener('click', rechazar);
         id('rechazar').addEventListener('click', rechazar = () => {
             
             let confirmar = confirm('¿Seguro que deseas RECHAZAR la solicitud de '+data['12']+ " para adoptar al animalito "+data[1]);
