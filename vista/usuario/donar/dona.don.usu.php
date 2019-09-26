@@ -113,7 +113,7 @@
         <div class="tabBox">
                 <div class="textos-modal donacionesAlimentos">
 
-                <h1>Donaciones</h1> <br>
+                <h1>Dinero</h1> <br>
             <div class="doscolumnas">
                     <p><h3>¿Que es donar?</h3> <br>
                     Donar es dar algo de valor para ayudar al bienestar del otro 
@@ -121,7 +121,7 @@
                     <h3> ¿Para que donar? </h3> <br>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, </p>
             </div> <br>
-                        <h3>  ¿Como puedo donar? </h3> <br>
+                        <h3>  Pasos para donar </h3> <br>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
                     </p>
                     <br>
@@ -148,15 +148,15 @@
  <div class="tabBox">
  <div class="textos-modal donacionesAlimentos">
 
-                <h1>Donaciones2</h1> <br>
+                <h1>Medicamentos</h1> <br>
                 <div class="doscolumnas">
-                    <p><h3>¿Que es donar?</h3> <br>
+                    <p><h3>¿Que medicamentos puedo donar?</h3> <br>
                     Donar es dar algo de valor para ayudar al bienestar del otro 
                     entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
                     <h3> ¿Para que donar? </h3> <br>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, </p>
                 </div> <br>
-                        <h3>  ¿Como puedo donar? </h3> <br>
+                        <h3>  Pasos para donar </h3> <br>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
                     </p>
                     <br>
@@ -178,9 +178,9 @@
     <div class="tabBox">
     <div class="textos-modal donacionesAlimentos">
 
-            <h1>Donaciones3 </h1> <br>
+            <h1>Alimentos </h1> <br>
             <div class="doscolumnas">
-                <p><h3>¿Que es donar?</h3> <br>
+                <p><h3>¿Que alimentos puedo donar?</h3> <br>
                 Donar es dar algo de valor para ayudar al bienestar del otro 
                 entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
                 <h3> ¿Para que donar? </h3> <br>

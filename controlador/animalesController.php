@@ -830,6 +830,62 @@ class AnimalesController extends Animal{
             exit("ERROR AL MOSTRAR LA INFORMACIÓN DEL ANIMALITO: ".$e->getMessage());
         }
     }
+
+    public function mostrarAnimalitosIndex(){
+        try{
+            
+            $animales = parent::dataAnimalIndex('');
+        
+            if($animales->rowCount() > 0){
+        
+                foreach($animales as $datos) {
+        
+                    $fotos = Foto::fotoPerfil($datos[0]);
+                    $urlFotoPerfil = $fotos->fetch();
+        
+                    echo "
+                
+                        <div class='card-adopta marg'>
+                            <div class='image_card'>
+                                <img src='publico/images/$urlFotoPerfil[1]'>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th>$datos[1]</th>
+                                    <th>$datos[2]</th>
+                                </tbody>
+                            </table>
+                            <div class='btns_card'>
+                                <a href='' class='btn_naranja'>Adoptar</a>
+                                <a href='' class='btn_naranja'>Conocer</a>
+                            </div>
+                        </div>
+                       
+                
+             
+           
+                
+                
+                      
+                 ";
+                }
+            }else{
+                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
+                include 'vista/vacio.php';
+            }
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
+        }
+
+    }
+
+
 }
 
 ?>
