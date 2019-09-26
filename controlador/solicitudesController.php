@@ -70,12 +70,14 @@ class SolicitudesController extends Solicitud{
         $con = parent::conectar();
         try{
             
-            $notificacion = $con->prepare("SELECT * FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND (estado='a un paso' OR estado='rechazada') AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC");
+            $notificacion = $con->prepare("SELECT cod, notificado, notificacion, nombre FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND (estado='a un paso' OR estado='rechazada') AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC, cod DESC");
             $notificacion->bindParam(':idU', $idU);
             $notificacion->execute();
 
             if($notificacion->rowCount() > 0){
-                foreach($notificacion->fetchColumn() AS $notificaciones){
+
+                foreach($notificacion AS $notificaciones){
+                    $notificaciones['tipoNotificacion'] = 'solicitudAdopcion';
                     $notiJeison = json_encode($notificaciones);
                     echo $notiJeison . "&&";
                 }
@@ -86,6 +88,5 @@ class SolicitudesController extends Solicitud{
     }
 
 }
-
 
 ?>

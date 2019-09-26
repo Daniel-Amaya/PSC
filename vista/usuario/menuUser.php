@@ -46,7 +46,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
     <div class="nav-logo row">
         <ul class="row">
             <li style="padding:20px; position: relative">
-                <span onclick='abrirNotificaciones()' class='pointer'><i class="far fa-bell"></i></span>
+                <span onclick='abrirNotificaciones()' class='pointer' id='numNoti'><i class="far fa-bell"></i></span>
                 <ul id="notificaciones" style='display: none'>
                     <i class="fas fa-caret-up"></i>
                     
@@ -61,6 +61,16 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <img src="publico/images/logo.jpeg">
     </div>
 </nav>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () =>{
+
+    mostrarNotificaciones(<?php echo $datosDelUsuario[0] ?>);
+
+});
+
+</script>
 <script src="publico/js/ajax/notificaciones.js"></script>
 <script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>

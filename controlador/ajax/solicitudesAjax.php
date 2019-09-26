@@ -13,7 +13,7 @@ if(isset($_POST['solicitudU']) && isset($_POST['solicitudA']) && !empty($_POST['
     
 }elseif(isset($_POST['rechazarCod']) && !empty($_POST['rechazarCod'])){
 
-    Solicitud::updateEstado($_POST['rechazarCod'], 'rechazada', 'La solicitud de adoptar ha sido rechazada');
+    Solicitud::updateEstado($_POST['rechazarCod'], 'rechazada', 'Lo sentimos, la solicitud de adoptar ha sido rechazada');
 
 }elseif(isset($_POST['aunpasoCod']) && !empty($_POST['aunpasoCod'])){
 
