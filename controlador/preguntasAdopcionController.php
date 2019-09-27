@@ -2,7 +2,7 @@
 
 class PreguntasAdopcionController extends PreguntasAdopcion{
 
-    public function mostrarFormularioPreguntas($idAnimal){
+    public function mostrarFormularioPreguntas(){
         
         try {
             
@@ -37,9 +37,54 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
 
                             if($pregunta[0] == 22){
                                 echo "
-                                    <div class='boxRadio preguntaDerecha'>
+                                    <div class='boxInput preguntaDerecha pregunta22'>
                                         <div class='pregunta'>$pregunta[0]. $pregunta[1]</div>
-                                        <label for=''></label>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado1'>
+                                            <label for='cuidado1'>visitas periódicas al veterinario </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado2'>
+                                            <label for='cuidado2'> vacunación y vitaminas  </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado3'>
+                                            <label for='cuidado3'> paseos con correa para perro </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado4'>
+                                            <label for='cuidado4'> uso de collar con placa de identificación</label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado5'>
+                                            <label for='cuidado5'> plato con agua limpia todos los días </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado6'>
+                                            <label for='cuidado6'> Desparasitación </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado7'>
+                                            <label for='cuidado7'> cepillado de pelo  </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado8'>
+                                            <label for='cuidado8'> limpieza diaria de arenero de gatito  </label>
+                                        </div>
+
+                                        <div class='boxRadio'>
+                                            <input type='checkbox' name='$pregunta[0]' id='cuidado9'>
+                                            <label for='cuidado9'> Alimentación solo con croquetas </label>
+                                        </div>
+
                                     </div>
                                 ";
                             }elseif($pregunta[0] == 24){
@@ -47,17 +92,17 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
                                 echo " 
                                 <div class='boxInput preguntaDerecha'>
                                     <label for='$pregunta[0]'>$pregunta[0]. $pregunta[1]</label>
-                                    <input type='$pregunta[2]' id='$pregunta[0]'>
+                                    <input type='$pregunta[2]' id='$pregunta[0]' name='$pregunta[0]'>
                                     
                                     <label for='db$pregunta[0]'> $pregunta[4]</label>
-                                    <input type='number' id='db$pregunta[0]'>
+                                    <input type='number' id='db$pregunta[0]' name='db$pregunta[0]'>
                                 </div> ";
                             }else{
                                 
                                 echo " 
                                 <div class='boxInput preguntaDerecha'>
                                     <label for='$pregunta[0]'>$pregunta[0]. $pregunta[1]</label>
-                                    <input type='$pregunta[2]' id='$pregunta[0]'>
+                                    <input type='$pregunta[2]' id='$pregunta[0]' name='$pregunta[1]'>
                                 </div> ";
                             }
                         }
@@ -100,15 +145,13 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
                             }
                         }
                     }
-
-                    
                 }
-            
             }
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR LAS PREGUNTAS: ".$e->getMessage());
         }
     }
+
 }
 
 ?>

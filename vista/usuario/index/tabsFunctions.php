@@ -7,8 +7,6 @@
     </ul> 
 
     <div class="tabBox">
-        <h2 class="titulo">Mis mascotas</h2>
-
        <?php
        require_once 'modelo/adopciones.php';
        require_once 'controlador/adopcionesController.php';

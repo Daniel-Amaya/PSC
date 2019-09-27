@@ -52,4 +52,34 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
     });
 }
 
+cancelarSolicitud = (codSolicitud) => {
+    confirmar = confirm("¿Seguro que desea cancelar la solicitud de adopción?");
+
+    if(confirmar == true){
+
+        ht = new XMLHttpRequest;
+
+        ht.addEventListener('readystatechange', function(){
+            if(this.readyState == 4 && this.status == 200){
+                if(this.responseText == '1'){
+
+                    alert('Se ha cancelado la solicitud de adopción');
+                    window.location = 'index.php';
+
+                }else{
+
+                    alert('No es posible cancelar la solicitud de adopción');
+                }
+            }
+        });
+    
+        ht.open('POST','controlador/ajax/solicitudesAjax.php');
+        ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
+        ht.send('cancelarSoli='+codSolicitud);
+    }else{
+        return true;
+    }
+
+}
+
 

@@ -43,7 +43,7 @@ class Solicitud extends Conexion{
         $con = parent::conectar();
         try {
             if(!empty($idUsuario)){
-                $query = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario");
+                $query = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario ORDER BY cod DESC");
                 $query->bindParam(':idUsuario', $idUsuario);
                 $query->execute();
 
@@ -59,6 +59,22 @@ class Solicitud extends Conexion{
             return $query;
         } catch (Exception $e) {
             exit("ERRROR AL AV" .$e->getMessage());
+        }
+    }
+
+    public function dataSolicitudCod($cod, $idU){
+        $con = parent::conectar();
+        try{
+
+            $query = $con->prepare("SELECT animales.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND usuarios.id = idUsuario  AND cod=:cod AND idUsuario=:idU");
+            $query->bindParam(':cod', $cod);
+            $query->bindParam(':idU', $idU);
+            $query->execute();
+
+            return $query;
+
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LA SOLICITUD: ".$e->getMessage());
         }
     }
 
@@ -97,6 +113,37 @@ class Solicitud extends Conexion{
 
         } catch (Exception $e) {
             exit("ERROR AL EDITAR SOLICITUD: ".$e->getMessage());
+        }
+    }
+
+    public function deleteSolicitud($cod){
+        $con = parent::conectar();
+        try{
+
+            $query = $con->prepare("DELETE FROM solicitudesadopcion WHERE cod=:cod");
+            $query->bindParam(":cod", $cod);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0";
+            }else{
+                echo "1";
+            }
+            
+        }catch(Exception $e){
+            exit("ERROR AL ELIMINAR LA SOLICITUD: ".$e->getMessage());
+        }
+    }
+
+    public function updateNotificado($cod, $value){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("UPDATE solicitudesadopcion SET notificado=:noti WHERE cod=:cod");
+            $query->bindParam(':noti', $value);
+            $query->bindParam(':cod', $cod);
+            $query->execute();
+        }catch(Exception $e){
+            exit("ERROR AL CAMBIAR VISTA DE NOTIFICACION: ".$e->getMessage());
         }
     }
 }

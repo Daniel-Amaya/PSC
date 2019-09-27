@@ -93,6 +93,8 @@ class AdopcionesController extends Adopcion{
                 require_once 'modelo/vacunas.php';
                 require_once 'controlador/vacunasController.php';
 
+                echo " <h2 class='titulo'>Mis mascotas</h2> ";
+
                 foreach ($adopciones as $datos) {
 
                     $fotos = Foto::dataFotos($datos[0]);
@@ -103,6 +105,8 @@ class AdopcionesController extends Adopcion{
                     $vacunas = VacunasController::mostrarVacunasAplicadas($datos[0]);
 
                     echo "
+
+                    
                     <div class='perfil'>
     
                         <div class='header'>
@@ -219,7 +223,7 @@ class AdopcionesController extends Adopcion{
 
                                         <div class='fotoPerfil'>
                                             <img src='publico/images/$urlFotoSolicitud[1]'>
-                                            <button class='btn_rojo btn_largo'>Cancelar solicitud</button>
+                                            <button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
                                         </div>
 
                                         <div style='width: 60%'>
@@ -249,6 +253,9 @@ class AdopcionesController extends Adopcion{
                                 </div>";
                                 
                         }
+
+                    echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
+
     
                     }
                 }
@@ -273,7 +280,7 @@ class AdopcionesController extends Adopcion{
 
                             <div class='fotoPerfil'>
                                 <img src='publico/images/$urlFotoSolicitud[1]'>
-                                <button class='btn_rojo btn_largo'>Cancelar solicitud</button>
+                                <button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
                             </div>
 
                             <div style='width: 60%'>
@@ -298,12 +305,15 @@ class AdopcionesController extends Adopcion{
                                 
                             </div>
 
-
                         </div>";
                             
                     }
 
+                    echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
+
                 }else{
+
+                    echo " <h2 class='titulo'>Mis mascotas</h2> ";
 
                     echo " <div class='noAdopcion'>
 

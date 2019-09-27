@@ -70,7 +70,7 @@ class SolicitudesController extends Solicitud{
         $con = parent::conectar();
         try{
             
-            $notificacion = $con->prepare("SELECT cod, notificado, notificacion, nombre FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND (estado='a un paso' OR estado='rechazada') AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC, cod DESC");
+            $notificacion = $con->prepare("SELECT cod, notificado, notificacion, nombre, estado FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND (estado='a un paso' OR estado='rechazada') AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC, cod DESC");
             $notificacion->bindParam(':idU', $idU);
             $notificacion->execute();
 

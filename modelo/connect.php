@@ -6,6 +6,7 @@ define('DB_PASSWORD', '');
 define('DB_NAME', 'peluditos_san_cristobal');
 
 abstract class Conexion{
+
     private static $server = DB_SERVER;
     private static $user = DB_USER;
     private static $password = DB_PASSWORD;

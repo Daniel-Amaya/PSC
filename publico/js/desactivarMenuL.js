@@ -26,5 +26,19 @@ function menuL(){
     
 }
 
+abrirConfig = () => {
+
+    config = id('config');
+
+    if(config.style.display == 'none'){
+        config.style.display = 'block';
+        leerNotificaciones();
+
+    }else{
+        config.style.display = 'none';
+    }
+
+}
+
 
 

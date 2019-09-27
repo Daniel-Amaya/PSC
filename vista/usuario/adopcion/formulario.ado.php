@@ -1,7 +1,14 @@
 
+
 <div class="margin-menu padding-menu">
 
-    <form action="" method="post" id='formAdopcion'>
+    <?php
+    
+    require 'controlador/get/formAdopcion.php';
+    
+    ?>
+
+    <!-- <form action="" method="post" id='formAdopcion'>
 
         <h2 class='titulo'>Información Previa</h2>
 
@@ -28,16 +35,18 @@
         
 
 
-        <h2 class="titulo">Formulario de adopción</h2>
+        <h2 class="titulo">Formulario de adopción</h2> -->
 
         <?php
         
-        require_once 'modelo/connect.php';
-        require_once 'modelo/preguntasAdopcion.php';
-        require_once 'controlador/preguntasAdopcionController.php';   
-        
-        PreguntasAdopcionController::mostrarFormularioPreguntas('1', '2');
+        // PreguntasAdopcionController::mostrarFormularioPreguntas('1', '2');
         ?>
+
+
+
+
+
+
 
         <!-- <div class="row">
 
@@ -212,7 +221,17 @@
         </div> -->
 
 
-        <div class="row recomendaciones">
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="row recomendaciones">
             <div class="col-ms-6">
 
                 <h3 class='titulo'>RECOMENDACIONES:</h3>
@@ -271,11 +290,10 @@
 
                 <strong>FIRMA</strong>
 
-                <div class='nombreCompleto'>NOMBRE COMPLETO: </div>
+                <div class='nombreCompleto'>NOMBRE COMPLETO: <?php echo $datosDelUsuario['nombre'] . " " . $datosDelUsuario['apellidos'] ?></div>
 
-                <div>CI: </div>
+                <div>CI: <?php echo $datosDelUsuario['cedula'] ?></div>
             </div>
-
 
             <div class="col-ms-6">
                 <strong>ENTREGO EN ADOPCIÓN</strong>
@@ -313,7 +331,7 @@
 
         </div>
         
-    </form>
+    </form> -->
         
 
 </div>

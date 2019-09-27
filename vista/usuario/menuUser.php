@@ -52,11 +52,15 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
                     
                 </ul>
             </li>
-            <li style="padding:20px" class="config-dropdown"><span onclick='' class='pointer'><i class="fas fa-cog">
-                <ul>
+            <li style="padding:20px; position: relative">
+                <span onclick='abrirConfig()' class='pointer'><i class="fas fa-cog"></i></span>
+                <ul id='config' style='display: none'>
+                    <i class="fas fa-caret-up"></i>
+                    <li><a href="">Ayuda</a></li>
                     <li><a id='cerrarSesion' href="controlador/validar/logout.php">Salir</a></li>
                 </ul>
-            </i></span></li>
+            </li>
+
         </ul>
         <img src="publico/images/logo.jpeg">
     </div>

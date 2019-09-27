@@ -19,6 +19,9 @@ if(isset($_POST['solicitudU']) && isset($_POST['solicitudA']) && !empty($_POST['
 
     Solicitud::updateEstado($_POST['aunpasoCod'], 'a un paso', 'Estás a un paso de adoptar, debes llenar el formulario de adopción para completar la adopción');
     
+}elseif(isset($_POST['cancelarSoli']) && !empty($_POST['cancelarSoli'])){
+    
+    Solicitud::deleteSolicitud($_POST['cancelarSoli']);
 }
 
 ?>

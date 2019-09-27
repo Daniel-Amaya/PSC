@@ -29,7 +29,7 @@ class AnimalesController extends Animal{
                             </tbody>
                         </table>
                         <div class='btns_card'>
-                            <a href='' class='btn_naranja buttonCorazones'>Adoptar
+                            <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
                                 <div class='AnimacionCorazones cor1'></div>
                                 <div class='AnimacionCorazones cor2'></div>
                                 <div class='AnimacionCorazones cor3'></div>
@@ -171,6 +171,59 @@ class AnimalesController extends Animal{
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LA INFORMACIÓN DEL ANIMALITO: ".$e->getMessage());
         }
+    }
+
+    public function mostrarAnimalitosIndex(){
+        try{
+            
+            $animales = parent::dataAnimalIndex();
+        
+            if($animales->rowCount() > 0){
+        
+                foreach($animales as $datos) {
+        
+                    $fotos = Foto::fotoPerfil($datos[0]);
+                    $urlFotoPerfil = $fotos->fetch();
+        
+                    echo "
+                
+                        <div class='card-adopta marg'>
+                            <div class='image_card'>
+                                <img src='publico/images/$urlFotoPerfil[1]'>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th>$datos[1]</th>
+                                    <th>$datos[2]</th>
+                                </tbody>
+                            </table>
+                            <div class='btns_card'>
+                                <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
+                                <div class='AnimacionCorazones cor1'></div>
+                                <div class='AnimacionCorazones cor2'></div>
+                                <div class='AnimacionCorazones cor3'></div>
+                                <div class='AnimacionCorazones cor4'></div>
+                                </a>
+                                <a href='adoptar.php?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                            </div>
+                        </div>
+                      
+                 ";
+                }
+            }else{
+                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
+                include 'vista/vacio.php';
+            }
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
+        }
+
     }
 
     // Animalitos Admin
@@ -528,8 +581,6 @@ class AnimalesController extends Animal{
             
             $animales = $con->query("SELECT * FROM animales, adopciones WHERE id != idAnimalAdoptado");
         
-
-
             if($animales->rowCount() > 0){
         
                 echo "
@@ -539,7 +590,7 @@ class AnimalesController extends Animal{
                 $cont = 0;
                 foreach($animales as $datos) {
 
-                    $solicitado = $con->prepare("SELECT animales.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
+                    $solicitado = $con->prepare("SELECT solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
                     $solicitado->bindParam(':idUsuario', $idUsuario);
                     $solicitado->bindParam(':idAnimal', $datos[0]);
                     $solicitado->execute();
@@ -638,6 +689,8 @@ class AnimalesController extends Animal{
 
                     
                     if($solicitado->rowCount() > 0){
+                        
+                        $solicitud = $solicitado->fetch();
 
                         echo "<div class='card-adopta'>
                             <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
@@ -654,7 +707,7 @@ class AnimalesController extends Animal{
                                 </tbody>
                             </table>
                             <div class='btns_card'>
-                                <a class='btn_rojo btn_largo'>Cancelar solicitud</a>
+                                <a class='btn_rojo btn_largo' onclick='cancelarSolicitud($solicitud[0])'>Cancelar solicitud</a>
                                 <!-- <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a> -->
                             </div>
                         </div>";
@@ -831,59 +884,7 @@ class AnimalesController extends Animal{
         }
     }
 
-    public function mostrarAnimalitosIndex(){
-        try{
-            
-            $animales = parent::dataAnimalIndex('');
-        
-            if($animales->rowCount() > 0){
-        
-                foreach($animales as $datos) {
-        
-                    $fotos = Foto::fotoPerfil($datos[0]);
-                    $urlFotoPerfil = $fotos->fetch();
-        
-                    echo "
-                
-                        <div class='card-adopta marg'>
-                            <div class='image_card'>
-                                <img src='publico/images/$urlFotoPerfil[1]'>
-                            </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Especie</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <th>$datos[1]</th>
-                                    <th>$datos[2]</th>
-                                </tbody>
-                            </table>
-                            <div class='btns_card'>
-                                <a href='' class='btn_naranja'>Adoptar</a>
-                                <a href='' class='btn_naranja'>Conocer</a>
-                            </div>
-                        </div>
-                       
-                
-             
-           
-                
-                
-                      
-                 ";
-                }
-            }else{
-                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
-                include 'vista/vacio.php';
-            }
-        }catch(Exception $e){
-            exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
-        }
-
-    }
+  
 
 
 }
