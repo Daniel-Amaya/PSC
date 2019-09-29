@@ -12,8 +12,8 @@
                     <div class="boxInput">
                         <select name="especie">
                             <option value="">Especie</option>
-                            <option value="canina">Perro</option>
-                            <option value="felina">Gato</option>
+                            <option value="canina">Canina</option>
+                            <option value="felina">Felina</option>
                         </select>
                         <!-- <input type="text" placeholder="especie" name='especie'> -->
                     </div>

@@ -986,6 +986,83 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   cursor: pointer;
 }
 
+.respuestasAdopcion, .datosAdoptante {
+  width: 90%;
+  margin: 20px auto;
+}
+.respuestasAdopcion td, .respuestasAdopcion th, .datosAdoptante td, .datosAdoptante th {
+  padding: 20px;
+  border: solid 1px rgba(100, 100, 100, 0.5);
+}
+
+.recomendaciones {
+  text-align: left;
+  padding: 20px;
+}
+.recomendaciones .col-ms-6 {
+  padding: 0 20px;
+}
+.recomendaciones .titulo {
+  margin-top: 0;
+}
+.recomendaciones ul, .recomendaciones li {
+  font-weight: 400;
+}
+
+.firmas {
+  margin-top: 100px;
+  text-align: center;
+}
+.firmas .firmaAdoptante, .firmas .firmaFundacion {
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+.firmas .nombreCompleto {
+  margin: 30px 0 0 0;
+}
+
+.informacionAdoptado {
+  margin: 0 0 100px 0;
+  display: flex;
+  padding: 0 200px;
+  justify-content: center;
+  align-items: center;
+}
+.informacionAdoptado .fotoPerfil {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.informacionAdoptado .fotoPerfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.informacionAdoptado .nombreAdoptado, .informacionAdoptado .edadAdoptado, .informacionAdoptado .sexoAdoptado {
+  padding: 13px 30px;
+}
+
+#lugarFirma img {
+  height: 100px;
+  object-fit: cover;
+  width: 300px;
+}
+
+.btnAdoptar {
+  width: 90%;
+  margin: auto;
+}
+.btnAdoptar button, .btnAdoptar input {
+  width: 48%;
+  margin: 10px auto;
+}
+
 .divTableDatos {
   margin: 0 auto;
   width: 90%;

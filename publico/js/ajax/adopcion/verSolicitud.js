@@ -46,7 +46,7 @@ verSolicitud = (data, fotoAnimalito) => {
         id('contactado').removeEventListener('click', contactado);
         id('contactado').addEventListener('click', contactado = () => {
 
-            solicitudAjax('contactadoCod='+data[20], accionSolicitud);
+            solicitudAjax('contactadoCod='+data[24], accionSolicitud);
 
         });
 
@@ -60,7 +60,7 @@ verSolicitud = (data, fotoAnimalito) => {
 
             if(confirmar == true){
 
-                solicitudAjax('rechazarCod='+data[20], accionSolicitud);
+                solicitudAjax('rechazarCod='+data[24], accionSolicitud);
 
             }else{
                 return true;
@@ -77,7 +77,7 @@ verSolicitud = (data, fotoAnimalito) => {
 
             if(confirmar2 == true){
 
-                solicitudAjax('aunpasoCod='+data[20], accionSolicitud);
+                solicitudAjax('aunpasoCod='+data[24], accionSolicitud);
 
             }else{
                 return true;
@@ -104,7 +104,7 @@ verSolicitud = (data, fotoAnimalito) => {
 
             if(confirmar == true){
 
-                solicitudAjax('rechazarCod='+data[20], accionSolicitud);
+                solicitudAjax('rechazarCod='+data[24], accionSolicitud);
 
             }else{
                 return true;
@@ -122,7 +122,7 @@ verSolicitud = (data, fotoAnimalito) => {
 
             if(confirmar2 == true){
 
-                solicitudAjax('aunpasoCod='+data[20], accionSolicitud);
+                solicitudAjax('aunpasoCod='+data[24], accionSolicitud);
 
             }else{
                 return true;
@@ -148,7 +148,7 @@ verSolicitud = (data, fotoAnimalito) => {
 
             if(confirmar == true){
 
-                solicitudAjax('rechazarCod='+data[20], accionSolicitud);
+                solicitudAjax('rechazarCod='+data[24], accionSolicitud);
 
             }else{
                 return true;

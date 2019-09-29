@@ -2,7 +2,7 @@
 
 class PreguntasAdopcion extends Conexion{
 
-    protected function dataPreguntas(){
+    public function dataPreguntas(){
         
         $con = parent::conectar();
         try{

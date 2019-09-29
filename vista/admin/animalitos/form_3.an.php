@@ -29,6 +29,7 @@
                                     ht.addEventListener('readystatechange', function(){
                                         if(this.readyState == 4 && this.status == 200){
                                             e = this.responseText;
+                                            alert(e);
 
                                             classNames('vacunasBox')[0].innerHTML += e;
                                         }

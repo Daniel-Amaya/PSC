@@ -1,6 +1,13 @@
 <?php 
 
-class Carpetas{
+interface Carpeta{
+
+    public function crearCarpeta($nombre);
+    public function agregarFoto($folder, $fileName, $fileTMP);
+
+}
+
+class Carpetas implements Carpeta{
 
     public $nombre;
 
@@ -59,7 +66,8 @@ class Carpetas{
                 return $folder."/".$numberName.".png";
 
             }else{
-                echo "k mierda malditasea triplehpta";
+
+                throw new Exception("k mierda malditasea triplehpta");
             }
         }catch(Exception $e){
             exit("ERROR AL AGREGAR LA IMAGEN: ".$e->getMessage());
@@ -67,6 +75,79 @@ class Carpetas{
 
     }
 
+    public function crearCarpeta($nombre){
+    
+        $carpeta = $nombre;
+
+        $base = mkdir("../../publico/images/usuarios/".$carpeta, 0777);
+
+        if($base == false){
+
+            exit("QUE LE PASA A ESTA CHIMBADA HPTAAA");
+
+        }
+
+        return $carpeta;
+
+    }
+
+    public function agregarFoto($folder, $fileName, $fileTMP){
+        
+        try{
+
+            $dir = $folder."/" . basename($fileName);
+            $extension = strtolower(pathinfo($dir, PATHINFO_EXTENSION));
+
+            if($extension != "png" && $extension != "jpg" && $extension != "jpeg"){
+                throw new Exception("La extensión del achivo no es de imagen");
+            }
+
+            if(move_uploaded_file($fileTMP, '../../publico/images/usuarios/'.$dir)){
+                
+                $newName = '../../publico/images/usuarios/'.$folder.'/fotoPerfil.png';
+                rename('../../publico/images/usuarios/'.$dir, $newName);
+                
+                return "usuarios/".$folder."/fotoPerfil.png";
+
+            }else{
+
+                throw new Exception("k mierda malditasea triplehpta");
+                }
+
+            }catch(Exception $e){
+                exit("ERROR AL AGREGAR LA IMAGEN: ".$e->getMessage());
+            }
+
+    }
+
+    public function subirFirma($folder, $firmaName, $firmaTMP){
+        try{
+
+
+            $dir = $folder."/" . basename($firmaName);
+            $extension = strtolower(pathinfo($dir, PATHINFO_EXTENSION));
+
+            if($extension != "png" && $extension != "jpg" && $extension != "jpeg"){
+                throw new Exception("La extensión del achivo no es de imagen");
+            }
+
+            if(move_uploaded_file($firmaTMP, '../../publico/images/usuarios/'.$dir)){
+                
+                $newName = '../../publico/images/usuarios/'.$folder.'/firma.png';
+                rename('../../publico/images/usuarios/'.$dir, $newName);
+                
+                return "usuarios/".$folder."/firma.png";
+
+            }else{
+
+                throw new Exception("No agrega esa malparida firma de mierda piroba carechimba");
+                
+                }
+
+        }catch(Exception $e){
+            exit("ERROR AL SUBIR LA FIRMA: ".$e->getMessage());
+        }
+    }
 }
 
 

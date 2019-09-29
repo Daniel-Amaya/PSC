@@ -56,15 +56,26 @@ mostrarNotificaciones = (idU) => {
                         numNotiSinVer++;
                         notif.setAttribute('data-cod', notificacion['cod']);
 
+                    }else{
+
+                        notif.setAttribute('data-codigo', notificacion['cod']);
+
                     }
+
                     if(notificacion['tipoNotificacion'] == 'solicitudAdopcion'){
                         notifTitulo.textContent = 'Solicitud de adopción, adoptar a '+notificacion['nombre'];
                     }
 
                     if(notificacion['estado'] == 'a un paso'){
-                        notif.addEventListener('click', () =>{
-                            window.location = 'adopcion.php?solicitud='+notificacion['cod'];
 
+                        console.log(notificacion);
+
+                        notif.addEventListener('click', () =>{
+                            if(notif.dataset.codigo){
+                                window.location = 'adopcion.php?solicitud='+ notif.dataset.codigo;
+                            }else{
+                                window.location = 'adopcion.php?solicitud='+ notif.dataset.cod;
+                            }
                         });
                     }
                     let notiCuerpo = document.createElement('p'); notiCuerpo.textContent = notificacion['notificacion'];

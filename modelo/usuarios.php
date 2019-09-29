@@ -44,8 +44,14 @@ class Usuario extends Conexion{
                 echo "0";
             }else{
                 
+                $id = $con->query("SELECT id FROM usuarios WHERE cedula={$this->cedula}'");
+                $id = $id->fetch();
+
                 if($this->rol == "u"){
+
                     $_SESSION['sesion_rol'] = "u";
+                    $_SESSION['sesion_usuario'] = ['id' => $id[0]];
+
                 }elseif($this->rol == "a"){
                     $_SESSION['sesion_usuario'] = ['correo' => $this->correo];
                 }
@@ -99,6 +105,27 @@ class Usuario extends Conexion{
             return $query;
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR DATOS DE LOS USUARIOS: " . $e->getMessage());
+        }
+    }
+
+    public function updateAsNull($estado, $direccion, $referencia, $telReferencia, $idU){
+        $con = parent::conectar();
+        try{
+            
+            $query = $con->prepare("UPDATE usuarios SET estadoCivil=:estado, direccionApto=:dirr, referencia=:ref, telefonoRef=:telefono WHERE id=:idU");
+            $query->bindParam(':estado', $estado);
+            $query->bindParam(':dirr', $direccion);
+            $query->bindParam(':ref', $referencia);
+            $query->bindParam(':telefono', $telReferencia);
+            $query->bindParam(':idU', $idU);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                throw new Exception("NO ES POSIBLE AGREGAR A LA BASE DE DATOS [{$query->errorCode()}]");
+            }
+
+        }catch(Exception $e){
+            exit("ERROR AL AGRERGAR LOS DATOS AL USUARIO:" .$e->getMessage());
         }
     }
 }

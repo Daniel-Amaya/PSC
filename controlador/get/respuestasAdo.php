@@ -1,15 +1,20 @@
 <?php 
 
-if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
+if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']) && !empty($_GET['idU'])){
 
     require_once 'modelo/connect.php';
     require_once 'modelo/preguntasAdopcion.php';
     require_once 'controlador/preguntasAdopcionController.php';   
     require_once 'modelo/solicitudes.php';
+    require_once 'modelo/respuestasAdopcion.php';
+    require_once 'controlador/respuestasAdopcionController.php';
 
-    $Solicitud = Solicitud::dataSolicitudCod($_GET['solicitud'], $datosDelUsuario['id']);
+    $Solicitud = Solicitud::dataSolicitudCod($_GET['solicitud'], $_GET['idU']);
 
     if($Solicitud->rowCount() > 0){
+
+        $usuario = Usuario::dataUsuarios($_GET['idU']);
+        $usuario = $usuario->fetch();
 
         $datosSolicitud = $Solicitud->fetch();
         require_once 'modelo/fotos.php';
@@ -17,52 +22,63 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
 
         $foto = Foto::fotoPerfil($datosSolicitud['id']);
         $fotoPerfil = $foto->fetch();
+        $r = json_encode($datosSolicitud);
+        echo " <script>console.log($r)</script> ";
 
 ?>
 
-    <form action="" method="post" id='formAdopcion' enctype='multipart/form-data'>
+    <form action="" method="post">
 
-    <input type="hidden" id='idU' value='<?php echo $datosDelUsuario[0] ?>'>
-    <input type="hidden" id="idA" value='<?php echo $datosSolicitud['id'] ?>'>
-    <input type="hidden" id="codSoli" value="<?php echo $datosSolicitud['cod'] ?>">
-    <input type="hidden" id="correo" value='<?php echo $datosDelUsuario['correo'] ?>'>
+        <h2 class='titulo'>Información del usuario: </h2>
 
-        <h2 class='titulo'>Información Previa</h2>
+        <table class="datosAdoptante">
+            <tr>
+                <td>Apellidos y nombres: <br> <?php echo $usuario[2]." ". $usuario[1] ?></td>
+                <td>Teléfono: <br><?php echo $usuario['telefono'] ?></td>
+                <td>Fecha: <br><?php echo date('Y M d') ?></td>
+                <td>Ciudad: <br> Medellín</td>
+            </tr>
 
-        <div class="row">
+            <tr>
+                <td colspan="2">C.I: <?php echo $usuario['cedula'] ?></td>
+                <td colspan="2">Estado civil <?php echo $usuario['estadoCivil'] ?></td>
+            </tr>
 
-            <div class="boxInput">
-                <label for="estadoCivil">Estado civil</label>
-                <input type="text" id='estadoCivil' name='estadoCivil'>
+            <tr>
+                <td colspan="2">Dirección: <?php echo $usuario['direccionApto'] ?></td>
+                <td colspan="2">Referencia personal: <?php echo $usuario['referencia'] ?></td>
+            </tr>
 
-            </div>
+            <tr>
+                <td colspan="2">Email: <?php echo $usuario['correo'] ?></td>
+                <td colspan="2">Teléfono Referencia: <?php echo $usuario['telefonoRef'] ?></td>
+            </tr>
 
-            <div class="boxInput">
-                <label for="">Referencia personal</label>
-                <input type="text" placeholder="Nombre" name='nombreReferencia' id='nombreReferencia'>
-                <input type="tel" placeholder="Teléfono" name='telefonoReferencia' id='telefonoReferencia'>
-            </div>
-
-            <div class="boxInput">
-                <label for="direccionApto">Dirección de su apartamento</label>
-                <input type="text" id='direccionApto' name='direccionApto'>
-            </div>
-
-        </div>
-        
-
+        </table>
 
         <h2 class="titulo">Formulario de adopción</h2>
 
-        <div id="preguntasAdopcion">
+        <table class="respuestasAdopcion">
+
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Preguntas</th>
+                    <th colspan="3">Respuestas</th>
+                </tr>
+            </thead>
+
+            <tbody>
 
             <?php
             
-            PreguntasAdopcionController::mostrarFormularioPreguntas();
+            RespuestasAdopcionController::mostrarRespuestasAdmin($_GET['idU'], $datosSolicitud['id']);
 
             ?>
 
-        </div>
+            </tbody>
+
+        </table>
 
         <div class="row recomendaciones">
             <div class="col-ms-6">
@@ -107,39 +123,35 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
             </div>
         </div>
 
-        <div class="boxRadio acepto">
-            <label for="acepto">Acepto haber leído las recomendaciones y condiciones de adopción</label>
-            <input type="checkbox" id="acepto">
-        </div>
-
         <div class="row firmas">
             <div class="col-ms-6">
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label for="firma" id='lugarFirma'>Has clic para subir una foto con tu firma</label>
-                    <input type="file" id="firma" style="display: none" accept='image/*'>
-                    <script src="publico/js/añadirFirma.js"></script>
+                    <label><img src="publico/images/"></label>
+
                 </div>
 
                 <strong>FIRMA</strong>
 
-                <div class='nombreCompleto'>NOMBRE COMPLETO: <?php echo $datosDelUsuario['nombre'] . " " . $datosDelUsuario['apellidos'] ?></div>
+                <div class='nombreCompleto'>NOMBRE COMPLETO: <?php echo $usuario['nombre'] . " " . $usuario['apellidos']  ?></div>
 
-                <div>CI: <?php echo $datosDelUsuario['cedula'] ?></div>
+                <div>CI: <?php echo $usuario['cedula'] ?></div>
             </div>
 
             <div class="col-ms-6">
                 <strong>ENTREGO EN ADOPCIÓN</strong>
 
                 <div class="firmaFundacion">
-                    La firma aparecerá cuando termine el proceso de adopción
+                <label for="firma" id='lugarFirma'>Has clic para agregar firma de la fundación</label>
+                    <input type="file" id="firma" style="display: none" accept='image/*'>
+                    <script src="publico/js/añadirFirma.js"></script>
                 </div>
                 <strong>FIRMA</strong>
 
-                <div class='nombreCompleto'>NOMBRE COMPLETO: </div>
+                <div class='nombreCompleto'>NOMBRE COMPLETO: <?php echo $datosDelUsuario['nombre'] . " " . $datosDelUsuario['apellidos']  ?></div>
 
-                <div>CI: </div>
+                <div>CI: <?php echo $datosDelUsuario['cedula'] ?></div>
             </div>
         </div>
 
@@ -165,17 +177,20 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
 
         </div>
 
-        <input type="submit" value="Enviar respuestas" class="btn_naranja btn_largo">
+        <div class="row btnAdoptar">
+            <input type="submit" value="Entregar en adopción" class="btn_naranja">
+            <button class='btn_rojo'>Rechazar</button>
+        </div>
         
     </form>
-
-    <script src="publico/js/ajax/adopcionForm.js"></script>
 
 <?php
 
     }else{
         echo "No puedes acceder a este formulario xd";
     }
+}else{
+    echo "¿Buscas las respuestas de un usuario al formulario de adocpión? Primero busca en adoptar";
 }
 
 ?>

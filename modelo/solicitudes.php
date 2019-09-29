@@ -66,7 +66,7 @@ class Solicitud extends Conexion{
         $con = parent::conectar();
         try{
 
-            $query = $con->prepare("SELECT animales.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND usuarios.id = idUsuario  AND cod=:cod AND idUsuario=:idU");
+            $query = $con->prepare("SELECT animales.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND usuarios.id = idUsuario  AND cod=:cod AND idUsuario=:idU AND (estado='a un paso' OR estado='procesando adopción')");
             $query->bindParam(':cod', $cod);
             $query->bindParam(':idU', $idU);
             $query->execute();

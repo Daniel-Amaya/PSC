@@ -2,6 +2,7 @@
 const menu= id('menuL');
 
 document.addEventListener('DOMContentLoaded', function(){
+    
     document.getElementsByTagName('footer')[0].classList.add('padding-menu');
 
 });

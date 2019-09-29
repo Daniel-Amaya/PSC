@@ -102,7 +102,7 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
                                 echo " 
                                 <div class='boxInput preguntaDerecha'>
                                     <label for='$pregunta[0]'>$pregunta[0]. $pregunta[1]</label>
-                                    <input type='$pregunta[2]' id='$pregunta[0]' name='$pregunta[1]'>
+                                    <input type='$pregunta[2]' id='$pregunta[0]' name='$pregunta[0]'>
                                 </div> ";
                             }
                         }
@@ -120,7 +120,7 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
 
                             if($pregunta[4] != null){
                                 echo "<label for='db$pregunta[0]'>$pregunta[4]</label>
-                                <input type='text' id='db$pregunta[0]'>";
+                                <input type='text' id='db$pregunta[0]' name='db$pregunta[0]'>";
                             }
 
                             echo 
@@ -140,7 +140,7 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
                                 echo " 
                                 <div class='boxInput preguntaIzquierda'>
                                 <label for='$pregunta[0]'>$pregunta[0]. $pregunta[1]</label>
-                                <input type='$pregunta[2]' id='$pregunta[0]'>
+                                <input type='$pregunta[2]' id='$pregunta[0]' name='$pregunta[0]'>
                                 </div> ";
                             }
                         }

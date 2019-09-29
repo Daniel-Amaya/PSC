@@ -81,6 +81,7 @@ class AdopcionesController extends Adopcion{
     // Usuario
 
     public function mostrarMiAnimalAdoptado($idUsuario){
+        $con = parent::conectar();
         try {
             $adopciones = parent::dataAdopciones($idUsuario);
            
@@ -205,9 +206,9 @@ class AdopcionesController extends Adopcion{
 
                         ";
 
-                    require 'modelo/solicitudes.php';
-
-                    $solicitudes = Solicitud::dataSolicitud($idUsuario, '');
+                    $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' ORDER BY cod DESC");
+                    $solicitudes->bindParam(':idUsuario', $idUsuario);
+                    $solicitudes->execute();
     
                     if($solicitudes->rowCount() > 0){
                         
@@ -256,15 +257,15 @@ class AdopcionesController extends Adopcion{
 
                     echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
 
-    
                     }
                 }
             }else{
 
-                require 'modelo/solicitudes.php';
                 require_once 'modelo/fotos.php';
 
-                $solicitudes = Solicitud::dataSolicitud($idUsuario, '');
+                $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' ORDER BY cod DESC");
+                $solicitudes->bindParam(':idUsuario', $idUsuario);
+                $solicitudes->execute();
 
                 if($solicitudes->rowCount() > 0){
 

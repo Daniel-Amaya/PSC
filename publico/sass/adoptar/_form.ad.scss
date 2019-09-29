@@ -292,3 +292,91 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
     z-index: 2;
     cursor: pointer;
 }
+
+.respuestasAdopcion, .datosAdoptante{
+    width: 90%;
+    margin: 20px auto;
+
+    td, th{
+        padding: 20px;
+        border: solid 1px rgba(100, 100, 100, 0.5);
+    }
+
+}
+
+.recomendaciones{
+    text-align: left;
+    padding: 20px;
+    .col-ms-6{
+        padding: 0 20px;
+    }
+    .titulo{
+        margin-top: 0;
+    }
+    ul, li{
+        font-weight: 400;
+    }
+}
+
+.firmas{
+
+    margin-top: 100px;
+    text-align: center;
+    .firmaAdoptante, .firmaFundacion{
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 100px;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: 400;
+
+    }
+
+    .nombreCompleto{
+        margin: 30px 0 0 0;
+    }
+}
+
+.informacionAdoptado{
+    margin: 0 0 100px 0;
+    display: flex;
+    padding: 0 200px;
+    justify-content: center;
+    align-items: center; 
+    .fotoPerfil{
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 50%;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+    }
+    .nombreAdoptado, .edadAdoptado, .sexoAdoptado{
+        padding: 13px 30px;
+    }
+}
+
+
+#lugarFirma{
+
+    img{
+        height: 100px;
+        object-fit: cover;
+        width: 300px;
+    }
+    
+}
+
+.btnAdoptar{
+    width: 90%;
+    margin: auto;
+    button, input{
+        width: 48%;
+        margin: 10px auto;
+    }
+}

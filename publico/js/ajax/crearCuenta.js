@@ -27,6 +27,7 @@ id('crearUsuario').addEventListener('submit', function(e){
         ht.addEventListener('readystatechange', function(){
             if(this.readyState == 4 && this.status == 200){
                 let e = this.responseText;
+                console.log(e);
                 if(e == "1"){
                     window.location = "index.php";
                 }else{
