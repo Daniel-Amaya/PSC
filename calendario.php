@@ -2,7 +2,7 @@
 
 require 'controlador/validar/validarSesionUsuario.php';
 
-require 'vista/general/donar/links.don.php';
+require 'vista/admin/calendario/links.cal.php';
 require 'vista/header.php';
 
 if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
