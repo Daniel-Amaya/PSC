@@ -5,6 +5,7 @@ require '../../modelo/usuarios.php';
 require '../../modelo/respuestasAdopcion.php';
 require '../../modelo/solicitudes.php';
 require '../carpetasController.php';
+require '../../modelo/documentosLegales.php';
 
 if(isset($_POST['idU']) && !empty($_POST['idU'])&& isset($_POST['estadoCivil']) && !empty($_POST['estadoCivil']) && isset($_POST['nombreReferencia']) && !empty($_POST['nombreReferencia']) && isset($_POST['telefonoReferencia']) && !empty($_POST['telefonoReferencia']) && isset($_POST['direccionApto']) && !empty($_POST['direccionApto']) && isset($_POST['idA']) && !empty($_POST['idA']) && isset($_POST['codSoli']) && !empty($_POST['codSoli']) && isset($_POST['correo']) && !empty($_POST['correo'])){
 
@@ -14,7 +15,9 @@ if(isset($_POST['idU']) && !empty($_POST['idU'])&& isset($_POST['estadoCivil']) 
 
         Solicitud::updateNotificado($_POST['codSoli'], 0);
 
-        Carpetas::subirFirma($_POST['correo'], $_FILES['firma']['name'], $_FILES['firma']['tmp_name']);
+        $firma = Carpetas::subirFirma($_POST['correo'], $_FILES['firma']['name'], $_FILES['firma']['tmp_name']);
+
+        new DocumentosLegales($_POST['idU'], $firma, '');
 
     for($i = 1; $i < 27; $i++){
     

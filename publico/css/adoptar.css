@@ -1063,6 +1063,28 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   margin: 10px auto;
 }
 
+#cancelar section {
+  padding: 50px 40px;
+}
+#cancelar h3 {
+  text-align: center;
+}
+#cancelar .boxInput, #cancelar p {
+  margin: 20px 0;
+  width: 50%;
+  padding: 20px;
+}
+
+#entregarModal section {
+  padding: 50px 40px;
+}
+#entregarModal h3 {
+  text-align: center;
+}
+#entregarModal p {
+  padding: 20px;
+}
+
 .divTableDatos {
   margin: 0 auto;
   width: 90%;

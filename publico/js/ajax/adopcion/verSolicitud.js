@@ -187,11 +187,12 @@ mostrarSolicitudes = () => {
         if(this.readyState == 4 && this.status == 200){
             e = this.responseText;
 
-            e = e.split('%%', 3);
+            e = e.split('%%', 4);
 
             id('soliEspera').innerHTML = e[0];
             id('soliComunicadas').innerHTML = e[1];
             id('soliA1Paso').innerHTML = e[2];
+            id('soliProcesando').innerHTML = e[3];
         }
     });
 

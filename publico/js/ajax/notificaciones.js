@@ -31,11 +31,6 @@ mostrarNotificaciones = (idU) => {
             
             if(classNames('sinNotificaciones')[0]) classNames('sinNotificaciones')[0].remove();
 
-            // var notificacionVieja = id('notificaciones').getElementsByClassName('notificacion');
-            // for(let i = 0; i < notificacionVieja.length; i++){
-            //     notificacionVieja[i].remove();
-            // }
-
             e = this.responseText.split('&&');
 
             if(e.length > 0){
@@ -57,9 +52,7 @@ mostrarNotificaciones = (idU) => {
                         notif.setAttribute('data-cod', notificacion['cod']);
 
                     }else{
-
                         notif.setAttribute('data-codigo', notificacion['cod']);
-
                     }
 
                     if(notificacion['tipoNotificacion'] == 'solicitudAdopcion'){
@@ -67,8 +60,6 @@ mostrarNotificaciones = (idU) => {
                     }
 
                     if(notificacion['estado'] == 'a un paso'){
-
-                        console.log(notificacion);
 
                         notif.addEventListener('click', () =>{
                             if(notif.dataset.codigo){
@@ -78,6 +69,12 @@ mostrarNotificaciones = (idU) => {
                             }
                         });
                     }
+
+                    if(notificacion['estado'] == 'adoptado'){
+                            
+
+                    }
+
                     let notiCuerpo = document.createElement('p'); notiCuerpo.textContent = notificacion['notificacion'];
                     notif.appendChild(notifTitulo);
                     notif.appendChild(notiCuerpo);

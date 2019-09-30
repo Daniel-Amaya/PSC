@@ -47,6 +47,13 @@ class SolicitudesController extends Solicitud{
                             <th>".$datos['fechaSolicitud']."</th>
                             <th>".$datos['telefono']."</th>
                         </tr> ";
+                    }elseif($estado == 'procesando adopción'){
+                        echo "
+                        <tr onclick='window.location = \"adopcion.php?solicitud=$datos[24]&idU=$datos[11]\"'>
+                            <th>$datos[12] $datos[13]</th>
+                            <th>$datos[1]</th>
+                            <th><i class='fas fa-eye'></i></th>
+                        </tr>";
                     }else{
 
                         echo " <tr onclick='verSolicitud($datosJ, \"$fotoPerfil[1]\")'>
@@ -70,7 +77,7 @@ class SolicitudesController extends Solicitud{
         $con = parent::conectar();
         try{
             
-            $notificacion = $con->prepare("SELECT cod, notificado, notificacion, nombre, estado FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND (estado='a un paso' OR estado='rechazada') AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC, cod DESC");
+            $notificacion = $con->prepare("SELECT cod, notificado, notificacion, nombre, estado FROM solicitudesadopcion, animales WHERE idUsuario = :idU AND estado !='espera' AND notificacion != '' AND animales.id = idAnimal ORDER BY notificado ASC, cod DESC");
             $notificacion->bindParam(':idU', $idU);
             $notificacion->execute();
 

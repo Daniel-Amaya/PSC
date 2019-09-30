@@ -1,3 +1,4 @@
+(function(){
 
 solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
     
@@ -81,5 +82,8 @@ cancelarSolicitud = (codSolicitud) => {
     }
 
 }
+
+})()
+
 
 

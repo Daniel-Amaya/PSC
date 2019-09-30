@@ -61,8 +61,8 @@ class AdopcionesController extends Adopcion{
                     echo "<tr>
                         <th>$datos[1]</th>
                         <th>$datos[12] $datos[13]</th>
-                        <th>$datos[23]</th>
-                        <th><a href='$datos[20]'><i class='fas fa-eye'></i></a></th>";
+                        <th>{$datos['fechaAdopcion']}</th>
+                        <th><a href='{$datos['numAdopcion']}'><i class='fas fa-eye'></i></a></th>";
 
                         if($datos[24] != null){
                             echo "<th><a href='$datos[24]'><i class='fas fa-eye'></i></a></th>";
@@ -206,7 +206,7 @@ class AdopcionesController extends Adopcion{
 
                         ";
 
-                    $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' ORDER BY cod DESC");
+                    $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' AND estado != 'adoptado' ORDER BY cod DESC");
                     $solicitudes->bindParam(':idUsuario', $idUsuario);
                     $solicitudes->execute();
     

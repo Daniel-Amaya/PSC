@@ -10,5 +10,7 @@ echo "%%";
 SolicitudesController::mostrarSolicitudesAdminIndex('comunicado');
 echo "%%";
 SolicitudesController::mostrarSolicitudesAdminIndex('a un paso');
+echo "%%";
+SolicitudesController::mostrarSolicitudesAdminIndex('procesando adopción');
 
 ?>

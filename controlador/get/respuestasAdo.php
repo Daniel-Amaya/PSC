@@ -8,6 +8,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
     require_once 'modelo/solicitudes.php';
     require_once 'modelo/respuestasAdopcion.php';
     require_once 'controlador/respuestasAdopcionController.php';
+    require 'modelo/documentosLegales.php';
 
     $Solicitud = Solicitud::dataSolicitudCod($_GET['solicitud'], $_GET['idU']);
 
@@ -26,8 +27,6 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
         echo " <script>console.log($r)</script> ";
 
 ?>
-
-    <form action="" method="post">
 
         <h2 class='titulo'>Información del usuario: </h2>
 
@@ -128,7 +127,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label><img src="publico/images/"></label>
+                    <label><img src="publico/images/<?php echo DocumentosLegales::dataFirma($_GET['idU'])[0] ?>"></label>
 
                 </div>
 
@@ -178,11 +177,12 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
         </div>
 
         <div class="row btnAdoptar">
-            <input type="submit" value="Entregar en adopción" class="btn_naranja">
-            <button class='btn_rojo'>Rechazar</button>
+            <button class="btn_naranja" onclick="darEnAdopcion(<?php echo $datosSolicitud['id'] ?>, <?php echo $usuario['id'] ?>, <?php echo $datosSolicitud['cod'] ?>, '<?php echo $datosSolicitud['nombre'] ?>')">Entregar en adopción</button>
+            <button class='btn_rojo' onclick="cancelarAdopcion(<?php echo $datosSolicitud['cod'] ?>)">Rechazar</button>
         </div>
+
+        <script src="publico/js/ajax/adopcion/entregarAdopcion.js"></script>
         
-    </form>
 
 <?php
 
@@ -190,7 +190,8 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
         echo "No puedes acceder a este formulario xd";
     }
 }else{
-    echo "¿Buscas las respuestas de un usuario al formulario de adocpión? Primero busca en adoptar";
+    echo "<h4 class='titulo'>¿Buscas las respuestas de un usuario al formulario de adocpión? Primero busca en adoptar</h2>";
+    include 'vista/vacio.php';
 }
 
 ?>

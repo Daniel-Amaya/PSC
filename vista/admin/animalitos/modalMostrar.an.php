@@ -71,7 +71,7 @@
 
 <script>
 
-modalAnimalitos = (data, fotoPerfil) =>{
+modalAnimalitos = (data, fotoPerfil, edad) =>{
     
     id('modalAni').style.display = 'block';
 
@@ -82,11 +82,11 @@ modalAnimalitos = (data, fotoPerfil) =>{
     id('raM').textContent = data['raza'];
     id('coM').textContent = data['color'];
 
-    id('seM').textContent = data['color'];
+    if(data['sexo'] == 'F'){ id('seM').textContent = 'Femenino';} else{  id('seM').textContent = 'Masculino';}
 
-    id('edM').textContent = data['edad'];
+    id('edM').textContent = edad;
 
-    id('esteM').textContent = data['color'];
+    if(data['esterilizado'] == true){ id('esteM').textContent = 'Sí';}else{ id('esteM').textContent = 'No';}
     
     id('proM').textContent = data['procedencia'];
 

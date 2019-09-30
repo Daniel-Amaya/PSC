@@ -1,74 +1,119 @@
 <section class="padding-menu margin-menu">
-    <h2 class='titulo'>Inicio administrador</h2>
-    <!-- Solicitudes en espera -->
+    <h3 class='titulo'>Inicio administrador</h3>
 
-    <div class="divTableDatos">
+    <ul class="navegador-tabs">
+        <li class="tabsItemUser tabSelection"><strong>Solicitudes</strong></li>
+        <li class="tabsItemUser"><strong>Formularios diligenciados</strong></li>
+        <li class="tabsItemUser"><strong>Apadrinamientos</strong></li>
+        <li class="tabsItemUser"><strong>Información</strong></li>
+    </ul>
 
-        <div class="navTable">
-            <h2 class='center' style="margin: auto">Solicitudes de adopción</h2>
+    <div class="tabBox">
+        <!-- Solicitudes en espera -->
+
+        <div class="divTableDatos">
+
+            <div class="navTable">
+                <h2 class='center' style="margin: auto">Solicitudes de adopción</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Solicitud de</th>
+                        <th>Para adoptar a </th>
+                        <th>Fecha solicitud</th>
+                        <th>Comunicarse a</th>
+                    </tr>
+                </thead>
+                <tbody id='soliEspera'>
+
+                </tbody>
+            </table>
+
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Solicitud de</th>
-                    <th>Para adoptar a </th>
-                    <th>Fecha solicitud</th>
-                    <th>Comunicarse a</th>
-                </tr>
-            </thead>
-            <tbody id='soliEspera'>
 
-            </tbody>
-        </table>
+        <!-- Solicitudes en comunicado -->
+
+        <div class="divTableDatos" style='margin: 20px auto'>
+            <div class="navTable">
+                <h2 class='center' style="margin: auto">Solicitudes de contactados</h2>
+            </div>
+
+            <table class='soliComunicadas'>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Solicitud de</th>
+                        <th>Para adoptar a </th>
+                        <th>Fecha solicitud</th>
+                    </tr>
+                </thead>
+                <tbody id='soliComunicadas'>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Solicitudes a un paso -->
+
+        <div class="divTableDatos">
+            <div class="navTable">
+                <h2 class='center' style="margin: auto">Solicitudes a un paso</h2>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Solicitud de</th>
+                        <th>Para adoptar a </th>
+                        <th>Fecha solicitud</th>
+                    </tr>
+                </thead>
+                <tbody id='soliA1Paso'>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tabBox">
+
+          <!-- Solicitudes en procesando adopción -->
+
+        <div class="divTableDatos">
+
+            <div class="navTable">
+                <h2 class='center' style="margin: auto">Ver respuestas al formulario</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Solicitud de</th>
+                        <th>Para adoptar a </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id='soliProcesando'>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="tabBox">
 
     </div>
 
-    <!-- Solicitudes en comunicado -->
+    <div class="tabBox">
 
-    <div class="divTableDatos" style='margin: 20px auto'>
-        <div class="navTable">
-            <h2 class='center' style="margin: auto">Solicitudes de contactados</h2>
-        </div>
-
-        <table class='soliComunicadas'>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Solicitud de</th>
-                    <th>Para adoptar a </th>
-                    <th>Fecha solicitud</th>
-                </tr>
-            </thead>
-            <tbody id='soliComunicadas'>
-
-            </tbody>
-        </table>
     </div>
 
-    <!-- Solicitudes a un paso -->
-
-    <div class="divTableDatos">
-        <div class="navTable">
-            <h2 class='center' style="margin: auto">Solicitudes a un paso</h2>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Solicitud de</th>
-                    <th>Para adoptar a </th>
-                    <th>Fecha solicitud</th>
-                </tr>
-            </thead>
-            <tbody id='soliA1Paso'>
-
-            </tbody>
-        </table>
-    </div>
     
 </section>
 
 <script src='publico/js/modal.js'></script>
 <script src="publico/js/ajax/adopcion/verSolicitud.js"></script>
+<script src="publico/js/tabs.js"></script>
