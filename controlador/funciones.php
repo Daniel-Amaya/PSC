@@ -22,7 +22,7 @@ function edad($fecha){
         $edad = "{$meses} meses";
     }elseif($años != 0 && $meses != 0){
         $edad = "{$años} años y {$meses} meses";
-    }elseif($edad == 0 && $meses == 0){
+    }elseif($años == 0 && $meses == 0){
         $edad = "Recien nacido";
     }
 

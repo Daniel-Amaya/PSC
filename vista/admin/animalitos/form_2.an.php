@@ -25,29 +25,29 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="2" id='nom'>Perry el perrito</th>
+                                <th colspan="2" id='nom'></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Especie:</td>
-                                <td id='esp'>Perro</td>
+                                <td id='esp'></td>
                             </tr>
                             <tr>
                                 <td>Raza:</td>
-                                <td id='raz'>Pitbull</td>
+                                <td id='raz'></td>
                             </tr>
                             <tr>
                                 <td>Color:</td>
-                                <td id='col'>Blanco</td>
+                                <td id='col'></td>
                             </tr>
                             <tr>
                                 <td>Genero:</td>
-                                <td id='gen'>Masculino</td>
+                                <td id='gen'></td>
                             </tr>
                             <tr>
                                 <td>Procedencia:</td>
-                                <td id='pro'>Medellín Belén Altavista</td>
+                                <td id='pro'></td>
                             </tr>
                         </tbody>
                     </table>

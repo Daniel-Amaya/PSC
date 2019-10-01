@@ -11,7 +11,7 @@
 
                 <div class="btns2">
                     <button class='btn_naranja' id='continuar'>Continuar adopción</button>
-                    <button class="btn_cafe">Volver</button>
+                    <button class="btn_cafe" id='cerrarDar'>Volver</button>
                 </div>
 
             </section>

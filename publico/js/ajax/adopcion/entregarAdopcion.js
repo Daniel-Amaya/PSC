@@ -14,6 +14,8 @@
                 }
             }, 'controlador/ajax/adopcionesAjax.php');
         });
+
+        id('cerrarDar').addEventListener('click', cerrarModales);
     }
 
     cancelarAdopcion = (cod) => {
@@ -35,6 +37,8 @@
             }
 
         });
+
+        id('cerrarModal').addEventListener('click', cerrarModales);
     }
 
 
@@ -51,6 +55,12 @@
         ht.open('POST', open);
         ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
         ht.send(send);
+    }
+
+    cerrarModales = () =>{
+        for(let i = 0; i < classNames('modal').length; i++){
+            classNames('modal')[i].style.display = 'none';
+        }
     }
 
 })()

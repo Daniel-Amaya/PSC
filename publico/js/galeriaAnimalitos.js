@@ -20,6 +20,9 @@
             });
         }
 
+        // var controlRight = document.createElement('i'); controlRight.className = 'fas fa-arrow-right';
+        // var controlleft = document.createElement('i'); controlleft.className = 'fas fa-arrow-left';
+
         document.addEventListener('click', (e) =>{
             if(e.target == galeria){
                 galeria.style.display = "none";

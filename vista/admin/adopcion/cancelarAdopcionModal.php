@@ -14,7 +14,7 @@
 
                 <div class="btns2">
                     <button class='btn_rojo' id='rechazarRial'>Cancelar adopción</button>
-                    <button class="btn_naranja">Volver</button>
+                    <button class="btn_naranja" id='cerrarModal'>Volver</button>
                 </div>
 
             </section>

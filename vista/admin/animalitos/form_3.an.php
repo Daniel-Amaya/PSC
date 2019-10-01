@@ -82,23 +82,23 @@
                         <tbody>
                             <tr>
                                 <td>Especie:</td>
-                                <td id='esp2'>Perro</td>
+                                <td id='esp2'></td>
                             </tr>
                             <tr>
                                 <td>Raza:</td>
-                                <td id='raz2'>Pitbull</td>
+                                <td id='raz2'></td>
                             </tr>
                             <tr>
                                 <td>Color:</td>
-                                <td id='col2'>Blanco</td>
+                                <td id='col2'></td>
                             </tr>
                             <tr>
                                 <td>Genero:</td>
-                                <td id='gen2'>Masculino</td>
+                                <td id='gen2'></td>
                             </tr>
                             <tr>
                                 <td>Procedencia:</td>
-                                <td id='pro2'>Medellín Belén Altavista</td>
+                                <td id='pro2'></td>
                             </tr>
                         </tbody>
                     </table>

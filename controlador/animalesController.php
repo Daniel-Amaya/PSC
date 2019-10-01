@@ -327,6 +327,8 @@ class AnimalesController extends Animal{
 
     public function formularioEditarAnimalito($id){
         try{
+
+            require 'controlador/funciones.php';
             $datos = parent::dataAnimal($id);
 
             if($datos->rowCount() > 0){
@@ -348,8 +350,8 @@ class AnimalesController extends Animal{
                         
                     <div class='boxInput'>
                         <select name='especieE'>
-                            <option value='Perro'>Perro</option>
-                            <option value='Gato'>Gato</option>
+                            <option value='canina'>canina</option>
+                            <option value='felina'>felina</option>
                         </select>
                     </div>
 
@@ -363,15 +365,22 @@ class AnimalesController extends Animal{
 
                     <div class='boxInput'>
                     
-                        <select name='sexoE'>
-                            // <option value='>Sexo</option>
+                        <select name='sexoE' id='sexoE'>
                             <option value='M'>Masculino</option>
                             <option value='F'>Femenino</option>
                         </select>
                     </div>
+
+                    <script>
+                    if('$datos[5]' == 'F'){
+                        id('sexoE').getElementsByTagName('option')[1].selected = true;
+                    }else{
+                        id('sexoE').getElementsByTagName('option')[0].selected = true;
+                    }
+                    </script>
                     
                         <div class='boxInput'>
-                            <input type='number' name='edad' value='$datos[6]'>
+                            <input type='date' name='edad' value='$datos[6]'>
                         </div>
 
                     <div class='boxRadio'>
@@ -421,16 +430,16 @@ class AnimalesController extends Animal{
                             <td>$datos[4]</td>
                         </tr>
                         <tr>
-                            <td>Edad:</td>
-                            <td>$datos[5]</td>
+                            <td>Sexo:</td>
+                            <td>".genero($datos[5])."</td>
                         </tr>
                         <tr>
-                            <td>Sexo:</td>
-                            <td>$datos[6]</td>
+                            <td>Edad:</td>
+                            <td>".edad($datos[6])."</td>
                         </tr>
                         <tr>
                             <td>Esterilizado:</td>
-                            <td>$datos[7]</td>
+                            <td>".esterilizado($datos[7])."</td>
                         </tr>
                         <tr>
                             <td>Procedencia:</td>
@@ -579,168 +588,174 @@ class AnimalesController extends Animal{
         $con = parent::conectar();
         try{
             
-            $animales = $con->query("SELECT * FROM animales, adopciones WHERE id != idAnimalAdoptado");
+            $animales = $con->query("SELECT * FROM animales");
         
             if($animales->rowCount() > 0){
+
         
                 echo "
                     <div class='adoptaAnimalitoUser'>
                 
                 ";
                 $cont = 0;
+
                 foreach($animales as $datos) {
 
-                    $solicitado = $con->prepare("SELECT solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
-                    $solicitado->bindParam(':idUsuario', $idUsuario);
-                    $solicitado->bindParam(':idAnimal', $datos[0]);
-                    $solicitado->execute();
+                    $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
+                    if($verificarAdopcion->rowCount() == 0){
 
-                    $cont++;
 
-                    // Perrito 
-                    if($cont == 3){
+                        $solicitado = $con->prepare("SELECT solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
+                        $solicitado->bindParam(':idUsuario', $idUsuario);
+                        $solicitado->bindParam(':idAnimal', $datos[0]);
+                        $solicitado->execute();
 
-                        echo '<div class="boxPerrito"><div class="dog">
-                        <div class="heart heart--1"></div>
-                        <div class="heart heart--2"></div>
-                        <div class="heart heart--3"></div>
-                        <div class="heart heart--4"></div>
-                        <div class="head">
-                                <div class="year year--left"></div>
-                                <div class="year year--right"></div>
-                                <div class="nose"></div>	
-                            <div class="face">
-                                <div class="eye eye--left"></div>
-                                <div class="eye eye--right"></div>
-                                <div class="mouth"></div>
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div class="cheast"></div>
-                            <div class="back"></div>
-                            <div class="legs">
-                                <div class="legs__front legs__front--left"></div>
-                                <div class="legs__front legs__front--right"></div>
-                                <div class="legs__back legs__back--left"></div>
-                                <div class="legs__back legs__back--right"></div>
-                            </div>
-                            <div class="tail"></div>
-                        </div>
-                    </div></div>';
-                    }
+                        $cont++;
 
-                    // Otro perrito
-                    if($cont == 6){
-                        echo '	
-                        <div class="corgi">
-            
+                        // Perrito 
+                        if($cont == 3){
+
+                            echo '<div class="boxPerrito"><div class="dog">
+                            <div class="heart heart--1"></div>
+                            <div class="heart heart--2"></div>
+                            <div class="heart heart--3"></div>
+                            <div class="heart heart--4"></div>
                             <div class="head">
-                                <div class="ear ear--r"></div>
-                                <div class="ear ear--l"></div>
-            
-                                <div class="eye eye--left"></div>
-                                <div class="eye eye--right"></div>
-            
+                                    <div class="year year--left"></div>
+                                    <div class="year year--right"></div>
+                                    <div class="nose"></div>	
                                 <div class="face">
-                                    <div class="face__white">
-                                        <div class=" face__orange face__orange--l"></div>
-                                        <div class=" face__orange face__orange--r"></div>
-                                    </div>
-                                </div>
-            
-                                <div class="face__curve"></div>
-            
-                                <div class="mouth">
-            
-                                    <div class="nose"></div>
-                                    <div class="mouth__left">
-                                        <div class="mouth__left--round"></div>
-                                        <div class="mouth__left--sharp"></div>
-                                    </div>
-                                    
-                                    <div class="lowerjaw">
-                                        <div class="lips"></div>
-                                        <div class="tongue test"></div>
-                                    </div>
-            
-                                    <div class="snout"></div>
+                                    <div class="eye eye--left"></div>
+                                    <div class="eye eye--right"></div>
+                                    <div class="mouth"></div>
                                 </div>
                             </div>
-                            
-                            <div class="neck__back"></div>
-                            <div class="neck__front"></div>
-            
                             <div class="body">
-                                <div class="body__chest"></div>
+                                <div class="cheast"></div>
+                                <div class="back"></div>
+                                <div class="legs">
+                                    <div class="legs__front legs__front--left"></div>
+                                    <div class="legs__front legs__front--right"></div>
+                                    <div class="legs__back legs__back--left"></div>
+                                    <div class="legs__back legs__back--right"></div>
+                                </div>
+                                <div class="tail"></div>
                             </div>
-            
-                            <div class="foot foot__left foot__front foot__1"></div>
-                            <div class="foot foot__right foot__front foot__2"></div>
-                            <div class="foot foot__left foot__back foot__3"></div>
-                            <div class="foot foot__right foot__back foot__4"></div>
-            
-                            <div class="tail test"></div>
-                        </div>';
-                    }
+                        </div></div>';
+                        }
 
-        
-                    $fotos = Foto::fotoPerfil($datos[0]);
-                    $urlFotoPerfil = $fotos->fetch();
+                        // Otro perrito
+                        if($cont == 6){
+                            echo '	
+                            <div class="corgi">
+                
+                                <div class="head">
+                                    <div class="ear ear--r"></div>
+                                    <div class="ear ear--l"></div>
+                
+                                    <div class="eye eye--left"></div>
+                                    <div class="eye eye--right"></div>
+                
+                                    <div class="face">
+                                        <div class="face__white">
+                                            <div class=" face__orange face__orange--l"></div>
+                                            <div class=" face__orange face__orange--r"></div>
+                                        </div>
+                                    </div>
+                
+                                    <div class="face__curve"></div>
+                
+                                    <div class="mouth">
+                
+                                        <div class="nose"></div>
+                                        <div class="mouth__left">
+                                            <div class="mouth__left--round"></div>
+                                            <div class="mouth__left--sharp"></div>
+                                        </div>
+                                        
+                                        <div class="lowerjaw">
+                                            <div class="lips"></div>
+                                            <div class="tongue test"></div>
+                                        </div>
+                
+                                        <div class="snout"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="neck__back"></div>
+                                <div class="neck__front"></div>
+                
+                                <div class="body">
+                                    <div class="body__chest"></div>
+                                </div>
+                
+                                <div class="foot foot__left foot__front foot__1"></div>
+                                <div class="foot foot__right foot__front foot__2"></div>
+                                <div class="foot foot__left foot__back foot__3"></div>
+                                <div class="foot foot__right foot__back foot__4"></div>
+                
+                                <div class="tail test"></div>
+                            </div>';
+                        }
 
-                    
-                    if($solicitado->rowCount() > 0){
-                        
+            
+                        $fotos = Foto::fotoPerfil($datos[0]);
+                        $urlFotoPerfil = $fotos->fetch();
+
                         $solicitud = $solicitado->fetch();
+                    
+                        if($solicitado->rowCount() > 0 && $solicitud['estado'] != "rechazada"){
 
-                        echo "<div class='card-adopta'>
-                            <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Especie</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <th>$datos[1]</th>
-                                    <th>$datos[2]</th>
-                                </tbody>
-                            </table>
-                            <div class='btns_card'>
-                                <a class='btn_rojo btn_largo' onclick='cancelarSolicitud($solicitud[0])'>Cancelar solicitud</a>
-                                <!-- <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a> -->
-                            </div>
-                        </div>";
+                            echo "<div class='card-adopta'>
+                                <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Especie</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <th>$datos[1]</th>
+                                        <th>$datos[2]</th>
+                                    </tbody>
+                                </table>
+                                <div class='btns_card'>
+                                    <a class='btn_rojo btn_largo' onclick='cancelarSolicitud($solicitud[0])'>Cancelar solicitud</a>
+                                    <!-- <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a> -->
+                                </div>
+                            </div>";
+                       
 
-                    }else{
-                           
-                        echo "<div class='card-adopta'>
-                            <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Especie</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <th>$datos[1]</th>
-                                    <th>$datos[2]</th>
-                                </tbody>
-                            </table>
-                            <div class='btns_card'>
-                                <a class='btn_naranja buttonCorazones' onclick='solicitarAdopcion(\"$datos[1]\", \"publico/images/$urlFotoPerfil[1]\", $datos[0], $idUsuario)'>Adoptar
-                                    <div class='AnimacionCorazones cor1'></div>
-                                    <div class='AnimacionCorazones cor2'></div>
-                                    <div class='AnimacionCorazones cor3'></div>
-                                    <div class='AnimacionCorazones cor4'></div>
-                                </a>
-                                <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-                            </div>
-                        </div>";
+                        }else{
+                            
+                            echo "<div class='card-adopta'>
+                                <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Especie</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <th>$datos[1]</th>
+                                        <th>$datos[2]</th>
+                                    </tbody>
+                                </table>
+                                <div class='btns_card'>
+                                    <a class='btn_naranja buttonCorazones' onclick='solicitarAdopcion(\"$datos[1]\", \"publico/images/$urlFotoPerfil[1]\", $datos[0], $idUsuario)'>Adoptar
+                                        <div class='AnimacionCorazones cor1'></div>
+                                        <div class='AnimacionCorazones cor2'></div>
+                                        <div class='AnimacionCorazones cor3'></div>
+                                        <div class='AnimacionCorazones cor4'></div>
+                                    </a>
+                                    <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                                </div>
+                            </div>";
 
+                        }
                     }
-
                 }
             echo "</div>";
 

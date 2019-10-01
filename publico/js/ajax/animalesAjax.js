@@ -164,6 +164,7 @@ id('newAnimalito').addEventListener('submit', function(e){
         id('esp').textContent = especieAn;
         id('raz').textContent = razaAn;
         id('col').textContent = colorAn;
+        id('pro').textContent = procedAn;
 
         id('nom2').textContent = nombreAn;
         id('esp2').textContent = especieAn;

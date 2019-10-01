@@ -1836,7 +1836,7 @@ button {
 }
 .boxInput textarea, .boxInput select, .boxInput input {
   width: 100%;
-  border: solid 0.5px grey;
+  border: solid 1px grey;
   outline: none;
   padding: 10px;
   border-radius: 5px;
