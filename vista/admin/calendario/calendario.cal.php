@@ -65,28 +65,29 @@
 
 
 
- <!-- Modal alternativo (agregar,modificar,eliminar) -->
-<div class="modal fade" id="modalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <!-- Modal alternativo agregar,modificar,eliminar -->
+<div class="modal fade" id='modalEventos' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tituloEvento"></h5>
+        <h5 class="modal-title" id='tituloEvento'></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div id="descripcionEvento"></div>
-        Id: <input type="text" id="txtId" name="txtId"/><br/>
-        Fecha: <input type="text" id="txtFecha" name="txtFecha"/><br/>
-        Hora: <input type="text" id="txtHora" name="txtHora" value="10:30"/><br/>
-        Título: <input type="text" id="txtTitulo" name="txtTitulo"/><br/>  
-        Descripción: <textarea id="txtDescripcion" name="txtDescripcion" rows="3"></textarea>
-        Color: <input type="color" id="txtColor" name="txtColor" value="#ff0000"/><br/>
+        Id: <input type="text" id='txtId' name="txtId"/><br/>
+        Fecha: <input type="text" id='txtFecha' name="txtFecha"/><br/>
+        Hora: <input type="text" id='txtHora'  value="10:30"/><br/>
+        Título: <input type="text" id='txtTitulo' /><br/>  
+        Descripción: <textarea id='txtDescripcion'  rows="3"></textarea>
+        Color: <input type="color" id='txtColor' value="#ff0000"/><br/>
+
+
 
       </div>
       <div class="modal-footer">
-        <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
+        <button type="button" id='btnAgregar' class="btn btn-success">Agregar</button>
         <button type="button" class="btn btn-success">Modificar</button>
         <button type="button" class="btn btn-danger">Borrar</button>
         <button type="button" class="btn btn-default"data-dismiss="modal">Cancelar</button>
@@ -108,21 +109,22 @@ $('#btnAgregar').click(function(){
 function RecolectarDatosGUI(){
         var nuevoEvento= {
                 id:$('#txtId').val(),
+                start:$('#txtFecha').val()+" "+$('#txtHora').val(), 
                 title:$('#txtTitulo').val(),
-                start:$('#txtFecha').val()+" "+$('#txtHora').val(),
-                color:$('#txtColor').val(),
                 descripcion:$('#txtDescripcion').val(),
-                textColor:"#FFFFFF",
-                end:$('#txtFecha').val()+" "+$('#txtHora').val()
+                color:$('#txtColor').val(),
+                end:$('#txtFecha').val()+" "+$('#txtHora').val(),
+                textColor:"#FFFFFF"
+                
         };
 }
 
 function EnviarInformacion(accion,objEvento){
         $.ajax({
                 type:'POST',
-                url:'modelo/eventos.php?accion='+accion,
+                url:'http://localhost/PSC/modelo/eventos.php?accion='+accion,
                 data:objEvento,
-                succes:function(msg){
+                success:function(msg){
                         if(msg){
                                 $('#calendar').fullCalendar('refetchEvents');
                                 $("#modalEventos").modal('toggle');
@@ -133,5 +135,28 @@ function EnviarInformacion(accion,objEvento){
                 }
         });
 }
+
+
+// function EnviarInformacion(accion, objEvento){
+
+// var ht = new XMLHttpRequest;
+
+// ht.addEventListener('readystatechange', function(){
+//     if(this.readyState == 4 && this.status == 200){
+//         action(this);
+//     }
+// });
+
+// Let id = id('txtId').value,
+// Let title = id('txtTitulo').value,
+// Let descripcion = id('txtDescripcion').value,
+// Let color = id('txtColor').value,
+// Let start = id('txtFecha').value,
+// Let end = id('txtFecha').value
+
+// ht.open('POST', 'modelo/eventos.php?accion='+accion);
+// ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
+// ht.send(accion);
+// }
 
 </script>

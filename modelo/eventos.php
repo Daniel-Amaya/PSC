@@ -10,7 +10,7 @@ $pdo=new PDO("mysql:dbname=peluditos_san_cristobal;host=localhost","root","");
                 case 'agregar':
 
                 $sentenciaSQL = $pdo->prepare("INSERT INTO 
-                eventos (title,descripcion,color,textColor,start,end)
+                eventos(title,descripcion,color,textColor,start,end)
                 VALUES(:title,:descripcion,:color,:textColor,:start,:end)");
 
                 $respuesta=$sentenciaSQL->execute(array(
@@ -24,14 +24,15 @@ $pdo=new PDO("mysql:dbname=peluditos_san_cristobal;host=localhost","root","");
                 echo json_encode($respuesta);
                 break;
 
-                // case 'eliminar':
+                case 'eliminar':
+                    echo "Accion eliminar";
+                break;
 
-                // break;
 
+                case 'modificar':
+                    echo "Accion modificar";
 
-                // case 'modificar':
-
-                // break;
+                break;
 
                 default:
 
