@@ -97,8 +97,7 @@
                     
                     if(this.readyState == 4 && this.status == 200){
 
-                        alert(this.responseText);
-                        if(this.responseText == '1111111111111111111111111111'){
+                        if(this.responseText.length == 27){
 
                             id('modal').style.display = 'block';
                             classNames('mensajeForm')[0].textContent = 'Se han enviado las respuestas exitosamente, cuando la fundación agregue su firma, podrás ir por la mascota a la fundación';
@@ -109,7 +108,7 @@
 
                         }else{
 
-                            alert("alv mi papá");
+                            alert("algo ha salido mal");
 
                         }
 

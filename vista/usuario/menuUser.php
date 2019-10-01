@@ -7,6 +7,9 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
 
 ?>
 
+<?php include 'vista/loader.php'; ?>
+<script src='publico/js/loader.js'></script>
+
 <header id='menuL' class='menuLateral menuLW'>
     <!-- <span class='pointer'><i class="fas fa-times"></i></span> -->
     <div class="nav-logo row">

@@ -10,13 +10,13 @@ abrirNotificaciones = () =>{
         noti.style.display = 'none';
     }
 
-    // if(noti.style.display == 'block'){
-    //     document.addEventListener('click', (e) =>{
-    //         if(e.target != noti){
-    //             noti.style.display = 'none';
-    //         }
-    //     }, true);
-    // }
+    if(noti.style.display == 'block'){
+        document.addEventListener('click', (e) =>{
+            if(e.target != noti){
+                noti.style.display = 'none';
+            }
+        }, true);
+    }
 
 
 

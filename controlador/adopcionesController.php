@@ -224,7 +224,22 @@ class AdopcionesController extends Adopcion{
 
                                         <div class='fotoPerfil'>
                                             <img src='publico/images/$urlFotoSolicitud[1]'>
-                                            <button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
+                                            ";
+
+                                            if($solicitud['estado'] == 'a un paso'){
+                                                echo "
+                                                <div class='btns2'>
+                                                <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
+                                                
+                                                <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
+                                                
+                                                </div>
+                                                ";
+                                            }else{
+                                                echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
+                                            }
+
+                                        echo "
                                         </div>
 
                                         <div style='width: 60%'>

@@ -7,6 +7,9 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
 
 ?>
 
+<?php include 'vista/loader.php'; ?>
+<script src='publico/js/loader.js'></script>
+
 <header id='menuL' class='menuLateral menuLW'>
     <!-- <span class='pointer'><i class="fas fa-times"></i></span> -->
     <div class="nav-logo row">
@@ -43,14 +46,16 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
             <li><a class="rayita-naranja" href="calendario.php">Calendario</a></li>
             <li><a class="rayita-naranja" href="donar.php">Ingresos</a></li>
 
-
         </ul>
     </div>
     <div class="nav-logo row">
         <ul class="row">
-            <li style="padding:20px"><span onclick='' class='pointer'><i class="far fa-calendar-times"></i></span></li>
-            <li style="padding:20px" class="config-dropdown"><span onclick='' class='pointer'><i class="fas fa-cog">
-                <ul>
+            <li style="padding:20px; position: relative"><span onclick='' class='pointer'><i class="far fa-calendar-times"></i></span></li>
+            <li style="padding:20px; position: relative">
+            <span onclick='abrirConfig()' class='pointer'><i class="fas fa-cog"></i></span>
+                <ul id='config' style='display: none'>
+                    <i class="fas fa-caret-up"></i>
+                    <li><a href="">Ayuda</a></li>
                     <li><a id='cerrarSesion' href="controlador/validar/logout.php">Salir</a></li>
                 </ul>
             </i></span></li>

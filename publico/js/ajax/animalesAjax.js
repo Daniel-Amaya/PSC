@@ -173,8 +173,10 @@ id('newAnimalito').addEventListener('submit', function(e){
         id('espVacu').textContent = especieAn;
         if(sexoAn == "F"){
             id('gen2').textContent = "Femenino";
+            id('gen').textContent = "Femenino";
         }else{
             id('gen2').textContent = "Masculino";
+            id('gen').textContent = "Masculino";
         }
 
         id('pro2').textContent = procedAn;
@@ -184,8 +186,6 @@ id('newAnimalito').addEventListener('submit', function(e){
 
     }
 
-
-    
 });
 
 // Confirmar la eliminación de un animalito

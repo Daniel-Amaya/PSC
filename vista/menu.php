@@ -1,4 +1,7 @@
 
+<?php include 'vista/loader.php'; ?>
+<script src='publico/js/loader.js'></script>
+
 <header id='menu' class="menuW menuLW menuLateralGen">
     <span class='pointer'><i class="fas fa-times"></i></span>
     <ul>
