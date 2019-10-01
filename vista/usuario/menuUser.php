@@ -41,7 +41,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
             <li><span onclick='menuL()' class='pointer'><i class="fa fa-bars"></i></span></li>
             <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
             <li><a class="rayita-naranja"  href="">Fundación</a></li>
-            <li><a class="rayita-naranja" href="">Eventos</a></li>
+            <li><a class="rayita-naranja" href="calendario.php">Eventos</a></li>
             <li><a class="rayita-naranja" href="donar.php"></a></li>
 
         </ul>
