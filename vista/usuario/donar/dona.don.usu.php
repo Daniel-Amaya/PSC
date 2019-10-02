@@ -1,5 +1,4 @@
 <section class='margin-menu padding-menu'>
-
 <h1 class="titulo">¿Que desea donar?</h1>
 
 
@@ -47,7 +46,7 @@
 
       
 <div class="container-donar" >
-        <div class="col-6 margin-menu grisColor" style="margin-left:15px;">
+        <div class="col-6 margin-menu grisColor" style="margin-left:45px;">
            
 
             <h2 class="center">Formulario de donación</h2>
@@ -114,15 +113,16 @@
                 <div class="textos-modal donacionesAlimentos">
 
                 <h1>Dinero</h1> <br>
-            <div class="doscolumnas">
+            <div class="doscolumnas" style="text-align: center;">
                     <p><h3>¿Que es donar?</h3> <br>
                     Donar es dar algo de valor para ayudar al bienestar del otro 
                     entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
-                    <h3> ¿Para que donar? </h3> <br>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, </p>
+                    <h3> ¿Por que donar? </h3> <br>
+                        <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
             </div> <br>
                         <h3>  Pasos para donar </h3> <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
+                    <p style="text-align: center;">Consigne en la Cuenta Corriente No. ##########, a nombre de la  Peluditos Sancristobal, el valor que desee donar en pesos colombianos, únicamente en efectivo.
+Una vez realice el pago, el Banco le entregará un Comprobante de pago y recaudo rápido el cual le servirá como constancia de la cancelación de los derechos de inscripción, es su responsabilidad la custodia y uso que haga del mismo.</p> 
                     </p>
                     <br>
             <div class="containerquedonar">
@@ -149,15 +149,23 @@
  <div class="textos-modal donacionesAlimentos">
 
                 <h1>Medicamentos</h1> <br>
-                <div class="doscolumnas">
+                <div class="doscolumnas" style="text-align: center;">
                     <p><h3>¿Que medicamentos puedo donar?</h3> <br>
-                    Donar es dar algo de valor para ayudar al bienestar del otro 
-                    entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
-                    <h3> ¿Para que donar? </h3> <br>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, </p>
+                    -Antiparasitarios perros y gatos.
+                    -Pastillas antiparasitarias internas para perros y gatos.
+                    -Condroprotectores para perros y gatos.
+                    -Vitaminas para perros y energizantes y gatos.
+                    -Pancreáticos para perros y gatos.
+                    -ADAPTIL para perros.
+                    -Calcio para perros y gatos.
+                    -Dermatologicos piel y pelo.
+                    
+                     <br> <br>
+                    <h3> ¿Por qué donar? </h3> <br>
+                        <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
                 </div> <br>
                         <h3>  Pasos para donar </h3> <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
+                    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
                     </p>
                     <br>
                 <div class="containerquedonar">
@@ -179,15 +187,18 @@
     <div class="textos-modal donacionesAlimentos">
 
             <h1>Alimentos </h1> <br>
-            <div class="doscolumnas">
+            <div class="doscolumnas" style="text-align: center;">
                 <p><h3>¿Que alimentos puedo donar?</h3> <br>
-                Donar es dar algo de valor para ayudar al bienestar del otro 
-                entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
-                <h3> ¿Para que donar? </h3> <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus blanditiis ducimus sapiente asperiores voluptate ad, </p>
+                
+                Cuido para perros y gatos de todas las edades y tamaños. <br>
+                Crocetas para perros y gatos de todas las edades y tamaños.
+                
+                 <br>
+                <h3> ¿Por qué donar? </h3> <br>
+                    <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
             </div> <br>
                     <h3>  ¿Como puedo donar? </h3> <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
+                <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
                 </p>
                 <br>
             <div class="containerquedonar">
@@ -206,7 +217,7 @@
 </div>
 </div>
 </div>
-</div>
+
 </section> 
 
 <script>
@@ -244,4 +255,6 @@ function tabsUser(){
 }
 
 </script>
+
+<script src="publico/js/shadowMenuBlanco.js"></script>
 

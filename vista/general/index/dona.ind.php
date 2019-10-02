@@ -3,7 +3,7 @@
 
     <div>
         <h2>Apadrina</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, perspiciatis.</p>
+        <p>Si no puedes adoptar puede ayudar apadrinando una mascota.</p>
     </div>
 
     <div class="col-cg" style="align-content:center; justify-items:center;">

@@ -622,7 +622,10 @@ class AnimalesController extends Animal{
                         // Perrito 
                         if($cont == 3){
 
-                            echo '<div class="boxPerrito"><div class="dog">
+                            echo '
+                            <div class="boxPerrito"><i class="far fa-copyright txt" style="float:right"></i><div class="tooltip">
+                            Animacion por Pavel Kozelskiy (CodePen) 
+                           </div><div class="dog">
                             <div class="heart heart--1"></div>
                             <div class="heart heart--2"></div>
                             <div class="heart heart--3"></div>
@@ -655,7 +658,9 @@ class AnimalesController extends Animal{
                         if($cont == 6){
                             echo '	
                             <div class="corgi">
-                
+                            <i class="far fa-copyright txt" style="float:left"></i><div class="tooltip">
+                            Animacion por Mok Jee Jin (CodePen) 
+                           </div>
                                 <div class="head">
                                     <div class="ear ear--r"></div>
                                     <div class="ear ear--l"></div>

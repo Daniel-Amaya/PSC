@@ -19,6 +19,9 @@
         <div class="col-ms-6">
         <div class="all-wrap">  
   <div class="all">
+  <i class="far fa-copyright txt" style="float:right"></i><div class="tooltip">
+                            Animacion por Pavel Kozelskiy (CodePen) 
+                           </div>
     <div class="yarn"></div>
     <div class="cat-wrap">    
       <div class="cat">
