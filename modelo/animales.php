@@ -92,7 +92,9 @@ class Animal extends Conexion{
         $con = parent::conectar();
         try {
             
-            $query = $con->query("SELECT * FROM animales, adopciones WHERE id != idAnimalAdoptado limit 4");
+            $adopciones = $con->query("SELECT idAnimalAdoptado FROM adopciones");
+            $adopciones = $adopciones->fetch();
+            $query = $con->query("SELECT * FROM animales WHERE id != $adopciones[0] limit 4");
            
             return $query;
         } catch (PDOException $e) {

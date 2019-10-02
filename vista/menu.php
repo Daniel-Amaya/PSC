@@ -17,9 +17,11 @@
         <li class="response-item"><a class="rayita-blanca" href="adoptar.php">Adoptar</a></li>
         <li class="response-item"><a class="rayita-blanca" href="donar.php">Donar</a></li>
         <li><a href="iniciar-sesion.php" class=''>Iniciar Sesión    </a></li>
-        <li><a href="" class=''>Visitanos         </a></li>
-        <li><a href="" class=''>Sobre la fundación</a></li>
-        <li><a href="" class=''>Quienes Somos     </a></li>
+        <li><a href="crear-cuenta.php" class=''>Crear Cuenta    </a></li>
+
+        <!-- <li><a href="" class=''>Visitanos         </a></li> -->
+        <!-- <li><a href="" class=''>Sobre la fundación</a></li> -->
+        <!-- <li><a href="" class=''>Quienes Somos     </a></li> -->
 
         <p>"Sin voz pero con dignidad"</p>
     </ul>

@@ -3,42 +3,49 @@
 class AnimalesController extends Animal{
 
     public function mostrarDatosDeTodosGeneral(){
+        $con = parent::conectar();
         try{
             
-            $animales = parent::dataAnimal('');
+            $animales = $con->query("SELECT * FROM animales");
         
             if($animales->rowCount() > 0){
         
                 foreach($animales as $datos) {
+
+                    $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
+                    if($verificarAdopcion->rowCount() == 0){
+
         
-                    $fotos = Foto::fotoPerfil($datos[0]);
-                    $urlFotoPerfil = $fotos->fetch();
-        
-                    echo "<div class='card-adopta'>
-                        <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Especie</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <th>$datos[1]</th>
-                                <th>$datos[2]</th>
-                            </tbody>
-                        </table>
-                        <div class='btns_card'>
-                            <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
-                                <div class='AnimacionCorazones cor1'></div>
-                                <div class='AnimacionCorazones cor2'></div>
-                                <div class='AnimacionCorazones cor3'></div>
-                                <div class='AnimacionCorazones cor4'></div>
-                            </a>
-                            <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-                        </div>
-                    </div>";
+                        $fotos = Foto::fotoPerfil($datos[0]);
+                        $urlFotoPerfil = $fotos->fetch();
+            
+                        echo "<div class='card-adopta'>
+                            <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th>$datos[1]</th>
+                                    <th>$datos[2]</th>
+                                </tbody>
+                            </table>
+                            <div class='btns_card'>
+                                <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
+                                    <div class='AnimacionCorazones cor1'></div>
+                                    <div class='AnimacionCorazones cor2'></div>
+                                    <div class='AnimacionCorazones cor3'></div>
+                                    <div class='AnimacionCorazones cor4'></div>
+                                </a>
+                                <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                            </div>
+                        </div>";
+                    }
                 }
+
             }else{
                 echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
                 include 'vista/vacio.php';

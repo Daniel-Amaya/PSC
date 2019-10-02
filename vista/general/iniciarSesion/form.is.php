@@ -11,6 +11,7 @@
                 <div class="boxInput">
                     <input type="submit" value="Entrar" class="btn_naranja btn_largo" name='contraeseñaIS'>
                 </div>
+                <div>Si no tienes cuenta registrate <a href="crear-cuenta.php">Aquí</a></div>
             </form>
             <script src='publico/js/ajax/iniciarSesion.js'></script>
         </fieldset>
