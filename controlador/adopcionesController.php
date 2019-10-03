@@ -409,7 +409,7 @@ class AdopcionesController extends Adopcion{
 
                     echo " <div class='noAdopcion'>
 
-                    <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='' class='btn_naranja'>Adoptar</a></div>
+                    <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='adoptar.php' class='btn_naranja'>Adoptar</a></div>
                     <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Apadrina</a></div>
     
                     <div class='husky'>

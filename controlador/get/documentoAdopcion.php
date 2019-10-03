@@ -5,13 +5,56 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
     require_once 'modelo/connect.php';
     require_once 'modelo/respuestasAdopcion.php';
     require_once 'controlador/respuestasAdopcionController.php';
+    require 'modelo/adopciones.php';
+    require 'modelo/documentosLegales.php';
+    require 'controlador/funciones.php';
+    require 'modelo/animales.php';
+    require 'modelo/fotos.php';
 
-    $e = RespuestasAdopcionController::mostrarRespuestasAdoptado($_GET['adopcion']);
+    $e = Adopcion::retornarIds($_GET['adopcion']);
+    $usuario = Usuario::dataUsuarios($e['idUsuario']);
+    $usuario = $usuario->fetch();
 
-    if($e != "algo ha salido mal, regresa"){
-        
-        require 'modelo/documentosLegales.php';
-        ?>
+   $animalito = Animal::dataAnimal($e['idAnimalAdoptado']);
+   $animalito = $animalito->fetch(); 
+   $foto = Foto::fotoPerfil($e['idAnimalAdoptado']);
+   $fotoPerfil = $foto->fetch();
+
+    $documentosLegales = DocumentosLegales::dataFirma($e['idUsuario']);
+    ?>
+
+        <h2 class='titulo'>Formulario de adopción diligenciado</h2>
+            <table class='datosAdoptante'>
+                <tr>
+                    <td>Apellidos y nombres: <br><?php  echo $usuario[2] ." ". $usuario[1] ?></td>
+                    <td>Teléfono: <br><?php   echo $usuario['telefono'] ?></td>
+                    <td>Fecha: <br><?php   echo $e['fechaAdopcion']?></td>
+                    <td>Ciudad: <br> Medellín</td>
+                </tr>
+
+                <tr>
+                    <td colspan='2'>C.I:  <?php  echo $usuario['cedula'] ?></td>
+                    <td colspan='2'>Estado civil  <?php $usuario['estadoCivil'] ?></td>
+                </tr>
+    
+                <tr>
+                    <td colspan='2'>Dirección:  <?php  echo $usuario['direccionApto'] ?></td>
+                    <td colspan='2'>Referencia personal:  <?php $usuario['referencia'] ?></td>
+                </tr>
+    
+                <tr>
+                    <td colspan='2'>Email:  <?php  echo $usuario['correo']?></td>
+                    <td colspan='2'>Teléfono Referencia:  <?php echo $usuario['telefonoRef'] ?></td>
+                </tr>
+    
+            </table>
+
+            <?php
+            
+            RespuestasAdopcionController::mostrarRespuestasAdoptado($e['idUsuario'], $e['idAnimalAdoptado']);
+            
+            ?>
+
 
 
     <div class="row recomendaciones">
@@ -62,7 +105,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label><img src="publico/images/"></label>
+                    <label><img src="publico/images/<?php echo $documentosLegales[0] ?>"></label>
 
                 </div>
 
@@ -96,20 +139,24 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
             
             <div>
                 <div class="nombreAdoptado">
-                    Nombre: <?php echo $datosSolicitud['nombre'] ?>
+                    Nombre: <?php echo $animalito['nombre'] ?>
                 </div>
                 <div class="edadAdoptado">
-                    Edad: <?php echo edad($datosSolicitud['edad']) ?>
+                    Edad: <?php echo edad($animalito['edad']) ?>
                 </div>
 
                 <div class="sexoAdoptado">
-                    Sexo: <?php echo genero($datosSolicitud['sexo']) ?>
+                    Sexo: <?php echo genero($animalito['sexo']) ?>
                 </div>
             </div>
 
         </div>
+
+        <div class="btns2">
+            <button class='btn_naranja'>Descargar</button>
+            <button class='btn_cafe'>Imprimir</button>
+        </div>
         <?php
-    }
 }
 
 

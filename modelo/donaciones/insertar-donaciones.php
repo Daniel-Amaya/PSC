@@ -11,8 +11,7 @@ $mensaje = $_POST["mensajeDonacion"];
 
     if($foto["type"] == "image/jpg" OR $foto["type"] == "image/jpeg") {
 
-        $ruta = "publico/images/donaciones".mb5($foto["tmp_name"]).".jpg";
-
+        $ruta = "../../publico/images/donaciones/".$foto["name"].rand(0,10101001).".jpg";
         $sql = "INSERT INTO donaciones() values(null, '$donacion', $cantidad,'$valor','$ruta','$mensaje')";
         if(mysqli_query($conexion,$sql)) {
 

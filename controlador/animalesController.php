@@ -292,10 +292,11 @@ class AnimalesController extends Animal{
                     }
                     
                 }
+                
             }else{
                 echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja' onclick='agregarAnimalitos()'>Agregar una mascota</a></div>";
                 echo "<tr>
-                <td rowspan='7' colspan='7'>";
+                <td rowspan='7' colspan='8'>";
                 include '../../vista/vacio.php';
                 echo 
                 "</td>

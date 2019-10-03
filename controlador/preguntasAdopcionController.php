@@ -42,27 +42,27 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado1'>
-                                            <label for='cuidado1'>visitas periódicas al veterinario </label>
+                                            <label for='cuidado1'> Visitas periódicas al veterinario </label>
                                         </div>
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado2'>
-                                            <label for='cuidado2'> vacunación y vitaminas  </label>
+                                            <label for='cuidado2'> Vacunación y vitaminas  </label>
                                         </div>
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado3'>
-                                            <label for='cuidado3'> paseos con correa para perro </label>
+                                            <label for='cuidado3'> Paseos con correa para perro </label>
                                         </div>
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado4'>
-                                            <label for='cuidado4'> uso de collar con placa de identificación</label>
+                                            <label for='cuidado4'> Uso de collar con placa de identificación</label>
                                         </div>
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado5'>
-                                            <label for='cuidado5'> plato con agua limpia todos los días </label>
+                                            <label for='cuidado5'> Plato con agua limpia todos los días </label>
                                         </div>
 
                                         <div class='boxRadio'>
@@ -72,12 +72,12 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado7'>
-                                            <label for='cuidado7'> cepillado de pelo  </label>
+                                            <label for='cuidado7'> Cepillado de pelo  </label>
                                         </div>
 
                                         <div class='boxRadio'>
                                             <input type='checkbox' name='$pregunta[0]' id='cuidado8'>
-                                            <label for='cuidado8'> limpieza diaria de arenero de gatito  </label>
+                                            <label for='cuidado8'> Limpieza diaria de arenero de gatito  </label>
                                         </div>
 
                                         <div class='boxRadio'>

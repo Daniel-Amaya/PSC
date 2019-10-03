@@ -57,6 +57,22 @@ class Adopcion extends Conexion{
             exit("ERROR AL MOSTRAR LOS ADOPTADOS" . $e->getMessage());
         }
     }
+
+    public function retornarIds($numAdopcion){
+        $con = parent::conectar();
+        try{
+            
+            $query = $con->prepare("SELECT * FROM adopciones WHERE numAdopcion = :numAdopcion");
+            $query->bindParam(':numAdopcion', $numAdopcion);
+            $query->execute();
+            $adopcion = $query->fetch();
+
+            return $adopcion;
+
+        }catch(Exception $e){
+            exit("ERROR AL RETORNAR IDS: ".$e->getMessage());
+        }
+    }
 }
 
 ?>

@@ -53,7 +53,7 @@
             <br>
             
 
-            <form action="" method="" id='insertar-donacion' enctype="multipart/form-data" >
+            <form action="modelo/donaciones/insertar-donaciones.php" method="POST" id='insertar-donacion' enctype="multipart/form-data" >
             
             <h3>¿De que es su donación?</h3>
                 <div class="boxInput">
@@ -258,5 +258,5 @@ function tabsUser(){
 </script>
   <script src="publico/js/jquery.js"></script>
 <script src="publico/js/shadowMenuBlanco.js"></script>
-<script src="publico/js/donaciones.js"></script>
+<!-- <script src="publico/js/donaciones.js"></script> -->
 
