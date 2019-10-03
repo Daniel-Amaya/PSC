@@ -62,7 +62,7 @@ class AdopcionesController extends Adopcion{
                         <th>$datos[1]</th>
                         <th>$datos[12] $datos[13]</th>
                         <th>{$datos['fechaAdopcion']}</th>
-                        <th><a href='{$datos['numAdopcion']}'><i class='fas fa-eye'></i></a></th>";
+                        <th><a href='documentacion.php?adopcion={$datos['numAdopcion']}'><i class='fas fa-eye'></i></a></th>";
 
                         if($datos[24] != null){
                             echo "<th><a href='$datos[24]'><i class='fas fa-eye'></i></a></th>";
@@ -75,6 +75,82 @@ class AdopcionesController extends Adopcion{
             }
         }catch(Exception $e){
             exit("ERROR: ".$e->getMessage());
+        }
+    }
+
+    public function mostrarAdopcion($num){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("SELECT animales.*, usuarios.*, usuarios.nombre AS userName, numAdopcion FROM animales, usuarios, adopciones WHERE usuarios.id = idUsuario AND animales.id = idAnimalAdoptado AND numAdopcion = :Num");
+            $query->bindParam(":Num", $num);
+
+            $query->execute();
+
+            if($query->rowCount() > 0){
+                require 'modelo/fotos.php';
+                foreach($query AS $adopcion){
+
+                    $fotoPerfil = Foto::fotoPerfil($adopcion[0]);
+                    $fotoPerfil = $fotoPerfil->fetch();
+                    echo " 
+                    <h2 class='titulo'>Adopción numero {$adopcion['numAdopcion']}</h2>
+                    <div class='adopcion-concreta'>
+                        <div class='row'>
+                            <div class='info-adops'>
+                                <h3 class='center'>Información del adoptante</h3>
+
+                                <ul>
+                                    <li>Nombre: {$adopcion['userName']}</li>
+                                    <li>Apellidos: {$adopcion['apellidos']}</li>
+                                    <li>Télefono: {$adopcion['telefono']}</li>
+                                    <li>Cedula: {$adopcion['cedula']}</li>
+                                    <li>Correo: {$adopcion['correo']}</li>
+                                </ul> 
+                                <div class='row'>
+                                    <a href='usuarios.php?id={$adopcion['id']}'>Ver perfil</a>
+                                ";
+
+                                if($adopcion['foto'] != ''){
+
+                                    echo "
+                                    <img src='publico/images/{$adopcion['foto']}'>";
+                                }else{
+                                    echo "
+                                    <img src='publico/images/fotoPerfilVacia.png'>";
+                                }
+                                    
+                                echo "
+                                </div>
+                            </div>
+
+                            <div class='info-adops'>
+                                <h3 class='center'>Información del adoptante</h3>
+
+                                <ul>
+                                    <li>Nombre: {$adopcion[1]}</li>
+                                    <li>Especie: {$adopcion[2]}</li>
+                                    <li>Raza: {$adopcion[3]}</li>
+                                    <li>Color: {$adopcion[4]}</li>
+                                    <li>Edad: {$adopcion[5]}</li>
+                                </ul>
+
+                                <div class='row'>
+                                    <img src='publico/images/$fotoPerfil[1]'>
+                                    <a href='animalitos.php?id={$adopcion[0]}'>Ver perfil</a>
+                                </div>
+
+                            </div>
+                            <a href='documentacion.php?adopcion={$adopcion['numAdopcion']}' style='width: 100%;margin: 10px 0' class='center'> Ver documento legal de la adopción</a>                    
+
+                        </div>
+                    </div> 
+                    
+                    ";
+                }
+            }
+
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LA ADOPCIÓN: ".$e->getMessage());
         }
     }
 
@@ -390,6 +466,8 @@ class AdopcionesController extends Adopcion{
             exit("ERROR AL MOSTRAR ANIMALITO ADOPTADO: ".$e->getMessage());
         }
     }
+
+    
 }
 
 ?>

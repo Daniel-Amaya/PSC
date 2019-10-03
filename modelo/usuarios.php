@@ -37,7 +37,6 @@ class Usuario extends Conexion{
             $query->bindParam(':rol', $this->rol);
             $query->bindParam(':foto', $this->foto);
 
-
             $query->execute();
 
             if($query->errorCode() != "00000"){

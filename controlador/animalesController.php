@@ -184,7 +184,7 @@ class AnimalesController extends Animal{
         $con = parent::conectar();
         try{
             
-            $animales = $con->query("SELECT * FROM animales");
+            $animales = $con->query("SELECT * FROM animales LIMIT 4");
         
             if($animales->rowCount() > 0){
         
@@ -363,8 +363,8 @@ class AnimalesController extends Animal{
                         
                     <div class='boxInput'>
                         <select name='especieE'>
-                            <option value='canina'>canina</option>
-                            <option value='felina'>felina</option>
+                            <option value='canina'>Canina</option>
+                            <option value='felina'>Felina</option>
                         </select>
                     </div>
 

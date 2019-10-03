@@ -9,6 +9,12 @@ require_once 'controlador/solicitudesController.php';
 ?>
 
 <div class="padding-menu margin-menu">
+
+    <?php
+
+    require 'controlador/get/adopcionesAdmin.php';
+
+    ?>
     <h2 class="titulo">Detalles de las adopciones</h2>
 
     <div class="row">

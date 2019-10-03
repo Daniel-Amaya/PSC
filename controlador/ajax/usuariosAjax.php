@@ -33,6 +33,7 @@ if(isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo
                 $foto = Carpetas::agregarFoto($carpeta, $_FILES['foto']['name'], $_FILES['foto']['tmp_name']);
 
                 $fotoPerfil = $foto;
+                
             }else{
 
                 $fotoPerfil = '';

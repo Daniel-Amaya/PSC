@@ -26,7 +26,7 @@ if(isset($_GET['editar']) && !empty($_GET['editar'])){
             <div class='buttonsAction'>
                 <button class='btn_naranja btn_largo'><label for='nFoto'>Nueva imagen</label></button>
                 <input type='file' id='nFoto' style='display:none'>
-                <button class='btn_naranja btn_largo'>Terminar</button>
+                <button class='btn_naranja btn_largo' onclick='window.location = \"animalitos.php\"'>Terminar</button>
             </div>
             
         </div>

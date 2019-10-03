@@ -12,7 +12,7 @@ include 'modelo/fotos.php';
     <section class=''>
    
         <aside id="filtro" style='display: none'>
-            <button class="btn_cafe" onclick="">Agregar un nuevo animalito</button><br><br>
+            <button class="btn_cafe" onclick="">Agregar una nueva mascota</button><br><br>
             <h4>Buscar por:</h4>
             <form action="" id='buscarAnimalitos'>
                 <div class="boxInput">
@@ -52,10 +52,10 @@ include 'modelo/fotos.php';
         <div class="divTableDatos">
             <div class="navTable">
                 <div class="buttonsTable">
-                    <button class='btn_naranja btn_largo' onclick="agregarAnimalitos()">Agregar animalito</button>
+                    <button class='btn_naranja btn_largo' onclick="agregarAnimalitos()">Agregar mascota</button>
                 </div>
                 <div class="nombreIndicador">
-                    Animalitos
+                    Mascotas
                 </div>
                 <div class="buscarTable">
                     <i class='fas fa-search'></i>
