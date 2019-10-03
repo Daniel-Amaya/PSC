@@ -43,6 +43,39 @@ class UsuariosController extends Usuario{
             exit("ERROR AL VALIDAR CREAR CUENTA: ".$e->getMessage());
         }
     }
+
+    public function mostrarTodosLosUsuarios(){
+        try{
+
+            $usuarios = parent::dataUsuarios('');
+
+            if($usuarios->rowCount() > 0){
+                foreach($usuarios AS $usuario){
+                    echo "
+                    <tr>
+                        ";
+                        if($usuario['foto'] != ""){
+
+                        echo "<th><img src='publico/images/{$usuario['foto']}'</th>";
+                        }else{
+                            echo "<th><img src='publico/images/fotoPerfilVacia.png'</th>";
+                        }
+                        echo "
+                        <th>$usuario[1]</th>
+                        <th>$usuario[2]</th>
+                        <th>$usuario[3]</th>
+                        <th>$usuario[4]</th>
+                        <th>$usuario[5]</th>
+                        <th><button class='btn_cafe'>Ver perfil</button></th>
+                        <th><button class='btn_rojo'>Admin</button></th>
+                    </tr>
+                    ";
+                }
+            }
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR LOS USUARIOS");
+        }
+    }
 }
 
 ?>

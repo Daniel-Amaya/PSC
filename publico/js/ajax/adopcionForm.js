@@ -97,7 +97,6 @@
                     
                     if(this.readyState == 4 && this.status == 200){
 
-                        alert(this.responseText.length);
                         if(this.responseText.length == 27){
 
                             id('modal').style.display = 'block';

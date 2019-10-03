@@ -98,6 +98,7 @@ class Usuario extends Conexion{
                 $query->bindParam(':id', $id);
                 $query->execute();
             }else{
+                
                 $query = $con->query("SELECT * FROM usuarios");
             }
 
@@ -125,6 +126,24 @@ class Usuario extends Conexion{
 
         }catch(Exception $e){
             exit("ERROR AL AGRERGAR LOS DATOS AL USUARIO:" .$e->getMessage());
+        }
+    }
+
+    public function deleteUsuario($id){
+        $con = parent::conectar();
+        try{
+
+            $query = $con->prepare("DELETE * FROM usuarios WHERE id=:id");
+            $query->bindParam(':id', $id);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0";
+            }else{
+                echo "1";
+            }
+        }catch(Exception $e){
+            exit("ERROR AL ELIMINAR URUARIO: ".$e->getMessage());
         }
     }
 }

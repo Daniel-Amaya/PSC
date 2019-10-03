@@ -1171,6 +1171,16 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   color: white;
 }
 
+.tableUsuarios td, .tableUsuarios th {
+  padding: 5px 0;
+}
+.tableUsuarios img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
 .boxPerrito {
   width: 50vmin;
   height: 40vmin;

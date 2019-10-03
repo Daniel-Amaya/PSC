@@ -42,13 +42,19 @@ if(isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo
             new Usuario($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['password'], 'u', $fotoPerfil);
 
 
-
         }else{
 
             echo $validar;
         }
     }
 
+}else{
+
+    require '../../modelo/connect.php';
+    require '../../modelo/usuarios.php';
+    require '../usuariosController.php';
+
+    UsuariosController::mostrarTodosLosUsuarios();
 }
 
 ?>

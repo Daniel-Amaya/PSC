@@ -99,3 +99,9 @@ modalAnimalitos = (data, fotoPerfil, edad) =>{
 }
 
 </script>
+
+<?php
+require 'controlador/get/animalitosPerfil.php';
+
+
+?>

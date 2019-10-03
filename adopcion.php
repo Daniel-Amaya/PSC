@@ -16,6 +16,7 @@ if($_SESSION['sesion_rol'] == 'a'){
 
     require 'vista/usuario/menuUser.php';
     require 'vista/usuario/adopcion/formulario.ado.php';
+    require 'vista/usuario/adopcion/modal.ado.php';
 
 }
 

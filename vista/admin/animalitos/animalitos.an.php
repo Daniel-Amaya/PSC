@@ -2,6 +2,9 @@
 
 include 'modelo/animales.php';
 include 'modelo/fotos.php';
+require_once 'controlador/funciones.php';
+
+
 
 ?>
 
