@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2019 a las 15:31:48
--- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.6
+-- Tiempo de generación: 04-10-2019 a las 01:01:06
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,13 +36,6 @@ CREATE TABLE `adopciones` (
   `codEsterilizacion` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `adopciones`
---
-
-INSERT INTO `adopciones` (`numAdopcion`, `idAnimalAdoptado`, `idUsuario`, `fechaAdopcion`, `codEsterilizacion`) VALUES
-(2, 17, 2, '2019-03-05', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -56,28 +49,12 @@ CREATE TABLE `animales` (
   `raza` varchar(25) NOT NULL,
   `color` varchar(30) NOT NULL,
   `sexo` char(1) NOT NULL,
-  `edad` int(11) NOT NULL,
+  `edad` date NOT NULL,
   `esterilizado` tinyint(1) NOT NULL,
   `descripcion` tinyblob NOT NULL,
   `procedencia` varchar(30) NOT NULL,
   `carpeta` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `animales`
---
-
-INSERT INTO `animales` (`id`, `nombre`, `especie`, `raza`, `color`, `sexo`, `edad`, `esterilizado`, `descripcion`, `procedencia`, `carpeta`) VALUES
-(17, 'Perry', 'canina', 'pitbull', 'negro', 'F', 2019, 1, 0x457320756e20706f71756973206c6f636f206e616461206dc3a1732c20657374612070727565626120646562652073616c6972206d656c6974696361, 'medellÃ­n Belen Altavista', 'Perry83638987'),
-(23, 'Hunsky', 'Gato', 'Egipcio', 'Morado', 'M', 2014, 1, 0x416c6761726574656d656e746520686f79206d6920706170c3a1, 'Robledo Bello Horizonte', 'Hunsky108567285'),
-(24, 'Bebesita', 'Perro', 'Cruce', 'Morado', 'F', 2015, 0, 0x536973697369736973697320636c6172656f20636c61c3b1617320646b6a617364206b6a666473206a666a736620786a686973662076646a66, 'Robledo Bello Horizonte', 'Bebesita32921580'),
-(38, 'mishi', 'canina', 'Pitbull', 'CafÃ©', 'M', 2018, 1, 0x776572666466737364, 'Robledo Villa SofÃ­a', 'mishi12618800'),
-(41, 'Luis Miguel', 'canina', 'Cruce', 'Morado', 'F', 2017, 1, 0x6b6c6a6c6b6a6b6c6a, 'Robledo Villa SofÃ­a', 'Luis Miguel65565197'),
-(43, 'Mishi', 'felina', 'Egipcio', 'Morado', 'M', 2018, 1, 0x74616b692074616b692c2074616b692074616b692072756d6261, 'Robledo Bello Horizonte', 'Mishi26464047'),
-(45, 'Dulce', 'canina', 'Cruce', 'Blanco', 'F', 2017, 1, 0x415364736164, 'Robledo Villa SofÃ­a', 'Dulce62954265'),
-(46, 'Bills', 'felina', 'Egipcio', 'Morado', 'M', 2018, 1, 0x736467676664646467, 'fggfdg', 'Bills66650523'),
-(47, 'Luis Miguel', 'canina', 'Pitbull', 'Morado', 'M', 2017, 1, 0x736466667364667364, 'Robledo Bello Horizonte', 'Luis Miguel55309034'),
-(49, 'Feeef', 'felina', 'Egipcio', 'Blanco', 'F', 2012, 1, 0x647366667364666673647364, 'Robledo Villa SofÃ­a', 'Feeef99555216');
 
 -- --------------------------------------------------------
 
@@ -89,20 +66,6 @@ CREATE TABLE `animalesvacunados` (
   `codVacuna` int(10) UNSIGNED NOT NULL,
   `idAnimal` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `animalesvacunados`
---
-
-INSERT INTO `animalesvacunados` (`codVacuna`, `idAnimal`) VALUES
-(14, 45),
-(14, 45),
-(14, 47),
-(13, 43),
-(2, 43),
-(15, 46),
-(2, 46),
-(15, 49);
 
 -- --------------------------------------------------------
 
@@ -144,6 +107,63 @@ CREATE TABLE `compromisoesterilizacion` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `documentoslegales`
+--
+
+CREATE TABLE `documentoslegales` (
+  `idUsuario` int(10) UNSIGNED NOT NULL,
+  `firma` varchar(40) NOT NULL,
+  `docAdopcion` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `donaciones`
+--
+
+CREATE TABLE `donaciones` (
+  `iddonacion` int(11) NOT NULL,
+  `donacion` varchar(255) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `valor` varchar(255) DEFAULT NULL,
+  `ruta_imagen` varchar(255) DEFAULT NULL,
+  `mensaje` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `donaciones`
+--
+
+INSERT INTO `donaciones` (`iddonacion`, `donacion`, `cantidad`, `valor`, `ruta_imagen`, `mensaje`) VALUES
+(1, 'medicamentos', 990, 'libras', 'publico/images/donacionesC:xampp	mpphp58D7.tmp.jpg', 'FFF'),
+(2, 'dinero', 23123, 'libras', '../../publico/images/donacionesC:xampp	mpphpBCB9.tmp.jpg', 'asdasf'),
+(3, 'alimentos', 23123, 'libras', '../../publico/images/donaciones/C:xampp	mpphpC417.tmp.jpg', 'FFFFFFFFF'),
+(4, 'medicamentos', 123, 'unidades', '../../publico/images/donaciones/logo.jpeg.jpg', 'asdasdad'),
+(5, 'medicamentos', 123, 'unidades', '../../publico/images/donaciones/logo.jpeg.jpg', 'asdasdad'),
+(6, 'medicamentos', 123123, 'unidades', '../../publico/images/donaciones/logo.jpeg.jpg', 'qweqweqwe'),
+(7, 'medicamentos', 3123123, 'unidades', '../../publico/images/donaciones/logo.jpegrandom_int(2123).jpg', 'asdasda'),
+(8, 'medicamentos', 3123123, 'unidades', '../../publico/images/donaciones/logo.jpeg.jpg908358', 'asdasda'),
+(9, 'medicamentos', 3123123, 'unidades', '../../publico/images/donaciones/logo.jpeg3429856.jpg', 'asdasda'),
+(10, 'medicamentos', 3123123, 'unidades', '../../publico/images/donaciones/logo.jpeg4870631.jpg', 'asdasda');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `color` varchar(7) DEFAULT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `fotos`
 --
 
@@ -153,51 +173,6 @@ CREATE TABLE `fotos` (
   `idAnimal` int(10) UNSIGNED NOT NULL,
   `perfil` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `fotos`
---
-
-INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`, `perfil`) VALUES
-(68, 'Perry83638987/734323766.png', 17, 1),
-(71, 'Hunsky108567285/551395160.png', 23, 1),
-(72, 'Hunsky108567285/314345849.png', 23, 0),
-(74, 'Bebesita32921580/720249749.png', 24, 0),
-(77, 'Bebesita32921580/10119535.png', 24, 1),
-(78, 'Bebesita32921580/10516368.png', 24, 0),
-(79, 'Bebesita32921580/327639399.png', 24, 0),
-(121, 'mishi12618800/300617036.png', 38, 0),
-(122, 'mishi12618800/640312766.png', 38, 1),
-(123, 'mishi12618800/815016171.png', 38, 0),
-(127, 'Luis Miguel65565197/300478373.png', 41, 1),
-(130, 'Mishi26464047/495469619.png', 43, 0),
-(131, 'Mishi26464047/944342162.png', 43, 0),
-(132, 'Mishi26464047/767274083.png', 43, 0),
-(133, 'Mishi26464047/917005991.png', 43, 0),
-(134, 'Dulce62954265/983867439.png', 45, 1),
-(135, 'Dulce62954265/856758800.png', 45, 0),
-(136, 'Dulce62954265/782016830.png', 45, 0),
-(137, 'Dulce62954265/898600710.png', 45, 0),
-(138, 'Bills66650523/548597876.png', 46, 1),
-(139, 'Bills66650523/902806422.png', 46, 0),
-(140, 'Bills66650523/515557592.png', 46, 0),
-(144, 'Perry83638987/500996034.png', 17, 0),
-(145, 'Perry83638987/488412745.png', 17, 0),
-(150, 'Hunsky108567285/583503175.png', 23, 0),
-(151, 'Hunsky108567285/170824167.png', 23, 0),
-(152, 'Hunsky108567285/61645907.png', 23, 0),
-(153, 'Hunsky108567285/818591999.png', 23, 0),
-(155, 'Mishi26464047/8540728.png', 43, 0),
-(157, 'Mishi26464047/87755319.png', 43, 1),
-(158, 'Mishi26464047/698723061.png', 43, 0),
-(159, 'Mishi26464047/783129734.png', 43, 0),
-(160, 'Perry83638987/943718085.png', 17, 0),
-(161, 'Perry83638987/402807878.png', 17, 0),
-(166, 'Luis Miguel55309034/567055129.png', 47, 1),
-(167, 'Luis Miguel55309034/369653937.png', 47, 0),
-(169, 'Feeef99555216/507658825.png', 49, 1),
-(170, 'Feeef99555216/185863572.png', 49, 0),
-(171, 'Feeef99555216/955218253.png', 49, 0);
 
 -- --------------------------------------------------------
 
@@ -253,9 +228,11 @@ INSERT INTO `preguntasadopcion` (`numPregunta`, `pregunta`, `typeInput`, `siOno`
 
 CREATE TABLE `respuestasadopcion` (
   `cod` int(10) UNSIGNED NOT NULL,
-  `respuesta` blob NOT NULL,
+  `respuesta` varchar(255) NOT NULL,
+  `dbPreguntaRespuesta` varchar(100) DEFAULT NULL,
   `numPregunta` int(10) UNSIGNED NOT NULL,
-  `idUsuario` int(10) UNSIGNED NOT NULL
+  `idUsuario` int(10) UNSIGNED NOT NULL,
+  `idAnimal` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -274,16 +251,6 @@ CREATE TABLE `solicitudesadopcion` (
   `notificacion` varchar(535) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `solicitudesadopcion`
---
-
-INSERT INTO `solicitudesadopcion` (`cod`, `idUsuario`, `idAnimal`, `fechaSolicitud`, `estado`, `notificado`, `notificacion`) VALUES
-(3, 2, 23, '2019-09-22', 'rechazada', 0, 'La solicitud de adoptar ha sido rechazada'),
-(4, 3, 41, '2019-09-22', 'a un paso', 0, NULL),
-(5, 2, 49, '2019-09-23', 'a un paso', 0, 'EstÃ¡s a un paso de adoptar, debes llenar el formulario de adopciÃ³n para completar la adopciÃ³n'),
-(6, 4, 43, '2019-09-23', 'rechazada', 0, 'La solicitud de adoptar ha sido rechazada');
-
 -- --------------------------------------------------------
 
 --
@@ -299,18 +266,21 @@ CREATE TABLE `usuarios` (
   `cedula` varchar(15) NOT NULL,
   `password` varchar(100) NOT NULL,
   `rol` char(1) NOT NULL,
-  `foto` varchar(60) DEFAULT NULL
+  `foto` varchar(60) DEFAULT NULL,
+  `estadoCivil` varchar(30) DEFAULT NULL,
+  `direccionApto` varchar(30) DEFAULT NULL,
+  `referencia` varchar(70) DEFAULT NULL,
+  `telefonoRef` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `correo`, `telefono`, `cedula`, `password`, `rol`, `foto`) VALUES
-(1, 'michy', 'batsuayi', 'michy21@gmail.com', '2213231', '23424234', '$2y$10$zQiTa.Em5LJ0cl6YxLGjKesx0RBk3lhHmJqHzN5d.RsVn0hRtJe8a', 'a', ''),
-(2, 'Juan David', 'Mosquera MuÃ±oz', 'juanDavid@gmail.com', '89213474897', '1000000000', '$2y$10$Mm94QGw18PaMXLNzfLwOGeiKw9NG1Fmi5w6gWjOw3RDhvDLvTrlBa', 'u', ''),
-(3, 'Daniel', 'Amaya ', 'amayasad@gmail.com', '122134324', '432324234', '$2y$10$ohWsDPErI7So5MYiZDRS4OQcCbdSvNcg9cJpSG/Q/0NWAi1ZOAaKu', 'u', ''),
-(4, 'Sofia', 'Cano', 'sdsdad@gmail.com', '232432', '434433', '$2y$10$jNGKQHgHzV2fhzQRvRDWHeWqU.GYtKdjCzO51oUu30jpauxvi6h9O', 'u', '');
+INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `correo`, `telefono`, `cedula`, `password`, `rol`, `foto`, `estadoCivil`, `direccionApto`, `referencia`, `telefonoRef`) VALUES
+(1, 'michy', 'batsuayi', 'michy21@gmail.com', '2213231', '23424234', '$2y$10$zQiTa.Em5LJ0cl6YxLGjKesx0RBk3lhHmJqHzN5d.RsVn0hRtJe8a', 'a', '', NULL, NULL, NULL, NULL),
+(16, 'Sofia', 'Cano Lopez', 'sofia@gmail.com', '3214563434', '53434323', '$2y$10$.ipR.ECQxHoCpX/CepKUKuPXCGp2Dw3vA9pb9MisIKVFLDxaoypJm', 'u', 'usuarios/sofia@gmail.com/fotoPerfil.png', NULL, NULL, NULL, NULL),
+(17, 'Daniel', 'Amaya', 'amayasad@correo.com', '5827187', '1000907890', '$2y$10$l0YVRu8FGxEdLmP5VGZFaeWu5uoqaHuOsf4QjzHuZ.Ckw3SkLlBui', 'u', 'usuarios/amayasad@correo.com/fotoPerfil.png', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -324,18 +294,6 @@ CREATE TABLE `vacunas` (
   `vacuna` varchar(30) NOT NULL,
   `descripcion` tinyblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `vacunas`
---
-
-INSERT INTO `vacunas` (`cod`, `especie`, `vacuna`, `descripcion`) VALUES
-(1, 'canina', 'Rataviru', 0x416c2063756d706c697220342c203620792037206d65736573),
-(2, 'felina', 'Neumococo', 0x416c2061c3b16f2c20616c2061c3b16f2079206d6564696f20792061206c6f7320352061c3b16f73),
-(13, 'felina', 'felina', 0x54752063756572706f2065732074616e2070726f766f63616e7465),
-(14, 'canina', 'AntiDengue', 0x50726576656e697220656c2064656e67756520656e206c6f73207065727269746f73),
-(15, 'felina', 'AntiDengue', 0x506172612070726576656e697220656c2064656e67756520656e206c6f732067617469746f7320792074696772657320),
-(18, 'canina', 'DengueAnti', 0x50617261206e6f206861636572206e6164612070616e610a);
 
 --
 -- Índices para tablas volcadas
@@ -384,6 +342,24 @@ ALTER TABLE `compromisoesterilizacion`
   ADD PRIMARY KEY (`cod`);
 
 --
+-- Indices de la tabla `documentoslegales`
+--
+ALTER TABLE `documentoslegales`
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
+-- Indices de la tabla `donaciones`
+--
+ALTER TABLE `donaciones`
+  ADD PRIMARY KEY (`iddonacion`);
+
+--
+-- Indices de la tabla `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `fotos`
 --
 ALTER TABLE `fotos`
@@ -416,7 +392,9 @@ ALTER TABLE `solicitudesadopcion`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cedula` (`cedula`),
+  ADD UNIQUE KEY `correo` (`correo`);
 
 --
 -- Indices de la tabla `vacunas`
@@ -432,13 +410,13 @@ ALTER TABLE `vacunas`
 -- AUTO_INCREMENT de la tabla `adopciones`
 --
 ALTER TABLE `adopciones`
-  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
@@ -453,10 +431,22 @@ ALTER TABLE `compromisoesterilizacion`
   MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `donaciones`
+--
+ALTER TABLE `donaciones`
+  MODIFY `iddonacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntasadopcion`
@@ -474,19 +464,19 @@ ALTER TABLE `respuestasadopcion`
 -- AUTO_INCREMENT de la tabla `solicitudesadopcion`
 --
 ALTER TABLE `solicitudesadopcion`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `vacunas`
 --
 ALTER TABLE `vacunas`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -519,6 +509,12 @@ ALTER TABLE `apadrinamientos`
 --
 ALTER TABLE `citas`
   ADD CONSTRAINT `fk_citasUsuarios` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `documentoslegales`
+--
+ALTER TABLE `documentoslegales`
+  ADD CONSTRAINT `documentoslegales_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos`
