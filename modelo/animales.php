@@ -88,19 +88,6 @@ class Animal extends Conexion{
         }
     }
 
-    public function dataAnimalIndex(){
-        $con = parent::conectar();
-        try {
-            
-            $adopciones = $con->query("SELECT idAnimalAdoptado FROM adopciones");
-            $adopciones = $adopciones->fetch();
-            $query = $con->query("SELECT * FROM animales WHERE id != $adopciones[0] limit 4");
-           
-            return $query;
-        } catch (PDOException $e) {
-            exit("ERROR MOSTRAR ANIMALES: ".$e->getMessage());
-        }
-    }
 
     public function deleteAnimal($id){
         $con = parent::conectar();

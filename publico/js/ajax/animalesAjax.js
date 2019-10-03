@@ -195,6 +195,7 @@ function eliminarComfirm(data){
     // Creando ventana modal
     let modal = document.createElement('div'); modal.className = "modal"; modal.style.display = "block";
     let contentModal = document.createElement('div'); contentModal.className = "contenido-modal";
+    contentModal.setAttribute('style', 'width: 40%; padding: 40px');
 
     // Creando parte flex de la ventana modal
     let flexModal = document.createElement('div'); flexModal.className = "flex-modal"; 
@@ -206,14 +207,16 @@ function eliminarComfirm(data){
 
     // Creando header de la ventana modal
 
-    let headerModal = document.createElement('div'); headerModal.className = "modal-header";
+    let headerModal = document.createElement('h2'); headerModal.className = "center";
     headerModal.textContent = "Confirmar eliminación de un perrito";
 
     // Creando body y botones de la ventana modal
     let bodyModal = document.createElement('div'); bodyModal.className = "modal-body";
     bodyModal.textContent = "¿Está seguro de que desea eliminar el animalito? No es posible revertir esta acción";
-    let btnAceptar = document.createElement('button'); btnAceptar.className = "btn_naranja"; btnAceptar.textContent = "Eliminar";
-    let btnCancelar = document.createElement('button'); btnCancelar.className = "btn_naranja"; btnCancelar.textContent = "Cancelar";
+    let btnAceptar = document.createElement('button'); btnAceptar.className = "btn_rojo btn_largo"; btnAceptar.textContent = "Eliminar";
+    let btnCancelar = document.createElement('button'); btnCancelar.className = "btn_naranja btn_largo"; btnCancelar.textContent = "Cancelar";
+    btnAceptar.setAttribute('style', 'margin: 10px');
+    btnCancelar.setAttribute('style', 'margin: 10px');
 
     // añadiendo eventos a los botones de la ventana modal
     btnAceptar.addEventListener('click', function(){

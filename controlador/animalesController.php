@@ -181,48 +181,54 @@ class AnimalesController extends Animal{
     }
 
     public function mostrarAnimalitosIndex(){
+        $con = parent::conectar();
         try{
             
-            $animales = parent::dataAnimalIndex();
+            $animales = $con->query("SELECT * FROM animales");
         
             if($animales->rowCount() > 0){
         
                 foreach($animales as $datos) {
-        
-                    $fotos = Foto::fotoPerfil($datos[0]);
-                    $urlFotoPerfil = $fotos->fetch();
-        
-                    echo "
-                
-                        <div class='card-adopta marg'>
-                            <div class='image_card'>
-                                <img src='publico/images/$urlFotoPerfil[1]'>
+
+                    $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
+                    if($verificarAdopcion->rowCount() == 0){
+
+                        $fotos = Foto::fotoPerfil($datos[0]);
+                        $urlFotoPerfil = $fotos->fetch();
+            
+                        echo "
+                    
+                            <div class='card-adopta marg'>
+                                <div class='image_card'>
+                                    <img src='publico/images/$urlFotoPerfil[1]'>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Especie</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <th>$datos[1]</th>
+                                        <th>$datos[2]</th>
+                                    </tbody>
+                                </table>
+                                <div class='btns_card'>
+                                    <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
+                                    <div class='AnimacionCorazones cor1'></div>
+                                    <div class='AnimacionCorazones cor2'></div>
+                                    <div class='AnimacionCorazones cor3'></div>
+                                    <div class='AnimacionCorazones cor4'></div>
+                                    </a>
+                                    <a href='adoptar.php?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                                </div>
                             </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Especie</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <th>$datos[1]</th>
-                                    <th>$datos[2]</th>
-                                </tbody>
-                            </table>
-                            <div class='btns_card'>
-                                <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
-                                <div class='AnimacionCorazones cor1'></div>
-                                <div class='AnimacionCorazones cor2'></div>
-                                <div class='AnimacionCorazones cor3'></div>
-                                <div class='AnimacionCorazones cor4'></div>
-                                </a>
-                                <a href='adoptar.php?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-                            </div>
-                        </div>
-                      
-                 ";
+                        
+                    ";
+                    }
                 }
+
             }else{
                 echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
                 include 'vista/vacio.php';
@@ -266,7 +272,7 @@ class AnimalesController extends Animal{
                         <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas</a></td>
                         <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
                         <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
-                        <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
+                        <td><a class='btn_rojo' onclick='alert(\"No es permitida esta acción ya que el animalito ha sido adoptado\")'>Eliminar</a></td>
                         
                     </tr> ";
                     }else{

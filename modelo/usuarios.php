@@ -44,7 +44,7 @@ class Usuario extends Conexion{
                 echo "0";
             }else{
                 
-                $id = $con->query("SELECT id FROM usuarios WHERE cedula={$this->cedula}'");
+                $id = $con->query("SELECT id FROM usuarios WHERE cedula='{$this->cedula}'");
                 $id = $id->fetch();
 
                 if($this->rol == "u"){
