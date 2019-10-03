@@ -93,6 +93,17 @@
 
                 ht = new XMLHttpRequest;
 
+                ht.addEventListener('progress', (e) =>{
+                    let porcentaje = Math.round((e.loaded / e.total) * 100);
+                    id('loadAjax').style.display = 'block';
+                    id('porcentajeCarga').textContent = porcentaje + '%';
+                    console.log(porcentaje);
+                }); 
+                ht.addEventListener('load', () => {
+                    
+                    id('loadAjax').style.display = 'none';
+                });
+
                 ht.addEventListener('readystatechange', function(){
                     
                     if(this.readyState == 4 && this.status == 200){
@@ -102,7 +113,7 @@
                             id('modal').style.display = 'block';
                             classNames('mensajeForm')[0].textContent = 'Se han enviado las respuestas exitosamente, cuando la fundación agregue su firma, podrás ir por la mascota a la fundación';
 
-                            classNames('flex-modal').addEventListener('click', () =>{
+                            classNames('flex-modal')[0].addEventListener('click', () =>{
                                 window.location = 'index.php';
                             });
 
@@ -118,6 +129,7 @@
 
                 ht.open('POST', 'controlador/ajax/respuestasAdopcionAjax.php');
                 ht.send(datos);
+
             }
 
         }

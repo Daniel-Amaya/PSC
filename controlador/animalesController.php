@@ -335,14 +335,13 @@ class AnimalesController extends Animal{
                 echo "<div class='errNoData'>No se han encontrado animalitos<a class='btn_naranja'>Agregar una mascota</a></div>";
             }
         }catch(Exception $e){
-
+            exit("ERROR AL MOSTRAR ALGO: ".$e->getMessage());
         }
     }
 
     public function formularioEditarAnimalito($id){
         try{
 
-            require 'controlador/funciones.php';
             $datos = parent::dataAnimal($id);
 
             if($datos->rowCount() > 0){
@@ -917,9 +916,6 @@ class AnimalesController extends Animal{
             exit("ERROR AL MOSTRAR LA INFORMACIÓN DEL ANIMALITO: ".$e->getMessage());
         }
     }
-
-  
-
 
 }
 

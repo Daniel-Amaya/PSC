@@ -103,6 +103,28 @@
     text-align: center;
 }
 
+#loadAjax{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.493);
+    z-index: 5;
+    div{
+        width: 30%;
+        background: white;
+        color: black;
+        padding: 50px;
+        box-shadow: 0 0 15px rgba(100, 100, 100, 0.5);
+        border-radius: 44px;
+    }
+}
+
 
 
 

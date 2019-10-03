@@ -127,7 +127,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label><img src="publico/images/<?php echo DocumentosLegales::dataFirma($_GET['idU'])[0] ?>"></label>
+                    <label class='firmaBox'><img src="publico/images/<?php echo DocumentosLegales::dataFirma($_GET['idU'])[0] ?>"></label>
 
                 </div>
 
@@ -142,9 +142,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
                 <strong>ENTREGO EN ADOPCIÓN</strong>
 
                 <div class="firmaFundacion">
-                <label for="firma" id='lugarFirma'>Has clic para agregar firma de la fundación</label>
-                    <input type="file" id="firma" style="display: none" accept='image/*'>
-                    <script src="publico/js/añadirFirma.js"></script>
+                <label for="firma" id='lugarFirma'>Al dar en adopción, al firma se agrega automaticamente</label>
                 </div>
                 <strong>FIRMA</strong>
 

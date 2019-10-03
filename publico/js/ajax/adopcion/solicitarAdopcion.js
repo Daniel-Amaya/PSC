@@ -12,6 +12,17 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
         
         ht = new XMLHttpRequest;
 
+        ht.addEventListener('progress', (e) =>{
+            let porcentaje = Math.round((e.loaded / e.total) * 100);
+            id('loadAjax').style.display = 'block';
+            id('porcentajeCarga').textContent = porcentaje + '%';
+            console.log(porcentaje);
+        }); 
+        ht.addEventListener('load', () => {
+            
+            id('loadAjax').style.display = 'none';
+        });
+
         ht.addEventListener('readystatechange', function(){
             if(this.readyState == 4 && this.status == 200){
                 if(this.responseText == '1'){

@@ -105,7 +105,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label><img src="publico/images/<?php echo $documentosLegales[0] ?>"></label>
+                    <label class='firmaBox'><img src="publico/images/<?php echo $documentosLegales[0] ?>"></label>
 
                 </div>
 
@@ -120,7 +120,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
                 <strong>ENTREGO EN ADOPCIÓN</strong>
 
                 <div class="firmaFundacion">
-                <label for="firma" id='lugarFirma'><strong>Peluditos San Cristóbal</strong></label>
+                <label for="firma" id='lugarFirma' class='firmaBox'><strong>Peluditos San Cristóbal</strong></label>
                 </div>
                 <strong>FIRMA</strong>
 

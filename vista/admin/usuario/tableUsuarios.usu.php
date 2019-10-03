@@ -20,10 +20,9 @@
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Correo</th>
-                        <th>Telefono</th>
                         <th>Cedula</th>
                         <th>Perfil</th>
-                        <th>Admin</th>
+                        <th>Rol</th>
                     </tr>
                 </thead>
 

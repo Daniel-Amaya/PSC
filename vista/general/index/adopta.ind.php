@@ -17,7 +17,7 @@ require 'controlador/vacunasController.php';
                         <img src='publico/images/dani.jpg' alt=''>
                     </div>
                             
-                    <h2 class='card_h_titulo'>El perrito de don Michy</h2>
+                    <h2 class='card_h_titulo'>El perrito de Daniel</h2>
                             
                     <p class='card_h_text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi iste officia assumenda, possimus minus cum modi aliquam facilis distinctio. Officia quisquam ut quidem odio ratione at quae necessitatibus ipsa corporis?</p>
                             
@@ -33,13 +33,12 @@ require 'controlador/vacunasController.php';
 
 ?>
 
-
                     <div class='card-historia marg'>
                         <div class='image'>
                                 <img src='publico/images/dani.jpg' alt=''>
                         </div>
                     
-                        <h2 class='card_h_titulo'>El perrito de don Michy</h2>
+                        <h2 class='card_h_titulo'>Toby y su nueva familia</h2>
                     
                         <p class='card_h_text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi iste officia assumenda, possimus minus cum modi aliquam facilis distinctio. Officia quisquam ut quidem odio ratione at quae necessitatibus ipsa corporis?</p>
                     

@@ -24,7 +24,7 @@ require_once 'controlador/solicitudesController.php';
                 <table>
                     <thead>
                         <tr>
-                            <th>Animalito</th>
+                            <th>Mascota</th>
                             <th>Adoptante</th>
                         </tr>
                     </thead>
@@ -47,7 +47,7 @@ require_once 'controlador/solicitudesController.php';
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Animalito</th>
+                            <th>Mascota</th>
                             <th>Adoptante</th>
                         </tr>
                     </thead>

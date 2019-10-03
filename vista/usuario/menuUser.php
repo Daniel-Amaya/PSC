@@ -81,3 +81,9 @@ document.addEventListener('DOMContentLoaded', () =>{
 <script src="publico/js/ajax/notificaciones.js"></script>
 <script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>
+
+<div id="loadAjax">
+    <div>
+        Cargando <span id='porcentajeCarga'></span>
+    </div>
+</div>

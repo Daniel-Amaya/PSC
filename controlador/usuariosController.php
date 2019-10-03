@@ -51,6 +51,7 @@ class UsuariosController extends Usuario{
 
             if($usuarios->rowCount() > 0){
                 foreach($usuarios AS $usuario){
+                    $usuarioj = json_encode($usuario);
                     echo "
                     <tr>
                         ";
@@ -64,10 +65,20 @@ class UsuariosController extends Usuario{
                         <th>$usuario[1]</th>
                         <th>$usuario[2]</th>
                         <th>$usuario[3]</th>
-                        <th>$usuario[4]</th>
                         <th>$usuario[5]</th>
-                        <th><button class='btn_cafe'>Ver perfil</button></th>
-                        <th><button class='btn_rojo'>Admin</button></th>
+                        <th><button class='btn_cafe' onclick='mostrarUsuariosData($usuarioj)'>Ver perfil</button></th>";
+
+                        if($usuario['rol'] == 'u'){
+
+                            echo "
+                            <th><button class='btn_rojo'>Usuario</button></th>";
+                            
+                        }else{
+
+                            echo "
+                            <th><button class='btnB_cafe'>Admin</button></th>";
+                        }
+                        echo "
                     </tr>
                     ";
                 }

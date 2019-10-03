@@ -17,16 +17,14 @@ class RespuestasAdopcionController extends Respuesta{
 
                     $respuestas =  parent::mostrarRespuestas($pregunta[0], $idU, $idA);
                     $respuesta = $respuestas->fetch();
-
-                    
                     
                     if($pregunta[0] == 22){
                         $respuesta22 = explode(',', $respuesta[1]);
                         for($i = 0; $i < count($respuesta22); $i++){
-                            if($respuesta22[$i] == true){
-                                $respuesta22[$i] = "<i class='fas fa-'></i>";
+                            if($respuesta22[$i] == 'true'){
+                                $respuesta22[$i] = "<i class='fas fa-check'></i>";
                             }else{
-                                $respuesta22[$i] = "<i class='fas fa-close'></i>";
+                                $respuesta22[$i] = "<i class='fas fa-times'></i>";
                             }
                         }
 
@@ -125,10 +123,10 @@ class RespuestasAdopcionController extends Respuesta{
                     if($pregunta[0] == 22){
                         $respuesta22 = explode(',', $respuesta[1]);
                         for($i = 0; $i < count($respuesta22); $i++){
-                            if($respuesta22[$i] == true){
-                                $respuesta22[$i] = "<i class='fas fa-'></i>";
+                            if($respuesta22[$i] == 'true'){
+                                $respuesta22[$i] = "<i class='fas fa-check'></i>";
                             }else{
-                                $respuesta22[$i] = "<i class='fas fa-close'></i>";
+                                $respuesta22[$i] = "<i class='fas fa-times'></i>";
                             }
                         }
 
