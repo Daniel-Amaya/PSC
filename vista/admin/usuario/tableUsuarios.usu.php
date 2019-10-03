@@ -1,5 +1,9 @@
 <div class="padding-menu margin-menu">
 
+        <h3 class='textoDeTitulo'>
+        Aquí vas a encontrar todos los usuarios registrados en la página, tanto los administradores como los usuarios, puedes ver el perfil de cada persona en el botón ver perfil:
+        </h3>
+
     <div class="divTableDatos">
         <div class="navTable">
             <div class="buttonsTable">

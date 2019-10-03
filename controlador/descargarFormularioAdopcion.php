@@ -39,8 +39,6 @@ foreach($preguntas AS $pregunta){
             }
         }
     }
-    
-
 }
 
 if($respuestas->rowCount() > 0){

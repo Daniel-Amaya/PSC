@@ -31,7 +31,7 @@
                     <input placeholder="Contraseña" type="password" name='password' >
                 </div>
                 <div>
-                    <label for="agregarFotoUsuario">Has clic para agregar una foto <br><i class="fas fa-image"></i></label>
+                    <label for="agregarFotoUsuario" id='FCR'>Has clic para agregar una foto <br><i class="fas fa-image"></i></label>
                     <input type="file" name="agregarFoto" id="agregarFotoUsuario" style="display: none">
                 </div>
 
@@ -50,5 +50,6 @@
         
     </div>
 
-
 </div>
+
+<script src='publico/js/mostrarFotoPerfil.js'></script>
