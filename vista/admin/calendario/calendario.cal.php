@@ -50,7 +50,7 @@ $events = $req->fetchAll();
 <body>
 <section class='margin-menu padding-menu'>
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="width: 1000px;">
 
         <div class="row">
             <div class="col-lg-12 text-center">

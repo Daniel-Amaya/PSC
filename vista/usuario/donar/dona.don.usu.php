@@ -46,18 +46,18 @@
 
       
 <div class="container-donar" >
-        <div class="col-6 margin-menu grisColor" style="margin-left:45px;">
+        <div class="col-6 margin-menu grisColor" id='respuesta'style="margin-left:45px;">
            
 
             <h2 class="center">Formulario de donación</h2>
             <br>
             
 
-            <form action="" method="post" id=''>
+            <form action="" method="" id='insertar-donacion' enctype="multipart/form-data" >
             
             <h3>¿De que es su donación?</h3>
                 <div class="boxInput">
-                    <select name="opciones"  required> 
+                    <select name="donacion"  required> 
                         <!-- <option disabled selected>Opciones</option> -->
                         <option></option>
                         <option value="alimentos">Alimentos</option>
@@ -69,11 +69,11 @@
 
             <h3>¿De cuanto es su donacion?</h3>
                 <div class="boxInput"  >
-                    <input type="number" placeholder="Cantidad" name=''  required>
+                    <input type="number" placeholder="Cantidad" name='cantidad'  required>
                 </div>
 
                 <div class="boxInput" style="width:60%" >
-                    <select name="opciones" required>
+                    <select name="valor" required>
                         <!-- <option disabled selected>Medición</option> -->
                         <option></option>
                         <option value="libras">Lb/Libras</option>
@@ -83,15 +83,16 @@
                    
                 </div>
                 <div class="boxInput">
-                        <label for="nuevaFoto" class="btn_gris">Agregar foto:</label>
-                        <input type="file" name="fotoComprovante" id="fotoComprovante" class="none" accept="image/*">
+                <h3 >Agregue una foto del Comprobante:</h3>
+                        <!-- <label for="nuevaFoto" class="btn_gris">Agregar foto:</label> -->
+                        <input type="file" name="fotoComprovante" id="fotoComprovante" class="btn_gris">
                         
                     </div>
 
-                 <div id="imagesBox">
+                 <!-- <div id="imagesBox">
                         <h3 style="margin-left:15px;">Imagenes agregadas:</h3>
                         <div id="messageError"></div>
-                </div>
+                </div> -->
         
                 <div class="boxInput">
                     <textarea name="mensajeDonacion" placeholder="Si tienes algo que decirnos escribelo aquí" rows="4"></textarea>
@@ -255,6 +256,7 @@ function tabsUser(){
 }
 
 </script>
-
+  <script src="publico/js/jquery.js"></script>
 <script src="publico/js/shadowMenuBlanco.js"></script>
+<script src="publico/js/donaciones.js"></script>
 
