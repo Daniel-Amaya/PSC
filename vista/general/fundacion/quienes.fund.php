@@ -1,46 +1,9 @@
 
-<section>
-		<div class="container">
-			<h1 class="titulo">¿Quiénes somos?</h1>
-			<h2 class="titulo2"><strong>FUNDADORAS</strong></h2>
-			<div class="card-wrapper">
-			<div class="card">
-				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
-				<img src="publico/images/bleidy.jpg" alt="sofi" class="profile-img">
-				<h1>Beidys Cano</h1>
-				<p class="job-title">Fundadora de PSC</p>
-				<p class="about">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. 
-				</p>
-				<a href="#" class="btn">Contacto</a>
-				<ul class="social-media">
-					<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-					<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-				</ul>
-			</div>
-				<div class="card">
-				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
-				<img src="publico/images/fundadoras.jpg" alt="sofi" class="profile-img">
-				<h1>Manuela Alvarez</h1>
-				<p class="job-title">Fundadora de PSC</p>
-				<p class="about">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. 
-				</p>
-				<a href="#" class="btn">Contacto</a>
-				<ul class="social-media">
-					<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-					<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-				</ul>
-			</div>
-			</div>
-		</div>
-        <br><br>
+<section class="margin-menu">
+<h1 class="titulo">Sobre la fundación</h1>
 <!-- INFO -->
-<div class="contenedor">
+<div class="contenedor ">
+
        
         <div class="card2">
             <img src="publico/images/f2.jpg">
@@ -66,16 +29,55 @@
 
 	<br><br><br><br><br>
 	<div class="container">
-<h1 class="titulo">Desarrolladores</h1>
+			<h1 class="titulo">¿Quiénes somos?</h1>
+			<h2 class="titulo2" style="text-align: center;"><strong>FUNDADORAS</strong></h2>
+			<div class="card-wrapper">
+			<div class="card">
+				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
+				<img src="publico/images/bleidy.jpg" alt="sofi" class="profile-img">
+				<h1>Beidys Cano</h1>
+				<p class="job-title">Fundadora de PSC</p>
+				<p class="about">
+					Fundadora cuyo unico objetivo es ayudar a todos los peluditos posibles.
+				</p>
+				<a href="#" class="btn">Contacto</a>
+				<ul class="social-media">
+					<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			</div>
+				<div class="card">
+				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
+				<img src="publico/images/fundadoras.jpg" alt="sofi" class="profile-img">
+				<h1>Manuela Alvarez</h1>
+				<p class="job-title">Fundadora de PSC</p>
+				<p class="about">
+					Fundadora con gran amor hacia los peluditos que ama ayudar a estos.
+				</p>
+				<a href="#" class="btn">Contacto</a>
+				<ul class="social-media">
+					<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+        <br><br>
+
+
+
+	<div class="container">
+	<h2 class="titulo2" style="text-align: center;"><strong>DESARROLLADORES</strong></h2>
 <div class="card-wrapper">
 			<div class="card">
 				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
 				<img src="publico/images/mosque.jpg" alt="sofi" class="profile-img">
 				<h1>Juan Mosquera</h1>
-				<p class="job-title">Lead bbbb</p>
+				<p class="job-title">Técnico en programación de software</p>
 				<p class="about">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. 
+					Estudiante del colegio Jesús Rey encargado de la funcionalidad del sistema.
 				</p>
 				<a href="#" class="btn">Contacto</a>
 				<ul class="social-media">
@@ -88,10 +90,9 @@
 				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
 				<img src="publico/images/dani.jpg" alt="sofi" class="profile-img">
 				<h1>Daniel Amaya</h1>
-				<p class="job-title">Lead bbbb</p>
+				<p class="job-title">Técnico en programación de software</p>
 				<p class="about">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. 
+					Estudiante del colegio Jesús Rey encargado del diseño del sistema.
 				</p>
 				<a href="#" class="btn">Contacto</a>
 				<ul class="social-media">
@@ -104,10 +105,9 @@
 				<img src="publico/images/f1.jpg" alt="spfi" class="card-img">
 				<img src="publico/images/sofi.jpg" alt="sofi" class="profile-img">
 				<h1>Sofía Cano</h1>
-				<p class="job-title">Lead bbbb</p>
+				<p class="job-title">Técnica en programación de software</p>
 				<p class="about">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. 
+					Estudiante del colegio Jesús Rey encargada de la recolección de datos e información. 
 				</p>
 				<a href="#" class="btn">Contacto</a>
 				<ul class="social-media">

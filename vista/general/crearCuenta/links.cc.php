@@ -1,6 +1,6 @@
 <?php 
 
-$linksStyles = ['iniciarSesion.css']; 
+$linksStyles = ['crearCuenta.css']; 
 
 $nombrePagina = "Crear Cuenta";
 

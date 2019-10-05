@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -52,31 +52,12 @@ a:hover {
 abbr[title] {
   border-bottom: 1px dotted;
 }
-b,
-strong {
-  font-weight: bold;
-}
-dfn {
-  font-style: italic;
-}
-h1 {
-  margin: .67em 0;
-  font-size: 2em;
-}
+
 mark {
   color: #000;
   background: #ff0;
 }
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
-}
+
 sup {
   top: -.5em;
 }
@@ -106,7 +87,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-  font-size: 1em;
+  /* font-size: 1em; */
 }
 button,
 input,
@@ -1077,25 +1058,11 @@ th {
           box-sizing: border-box;
 }
 html {
-  font-size: 10px;
+  /* font-size: 10px; */
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
-}
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
+
 a {
   color: #337ab7;
   text-decoration: none;
@@ -1103,7 +1070,7 @@ a {
 a:hover,
 a:focus {
   color: #23527c;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 a:focus {
   outline: thin dotted;

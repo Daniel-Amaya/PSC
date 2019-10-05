@@ -371,8 +371,22 @@ class AdopcionesController extends Adopcion{
                         <div class='solicitudAdopcion row'>
 
                             <div class='fotoPerfil'>
-                                <img src='publico/images/$urlFotoSolicitud[1]'>
-                                <button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
+                                <img src='publico/images/$urlFotoSolicitud[1]'>";
+
+                                
+                                if($solicitud['estado'] == 'a un paso'){
+                                    echo "
+                                    <div class='btns2'>
+                                    <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
+                                    
+                                    <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
+                                    
+                                    </div>
+                                    ";
+                                }else{
+                                    echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
+                                }
+                                echo "
                             </div>
 
                             <div style='width: 60%'>
@@ -410,7 +424,7 @@ class AdopcionesController extends Adopcion{
                     echo " <div class='noAdopcion'>
 
                     <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='adoptar.php' class='btn_naranja'>Adoptar</a></div>
-                    <div class='mensajeApadrina'>¿No puedes adoptar? Apadrina una mascota<br><br> <a href='' class='btn_naranja'>Apadrina</a></div>
+                    <div class='mensajeApadrina'>¿No puedes adoptar? Colaboranos con una donación<br><br> <a href='' class='btn_naranja'>Dona</a></div>
     
                     <div class='husky'>
                     <div class='mane'>

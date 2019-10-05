@@ -1,0 +1,447 @@
+$black: #000;
+$white: #fff;
+$yellow: rgb(255, 154, 46);
+$grey: rgb(97, 97, 97);
+$pink: rgb(156, 27, 77);
+$time: .45s;
+
+$cat-color: $black;
+
+@mixin animation($name) {
+    @-webkit-keyframes #{$name} {@content;}
+    @-moz-keyframes #{$name} {@content;}
+    @-o-keyframes #{$name} {@content;}
+    @keyframes #{$name} {@content;}
+}
+
+@mixin animation-use($name, $time) {
+    -webkit-animation: $name $time infinite linear;
+    -moz-animation: $name $time infinite linear;
+    -o-animation: $name $time infinite linear;
+    animation: $name $time infinite linear;
+}
+
+@mixin rotate($y, $z) {
+    @if ($y) {
+        -webkit-transform: rotateY($y) rotateZ($z);
+        -ms-transform: rotateY($y) rotateZ($z);
+        transform: rotateY($y) rotateZ($z);
+    } @else {
+        -webkit-transform: rotate($z);
+        -ms-transform: rotate($z);
+        transform: rotate($z);
+    }
+}
+
+@include animation(shake) {
+    50% { top: 6px; }
+}
+
+@include animation(shadow) {
+    50% { 
+        width: 110px;
+        margin-left: -40px;
+    }
+}
+
+@include animation(tail) {
+    50% { @include rotate(false, 38deg); }
+}
+
+@include animation(track) {
+    to { margin-left: 20px; }
+}
+
+@include animation(eye) {
+    50% { top: 2px; }
+}
+
+@include animation(mustache_l) {
+    50% { @include rotate(false, -10deg); }
+}
+
+@include animation(mustache_r) {
+    0%, 100% { @include rotate(180deg, 0); }
+    50% { @include rotate(180deg, -10deg); }
+}
+
+@include animation(ear_l) {
+    50% { @include rotate(false, -30deg); }
+}
+
+@include animation(ear_r) {
+    50% { @include rotate(false, 30deg); }
+}
+
+@include animation(paw_l) {
+    50% {
+        left: 130px;
+        top: 176px;
+    }   
+    70% {
+        top: 160px;
+    }
+}
+
+@include animation(paw_r) {
+    25% {
+         top: 160px;
+    }
+    50% {
+        left: 88px;
+        top: 176px;
+    }
+}
+
+body {
+    // margin: 0;
+    // overflow: hidden;
+    // background: $yellow;
+    
+    .cat {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 188px;
+        height: 260px;
+        margin-left: 12%;
+        margin-top: -130px;
+        color: $cat-color;
+        
+        .paw {
+            position: absolute;
+            top: 176px;
+            left: 88px;
+            width: 20px;
+            height: 80px;
+            background: currentcolor;
+            border-radius: 20px / 0 0 80px 40px;
+            @include rotate(false, 10deg);
+            @include animation-use(paw_l, $time);
+            
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: -5px;
+                left: -4px;
+                width: 20px;
+                height: 26px;
+                background: currentcolor;
+                border-radius: 50%;
+                @include rotate(false, 24deg);
+            }
+            
+            &:nth-child(2) {
+                left: 130px;
+                @include animation-use(paw_r, $time);
+            }
+        }
+        
+        .shake {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            @include animation-use(shake, $time);
+        }
+        
+        &:before {
+            position: absolute;
+            content: '';
+            top: 100%;
+            left: 50%;
+            width: 130px;
+            height: 30px;
+            margin-left: -50px;
+            margin-top: -20px;
+            background: $grey;
+            opacity: .4;
+            border-radius: 50%;
+            @include animation-use(shadow, $time);
+            -webkit-animation-delay: $time/2;
+            animation-delay: $time/2;
+        }
+        
+        &:after {
+            position: absolute;
+            content: '';
+            top: 100%;
+            left: 100%;
+            width: 15px;
+            height: 10px;
+            margin-left: -30px;
+            margin-top: -10px;
+            background: $grey;
+            opacity: .3;
+            border-radius: 50%;
+            box-shadow: 
+                50px 0 $grey,
+                100px 0 $grey,
+                150px 0 $grey,
+                200px 0 $grey,
+                250px 0 $grey,
+                300px 0 $grey;
+            
+            @include animation-use(track, $time/2);
+        }
+        
+        .tail {
+            position: absolute;
+            content: '';
+            top: 0;
+            right: -4px;
+            width: 160px;
+            height: 150px;
+            border: 20px solid;
+            border-color: 
+                currentcolor transparent 
+                transparent currentcolor;
+            @include rotate(false, 45deg);
+            border-radius: 120px / 106px 120px 0 120px;
+            box-sizing: border-box;
+            @include animation-use(tail, $time);
+            
+            &:after {
+                position: absolute;
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: currentcolor;
+                border-radius: 50%;
+                bottom: 0;
+                box-shadow: 
+                    2px 4px   currentcolor, 
+                    2px 7px   currentcolor,
+                    2px 10px  currentcolor,
+                    1px 14px  currentcolor,
+                   -1px 18px  currentcolor,
+                   -5px 22px  currentcolor,
+                   -10px 25px currentcolor,
+                   -15px 28px currentcolor,
+                   -20px 30px currentcolor;
+            }
+        }
+        
+        .main {
+            position: absolute;
+            top: 14px;
+            right: 0;
+            width: 144px;
+            height: 216px;
+            color: currentcolor;
+            
+            .head {
+                position: absolute;
+                bottom: -10px;
+                left: 20px;
+                width: 104px;
+                height: 180px;
+                background: currentcolor;
+                border-radius: 55px / 100px 100px 65px 65px;
+                @include rotate(false, 40deg);
+            }
+            
+            .body {
+                position: absolute;
+                right: 0;
+                width: 130px;
+                height: 180px;
+                background: currentcolor;
+                border-radius: 65px / 70px 70px 100px 100px;
+                
+                .leg {
+                    position: absolute;
+                    right: -10px;
+                    top: 20px;
+                    width: 50px;
+                    height: 116px;
+                    background: currentcolor;
+                    border-radius: 25px / 0 60px 50px 0;
+                    
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        bottom: -4px;
+                        right: 0;
+                        width: 20px;
+                        height: 40px;
+                        border: 3px solid transparent;
+                        border-radius: 50%;
+                        border-left-color: $grey;
+                        @include rotate(false, 6deg);
+                    }
+                    
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        left: 3px;
+                        bottom: 35px;
+                        width: 76px;
+                        height: 70px;
+                        border-radius: 50%;
+                        border: 3px solid transparent;
+                        border-bottom-color: $grey;
+                        @include rotate(false, 65deg);
+                    }
+                }
+            }
+            
+            .face {
+                position: absolute;
+                bottom: 0;
+                width: 76px;
+                height: 80px;
+                
+                .nose {
+                    position: absolute;
+                    bottom: 8px;
+                    left: 50%;
+                    width: 18px;
+                    height: 9px;
+                    margin-left: -10px;
+                    background: $pink;
+                    border-radius: 20px / 10px 10px 20px 20px;
+                }
+                
+                .mustache_cont {
+                    position: absolute;
+                    bottom: 5px;
+                    width: 20px;
+                    height: 10px;
+                    @include animation-use(mustache_l, $time);
+                    
+                    &:nth-child(2) {
+                        right: 0;
+                        @include animation-use(mustache_r, $time);
+                    }
+                }
+                                
+                .mustache {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    border: 1px solid $grey;
+                    transform-origin: 100% 0;
+                    @include rotate(false, -10deg);
+                                        
+                    &:last-child {
+                        top: 6px;
+                        @include rotate(false, -20deg);
+                    }
+                }
+                            
+                .eye {
+                    position: absolute;
+                    top: 28px;
+                    left: -8px;
+                    width: 30px;
+                    height: 30px;
+                    background: $white;
+                    border: 3px solid $black;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    
+                    &:nth-child(5) {
+                        top: 26px;
+                        left: 36px;
+                    }
+                    
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        width: 10px;
+                        height: 10px;
+                        right: 1px;
+                        top: 4px;
+                        background: $black;
+                        border-radius: 50%;
+                        @include animation-use(eye, $time);
+                    }
+                }
+                
+                .brow_cont, .brow_cont {
+                    position: absolute;
+                    top: 14px;
+                    left: 10px;
+                    width: 10px;
+                    height: 10px;
+                    
+                    &:nth-child(7) {
+                        @include rotate(180deg, 0);
+                        left: 38px;
+                    }
+                }
+                            
+                .brow {
+                    position: absolute;
+                    top: 20%;
+                    height: 60%;
+                    border: 1px solid $grey;
+                    transform-origin: 100% 0;
+                    @include rotate(false, 10deg);
+                                        
+                    &:last-child {
+                        top: 0;
+                        height: 100%;
+                        left: 6px;
+                        @include rotate(false, 3deg);
+                    }
+                }
+                
+                .ear_l {
+                    position: absolute;
+                    top: -17px;
+                    width: 20px;
+                    height: 30px;
+                    background: currentcolor;
+                    border-radius: 20px / 55px 55px 0 0;
+                    transform-origin: 50% 100%;
+                    overflow: hidden;
+                    @include rotate(false, -20deg);
+                    @include animation-use(ear_l, $time);
+                    
+                    .inner {
+                        position: absolute;
+                        top: 5px;
+                        left: 50%;
+                        width: 6px;
+                        height: 14px;
+                        margin-left: -4px;
+                        background: $grey;
+                        border-radius: 7px / 20px 20px 0 0;
+                    }
+                }
+                
+                .ear_r {
+                    position: absolute;
+                    right: 0;
+                    margin-top: -22px;
+                    width: 36px;
+                    height: 30px;
+                    transform-origin: 50% 100%;
+                    overflow: hidden;
+                    @include rotate(false, 20deg);
+                    @include animation-use(ear_r, $time);
+                    
+                    .outer {
+                        position: absolute;
+                        width: 30px;
+                        height: 200%;
+                        border: 3px solid $grey;
+                        border-radius: 20px / 55px 55px 0 0;
+                    }
+                    
+                    .inner {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 12px;
+                        height: 26px;
+                        margin-left: -6px;
+                        background: $grey;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

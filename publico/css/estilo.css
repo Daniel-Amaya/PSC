@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("../fonts/PatuaOne-Regular.ttf");
 /*------------------------------*\
     $COLORES
 \*-------------------------------*/
@@ -12,6 +11,7 @@
 /** 
     Colores de animales 
 **/
+@import url("../fonts/PatuaOne-Regular.ttf");
 .rayita-blanca::before, .rayita-naranja::before {
   content: "";
   position: absolute;
@@ -2402,6 +2402,7 @@ button {
   -webkit-transition: 1s;
   -o-transition: 1s;
   -moz-transition: 1s;
+  object-fit: cover;
 }
 .card-historia .image::before {
   content: "";

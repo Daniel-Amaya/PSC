@@ -25,7 +25,7 @@ $events = $req->fetchAll();
     <title>Inicio</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="publico/css/bootstrap.min.css" rel="stylesheet">
+    <link href="publico/css/bootstrap.css" rel="stylesheet">
 	
 	<!-- FullCalendar -->
 	<link href='publico/css/fullcalendar.css' rel='stylesheet' />

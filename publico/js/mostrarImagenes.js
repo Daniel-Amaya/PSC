@@ -22,7 +22,7 @@ function mostrarImagenesSeleccionadas(){
                 inputFile.fileList += file[i];
                 if(validarTipoDeImagen(file[i])){
                     let divImage = document.createElement('div');
-                    divImage.className = 'divImage';
+                    divImage.className = 'divImageS';
 
                     var newImage = document.createElement('img');
                     newImage.src =  window.URL.createObjectURL(file[i]);

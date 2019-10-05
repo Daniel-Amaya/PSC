@@ -29,8 +29,8 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <li><a href="adoptar.php" clas='rayita-naranja'>Adoptar</a></li>
         <li><a href="" clas='rayita-naranja'>Apadrinar</a></li>
         <li><a href="donar.php" clas='rayita-naranja'>Donar</a></li>
-        <li><a href="">Mis solicitudes</a></li>
-        <li><a href="" clas='rayita-naranja'>Contacto</a></li>
+        <!-- <li><a href="">Mis solicitudes</a></li> -->
+        <li><a href="contacto.php" clas='rayita-naranja'>Contacto</a></li>
     </ul>
 
 </header>

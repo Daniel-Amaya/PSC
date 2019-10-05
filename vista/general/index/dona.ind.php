@@ -2,8 +2,8 @@
 <div class="dona-ind grid">
 
     <div>
-        <h2>Apadrina</h2>
-        <p>Si no puedes adoptar puede ayudar apadrinando una mascota.</p>
+        <h2>Donaciones</h2>
+        <p>Si no puedes adoptar puede ayudar donando a la fundación.</p>
     </div>
 
     <div class="col-cg" style="align-content:center; justify-items:center;">
