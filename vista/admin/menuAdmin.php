@@ -63,6 +63,12 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <img src="publico/images/logo.jpeg">
     </div>
 </nav>
+
+<div id="loadAjax">
+    <div>
+        Cargando <span id='porcentajeCarga'></span>
+    </div>
+</div>
 <!-- <script src="publico/js/ajax/cerrarSesion.js"></script> -->
 <script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/desactivarMenuL.js'></script>

@@ -236,38 +236,13 @@
 
 
 .adopcion-concreta{
-
-    box-shadow: 0px 0px 15px rgba(100,100,100,0.5);
-    padding: 30px;
-    width: 80%;
-    border-radius: 44px;
-    margin: auto;
-    .info-adops{
-
-        &:nth-child(1){
-            text-align: right;
-            .row{
-                justify-content: right;
-                align-items: center;            
-            }
-        }
-
-        .row{
-            align-items: center;            
-        }
-        width: 50%;
-        padding: 20px;
-        img{
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 100%;
-            margin: 0 10px;
-        }
-
-        ul{
-            padding: 20px;
-            margin: 20px;
+    width: 90%;
+    .cardAdopcion{
+        width: 32%;
+        margin: 1%;
+        .tituloCard{
+            margin: auto;
+            padding: 5px 10px;
         }
     }
 
