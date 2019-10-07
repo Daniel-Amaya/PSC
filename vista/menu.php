@@ -40,4 +40,12 @@
         <img src="publico/images/logo.jpeg">
     </div>
 </nav>
+
+<div id="loadAjax">
+    <div>
+        Cargando <span id='porcentajeCarga'></span>
+    </div>
+</div>
+
+
 <script src="publico/js/menu.js"></script>

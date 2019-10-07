@@ -4,6 +4,16 @@ function animalesAjax(send, action){
     
     ht = new XMLHttpRequest;
 
+    ht.addEventListener('readystatechange', function(){
+        if(this.readyState == 4 && this.status == 200){
+            action(this);
+        }
+    });
+
+    ht.open('POST','controlador/ajax/animalitosAjax.php');
+    ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 
+    ht.send(send);
+
     ht.addEventListener('progress', (e) =>{
         let porcentaje = Math.round((e.loaded / e.total) * 100);
         id('loadAjax').style.display = 'flex';
@@ -15,16 +25,6 @@ function animalesAjax(send, action){
     ht.addEventListener('load', () => {
         id('loadAjax').style.display = 'none';
     });
-
-    ht.addEventListener('readystatechange', function(){
-        if(this.readyState == 4 && this.status == 200){
-            action(this);
-        }
-    });
-
-    ht.open('POST','controlador/ajax/animalitosAjax.php');
-    ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 
-    ht.send(send);
 
 
 }
@@ -90,9 +90,9 @@ id('agregarVacunas').addEventListener('submit', function(e){
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             e = this.responseText;
-            if(e != ""){
-                alert(e);
-            }else{
+            if(e[0] != ""){
+                window.location = 'animalitos.php';
+            }else if(e[0] == ""){
                 window.location = 'animalitos.php';
             }
         }
@@ -103,6 +103,17 @@ id('agregarVacunas').addEventListener('submit', function(e){
     ht.open('POST','controlador/ajax/VacunasAnimalesAjax.php');
     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
     ht.send('codsVacunas='+codsVacunas+"&idAnimal="+idAnimalito);
+    
+    ht.addEventListener('progress', (e) =>{
+        let porcentaje = Math.round((e.loaded / e.total) * 100);
+        id('loadAjax').style.display = 'flex';
+        id('porcentajeCarga').textContent = porcentaje + '%';
+        console.log(porcentaje);
+    }); 
+
+    ht.addEventListener('load', () => {
+        id('loadAjax').style.display = 'none';
+    });
     
     
 });
@@ -128,6 +139,17 @@ function fotosAjaxN(folder, perfil){
 
     ht.open('POST','controlador/ajax/fotosAjax.php');
     ht.send(fData);
+
+    ht.addEventListener('progress', (e) =>{
+        let porcentaje = Math.round((e.loaded / e.total) * 100);
+        id('loadAjax').style.display = 'flex';
+        id('porcentajeCarga').textContent = porcentaje + '%';
+        console.log(porcentaje);
+    }); 
+
+    ht.addEventListener('load', () => {
+        id('loadAjax').style.display = 'none';
+    });
 }
 
 // Buscar según el fitro 
@@ -160,7 +182,6 @@ id('newAnimalito').addEventListener('submit', function(e){
     procedAn = this.getElementsByTagName('input')[6].value,
     esterAn = document.getElementsByName('esterilizado');
 
-    
 
     if(nombreAn != "" && especieAn != "" && razaAn != "" && colorAn != "" && sexoAn != "" && edadAn != "" && descripAn != "" && procedAn != ""){
 
@@ -184,6 +205,7 @@ id('newAnimalito').addEventListener('submit', function(e){
         id('esp2').textContent = especieAn;
         id('raz2').textContent = razaAn;
         id('col2').textContent = colorAn;
+        id('pro2').textContent = procedAn;
         id('espVacu').textContent = especieAn;
         if(sexoAn == "F"){
             id('gen2').textContent = "Femenino";
@@ -193,7 +215,6 @@ id('newAnimalito').addEventListener('submit', function(e){
             id('gen').textContent = "Masculino";
         }
 
-        id('pro2').textContent = procedAn;
         for(let r = 0; r < classNames('nombreMascota').length; r++){
             classNames('nombreMascota')[r].textContent = nombreAn;
         }

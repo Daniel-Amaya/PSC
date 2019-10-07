@@ -3,11 +3,10 @@ function vacunasAjax(send, action){
     var ht = new XMLHttpRequest;
 
 
-    ht.addEventListener('progress', (e) =>{
+    ht.addEventListener('progress', (e) => {
         let porcentaje = Math.round((e.loaded / e.total) * 100);
         id('loadAjax').style.display = 'flex';
         id('porcentajeCarga').textContent = porcentaje + '%';
-        id('vacunasCanino').innerHTML = 'espera';
         console.log(porcentaje);
     }); 
 

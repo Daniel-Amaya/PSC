@@ -12,20 +12,9 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
         
         ht = new XMLHttpRequest;
 
-        ht.addEventListener('progress', (e) =>{
-            let porcentaje = Math.round((e.loaded / e.total) * 100);
-            id('loadAjax').style.display = 'flex';
-            id('porcentajeCarga').textContent = porcentaje + '%';
-            console.log(porcentaje);
-        }); 
-    
-        ht.addEventListener('load', () => {
-            id('loadAjax').style.display = 'none';
-        });
-
-
         ht.addEventListener('readystatechange', function(){
             if(this.readyState == 4 && this.status == 200){
+                console.log(this.responseText);
                 if(this.responseText == '1'){
 
                     alert('Se ha enviado la solicitud de adopción');
@@ -40,6 +29,17 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
         ht.open('POST','controlador/ajax/solicitudesAjax.php');
         ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
         ht.send('solicitudU='+idUsuario+'&solicitudA='+idAnimal);
+
+        ht.addEventListener('progress', (e) =>{
+            let porcentaje = Math.round((e.loaded / e.total) * 100);
+            id('loadAjax').style.display = 'flex';
+            id('porcentajeCarga').textContent = porcentaje + '%';
+            console.log(porcentaje);
+        }); 
+    
+        ht.addEventListener('load', () => {
+            id('loadAjax').style.display = 'none';
+        });
     }
 
     id('cancelar').addEventListener('click', () =>{

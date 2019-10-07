@@ -9,7 +9,7 @@ id('crearUsuario').addEventListener('submit', function(e){
    password = this.getElementsByTagName('input')[5].value,
    foto = this.getElementsByTagName('input')[6];
 
-   if(nombre != "" && apellidos != "" && correo != "" && telefono != "" && cedula != "" && password != ""){
+    if(nombre != "" && apellidos != "" && correo != "" && telefono != "" && cedula != "" && password != ""){
 
        var formData = new FormData();
        
@@ -21,7 +21,6 @@ id('crearUsuario').addEventListener('submit', function(e){
         formData.append('password', password);
         formData.append('foto', foto.files[0]);
         
-
         var ht = new XMLHttpRequest;
         
         ht.addEventListener('readystatechange', function(){
@@ -47,6 +46,17 @@ id('crearUsuario').addEventListener('submit', function(e){
                     }
                 }
             }
+        });
+
+        ht.addEventListener('progress', (e) =>{
+            let porcentaje = Math.round((e.loaded / e.total) * 100);
+            id('loadAjax').style.display = 'flex';
+            id('porcentajeCarga').textContent = porcentaje + '%';
+            console.log(porcentaje);
+        }); 
+    
+        ht.addEventListener('load', () => {
+            id('loadAjax').style.display = 'none';
         });
 
     ht.open('POST', 'controlador/ajax/usuariosAjax.php');

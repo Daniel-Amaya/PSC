@@ -25,6 +25,17 @@ id('iniciarSesion').addEventListener('submit', function(e){
         ht.open('POST', 'controlador/validar/iniciarSesion.php');
         ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
         ht.send("correo="+correo+"&contrasena="+contrasena);
+
+        ht.addEventListener('progress', (e) =>{
+            let porcentaje = Math.round((e.loaded / e.total) * 100);
+            id('loadAjax').style.display = 'flex';
+            id('porcentajeCarga').textContent = porcentaje + '%';
+            console.log(porcentaje);
+        }); 
+    
+        ht.addEventListener('load', () => {
+            id('loadAjax').style.display = 'none';
+        });
     }
     
 

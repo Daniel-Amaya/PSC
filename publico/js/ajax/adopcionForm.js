@@ -92,17 +92,6 @@
 
                 ht = new XMLHttpRequest;
 
-                ht.addEventListener('progress', (e) =>{
-                    let porcentaje = Math.round((e.loaded / e.total) * 100);
-                    id('loadAjax').style.display = 'flex';
-                    id('porcentajeCarga').textContent = porcentaje + '%';
-                    console.log(porcentaje);
-                }); 
-                ht.addEventListener('load', () => {
-                    
-                    id('loadAjax').style.display = 'none';
-                });
-
                 ht.addEventListener('readystatechange', function(){
                     
                     if(this.readyState == 4 && this.status == 200){
@@ -128,6 +117,18 @@
 
                 ht.open('POST', 'controlador/ajax/respuestasAdopcionAjax.php');
                 ht.send(datos);
+
+                ht.addEventListener('progress', (e) =>{
+                    let porcentaje = Math.round((e.loaded / e.total) * 100);
+                    id('loadAjax').style.display = 'flex';
+                    id('porcentajeCarga').textContent = porcentaje + '%';
+                    console.log(porcentaje);
+                }); 
+                
+                ht.addEventListener('load', () => {
+                    
+                    id('loadAjax').style.display = 'none';
+                });
 
             }
 
