@@ -711,36 +711,15 @@ aside {
 }
 
 .adopcion-concreta {
-  box-shadow: 0px 0px 15px rgba(100, 100, 100, 0.5);
-  padding: 30px;
-  width: 80%;
-  border-radius: 44px;
+  width: 90%;
+}
+.adopcion-concreta .cardAdopcion {
+  width: 32%;
+  margin: 1%;
+}
+.adopcion-concreta .cardAdopcion .tituloCard {
   margin: auto;
-}
-.adopcion-concreta .info-adops {
-  width: 50%;
-  padding: 20px;
-}
-.adopcion-concreta .info-adops:nth-child(1) {
-  text-align: right;
-}
-.adopcion-concreta .info-adops:nth-child(1) .row {
-  justify-content: right;
-  align-items: center;
-}
-.adopcion-concreta .info-adops .row {
-  align-items: center;
-}
-.adopcion-concreta .info-adops img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 100%;
-  margin: 0 10px;
-}
-.adopcion-concreta .info-adops ul {
-  padding: 20px;
-  margin: 20px;
+  padding: 5px 10px;
 }
 
 /*-------------------------------*\
@@ -1004,6 +983,11 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
 }
 .buttonsAction button {
   margin: 5px 1px;
+}
+.buttonsAction button label {
+  width: 100%;
+  display: block;
+  height: 100%;
 }
 
 .deleteImg {
