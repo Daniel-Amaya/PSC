@@ -59,10 +59,12 @@ function formRegistrarAnimalito(ht){
         let inputFile = id('nuevaFoto');
         inputFile.addEventListener('change', function(){
             if(this.files.length > 0){
-                var numberImages = id('imagesBox').getElementsByClassName('divImage');
+                var numberImages = id('imagesBox').getElementsByClassName('divImageS');
                 if(numberImages.length == 1){
+                    alert('se supone que envía bien');
                     fotosAjaxN(e[2], 1);
                 }else{
+                    alert('loco loco');
                     fotosAjaxN(e[2], 0);
                 }
             }
@@ -119,17 +121,6 @@ function fotosAjaxN(folder, perfil){
     fData.append('foto', inputFile.files[0]);
 
     ht = new XMLHttpRequest;
-
-    ht.addEventListener('progress', (e) =>{
-        let porcentaje = Math.round((e.loaded / e.total) * 100);
-        id('loadAjax').style.display = 'flex';
-        id('porcentajeCarga').textContent = porcentaje + '%';
-        console.log(porcentaje);
-    }); 
-    ht.addEventListener('load', () => {
-        
-        id('loadAjax').style.display = 'none';
-    });
 
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
