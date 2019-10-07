@@ -619,6 +619,9 @@
 .crear-cuenta form i {
   font-size: 90px;
 }
+.crear-cuenta form img {
+  width: 200px;
+}
 
 /*-------------------- INICIAR SESIÓN -------------------- */
 

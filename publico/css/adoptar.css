@@ -124,7 +124,7 @@ aside {
   cursor: pointer;
 }
 
-#buscadorAnimalitos {
+#buscarAnimalitos {
   padding: 50px 100px;
   text-align: center;
 }
@@ -1147,6 +1147,7 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   width: 10%;
   font-size: 40px;
   text-align: right;
+  cursor: pointer;
 }
 .divTableDatos table {
   width: 100%;

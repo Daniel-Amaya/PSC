@@ -2,11 +2,10 @@
             INDEXADOPTA
 \*-------------------------------*/
 
-
 .adopta-index{
     width: 100%;
     padding: 50px;
-    .marg{
+    .card-adopta{
         margin: 10px 20px;
     }
     .row{
@@ -16,6 +15,7 @@
     .titulo{
         margin: 0 0 70px 0 !important;
     }
+
 }
 
 $tamaño: 260 / 4 * 1px;

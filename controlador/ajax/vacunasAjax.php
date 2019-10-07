@@ -18,7 +18,15 @@ if(isset($_POST['especie']) && !empty($_POST['especie'])){
         Vacuna::updateVacunas($_POST['especie'], $_POST['ENV'], $_POST['EDV'], $_POST['codE']);
     }
 
-    VacunasController::mostrarVacunasCrud($_POST['especie']);
+    if(isset($_POST['nomBus']) && isset($_POST['desBus'])){
+
+        VacunasController::buscadorVacunas($_POST['especie'], $_POST['nomBus'], $_POST['desBus']);
+        
+    }else{
+
+        VacunasController::mostrarVacunasCrud($_POST['especie']);
+
+    }
 }
 
 ?>

@@ -41,3 +41,22 @@ function nuevaModal(){
     });
 
 }
+
+buscador = () => {
+
+    id('buscador').style.display = 'block';
+    let flex = id('buscador').getElementsByClassName('flex-modal')[0];
+
+    window.addEventListener('click', function(e){
+        if(e.target == flex){
+            id('buscador').style.display = 'none';
+        }
+    });
+
+    id('buscador').getElementsByTagName('form')[0].addEventListener('submit', (e) =>{
+        e.preventDefault();
+
+        id('buscador').style.display = 'none';
+    });
+
+}

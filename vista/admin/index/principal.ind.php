@@ -90,9 +90,10 @@
             <table>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Solicitud de</th>
                         <th>Para adoptar a </th>
-                        <th></th>
+                        <th>Fecha de solicitud</th>
                     </tr>
                 </thead>
                 <tbody id='soliProcesando'>

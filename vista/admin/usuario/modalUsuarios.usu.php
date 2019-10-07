@@ -1,3 +1,37 @@
+<div class="modal" id="buscador">
+    <div class="flex-modal">
+        <div class="contenido-modal">
+            <form action="" method="post" id='buscarUsuario' class='formBuscador'>
+                
+                <h2>Buscar usuario</h2>
+                <div class="boxInput">
+                    <input type="text" placeholder="Nombre">
+                </div>
+
+                <div class="boxInput">
+                    <input type="text" placeholder="Apellidos">
+                </div>
+
+                <div class="boxInput">
+                    <input type="text" placeholder="Correo">
+                </div>
+
+                <div class="boxInput">
+                    <input type="text" placeholder="Teléfono">
+                </div>
+
+                <div class="boxInput">
+                    <input type="text" placeholder="Cedula">
+                </div>
+
+                <div class="boxInput">
+                    <input type="submit" value="Buscar usuario">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal" id='modalUsu'>
     <div class="flex-modal">
         <div class="contenido-modal" style='width: 70%;'>
@@ -74,43 +108,45 @@
 
 <script>
 
-(function(){
+    (function(){
 
-mostrarUsuariosData = (data) =>{
+    mostrarUsuariosData = (data) =>{
 
-    id('modalUsu').style.display = 'block';
+        id('modalUsu').style.display = 'block';
 
-    classNames('nombreUsuario')[0].textContent = data['nombre'] + " " +data['apellidos'];
+        classNames('nombreUsuario')[0].textContent = data['nombre'] + " " +data['apellidos'];
 
-    id('nom').textContent = data['nombre'];
-    id('ape').textContent = data['apellidos'];
-    id('corr').textContent = data['correo'];
-    id('tel').textContent = data['telefono'];
-    id('ced').textContent = data['cedula'];
-    
-    if(data['foto'] != ""){
-        id('fotoPerfilModal').src = 'publico/images/'+data['foto'];
-    }else{
-        id('fotoPerfilModal').src = 'publico/images/fotoPerfilVacia.png';
-    }
-
-    if(data['estadoCivl'] != "" && data['referencia'] != "" && data['direccionApto'] != ""){
-        id('est').textContent == data['estadoCivil'];
-        id('dir').textContent == data['direccionApto'];
-        id('ref').textContent == data['referencia'];
-        id('telRef').textContent == data['telefonoRef'];
-    }
-
-    document.addEventListener('click', (e) =>{
-        if(e.target == id('modalUsu').getElementsByClassName('flex-modal')[0]){
-            id('modalUsu').style.display = 'none';
+        id('nom').textContent = data['nombre'];
+        id('ape').textContent = data['apellidos'];
+        id('corr').textContent = data['correo'];
+        id('tel').textContent = data['telefono'];
+        id('ced').textContent = data['cedula'];
+        
+        if(data['foto'] != ""){
+            id('fotoPerfilModal').src = 'publico/images/'+data['foto'];
+        }else{
+            id('fotoPerfilModal').src = 'publico/images/fotoPerfilVacia.png';
         }
-    });
 
-}
+        if(data['estadoCivl'] != "" && data['referencia'] != "" && data['direccionApto'] != ""){
+            id('est').textContent == data['estadoCivil'];
+            id('dir').textContent == data['direccionApto'];
+            id('ref').textContent == data['referencia'];
+            id('telRef').textContent == data['telefonoRef'];
+        }
 
-})()
+        document.addEventListener('click', (e) =>{
+            if(e.target == id('modalUsu').getElementsByClassName('flex-modal')[0]){
+                id('modalUsu').style.display = 'none';
+            }
+        });
+
+    }
+
+    })()
 
 </script>
+
+<script src="publico/js/modal.js"></script>
 
 <?php require 'controlador/get/usuariosPerfil.php'; ?>

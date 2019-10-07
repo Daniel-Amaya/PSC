@@ -50,9 +50,10 @@ class SolicitudesController extends Solicitud{
                     }elseif($estado == 'procesando adopción'){
                         echo "
                         <tr onclick='window.location = \"adopcion.php?solicitud=$datos[24]&idU=$datos[11]\"'>
+                            <th><i class='fas fa-eye'></i></th>
                             <th>$datos[12] $datos[13]</th>
                             <th>$datos[1]</th>
-                            <th><i class='fas fa-eye'></i></th>
+                            <th>{$datos['fechaSolicitud']}</th>
                         </tr>";
                     }else{
 
@@ -60,7 +61,7 @@ class SolicitudesController extends Solicitud{
                             <th><i class='fas fa-eye'></i></th>
                             <th>$datos[12] $datos[13]</th>
                             <th>$datos[1]</th>
-                            <th>".$datos['fechaSolicitud']."</th>
+                            <th>{$datos['fechaSolicitud']}</th>
                         </tr> ";
                     }
 

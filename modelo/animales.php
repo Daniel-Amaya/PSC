@@ -1,7 +1,5 @@
 <?php 
 
-// include_once 'connect.php';
-
 class Animal extends Conexion{
 
     public $nombre;
@@ -88,7 +86,6 @@ class Animal extends Conexion{
         }
     }
 
-
     public function deleteAnimal($id){
         $con = parent::conectar();
         try{
@@ -134,13 +131,14 @@ class Animal extends Conexion{
     public function searchAnimal($nombre, $especie, $raza, $color, $sexo){
         $con = parent::conectar();
         try {
-            $query = $con->prepare("SELECT * FROM animales WHERE nombre LIKE :nombre  OR especie =:especie OR raza=:raza OR color LIKE :color OR sexo=:sexo");
+            $query = $con->prepare("SELECT * FROM animales WHERE nombre LIKE :nombre  AND especie LIKE :especie AND raza LIKE :raza AND color LIKE :color AND sexo LIKE :sexo");
             
-            $query->bindParam(':nombre', "%$nombre%");
-            $query->bindParam(':especie', $especie);
-            $query->bindParam(':raza', $raza);
-            $query->bindParam(':color', "%$color%");
-            $query->bindParam(':sexo', $sexo);
+            $query->bindValue(':nombre', '%'.$nombre.'%');
+            // $query->bindValue(':nombre', '%'.$nombre.'%');
+            $query->bindValue(':especie', '%'.$especie.'%');
+            $query->bindValue(':raza', '%'.$raza.'%');
+            $query->bindValue(':color', '%'.$color.'%');
+            $query->bindValue(':sexo', '%'.$sexo.'%');
             $query->execute();
 
             return $query;
@@ -149,6 +147,7 @@ class Animal extends Conexion{
             exit("ERROR AL BUSCAR UN ANIMALITO: ".$e->getMessage());
         }
     }
+
 }
 
 

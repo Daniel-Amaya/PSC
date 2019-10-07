@@ -7,11 +7,11 @@
     <div class="divTableDatos">
         <div class="navTable">
             <div class="buttonsTable">
-                <button class="btn_naranja btn_largo">Agregar usuario</button>
+                <button class="btn_naranja btn_largo">Agregar usuarios</button>
             </div>
             <div class="nombreIndicador">Usuarios</div>
 
-            <div class="buscarTable">
+            <div class="buscarTable" onclick="buscador()">
                 <i class="fas fa-search"></i>
             </div>
 

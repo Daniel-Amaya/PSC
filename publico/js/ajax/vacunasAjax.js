@@ -2,6 +2,19 @@ function vacunasAjax(send, action){
 
     var ht = new XMLHttpRequest;
 
+
+    ht.addEventListener('progress', (e) =>{
+        let porcentaje = Math.round((e.loaded / e.total) * 100);
+        id('loadAjax').style.display = 'flex';
+        id('porcentajeCarga').textContent = porcentaje + '%';
+        id('vacunasCanino').innerHTML = 'espera';
+        console.log(porcentaje);
+    }); 
+
+    ht.addEventListener('load', () => {
+        id('loadAjax').style.display = 'none';
+    });
+
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             action(this);
@@ -115,6 +128,30 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // Buscar
+
+    id('buscarVacunas').addEventListener('submit', function(e){
+
+        e.preventDefault();
+
+        nombre = this.getElementsByTagName('input')[0].value;
+        descripcion = this.getElementsByTagName('textarea')[0].value;
+
+        if(nombre != "" || descripcion != ""){
+
+            vacunasAjax('especie=canina&nomBus='+nombre+'&desBus='+descripcion, vacunascanina);
+            vacunasAjax('especie=felina&nomBus='+nombre+'&desBus='+descripcion, vacunasfelina);
+
+        }else{
+
+            vacunasAjax('especie=canina', vacunascanina);
+            vacunasAjax('especie=felina', vacunasfelina);
+            
+        }
+    });
+
 });
+
+
 
 

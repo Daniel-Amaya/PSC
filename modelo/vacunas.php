@@ -78,6 +78,22 @@ class Vacuna extends Conexion{
             exit("ERROR AL EDITAR VACUNAS".$e->getMessage());
         }
     }
+
+    public function searchVacunas($especie, $nombre, $descripcion){
+        $con = parent::conectar();
+        try {
+            $query = $con->prepare("SELECT * FROM vacunas WHERE vacuna LIKE :nombre AND descripcion LIKE :des AND especie=:especie");
+            $query->bindValue(':nombre', '%'.$nombre.'%');
+            $query->bindValue(':des', '%'.$descripcion.'%');
+
+            $query->bindParam(':especie', $especie);
+            $query->execute();
+
+            return $query;
+        } catch (PDOException $e) {
+            exit("ERROR AL BUSCAR VACUNAS: ".$e->getMessage());
+        }
+    }
 }
 
 

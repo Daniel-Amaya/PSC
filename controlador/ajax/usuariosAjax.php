@@ -54,7 +54,14 @@ if(isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo
     require '../../modelo/usuarios.php';
     require '../usuariosController.php';
 
-    UsuariosController::mostrarTodosLosUsuarios();
+    if(isset($_POST['nombreB']) && isset($_POST['apellidosB']) && isset($_POST['correoB']) && isset($_POST['telefonoB']) && isset($_POST['cedulaB'])){
+
+        UsuariosController::buscarUsuarios($_POST['nombreB'], $_POST['apellidosB'], $_POST['correoB'], $_POST['telefonoB'] ,$_POST['cedulaB']);
+
+    }else{   
+        UsuariosController::mostrarTodosLosUsuarios();
+    }
+
 }
 
 ?>

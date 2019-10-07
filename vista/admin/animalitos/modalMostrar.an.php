@@ -94,14 +94,11 @@ modalAnimalitos = (data, fotoPerfil, edad) =>{
         if(e.target == id('modalAni').getElementsByClassName('flex-modal')[0]){
             id('modalAni').style.display = 'none';
         }
-    }
-    );
+    });
 }
 
 </script>
 
 <?php
-require 'controlador/get/animalitosPerfil.php';
-
-
-?>
+// require 'controlador/get/animalitosPerfil.php';
+?> 

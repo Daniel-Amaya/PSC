@@ -31,12 +31,12 @@ if(isset($_POST['nombreAn']) && isset($_POST['especie']) && isset($_POST['raza']
 
     // Mostrar animalitos
 
-    if(isset($_POST['buscar']) && !empty($_POST['buscar'])){
-        if(isset($_POST['nombreB'])  && isset($_POST['especieB']) && isset($_POST['razaB']) && isset($_POST['colorB']) && isset($_POST['sexoB'])){
+    if(isset($_POST['buscar'])){
+        if(isset($_POST['nombreB']) && isset($_POST['especieB']) && isset($_POST['razaB']) && isset($_POST['colorB']) && isset($_POST['sexoB'])){
 
             AnimalesController::mostrarCoincidenciasAdmin($_POST['nombreB'], $_POST['especieB'], $_POST['razaB'], $_POST['colorB'], $_POST['sexoB']);
+
         }else{
-            
             AnimalesController::mostrarAnimalitosAdmin();
         }
     }else{

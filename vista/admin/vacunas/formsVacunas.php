@@ -48,8 +48,35 @@
                 <div class="boxInput">
                     <input type="submit" value="Editar vacuna" class="btn_naranja btn_largo">
                 </div>
+
             </form>
         </div>
     </div>
 </div>
+
+
+<div class="modal" id="buscador">
+    <div class="flex-modal">
+        <div class="contenido-modal">
+            <form action="" id="buscarVacunas" class='formsVacunas'>
+
+                <h2>Buscar vacuna</h2>
+
+                <div class="boxInput">
+                    <input type="text" name="nomVacuna" placeholder="Por nombre:">
+                </div>
+
+                
+                <div class="boxInput">
+                    <textarea name="" rows="7" placeholder="O para que sirve:"></textarea>
+                </div>
+
+                <div class="boxInput">
+                    <input type="submit" value="Buscar vacuna" class="btn_naranja btn_largo">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script src="publico/js/modal.js"></script>

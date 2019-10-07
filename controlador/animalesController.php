@@ -1,24 +1,185 @@
-<?php 
+<?php
 
-class AnimalesController extends Animal{
+use PHPMailer\PHPMailer\Exception;
 
-    public function mostrarDatosDeTodosGeneral(){
-        $con = parent::conectar();
-        try{
+/**
+ * 
+ */
+trait mostrarAnimalitos
+{
+    static function animalitosAdmin($animales, $con){
+        if($animales->rowCount() > 0){
+        
+            foreach($animales as $datos){
+
+                $datosj = json_encode($datos);
+                $fotos = Foto::fotoPerfil($datos[0]);
+                $urlFotoPerfil = $fotos->fetch();
+
+                $verfifcarAdopcion = $con->prepare("SELECT * FROM adopciones WHERE idAnimalAdoptado = :idAnimal");
+                $verfifcarAdopcion->bindParam(':idAnimal', $datos[0]);
+                $verfifcarAdopcion->execute();
+
+                if($verfifcarAdopcion->rowCount() > 0){
+
+                    $idsAdopcion = $verfifcarAdopcion->fetch();
+                    echo " 
+                <tr>
+                    <td onclick='modalAnimalitos($datosj, \"$urlFotoPerfil[1]\", \"".edad($datos[6])."\")'><img src='publico/images/$urlFotoPerfil[1]'></td>
+                    <td>$datos[1]</td>
+                    <td>$datos[2]</td>
+                    <td><a href='adoptar.php?adopcion=$idsAdopcion[0]'>Ver adopción</a></td>
+                    <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas</a></td>
+                    <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
+                    <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
+                    <td><a class='btn_rojo' onclick='alert(\"No es permitida esta acción ya que el animalito ha sido adoptado\")'>Eliminar</a></td>
+                    
+                </tr> ";
+                }else{
+
+                    echo " 
+                    <tr>
+                        <td onclick='modalAnimalitos($datosj, \"$urlFotoPerfil[1]\", \"".edad($datos[6])."\")'><img src='publico/images/$urlFotoPerfil[1]'></td>
+                        <td>$datos[1]</td>
+                        <td>$datos[2]</td>
+                        <td>No</td>
+                        <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas </a></td>
+                        <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
+                        <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
+                        <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
+                        
+                    </tr> ";
+                }
+                
+            }
             
-            $animales = $con->query("SELECT * FROM animales");
-        
-            if($animales->rowCount() > 0){
-        
-                foreach($animales as $datos) {
+        }else{
+            echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja' onclick='agregarAnimalitos()'>Agregar una mascota</a></div>";
+            echo "<tr>
+            <td rowspan='7' colspan='8'>";
+            include '../../vista/vacio.php';
+            echo 
+            "</td>
+            </tr>";
+        }
+    }
 
-                    $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
-                    if($verificarAdopcion->rowCount() == 0){
+    static function animalitosUser($animales, $con, $idUsuario){
+        if($animales->rowCount() > 0){
 
-        
-                        $fotos = Foto::fotoPerfil($datos[0]);
-                        $urlFotoPerfil = $fotos->fetch();
+            $cont = 0;
+
+            foreach($animales as $datos) {
+
+                $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
+                if($verificarAdopcion->rowCount() == 0){
+
+                    $solicitado = $con->prepare("SELECT solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
+                    $solicitado->bindParam(':idUsuario', $idUsuario);
+                    $solicitado->bindParam(':idAnimal', $datos[0]);
+                    $solicitado->execute();
+
+                    $cont++;
+
+                    // Perrito 
+                    if($cont == 3){
+
+                        echo '
+                        <div class="boxPerrito"><i class="far fa-copyright txt" style="float:right"></i><div class="tooltip">
+                        Animacion por Pavel Kozelskiy (CodePen) 
+                       </div><div class="dog">
+                        <div class="heart heart--1"></div>
+                        <div class="heart heart--2"></div>
+                        <div class="heart heart--3"></div>
+                        <div class="heart heart--4"></div>
+                        <div class="head">
+                                <div class="year year--left"></div>
+                                <div class="year year--right"></div>
+                                <div class="nose"></div>	
+                            <div class="face">
+                                <div class="eye eye--left"></div>
+                                <div class="eye eye--right"></div>
+                                <div class="mouth"></div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="cheast"></div>
+                            <div class="back"></div>
+                            <div class="legs">
+                                <div class="legs__front legs__front--left"></div>
+                                <div class="legs__front legs__front--right"></div>
+                                <div class="legs__back legs__back--left"></div>
+                                <div class="legs__back legs__back--right"></div>
+                            </div>
+                            <div class="tail"></div>
+                        </div>
+                    </div></div>';
+                    }
+
+                    // Otro perrito
+                    if($cont == 6){
+                        echo '	
+                        <div class="corgi">
+                        <i class="far fa-copyright txt" style="float:left"></i><div class="tooltip">
+                        Animacion por Mok Jee Jin (CodePen) 
+                       </div>
+                            <div class="head">
+                                <div class="ear ear--r"></div>
+                                <div class="ear ear--l"></div>
             
+                                <div class="eye eye--left"></div>
+                                <div class="eye eye--right"></div>
+            
+                                <div class="face">
+                                    <div class="face__white">
+                                        <div class=" face__orange face__orange--l"></div>
+                                        <div class=" face__orange face__orange--r"></div>
+                                    </div>
+                                </div>
+            
+                                <div class="face__curve"></div>
+            
+                                <div class="mouth">
+            
+                                    <div class="nose"></div>
+                                    <div class="mouth__left">
+                                        <div class="mouth__left--round"></div>
+                                        <div class="mouth__left--sharp"></div>
+                                    </div>
+                                    
+                                    <div class="lowerjaw">
+                                        <div class="lips"></div>
+                                        <div class="tongue test"></div>
+                                    </div>
+            
+                                    <div class="snout"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="neck__back"></div>
+                            <div class="neck__front"></div>
+            
+                            <div class="body">
+                                <div class="body__chest"></div>
+                            </div>
+            
+                            <div class="foot foot__left foot__front foot__1"></div>
+                            <div class="foot foot__right foot__front foot__2"></div>
+                            <div class="foot foot__left foot__back foot__3"></div>
+                            <div class="foot foot__right foot__back foot__4"></div>
+            
+                            <div class="tail test"></div>
+                        </div>';
+                    }
+
+        
+                    $fotos = Foto::fotoPerfil($datos[0]);
+                    $urlFotoPerfil = $fotos->fetch();
+
+                    $solicitud = $solicitado->fetch();
+                
+                    if($solicitado->rowCount() > 0 && $solicitud['estado'] != "rechazada"){
+
                         echo "<div class='card-adopta'>
                             <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
                             <table>
@@ -34,7 +195,30 @@ class AnimalesController extends Animal{
                                 </tbody>
                             </table>
                             <div class='btns_card'>
-                                <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
+                                <a class='btn_rojo btn_largo' onclick='cancelarSolicitud($solicitud[0])'>Cancelar solicitud</a>
+                                <!-- <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a> -->
+                            </div>
+                        </div>";
+                   
+
+                    }else{
+                        
+                        echo "<div class='card-adopta'>
+                            <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th>$datos[1]</th>
+                                    <th>$datos[2]</th>
+                                </tbody>
+                            </table>
+                            <div class='btns_card'>
+                                <a class='btn_naranja buttonCorazones' onclick='solicitarAdopcion(\"$datos[1]\", \"publico/images/$urlFotoPerfil[1]\", $datos[0], $idUsuario)'>Adoptar
                                     <div class='AnimacionCorazones cor1'></div>
                                     <div class='AnimacionCorazones cor2'></div>
                                     <div class='AnimacionCorazones cor3'></div>
@@ -43,13 +227,75 @@ class AnimalesController extends Animal{
                                 <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
                             </div>
                         </div>";
+
                     }
                 }
-
-            }else{
-                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
-                include 'vista/vacio.php';
             }
+
+        }else{
+            echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
+            include 'vista/vacio.php';
+        }
+    }
+
+    static function animalitosGeneral($animales, $con){
+        if($animales->rowCount() > 0){
+        
+            foreach($animales as $datos) {
+
+                $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
+                if($verificarAdopcion->rowCount() == 0){
+
+    
+                    $fotos = Foto::fotoPerfil($datos[0]);
+                    $urlFotoPerfil = $fotos->fetch();
+        
+                    echo "<div class='card-adopta'>
+                        <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Especie</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <th>$datos[1]</th>
+                                <th>$datos[2]</th>
+                            </tbody>
+                        </table>
+                        <div class='btns_card'>
+                            <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
+                                <div class='AnimacionCorazones cor1'></div>
+                                <div class='AnimacionCorazones cor2'></div>
+                                <div class='AnimacionCorazones cor3'></div>
+                                <div class='AnimacionCorazones cor4'></div>
+                            </a>
+                            <a href='adoptar.php?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
+                        </div>
+                    </div>";
+                }
+            }
+
+        }else{
+            echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
+            include 'vista/vacio.php';
+        }
+    }
+}
+
+class AnimalesController extends Animal{
+
+    use mostrarAnimalitos;
+
+    public function mostrarDatosDeTodosGeneral(){
+        $con = parent::conectar();
+        try{
+            
+            $animales = $con->query("SELECT * FROM animales");
+
+            self::animalitosGeneral($animales, $con);
+        
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
         }
@@ -186,53 +432,7 @@ class AnimalesController extends Animal{
             
             $animales = $con->query("SELECT * FROM animales LIMIT 4");
         
-            if($animales->rowCount() > 0){
-        
-                foreach($animales as $datos) {
-
-                    $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
-                    if($verificarAdopcion->rowCount() == 0){
-
-                        $fotos = Foto::fotoPerfil($datos[0]);
-                        $urlFotoPerfil = $fotos->fetch();
-            
-                        echo "
-                    
-                            <div class='card-adopta marg'>
-                                <div class='image_card'>
-                                    <img src='publico/images/$urlFotoPerfil[1]'>
-                                </div>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Especie</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <th>$datos[1]</th>
-                                        <th>$datos[2]</th>
-                                    </tbody>
-                                </table>
-                                <div class='btns_card'>
-                                    <a href='iniciar-sesion.php' class='btn_naranja buttonCorazones'>Adoptar
-                                    <div class='AnimacionCorazones cor1'></div>
-                                    <div class='AnimacionCorazones cor2'></div>
-                                    <div class='AnimacionCorazones cor3'></div>
-                                    <div class='AnimacionCorazones cor4'></div>
-                                    </a>
-                                    <a href='adoptar.php?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-                                </div>
-                            </div>
-                        
-                    ";
-                    }
-                }
-
-            }else{
-                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
-                include 'vista/vacio.php';
-            }
+            self::animalitosGeneral($animales, $con);
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
         }
@@ -248,92 +448,22 @@ class AnimalesController extends Animal{
             require_once '../funciones.php';
             $animales = parent::dataAnimal('');
 
-            if($animales->rowCount() > 0){
-        
-                foreach($animales as $datos){
-
-                    $datosj = json_encode($datos);
-                    $fotos = Foto::fotoPerfil($datos[0]);
-                    $urlFotoPerfil = $fotos->fetch();
-
-                    $verfifcarAdopcion = $con->prepare("SELECT * FROM adopciones WHERE idAnimalAdoptado = :idAnimal");
-                    $verfifcarAdopcion->bindParam(':idAnimal', $datos[0]);
-                    $verfifcarAdopcion->execute();
-
-                    if($verfifcarAdopcion->rowCount() > 0){
-
-                        $idsAdopcion = $verfifcarAdopcion->fetch();
-                        echo " 
-                    <tr>
-                        <td onclick='modalAnimalitos($datosj, \"$urlFotoPerfil[1]\", \"".edad($datos[6])."\")'><img src='publico/images/$urlFotoPerfil[1]'></td>
-                        <td>$datos[1]</td>
-                        <td>$datos[2]</td>
-                        <td><a href='adoptar.php?adopcion=$idsAdopcion[0]'>Ver adopción</a></td>
-                        <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas</a></td>
-                        <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
-                        <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
-                        <td><a class='btn_rojo' onclick='alert(\"No es permitida esta acción ya que el animalito ha sido adoptado\")'>Eliminar</a></td>
-                        
-                    </tr> ";
-                    }else{
-
-                        echo " 
-                        <tr>
-                            <td onclick='modalAnimalitos($datosj, \"$urlFotoPerfil[1]\", \"".edad($datos[6])."\")'><img src='publico/images/$urlFotoPerfil[1]'></td>
-                            <td>$datos[1]</td>
-                            <td>$datos[2]</td>
-                            <td>No</td>
-                            <td><a href='?vacunas=$datos[0]' class='btn_cafe'>Vacunas </a></td>
-                            <td><a href='?fotos=$datos[0]' class='btn_cafe'>fotos</a></td>
-                            <td><a href='?editar=$datos[0]' class='btn_cafe'>Editar</a></td>
-                            <td><a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[10]\"])'>Eliminar</a></td>
-                            
-                        </tr> ";
-                    }
-                    
-                }
-                
-            }else{
-                echo "<div class='errNoData'> No hay animalitos agregados <a class='btn_naranja' onclick='agregarAnimalitos()'>Agregar una mascota</a></div>";
-                echo "<tr>
-                <td rowspan='7' colspan='8'>";
-                include '../../vista/vacio.php';
-                echo 
-                "</td>
-                </tr>";
-            }
+            self::animalitosAdmin($animales, $con);
+            
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR LOS ANIMALITOS: ".$e->getMessage());
         }
     }
 
     public function mostrarCoincidenciasAdmin($nombre, $especie, $raza, $color, $sexo){
+        $con = parent::conectar();
         try{
+
+            require_once '../funciones.php';            
             $animales = parent::searchAnimal($nombre, $especie, $raza, $color, $sexo);
 
-            if($animales->rowCount() > 0){
-        
-                foreach($animales as $datos){
-        
-                    $fotos = Foto::dataFotos($datos[0]);
-                    $urlFotoPerfil = $fotos->fetch();
-        
-                    echo "<div class='card-adopta'>
-                        <div><img src='publico/images/$urlFotoPerfil[1]'></div>
-                        <div class='nombre'>$datos[1]</div>
-                        <div class='info'>Especie: $datos[2]</div>
-                        <div>
-                            <a class='btn_rojo' onclick='eliminarComfirm([$datos[0], \"$datos[9]\"])'>Eliminar</a>
-                            <a href='?editar=$datos[0]' class='btn_naranja'>Edit/Ver</a>
-                            <a href='?fotos=$datos[0]' class='btn_naranja'>Agg/Bor foto</a>
-        
-                        </div>
-                    </div>";
-        
-                }
-            }else{
-                echo "<div class='errNoData'>No se han encontrado animalitos<a class='btn_naranja'>Agregar una mascota</a></div>";
-            }
+            self::animalitosAdmin($animales, $con);
+            
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR ALGO: ".$e->getMessage());
         }
@@ -602,185 +732,8 @@ class AnimalesController extends Animal{
         try{
             
             $animales = $con->query("SELECT * FROM animales");
-        
-            if($animales->rowCount() > 0){
 
-        
-                echo "
-                    <div class='adoptaAnimalitoUser'>
-                
-                ";
-                $cont = 0;
-
-                foreach($animales as $datos) {
-
-                    $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
-                    if($verificarAdopcion->rowCount() == 0){
-
-
-                        $solicitado = $con->prepare("SELECT solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND idAnimal=:idAnimal");
-                        $solicitado->bindParam(':idUsuario', $idUsuario);
-                        $solicitado->bindParam(':idAnimal', $datos[0]);
-                        $solicitado->execute();
-
-                        $cont++;
-
-                        // Perrito 
-                        if($cont == 3){
-
-                            echo '
-                            <div class="boxPerrito"><i class="far fa-copyright txt" style="float:right"></i><div class="tooltip">
-                            Animacion por Pavel Kozelskiy (CodePen) 
-                           </div><div class="dog">
-                            <div class="heart heart--1"></div>
-                            <div class="heart heart--2"></div>
-                            <div class="heart heart--3"></div>
-                            <div class="heart heart--4"></div>
-                            <div class="head">
-                                    <div class="year year--left"></div>
-                                    <div class="year year--right"></div>
-                                    <div class="nose"></div>	
-                                <div class="face">
-                                    <div class="eye eye--left"></div>
-                                    <div class="eye eye--right"></div>
-                                    <div class="mouth"></div>
-                                </div>
-                            </div>
-                            <div class="body">
-                                <div class="cheast"></div>
-                                <div class="back"></div>
-                                <div class="legs">
-                                    <div class="legs__front legs__front--left"></div>
-                                    <div class="legs__front legs__front--right"></div>
-                                    <div class="legs__back legs__back--left"></div>
-                                    <div class="legs__back legs__back--right"></div>
-                                </div>
-                                <div class="tail"></div>
-                            </div>
-                        </div></div>';
-                        }
-
-                        // Otro perrito
-                        if($cont == 6){
-                            echo '	
-                            <div class="corgi">
-                            <i class="far fa-copyright txt" style="float:left"></i><div class="tooltip">
-                            Animacion por Mok Jee Jin (CodePen) 
-                           </div>
-                                <div class="head">
-                                    <div class="ear ear--r"></div>
-                                    <div class="ear ear--l"></div>
-                
-                                    <div class="eye eye--left"></div>
-                                    <div class="eye eye--right"></div>
-                
-                                    <div class="face">
-                                        <div class="face__white">
-                                            <div class=" face__orange face__orange--l"></div>
-                                            <div class=" face__orange face__orange--r"></div>
-                                        </div>
-                                    </div>
-                
-                                    <div class="face__curve"></div>
-                
-                                    <div class="mouth">
-                
-                                        <div class="nose"></div>
-                                        <div class="mouth__left">
-                                            <div class="mouth__left--round"></div>
-                                            <div class="mouth__left--sharp"></div>
-                                        </div>
-                                        
-                                        <div class="lowerjaw">
-                                            <div class="lips"></div>
-                                            <div class="tongue test"></div>
-                                        </div>
-                
-                                        <div class="snout"></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="neck__back"></div>
-                                <div class="neck__front"></div>
-                
-                                <div class="body">
-                                    <div class="body__chest"></div>
-                                </div>
-                
-                                <div class="foot foot__left foot__front foot__1"></div>
-                                <div class="foot foot__right foot__front foot__2"></div>
-                                <div class="foot foot__left foot__back foot__3"></div>
-                                <div class="foot foot__right foot__back foot__4"></div>
-                
-                                <div class="tail test"></div>
-                            </div>';
-                        }
-
-            
-                        $fotos = Foto::fotoPerfil($datos[0]);
-                        $urlFotoPerfil = $fotos->fetch();
-
-                        $solicitud = $solicitado->fetch();
-                    
-                        if($solicitado->rowCount() > 0 && $solicitud['estado'] != "rechazada"){
-
-                            echo "<div class='card-adopta'>
-                                <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Especie</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <th>$datos[1]</th>
-                                        <th>$datos[2]</th>
-                                    </tbody>
-                                </table>
-                                <div class='btns_card'>
-                                    <a class='btn_rojo btn_largo' onclick='cancelarSolicitud($solicitud[0])'>Cancelar solicitud</a>
-                                    <!-- <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a> -->
-                                </div>
-                            </div>";
-                       
-
-                        }else{
-                            
-                            echo "<div class='card-adopta'>
-                                <div class='image_card'><img src='publico/images/$urlFotoPerfil[1]'></div>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Especie</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <th>$datos[1]</th>
-                                        <th>$datos[2]</th>
-                                    </tbody>
-                                </table>
-                                <div class='btns_card'>
-                                    <a class='btn_naranja buttonCorazones' onclick='solicitarAdopcion(\"$datos[1]\", \"publico/images/$urlFotoPerfil[1]\", $datos[0], $idUsuario)'>Adoptar
-                                        <div class='AnimacionCorazones cor1'></div>
-                                        <div class='AnimacionCorazones cor2'></div>
-                                        <div class='AnimacionCorazones cor3'></div>
-                                        <div class='AnimacionCorazones cor4'></div>
-                                    </a>
-                                    <a href='?perfil=$datos[0]' class='btn_naranja'>Conocer</a>
-                                </div>
-                            </div>";
-
-                        }
-                    }
-                }
-            echo "</div>";
-
-            }else{
-                echo " <div class='errNoData'>No se han encontrado animalitos disponibles para adoptar</div> ";
-                include 'vista/vacio.php';
-            }
+            self::animalitosUser($animales, $con, $idUsuario);
 
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
@@ -917,6 +870,18 @@ class AnimalesController extends Animal{
         }
     }
 
+    public function buscarAnimalitosUser($idUsuario, $nombre, $especie, $raza, $color, $sexo){
+        $con = parent::conectar();
+        try {
+
+            $animales = parent::searchAnimal($nombre, $especie, $raza, $color, $sexo);
+
+            self::animalitosUser($animales, $con, $idUsuario);
+
+        } catch (Exception $e) {
+            exit("ERROR AL BUSCAR ANIMALITOS: ".$e->getMessage());
+        }
+    }
 }
 
 ?>

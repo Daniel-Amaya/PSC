@@ -14,40 +14,6 @@ require_once 'controlador/funciones.php';
 
     <section class=''>
    
-        <aside id="filtro" style='display: none'>
-            <button class="btn_cafe" onclick="">Agregar una nueva mascota</button><br><br>
-            <h4>Buscar por:</h4>
-            <form action="" id='buscarAnimalitos'>
-                <div class="boxInput">
-                    <input type="text" class="nombreAn" placeholder="Nombre">
-                </div>
-                <div class="boxInput">
-
-                    <select class="especie">
-                        <option value="">Especie</option>
-                        <option value="perro">Perro</option>
-                        <option value="gato">Gato</option>
-                    </select>
-                    
-                </div>
-                <div class="boxInput">
-                    <input type="text" class='raza' placeholder="Raza">
-                </div>
-                <div class="boxInput">
-                    <input type="text" class='color' placeholder="Color">
-                </div>
-                <div class="boxInput">
-                    <select class="sexo">
-                        <option value="">Sexo</option>
-                        <option value="perro">Masculino</option>
-                        <option value="gato">Femenino</option>
-                    </select>
-                </div>
-
-                <input type="submit" value="Buscar" class="btn_cafe btn_largo">
-            </form> 
-        </aside>
-
         <h3 class='textoDeTitulo'>
         Aquí vas a encontrar todos los animalitos registrados, puedes usar el buscador para encontrar  los animalitos, para ver el perfil, has clic en la foto:
         </h3>
@@ -60,7 +26,7 @@ require_once 'controlador/funciones.php';
                 <div class="nombreIndicador">
                     Mascotas
                 </div>
-                <div class="buscarTable">
+                <div class="buscarTable" onclick="buscador()">
                     <i class='fas fa-search'></i>
                 </div>
             </div>

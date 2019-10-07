@@ -358,7 +358,7 @@
   width: 100%;
   padding: 50px;
 }
-.adopta-index .marg {
+.adopta-index .card-adopta {
   margin: 10px 20px;
 }
 .adopta-index .row {
@@ -2119,6 +2119,7 @@
   width: 10%;
   font-size: 40px;
   text-align: right;
+  cursor: pointer;
 }
 .divTableDatos table {
   width: 100%;

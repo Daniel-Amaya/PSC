@@ -1,4 +1,5 @@
 (function(){
+    
 mostrarImagenDePerfil = () =>{
 
     var inp = id('agregarFotoUsuario');
@@ -12,7 +13,7 @@ mostrarImagenDePerfil = () =>{
         }else{
 
             var newImage = document.createElement('img');
-            newImage.src =  window.URL.createObjectURL(file[i]);
+            newImage.src =  window.URL.createObjectURL(file[0]);
             id('FCR').innerHTML = '';
             id('FCR').appendChild(newImage);
 

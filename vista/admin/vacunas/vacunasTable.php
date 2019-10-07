@@ -1,7 +1,7 @@
 <div class="margin-menu padding-menu">
 
         <h3 class='textoDeTitulo'>
-            Aquí pdorás ver las vacunas agregadas de cada especie, para asignar una vacuna a un animalito, ve a la sesión de animalitos y has clic en vacunas:
+            Aquí podrás ver las vacunas agregadas de cada especie, para asignar una vacuna a un animalito, ve a la sesión de animalitos y has clic en vacunas:
         </h3>
 
         <div class="divTableDatos">
@@ -15,7 +15,7 @@
                     Vacunas
                 </div>
                 
-                <div class="buscarTable">
+                <div class="buscarTable" onclick="buscador()">
                     <i class='fas fa-search pointer'></i>
                 </div>
             </div>

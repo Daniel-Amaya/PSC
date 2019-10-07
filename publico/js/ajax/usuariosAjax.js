@@ -3,6 +3,20 @@
     document.addEventListener('DOMContentLoaded', () =>{
         usuariosAjax('', mostrarUsuarios);
 
+        id('buscarUsuario').addEventListener('submit', function(e){
+
+            e.preventDefault();
+    
+            var nombreB = this.getElementsByTagName('input')[0].value,
+            apellidosB = this.getElementsByTagName('input')[1].value,
+            correoB = this.getElementsByTagName('input')[2].value,
+            telefonoB = this.getElementsByTagName('input')[3].value, 
+            cedulaB = this.getElementsByTagName('input')[4].value;
+    
+            usuariosAjax('nombreB='+nombreB+'&apellidosB='+apellidosB+'&correoB='+correoB+'&telefonoB='+telefonoB+'&cedulaB='+cedulaB, mostrarUsuarios);
+    
+        });
+
     });
 
     function usuariosAjax(send, action){
@@ -21,15 +35,13 @@
     }
 
     mostrarUsuarios = (ht) => {
-
         id('tableUsuarios').innerHTML = ht.responseText;
     }
 
-    hacerAdministrador = (id) =>{
+    hacerAdministrador = (id) => {
     
         usuariosAjax('idNewAdmin='+id, mostrarUsuarios);
 
     }
 
-
-})()
+})();

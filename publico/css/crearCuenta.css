@@ -731,5 +731,8 @@ body .cat .main .face .ear_r .inner {
 .crear-cuenta form i {
   font-size: 90px;
 }
+.crear-cuenta form img {
+  width: 200px;
+}
 
 /*# sourceMappingURL=crearCuenta.css.map */

@@ -3,6 +3,18 @@ function fotosAjax(send, action){
     
     ht = new XMLHttpRequest;
 
+    ht.addEventListener('progress', (e) =>{
+        let porcentaje = Math.round((e.loaded / e.total) * 100);
+        id('loadAjax').style.display = 'flex';
+        id('porcentajeCarga').textContent = porcentaje + '%';
+        console.log(porcentaje);
+    }); 
+
+    ht.addEventListener('load', () => {
+        
+        id('loadAjax').style.display = 'none';
+    });
+
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             action(this);
@@ -26,11 +38,6 @@ function mostrarFotos(ht){
     inputFile.setAttribute('onchange', 'fotoNueva("'+e[1]+'",'+e[0]+')');
 }
 
-function eliminarFoto(ruta){
-     
-}
-
-
 function fotoNueva(folder, idF){
 
     let fileInput = id('nFoto');
@@ -42,6 +49,17 @@ function fotoNueva(folder, idF){
         datosEnviar.append('fotoN', fileInput.files[0]);
         
         ht = new XMLHttpRequest;
+
+        ht.addEventListener('progress', (e) =>{
+            let porcentaje = Math.round((e.loaded / e.total) * 100);
+            id('loadAjax').style.display = 'flex';
+            id('porcentajeCarga').textContent = porcentaje + '%';
+            console.log(porcentaje);
+        }); 
+        ht.addEventListener('load', () => {
+            
+            id('loadAjax').style.display = 'none';
+        });
 
         ht.addEventListener('readystatechange', function(){
             if(this.readyState == 4 && this.status == 200){

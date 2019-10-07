@@ -146,6 +146,23 @@ class Usuario extends Conexion{
             exit("ERROR AL ELIMINAR URUARIO: ".$e->getMessage());
         }
     }
+
+    public function searchUsuarios($nombre, $apellidos,$correo, $telefono, $cedula){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("SELECT * FROM usuarios WHERE nombre LIKE :nombre AND apellidos LIKE :apellidos AND correo LIKE :correo AND telefono LIKE :telefono AND cedula LIKE :cedula");
+            $query->bindValue(':nombre', '%'.$nombre.'%');
+            $query->bindValue(':apellidos', '%'.$apellidos.'%');
+            $query->bindValue(':correo', '%'.$correo.'%');
+            $query->bindValue(':telefono', '%'.$telefono.'%');
+            $query->bindValue(':cedula', '%'.$cedula.'%');
+            $query->execute();
+
+            return $query;
+        }catch(PDOException $e){
+            exit("ERROR AL BUSCAR USUARIOS: ".$e->getMessage());
+        }
+    }
 }
 
 ?>

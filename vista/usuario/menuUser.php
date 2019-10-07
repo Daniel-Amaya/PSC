@@ -9,6 +9,11 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
 
 <?php include 'vista/loader.php'; ?>
 <script src='publico/js/loader.js'></script>
+<script>
+
+const idUsuario = <?php echo $datosDelUsuario[0] ?>
+
+</script>
 
 <header id='menuL' class='menuLateral menuLW'>
     <!-- <span class='pointer'><i class="fas fa-times"></i></span> -->
@@ -73,7 +78,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
 
 document.addEventListener('DOMContentLoaded', () =>{
 
-    mostrarNotificaciones(<?php echo $datosDelUsuario[0] ?>);
+    mostrarNotificaciones(idUsuario);
 
 });
 

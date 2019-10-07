@@ -88,14 +88,13 @@
                 
             }
 
-
             if(verificarNoVacio(datos) == true){
 
                 ht = new XMLHttpRequest;
 
                 ht.addEventListener('progress', (e) =>{
                     let porcentaje = Math.round((e.loaded / e.total) * 100);
-                    id('loadAjax').style.display = 'block';
+                    id('loadAjax').style.display = 'flex';
                     id('porcentajeCarga').textContent = porcentaje + '%';
                     console.log(porcentaje);
                 }); 

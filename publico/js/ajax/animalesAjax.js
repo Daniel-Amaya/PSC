@@ -4,6 +4,18 @@ function animalesAjax(send, action){
     
     ht = new XMLHttpRequest;
 
+    ht.addEventListener('progress', (e) =>{
+        let porcentaje = Math.round((e.loaded / e.total) * 100);
+        id('loadAjax').style.display = 'flex';
+        id('porcentajeCarga').textContent = porcentaje + '%';
+        id('mostrarAnimalitos').innerHTML = 'espera';
+        console.log(porcentaje);
+    }); 
+
+    ht.addEventListener('load', () => {
+        id('loadAjax').style.display = 'none';
+    });
+
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             action(this);
@@ -108,6 +120,17 @@ function fotosAjaxN(folder, perfil){
 
     ht = new XMLHttpRequest;
 
+    ht.addEventListener('progress', (e) =>{
+        let porcentaje = Math.round((e.loaded / e.total) * 100);
+        id('loadAjax').style.display = 'flex';
+        id('porcentajeCarga').textContent = porcentaje + '%';
+        console.log(porcentaje);
+    }); 
+    ht.addEventListener('load', () => {
+        
+        id('loadAjax').style.display = 'none';
+    });
+
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
             var e = this.responseText;
@@ -121,17 +144,17 @@ function fotosAjaxN(folder, perfil){
 // Buscar según el fitro 
 
 id('buscarAnimalitos').addEventListener('submit', function(e){
+
     e.preventDefault();
 
-    var nombreB = this.getElementsByClassName('nombreAn')[0].value,
-    especieB = this.getElementsByClassName('especie')[0].value,
-    razaB = this.getElementsByClassName('raza')[0].value,
-    colorB = this.getElementsByClassName('color')[0].value,
-    sexoB  = this.getElementsByClassName('sexo')[0].value;
+    var nombreB = this.getElementsByTagName('input')[0].value,
+    especieB = this.getElementsByTagName('select')[0].value,
+    razaB = this.getElementsByTagName('input')[1].value,
+    colorB = this.getElementsByTagName('input')[2].value,
+    sexoB  = this.getElementsByTagName('select')[1].value;
 
-    animalesAjax("buscar=true&nombreB="+nombreB+"&especieB"+especieB+"&razaB="+razaB+"&colorB="+colorB+"&sexoB="+sexoB, mostrarEliminarAnimalito);
+    animalesAjax("buscar=true&nombreB="+nombreB+"&especieB="+especieB+"&razaB="+razaB+"&colorB="+colorB+"&sexoB="+sexoB, mostrarEliminarAnimalito);
 });
-
 
 // Agregar nuevo animalito
 
