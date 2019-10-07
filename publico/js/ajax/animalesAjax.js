@@ -61,10 +61,8 @@ function formRegistrarAnimalito(ht){
             if(this.files.length > 0){
                 var numberImages = id('imagesBox').getElementsByClassName('divImageS');
                 if(numberImages.length == 1){
-                    alert('se supone que envía bien');
                     fotosAjaxN(e[2], 1);
                 }else{
-                    alert('loco loco');
                     fotosAjaxN(e[2], 0);
                 }
             }
