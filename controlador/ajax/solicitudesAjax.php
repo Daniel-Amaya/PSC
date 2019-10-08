@@ -5,7 +5,7 @@ require '../../modelo/solicitudes.php';
 
 if(isset($_POST['solicitudU']) && isset($_POST['solicitudA']) && !empty($_POST['solicitudU']) && !empty($_POST['solicitudA'])){
 
-    new Solicitud($_POST['solicitudU'], $_POST['solicitudA'], date('Y/m/d'), 'espera', 'no');
+    new Solicitud($_POST['solicitudU'], $_POST['solicitudA'], date('Y/m/d'), 'espera', 0);
     
 }elseif(isset($_POST['contactadoCod']) && !empty($_POST['contactadoCod'])){
 

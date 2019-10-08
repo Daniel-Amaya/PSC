@@ -14,7 +14,6 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
 
         ht.addEventListener('readystatechange', function(){
             if(this.readyState == 4 && this.status == 200){
-                console.log(this.responseText);
                 if(this.responseText == '1'){
 
                     alert('Se ha enviado la solicitud de adopción');

@@ -2060,15 +2060,54 @@
 }
 
 .adopcion-concreta {
-  width: 90%;
+  width: 95%;
+  margin: auto;
 }
 .adopcion-concreta .cardAdopcion {
+  text-align: center;
+  padding: 20px 5px;
   width: 32%;
-  margin: 1%;
+  border-radius: 44px;
+  box-shadow: 0px 0px 4px rgba(100, 100, 100, 0.5);
+  margin: 0 auto;
 }
 .adopcion-concreta .cardAdopcion .tituloCard {
-  margin: auto;
+  margin: 10px auto;
   padding: 5px 10px;
+  width: 60%;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+}
+.adopcion-concreta .cardAdopcion .tituloCard.t1 {
+  background: sienna;
+}
+.adopcion-concreta .cardAdopcion .tituloCard.t2 {
+  background: #ff7f04;
+}
+.adopcion-concreta .cardAdopcion .tituloCard.t3 {
+  background: #e62303;
+}
+.adopcion-concreta .cardAdopcion img {
+  margin: 10px auto;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.adopcion-concreta .cardAdopcion table {
+  width: 100%;
+  margin: 10px auto;
+  border: none;
+}
+.adopcion-concreta .cardAdopcion table tr td {
+  padding: 5px;
+}
+.adopcion-concreta .cardAdopcion table tr td:nth-child(2) {
+  text-align: right;
+}
+.adopcion-concreta .cardAdopcion table tr td:nth-child(1) {
+  text-align: left;
 }
 
 .divTableDatos {

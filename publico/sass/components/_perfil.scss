@@ -234,16 +234,60 @@
     }
 }
 
-
 .adopcion-concreta{
-    width: 90%;
+    width: 95%;
+    margin: auto;
     .cardAdopcion{
+        text-align: center;
+        padding: 20px 15px;
         width: 32%;
-        margin: 1%;
+        border-radius: 44px;
+        box-shadow: 0px 0px 4px rgba(100,100,100,0.5);
+        margin: 0 auto;
+
         .tituloCard{
-            margin: auto;
+            margin: 10px auto;
             padding: 5px 10px;
+            width: 60%;
+            text-align: center;
+            color: white; 
+            border-radius: 20px;
+
+            &.t1{
+                background: $cafe;
+            }
+            &.t2{
+                background: $color-principal;
+            }
+            &.t3{
+                background: $color-secundario;
+            }
+        }
+
+        img{
+            margin: 10px auto;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+
+        table{
+            width: 100%;
+            margin: 10px auto;
+            border: none;
+            tr{
+                td{
+                    padding: 5px;
+                    &:nth-child(2){
+                        text-align: right;
+                    }
+
+                    &:nth-child(1){
+                        text-align: left;
+                    }
+                }
+            }
         }
     }
-
 }

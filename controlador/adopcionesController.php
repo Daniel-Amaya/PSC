@@ -81,13 +81,14 @@ class AdopcionesController extends Adopcion{
     public function mostrarAdopcion($num){
         $con = parent::conectar();
         try{
-            $query = $con->prepare("SELECT animales.*, usuarios.*, usuarios.nombre AS userName, numAdopcion FROM animales, usuarios, adopciones WHERE usuarios.id = idUsuario AND animales.id = idAnimalAdoptado AND numAdopcion = :Num");
+            $query = $con->prepare("SELECT animales.*, usuarios.*, usuarios.nombre AS userName, numAdopcion, adopciones.* FROM animales, usuarios, adopciones WHERE usuarios.id = idUsuario AND animales.id = idAnimalAdoptado AND numAdopcion = :Num");
             $query->bindParam(":Num", $num);
 
             $query->execute();
 
             if($query->rowCount() > 0){
                 require 'modelo/fotos.php';
+                require 'controlador/funciones.php';
                 foreach($query AS $adopcion){
 
                     $fotoPerfil = Foto::fotoPerfil($adopcion[0]);
@@ -96,50 +97,113 @@ class AdopcionesController extends Adopcion{
                     <h2 class='titulo'>Adopción numero {$adopcion['numAdopcion']}</h2>
                     <div class='adopcion-concreta'>
                         <div class='row'>
-                            <div class='info-adops'>
-                                <h3 class='center'>Información del adoptante</h3>
 
-                                <ul>
-                                    <li>Nombre: {$adopcion['userName']}</li>
-                                    <li>Apellidos: {$adopcion['apellidos']}</li>
-                                    <li>Télefono: {$adopcion['telefono']}</li>
-                                    <li>Cedula: {$adopcion['cedula']}</li>
-                                    <li>Correo: {$adopcion['correo']}</li>
-                                </ul> 
-                                <div class='row'>
-                                    <a href='usuarios.php?id={$adopcion['id']}'>Ver perfil</a>
-                                ";
+                            <div class='cardAdopcion'>
+                                <h4 class='tituloCard t1'>Adoptado</h4>
+                                <img src='publico/images/$fotoPerfil[1]'>
+                                <table>
+                                    <tr>
+                                        <td>Nombre:</td>
+                                        <td>$adopcion[1]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Especie:</td>
+                                        <td>$adopcion[2]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raza:</td>
+                                        <td>$adopcion[3]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Color:</td>
+                                        <td>$adopcion[4]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Edad:</td>
+                                        <td>".edad($adopcion[6])."</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Esterilizado:</td>
+                                        <td>".esterilizado($adopcion[7])."</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class='cardAdopcion'>
+                                <h4 class='tituloCard t2'>Adoptante</h4>";
 
                                 if($adopcion['foto'] != ''){
-
                                     echo "
                                     <img src='publico/images/{$adopcion['foto']}'>";
                                 }else{
                                     echo "
                                     <img src='publico/images/fotoPerfilVacia.png'>";
                                 }
-                                    
-                                echo "
-                                </div>
+                                
+                            echo "    
+
+                                <table>
+                                    <tr>
+                                        <td>nombre:</td>
+                                        <td>{$adopcion['userName']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apellidos:</td>
+                                        <td>{$adopcion['apellidos']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cédula:</td>
+                                        <td>{$adopcion['cedula']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Teléfono:</td>
+                                        <td>{$adopcion['telefono']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Correo:</td>
+                                        <td>{$adopcion['correo']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dirección:</td>
+                                        <td>{$adopcion['direccionApto']}</td>
+                                    </tr>
+                                </table>
                             </div>
 
-                            <div class='info-adops'>
-                                <h3 class='center'>Información del adoptante</h3>
-
-                                <ul>
-                                    <li>Nombre: {$adopcion[1]}</li>
-                                    <li>Especie: {$adopcion[2]}</li>
-                                    <li>Raza: {$adopcion[3]}</li>
-                                    <li>Color: {$adopcion[4]}</li>
-                                    <li>Edad: {$adopcion[5]}</li>
-                                </ul>
-
-                                <div class='row'>
-                                    <img src='publico/images/$fotoPerfil[1]'>
-                                    <a href='animalitos.php?id={$adopcion[0]}'>Ver perfil</a>
-                                </div>
-
+                            <div class='cardAdopcion'>
+                                <h4 class='tituloCard t3'>Adopción</h4>
+                                <table>
+                                    <tr>
+                                        <td>Fecha de adopción:</td>
+                                        <td>{$adopcion['fechaAdopcion']}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Entregado por: </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doc. adopción:</td>
+                                        <td><a href='documentacion.php?adopcion={$adopcion['numAdopcion']}'>Ver doc.</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doc. esterilización:</td>
+                                        <td><a href=''>Ver doc.</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Copia de cédula:</td>
+                                        <td><a href=''>Ver copia</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Último seguimiento:</td>
+                                        <td>2019-04-23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Siguiente:</td>
+                                        <td>Finalizado</td>
+                                    </tr>
+                                </table>
                             </div>
+
                             <a href='documentacion.php?adopcion={$adopcion['numAdopcion']}' style='width: 100%;margin: 10px 0' class='center'> Ver documento legal de la adopción</a>                    
 
                         </div>
