@@ -95,7 +95,7 @@
                 ht.addEventListener('readystatechange', function(){
                     
                     if(this.readyState == 4 && this.status == 200){
-
+                        console.log(this.responseText + " " + this.responseText.length);
                         if(this.responseText.length == 27){
 
                             id('modal').style.display = 'block';
