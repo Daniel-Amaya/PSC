@@ -2004,6 +2004,7 @@ button {
 .boxRadio {
   padding: 10px;
   display: flex;
+  align-items: center;
 }
 .boxRadio .pregunta {
   margin-right: 10px;
