@@ -7,6 +7,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Patua One', cursive;
+    @include respond-to(500px){
+        font-family: 'Righteous', cursive ;
+        font-weight: lighter;
+        .fa, .far, .fas{
+            font-family: "Font Awesome 5 Free" !important;
+        }
+    }
 }
 
 *::selection{
