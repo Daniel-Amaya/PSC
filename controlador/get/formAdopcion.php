@@ -119,7 +119,6 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
                 <div class="firmaAdoptante">
                     <label for="firma" id='lugarFirma'>Has clic para subir una foto con tu firma</label>
                     <input type="file" id="firma" style="display: none" accept='image/*'>
-                    <script src="publico/js/añadirFirma.js"></script>
                 </div>
 
                 <strong>FIRMA</strong>
@@ -142,6 +141,14 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
                 <div>CI: </div>
             </div>
         </div>
+
+        <div class='cedulaPDF'>
+            <p>Por último, debes agregar un pdf con la copia de tu cédula escaneada</p>
+            <label for="cedula" id='lCed'>Has clic para agregar pdf de tu cédula</label>
+            <input type="file" id="cedula" accept="application/pdf">
+        </div>
+
+        <script src="publico/js/añadirFirma.js"></script>
 
         <h3 class="titulo">Adoptado</h3>
 

@@ -11,6 +11,7 @@
         box-shadow: 5px 5px 10px rgba(100,100,100,0.5);
     }
     .image_card{
+
         width: 250px;
         height: 250px;
         overflow: hidden;
@@ -148,6 +149,7 @@
             }
         }
     }
+
     .image{
         float: left;
         border-radius: 100%;
@@ -203,7 +205,34 @@
         font-weight: 600;
 
     }
+
+    @include respond-to(650px){
+        width: 300px;
+        height: auto;
+        padding: 0;
+        border-radius: 150px;
+        .image{
+            width: 300px;
+            height: 300px;
+            shape-outside: none;
+        }
+        .card_h_text{
+            padding: 10px 20px;
+            height: auto;
+            text-align: center;
+        }
+        .card_h_titulo{
+            padding: 5px 20px;
+        }
+        .invAdopta{
+            padding-bottom: 50px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+        }
+    }
 }
+
 
 .solicitudAdopcion{
     padding: 20px 35px;

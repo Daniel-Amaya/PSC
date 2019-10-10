@@ -26,6 +26,7 @@
 @media only screen and (max-width: 500px) {
   .perrito {
     right: 50%;
+    top: 130%;
   }
 }
 .perrito .cuerpo-perrito {
@@ -329,9 +330,20 @@
 .inicio .cols {
   padding: 20px;
 }
+@media only screen and (max-width: 500px) {
+  .inicio {
+    align-items: end;
+  }
+}
 .inicio .cols:nth-child(2) {
   text-align: center;
   z-index: 1;
+}
+@media only screen and (max-width: 500px) {
+  .inicio .cols:nth-child(2) {
+    position: relative;
+    top: -80px;
+  }
 }
 .inicio .cols:last-child {
   background: green;
@@ -367,6 +379,17 @@
 }
 .adopta-index .titulo {
   margin: 0 0 70px 0 !important;
+}
+.adopta-index .smg-a {
+  text-align: right;
+  padding: 20px 10%;
+  width: 50%;
+  margin-left: auto;
+}
+@media only screen and (max-width: 800px) {
+  .adopta-index .smg-a {
+    width: 90%;
+  }
 }
 
 /*-------------------------------*\
@@ -448,6 +471,15 @@
   left: 0;
   background: lightgreen;
   border-radius: 0 50%;
+}
+@media only screen and (max-width: 600px) {
+  .message {
+    grid-auto-rows: minmax(100px, 140px);
+    grid-template-areas: "inte inte" "inte inte" "info info" "info info";
+  }
+  .message .info-message {
+    padding: 20px;
+  }
 }
 
 .media {
@@ -1852,7 +1884,7 @@
 }
 
 .perfil {
-  margin: auto;
+  margin: 0 auto 10px auto;
   width: 90%;
   padding: 4%;
   border-radius: 32px;
@@ -1862,6 +1894,37 @@
 .perfil .header {
   display: flex;
   position: relative;
+}
+@media only screen and (max-width: 1000px) {
+  .perfil .header .fotoPerfil, .perfil .header .nombreAnimal {
+    width: 50% !important;
+    height: 50% !important;
+  }
+  .perfil .header .nombreAnimal {
+    display: flex;
+    height: 180px !important;
+    align-items: center;
+    position: relative !important;
+    top: 0 !important;
+    left: 0;
+    font-size: 30px !important;
+  }
+  .perfil .header .btn_tabs {
+    z-index: 3;
+  }
+  .perfil .header .btn_tabs i {
+    font-size: 25px !important;
+    margin: 0 20px !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .perfil .header .foto-perfil {
+    width: 30% !important;
+    height: 30% !important;
+  }
+  .perfil .header .btn_tabs i {
+    margin: 0 10px !important;
+  }
 }
 .perfil .header .fotoPerfil {
   width: 204px;
@@ -1911,6 +1974,16 @@
 .perfil .perfilTabsItems {
   display: flex;
   margin-top: 20px;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 1000px) {
+  .perfil .descripcion, .perfil .informacion {
+    width: 90% !important;
+    margin-top: 10px !important;
+  }
+  .perfil .fotos {
+    justify-content: center;
+  }
 }
 .perfil .descripcion {
   background: whitesmoke;
@@ -1958,6 +2031,33 @@
   height: 200px;
   object-fit: cover;
   border: solid 1px rgba(128, 128, 128, 0.141);
+}
+.perfil .fotos #agregarFoto {
+  border-radius: 10px;
+  margin: 5px;
+  width: 200px;
+  height: 200px;
+  border: solid 1px rgba(128, 128, 128, 0.141);
+  background: rgba(100, 100, 100, 0.1);
+  color: rgba(0, 0, 0, 0.808);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 25px;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+}
+.perfil .fotos #agregarFoto:hover {
+  background: rgba(100, 100, 100, 0.822);
+  color: white;
+}
+.perfil .fotos #agregarFoto div {
+  text-align: center;
+  width: 100%;
 }
 .perfil .vacunas {
   width: 70%;
@@ -2065,7 +2165,7 @@
 }
 .adopcion-concreta .cardAdopcion {
   text-align: center;
-  padding: 20px 5px;
+  padding: 20px 15px;
   width: 32%;
   border-radius: 44px;
   box-shadow: 0px 0px 4px rgba(100, 100, 100, 0.5);

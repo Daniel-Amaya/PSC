@@ -1,6 +1,6 @@
 <div class="containerIS margin-menu">
     <div class="row">
-        <fieldset class='col-ms-6'>
+        <fieldset class='col-500-6'>
             <form method="POST" id='iniciarSesion'>
                 <h2>Iniciar sesión</h2>
                 <div class="boxInput"><input type="text" placeholder="Correo electronico" name='correoIS'></div>
@@ -16,37 +16,33 @@
             <script src='publico/js/ajax/iniciarSesion.js'></script>
         </fieldset>
 
-        <div class="col-ms-6">
-        <div class="all-wrap">  
-  <div class="all">
-  <i class="far fa-copyright txt" style="float:right"></i><div class="tooltip">
-                            Animacion por Pavel Kozelskiy (CodePen) 
-                           </div>
-    <div class="yarn"></div>
-    <div class="cat-wrap">    
-      <div class="cat">
-        <div class="cat-upper">
-          <div class="cat-leg"></div>
-          <div class="cat-leg"></div>
-          <div class="cat-head">
-            <div class="cat-ears">
-              <div class="cat-ear"></div>
-              <div class="cat-ear"></div>
-            </div>
-            <div class="cat-face">
-              <div class="cat-eyes"></div>
-              <div class="cat-mouth"></div>
-              <div class="cat-whiskers"></div>
-            </div>
-          </div>
-        </div>
-        <div class="cat-lower-wrap">
-          <div class="cat-lower">
-            <div class="cat-leg">
-              <div class="cat-leg">
-                <div class="cat-leg">
-                  <div class="cat-leg">
-                    <div class="cat-leg">
+        <div class="col-500-6">
+
+          <div class="all-wrap">  
+            <div class="all">
+            <i class="far fa-copyright txt" style="float:right"></i><div class="tooltip">
+                                      Animacion por Pavel Kozelskiy (CodePen) 
+                                    </div>
+              <div class="yarn"></div>
+              <div class="cat-wrap">    
+                <div class="cat">
+                  <div class="cat-upper">
+                    <div class="cat-leg"></div>
+                    <div class="cat-leg"></div>
+                    <div class="cat-head">
+                      <div class="cat-ears">
+                        <div class="cat-ear"></div>
+                        <div class="cat-ear"></div>
+                      </div>
+                      <div class="cat-face">
+                        <div class="cat-eyes"></div>
+                        <div class="cat-mouth"></div>
+                        <div class="cat-whiskers"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cat-lower-wrap">
+                    <div class="cat-lower">
                       <div class="cat-leg">
                         <div class="cat-leg">
                           <div class="cat-leg">
@@ -58,7 +54,17 @@
                                       <div class="cat-leg">
                                         <div class="cat-leg">
                                           <div class="cat-leg">
-                                            <div class="cat-paw"></div>
+                                            <div class="cat-leg">
+                                              <div class="cat-leg">
+                                                <div class="cat-leg">
+                                                  <div class="cat-leg">
+                                                    <div class="cat-leg">
+                                                      <div class="cat-paw"></div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -70,16 +76,6 @@
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cat-leg">
-              <div class="cat-leg">
-                <div class="cat-leg">
-                  <div class="cat-leg">
-                    <div class="cat-leg">
                       <div class="cat-leg">
                         <div class="cat-leg">
                           <div class="cat-leg">
@@ -91,7 +87,17 @@
                                       <div class="cat-leg">
                                         <div class="cat-leg">
                                           <div class="cat-leg">
-                                            <div class="cat-paw"></div>
+                                            <div class="cat-leg">
+                                              <div class="cat-leg">
+                                                <div class="cat-leg">
+                                                  <div class="cat-leg">
+                                                    <div class="cat-leg">
+                                                      <div class="cat-paw"></div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -103,16 +109,6 @@
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cat-tail">
-              <div class="cat-tail">
-                <div class="cat-tail">
-                  <div class="cat-tail">
-                    <div class="cat-tail">
                       <div class="cat-tail">
                         <div class="cat-tail">
                           <div class="cat-tail">
@@ -123,7 +119,17 @@
                                     <div class="cat-tail">
                                       <div class="cat-tail">
                                         <div class="cat-tail">
-                                          <div class="cat-tail -end"></div>
+                                          <div class="cat-tail">
+                                            <div class="cat-tail">
+                                              <div class="cat-tail">
+                                                <div class="cat-tail">
+                                                  <div class="cat-tail">
+                                                    <div class="cat-tail -end"></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -140,11 +146,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
         </div>
     </div>
 </div>

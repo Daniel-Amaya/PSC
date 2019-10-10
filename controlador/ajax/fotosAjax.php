@@ -41,10 +41,20 @@ if(isset($_POST['carpeta'])){
 
     FotosController::mostrarYeliminarFotos($_POST['fotos']);
 
-}else{
-        echo "cama mierda cosa hp dejame coronoar esto";
-        echo $_POST['fotos'];
-        echo $_POST['carpetaN'];
+}elseif(isset($_POST['carpetaNU']) && !empty($_POST['carpetaNU']) && isset($_POST['idA'])){
+            
+    require '../../modelo/connect.php';
+    require_once '../../modelo/animales.php';
+    require_once '../../modelo/fotos.php';
+    require_once '../fotosController.php';
+    require '../carpetasController.php';
+
+    $agregarFoto = Carpetas::agregarFotos($_POST['carpetaNU'], $_FILES['fotoNU']['name'], $_FILES['fotoNU']['tmp_name']);
+
+    $foto = new Foto($_POST['idA'], $agregarFoto, 0);
+
+        echo "1";
+
 }
 
 

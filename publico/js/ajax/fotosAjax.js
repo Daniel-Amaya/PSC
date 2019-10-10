@@ -1,4 +1,3 @@
-
 function fotosAjax(send, action){
     
     ht = new XMLHttpRequest;
@@ -22,7 +21,6 @@ function fotosAjax(send, action){
     });
 
     ht.open('POST','controlador/ajax/fotosAjax.php');
-    ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
     ht.send(send);
 }
 
@@ -71,3 +69,32 @@ function fotoNueva(folder, idF){
     }
 
 }
+
+document.addEventListener('DOMContentLoaded', () =>{
+
+    if(id('aggF')){
+        id('aggF').addEventListener('change', function(){
+            file = id('aggF').files;
+            if(file.length > 0){
+                datosEnviar = new FormData;
+                datosEnviar.append('carpetaNU', id('folder').value);
+                datosEnviar.append('idA', id('idA').value);
+                datosEnviar.append('fotoNU', file[0]);
+
+                fotosAjax(datosEnviar, (ht) =>{
+                    if(ht.responseText == 1){
+                        let img = document.createElement('img');
+                        img.src = window.URL.createObjectURL(file[0]);
+                        id('fotos').appendChild(img);
+                    }else{
+                        console.log(ht.responseText);
+                        alert("No se ha agregado la foto");
+                    }
+                });
+            }else{
+                return false;
+            }
+        });
+    }
+
+});

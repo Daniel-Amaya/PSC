@@ -1,10 +1,37 @@
 
-aside{
-    width: 370px;
-}
+
 
 .adoptargeneral{
     display: flex;
+    @include respond-to(680px){
+        display: block;
+        .adopta-message{
+            padding: 30px;
+        }
+
+        aside{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100% !important;
+            .adopta-message{
+                width: 100%;
+            }
+            .main{
+                height: 330px;
+                margin: auto;
+                .cat{
+                    top: calc(50% - 150px);
+                }
+                .stand{
+                    top: calc(50% - 100px);
+                }
+            }
+        }
+    }
+
+    aside{
+        width: 370px;
+    }
 }
 
 .adopta-message{
@@ -114,7 +141,6 @@ aside{
     @include respond-to(500px){
         grid-template-columns: 1fr;
     }
-
 
     .card-adopta{
         margin: 20px auto;

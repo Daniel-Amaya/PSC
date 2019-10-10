@@ -20,10 +20,13 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
    $foto = Foto::fotoPerfil($e['idAnimalAdoptado']);
    $fotoPerfil = $foto->fetch();
 
-    $documentosLegales = DocumentosLegales::dataFirma($e['idUsuario']);
+    $documentos = DocumentosLegales::dataDocumentos($e['idUsuario']);
+
     ?>
 
         <h2 class='titulo'>Formulario de adopción diligenciado</h2>
+        <div id="imp">
+
             <table class='datosAdoptante'>
                 <tr>
                     <td>Apellidos y nombres: <br><?php  echo $usuario[2] ." ". $usuario[1] ?></td>
@@ -105,7 +108,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label class='firmaBox'><img src="publico/images/<?php echo $documentosLegales[0] ?>"></label>
+                    <label class='firmaBox'><img src="publico/images/<?php echo $documentos[1] ?>"></label>
 
                 </div>
 
@@ -151,11 +154,22 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
             </div>
 
         </div>
+        </div>
+
+        <a href="publico/images/<?php echo $documentos[2] ?>" class='btn_cafe verCed' target="_blank">Ver copia de cédula</a>
 
         <div class="btns2">
-            <button class='btn_naranja'>Descargar</button>
-            <button class='btn_cafe'>Imprimir</button>
+            <form action="controlador/ajax/imprimirAjax.php" method="post">
+                <input type="hidden" value='' id='iner' name='tables'>
+                <button class='btn_naranja'>Descargar</button>
+                <button class='btn_cafe'>Imprimir</button>
+            </form>
         </div>
+
+        <!-- <script src="publico/js/ajax/imprimirAjax.js"></script> -->
+        <script>
+            id('iner').value = id('imp').innerHTML;
+        </script>
         <?php
 }
 

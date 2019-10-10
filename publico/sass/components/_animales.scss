@@ -12,6 +12,7 @@
     border-radius: 0px 0px 0px 120px;
     @include  respond-to(500px){
         right: 50%;
+        top: 130%;
     }
 
     .cuerpo-perrito{

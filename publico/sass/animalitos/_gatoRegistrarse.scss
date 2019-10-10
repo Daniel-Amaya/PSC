@@ -100,13 +100,14 @@ body {
     
     .cat {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 60%;
+        left: 25%;
         width: 188px;
         height: 260px;
         margin-left: 12%;
         margin-top: -130px;
         color: $cat-color;
+        @include transforms(translate(-50%, -50%));
         
         .paw {
             position: absolute;

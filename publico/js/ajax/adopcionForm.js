@@ -88,6 +88,10 @@
                 
             }
 
+            if(id('cedula').files.length > 0){
+                datos.append('cedula', id('cedula').files[0]);
+            }
+
             if(verificarNoVacio(datos) == true){
 
                 ht = new XMLHttpRequest;

@@ -11,12 +11,14 @@ class RespuestasAdopcionController extends Respuesta{
             $respuestas = parent::mostrarRespuestas('', $idU, $idA);
             if($respuestas->rowCount() > 0){
 
+                $idRespuestas = [];
                 $preguntas = PreguntasAdopcion::dataPreguntas();
 
                 foreach($preguntas AS $pregunta){
 
                     $respuestas =  parent::mostrarRespuestas($pregunta[0], $idU, $idA);
                     $respuesta = $respuestas->fetch();
+                    $idRespuestas[] = $respuesta[0];
                     
                     if($pregunta[0] == 22){
                         $respuesta22 = explode(',', $respuesta[1]);
@@ -76,13 +78,11 @@ class RespuestasAdopcionController extends Respuesta{
 
                 }
 
+                echo " <script>var codRespuestas = ". json_encode($idRespuestas).";</script> ";
 
             }else{
                 echo "idA = $idA & idU = $idU";
             }
-
-
-
             
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR RESPUESTAS: " .$e->getMessage());
@@ -93,7 +93,7 @@ class RespuestasAdopcionController extends Respuesta{
     public function mostrarRespuestasAdoptado($idU, $idA){
         try{
 
-            require_once 'modelo/preguntasadopcion.php';
+            require_once 'modelo/preguntasAdopcion.php';
 
             $respuestas = parent::mostrarRespuestas('', $idU, $idA);
 
@@ -104,7 +104,7 @@ class RespuestasAdopcionController extends Respuesta{
 
                     <thead>
                         <tr>
-                            <th>N°</th>
+                            <th class='num'>N°</th>
                             <th>Preguntas</th>
                             <th colspan='3'>Respuestas</th>
                         </tr>
@@ -132,7 +132,7 @@ class RespuestasAdopcionController extends Respuesta{
 
                         echo " 
                         <tr>
-                            <th>$pregunta[0]</th>
+                            <th class='num'>$pregunta[0]</th>
                             <th>$pregunta[1]</th>
                             
                             <td colspan='3'>
@@ -155,7 +155,7 @@ class RespuestasAdopcionController extends Respuesta{
                         echo " 
 
                         <tr>
-                            <th>$pregunta[0]</th>
+                            <th class='num'>$pregunta[0]</th>
                             <th>$pregunta[1]</th>";
 
                             if($respuesta['dbPreguntaRespuesta'] != null){
@@ -196,6 +196,7 @@ class RespuestasAdopcionController extends Respuesta{
         }
 
     }
+    
 }
 
 ?>

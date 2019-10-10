@@ -14,10 +14,41 @@
         background: $color-principal;
         left: 60%;
         z-index: -1;
+    }
 
+    @include respond-to(500px){
+        &::before{
+            content: none;
+        }
+
+        fieldset{
+            padding: 20px 0 !important;
+            form{
+                padding: 0 30px !important;
+            }
+        }
+        .col-500-6{
+            position: relative;
+           
+            &:nth-child(2){
+                overflow: hidden;
+                height: 450px;
+                &:before{
+                    content: '';
+                    position: absolute;
+                    width: 80%;
+                    height: 100%;
+                    @include transforms(skew(-10deg));
+                    background: $color-principal;
+                    left: 10%;
+                    z-index: -1;
+                }
+            }
+        }
     }
 
     fieldset{
+        
         border: transparent;
         padding: 50px;
         text-align: center;
@@ -35,6 +66,13 @@
 .crear-cuenta{
     border: transparent;
     padding: 0px 50px;
+    @include respond-to(500px){
+        padding: 0px !important;
+        form{
+            padding: 10px;
+        }
+    }
+
     form{
         padding: 30px;
         margin: auto;
@@ -50,4 +88,10 @@
         }
 
     }
+
+}
+
+.cc-cat{
+    position: relative;
+    min-height: 500px;
 }

@@ -207,7 +207,7 @@ section {
 .contenedor {
   width: 100%;
   max-width: 1200px;
-  height: 430px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -171,6 +171,12 @@ nav{
             }
         }
     }
+
+    
+    @include respond-to(500px){
+        width: 90%;
+        left: -90%;
+    }
 }
 /*-------------------------------*\
              FINMENU
@@ -224,6 +230,7 @@ nav{
             }
         }
     }
+
 }
 
 .menuW{
@@ -235,8 +242,8 @@ nav{
     background: white;
     color: black !important;
     hr{
-        border-color: black;
-        background: black;
+        border-color: rgba(0, 0, 0, 0.342);
+        background: rgba(0, 0, 0, 0.342);
     }
     li{
         background: whitesmoke !important;
@@ -291,12 +298,16 @@ nav{
 
     width: 350px;
     z-index: 5;
+    overflow: hidden;
+    overflow-y: scroll;
     position: absolute;
     box-shadow: 0 0 15px rgba(100, 100, 100, 0.5);
     min-height: 200px;
+    max-height: 400px;
     background:white;
     top: 100%;
     left: 50%;
+
     @include transforms(translateX(-50%));
     i{
         position: absolute;

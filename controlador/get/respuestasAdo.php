@@ -14,6 +14,8 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
 
     if($Solicitud->rowCount() > 0){
 
+        $documetos = DocumentosLegales::dataDocumentos($_GET['idU']);
+
         $usuario = Usuario::dataUsuarios($_GET['idU']);
         $usuario = $usuario->fetch();
 
@@ -127,7 +129,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label class='firmaBox'><img src="publico/images/<?php echo DocumentosLegales::dataFirma($_GET['idU'])[0] ?>"></label>
+                    <label class='firmaBox'><img src="publico/images/<?php echo $documetos[1]; ?>"></label>
 
                 </div>
 
@@ -151,6 +153,9 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud']) && isset($_GET['idU']
                 <div>CI: <?php echo $datosDelUsuario['cedula'] ?></div>
             </div>
         </div>
+    
+        <a class='btn_cafe verCed' target='_blank' href="publico/images/<?php echo $documetos['copiaCedula'] ?>">Ver pdf de la cédula</a>
+  
 
         <h3 class="titulo">Adoptado</h3>
 

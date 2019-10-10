@@ -12,7 +12,7 @@
                 <div class="bolita"></div>
                 Adopta
             </a>
-            <a class="nube" href="donar.php">
+            <a class="nube quitar-500" href="donar.php">
                 <div class="bolita"></div>
                 <div class="bolita"></div>
                 <div class="bolita"></div>    

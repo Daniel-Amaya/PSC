@@ -16,6 +16,16 @@
         margin: 0 0 70px 0 !important;
     }
 
+    .smg-a{
+        text-align: right;
+        padding: 20px 10%;
+        width: 50%;
+        margin-left: auto;
+        @include respond-to(800px){
+            width: 90%;
+
+        }
+    }
 }
 
 $tamaño: 260 / 4 * 1px;

@@ -160,6 +160,7 @@
         }
     }
 
+
     .informacionAdoptado{
         margin: 0 0 100px 0;
         display: flex;
@@ -182,6 +183,31 @@
             padding: 13px 30px;
         }
     }
+
+    .cedulaPDF{
+
+        margin: 70px auto 0;
+        max-width: 300px;
+
+        input{
+            display: none;
+        }
+
+        label{
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            display: block;
+            padding: 30px 20px;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.verCed{
+    margin: 20px auto;
+    display: block;
+    width: max-content;
 }
 
 #lugarFirma, .firmaBox{

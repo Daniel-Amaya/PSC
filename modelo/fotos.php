@@ -19,9 +19,9 @@ class Foto extends Conexion{
             $query->bindParam(':perfil', $this->perfil);
             $query->execute(); 
             if($query->errorCode() != "00000"){
-                throw new Exception("Error al insertar la dirección de la imagen en la base de datos");
+                throw new PDOException("Error al insertar la dirección de la imagen en la base de datos {$query->errorCode()}");
             }
-        }catch(Exception $e){
+        }catch(PDOException $e){
             exit("ERROR ". $e->getMessage());
         }
     }

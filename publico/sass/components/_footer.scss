@@ -17,6 +17,7 @@ footer{
     @include column-one(500px);
     @include respond-to(500px){
         padding: 0;
+        text-align: center;
     }
 
     &.padding-menu{

@@ -123,7 +123,6 @@ class Carpetas implements Carpeta{
     public function subirFirma($folder, $firmaName, $firmaTMP){
         try{
 
-
             $dir = $folder."/" . basename($firmaName);
             $extension = strtolower(pathinfo($dir, PATHINFO_EXTENSION));
 
@@ -142,7 +141,7 @@ class Carpetas implements Carpeta{
 
                 throw new Exception("No agrega esa malparida firma de mierda piroba carechimba");
                 
-                }
+            }
 
         }catch(Exception $e){
             exit("ERROR AL SUBIR LA FIRMA: ".$e->getMessage());

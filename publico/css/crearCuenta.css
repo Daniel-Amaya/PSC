@@ -328,13 +328,18 @@
 }
 body .cat {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 60%;
+  left: 25%;
   width: 188px;
   height: 260px;
   margin-left: 12%;
   margin-top: -130px;
   color: #000;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
 }
 body .cat .paw {
   position: absolute;
@@ -704,6 +709,38 @@ body .cat .main .face .ear_r .inner {
   left: 60%;
   z-index: -1;
 }
+@media only screen and (max-width: 500px) {
+  .containerIS::before {
+    content: none;
+  }
+  .containerIS fieldset {
+    padding: 20px 0 !important;
+  }
+  .containerIS fieldset form {
+    padding: 0 30px !important;
+  }
+  .containerIS .col-500-6 {
+    position: relative;
+  }
+  .containerIS .col-500-6:nth-child(2) {
+    overflow: hidden;
+    height: 450px;
+  }
+  .containerIS .col-500-6:nth-child(2):before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    transform: skew(-10deg);
+    -webkit-transform: skew(-10deg);
+    -o-transform: skew(-10deg);
+    -ms-transform: skew(-10deg);
+    -moz-transform: skew(-10deg);
+    background: #ff7f04;
+    left: 10%;
+    z-index: -1;
+  }
+}
 .containerIS fieldset {
   border: transparent;
   padding: 50px;
@@ -720,6 +757,14 @@ body .cat .main .face .ear_r .inner {
   border: transparent;
   padding: 0px 50px;
 }
+@media only screen and (max-width: 500px) {
+  .crear-cuenta {
+    padding: 0px !important;
+  }
+  .crear-cuenta form {
+    padding: 10px;
+  }
+}
 .crear-cuenta form {
   padding: 30px;
   margin: auto;
@@ -733,6 +778,11 @@ body .cat .main .face .ear_r .inner {
 }
 .crear-cuenta form img {
   width: 200px;
+}
+
+.cc-cat {
+  position: relative;
+  min-height: 500px;
 }
 
 /*# sourceMappingURL=crearCuenta.css.map */

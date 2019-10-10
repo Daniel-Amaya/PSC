@@ -94,8 +94,23 @@ button {
   width: 50%;
 }
 
+.col-500-6 {
+  width: 50%;
+}
+@media only screen and (max-width: 500px) {
+  .col-500-6 {
+    width: 100%;
+  }
+}
+
 .grid {
   display: grid;
+}
+
+@media only screen and (max-width: 500px) {
+  .quitar-500 {
+    display: none !important;
+  }
 }
 
 /*-------------------------------*\
@@ -2106,6 +2121,26 @@ button {
 #formAdopcion .informacionAdoptado .nombreAdoptado, #formAdopcion .informacionAdoptado .edadAdoptado, #formAdopcion .informacionAdoptado .sexoAdoptado {
   padding: 13px 30px;
 }
+#formAdopcion .cedulaPDF {
+  margin: 70px auto 0;
+  max-width: 300px;
+}
+#formAdopcion .cedulaPDF input {
+  display: none;
+}
+#formAdopcion .cedulaPDF label {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  display: block;
+  padding: 30px 20px;
+  cursor: pointer;
+}
+
+.verCed {
+  margin: 20px auto;
+  display: block;
+  width: max-content;
+}
 
 #lugarFirma img, .firmaBox img {
   height: 100px;
@@ -2218,7 +2253,7 @@ button {
 }
 .solicitudModal .infoSolicitadoYanimalito .info {
   padding: 20px 0;
-  width: 400px;
+  width: 50%;
 }
 .solicitudModal .infoSolicitadoYanimalito .info li {
   padding: 10px;
@@ -2445,6 +2480,33 @@ button {
   text-align: center;
   height: 10%;
   font-weight: 600;
+}
+@media only screen and (max-width: 650px) {
+  .card-historia {
+    width: 300px;
+    height: auto;
+    padding: 0;
+    border-radius: 150px;
+  }
+  .card-historia .image {
+    width: 300px;
+    height: 300px;
+    shape-outside: none;
+  }
+  .card-historia .card_h_text {
+    padding: 10px 20px;
+    height: auto;
+    text-align: center;
+  }
+  .card-historia .card_h_titulo {
+    padding: 5px 20px;
+  }
+  .card-historia .invAdopta {
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+  }
 }
 
 .solicitudAdopcion {
@@ -2708,6 +2770,12 @@ nav div.nav-items ul li a {
 .menuLateralGen ul li:hover {
   background: #ff7f04;
 }
+@media only screen and (max-width: 500px) {
+  .menuLateralGen {
+    width: 90%;
+    left: -90%;
+  }
+}
 
 /*-------------------------------*\
              FINMENU
@@ -2771,8 +2839,8 @@ nav div.nav-items ul li a {
   color: black !important;
 }
 .menuLW hr {
-  border-color: black;
-  background: black;
+  border-color: rgba(0, 0, 0, 0.342);
+  background: rgba(0, 0, 0, 0.342);
 }
 .menuLW li {
   background: whitesmoke !important;
@@ -2823,9 +2891,12 @@ nav div.nav-items ul li a {
 #notificaciones {
   width: 350px;
   z-index: 5;
+  overflow: hidden;
+  overflow-y: scroll;
   position: absolute;
   box-shadow: 0 0 15px rgba(100, 100, 100, 0.5);
   min-height: 200px;
+  max-height: 400px;
   background: white;
   top: 100%;
   left: 50%;
@@ -2944,6 +3015,7 @@ footer {
 @media only screen and (max-width: 500px) {
   footer {
     padding: 0;
+    text-align: center;
   }
 }
 footer.padding-menu {

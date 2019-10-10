@@ -1,6 +1,78 @@
 <?php
 
+trait mostrarAdopcionesYSolicitudes{
+    
+    static function mostrarSolicitudes($solicitudes){
+        if($solicitudes->rowCount() > 0){
+                        
+            echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
+            foreach($solicitudes AS $solicitud){
+
+                $fotosSolicitud = Foto::dataFotos($solicitud[0]);
+                $urlFotoSolicitud = $fotosSolicitud->fetch();
+                echo "
+                    
+                    <div class='solicitudAdopcion'>
+                        <div class='row'>
+
+                            <div class='fotoPerfil'>
+                                <img src='publico/images/$urlFotoSolicitud[1]'>
+                                ";
+
+                                if($solicitud['estado'] == 'a un paso'){
+                                    echo "
+                                    <div class='btns2'>
+                                    <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
+                                    
+                                    <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
+                                    
+                                    </div>
+                                    ";
+                                }else{
+                                    echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
+                                }
+
+                            echo "
+                            </div>
+
+                            <div style='width: 60%'>
+                                <div class='dataAnimal'>
+                                    <ul class='row'>
+                                        <li>Para adoptar a: $solicitud[1]</li>
+                                        <li>De la especie: $solicitud[2]</li>
+                                    </ul>
+                                    <ul>
+                                        <li>De la raza: $solicitud[3]</li>
+                                    </ul>
+                                </div>
+                                <div class='detallesSolicitud'>
+                                    <table>
+                                        <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
+                                            <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>";
+                    
+            }
+
+        echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
+
+        }
+    }
+    
+}
+
 class AdopcionesController extends Adopcion{
+    
+    use mostrarAdopcionesYSolicitudes;
     
     // Administrador
 
@@ -221,6 +293,7 @@ class AdopcionesController extends Adopcion{
     // Usuario
 
     public function mostrarMiAnimalAdoptado($idUsuario){
+        
         $con = parent::conectar();
         try {
             $adopciones = parent::dataAdopciones($idUsuario);
@@ -228,9 +301,7 @@ class AdopcionesController extends Adopcion{
             if($adopciones->rowCount() > 0){
 
                 require_once 'modelo/fotos.php';
-
                 require_once 'controlador/funciones.php';
-
                 require_once 'modelo/vacunas.php';
                 require_once 'controlador/vacunasController.php';
 
@@ -246,7 +317,6 @@ class AdopcionesController extends Adopcion{
                     $vacunas = VacunasController::mostrarVacunasAplicadas($datos[0]);
 
                     echo "
-
                     
                     <div class='perfil'>
     
@@ -311,12 +381,22 @@ class AdopcionesController extends Adopcion{
                         </div>
     
                         <div class='perfilTabsItems'>
-                            <div class='fotos' id='fotos'>
+                            <div class='fotos'>
+                            <div id='fotos'>
                                 "; 
                                 foreach($fotos as $urlsTodas){
                                     echo "<img src='publico/images/$urlsTodas[1]'>";
                                 }
                                 echo "
+                            </div>
+
+                                <label for='aggF' id='agregarFoto'>
+                                    <div>Agregar</div><br>
+                                    <i class='fas fa-plus'></i>
+                                </label>
+                                <input type='file' id='aggF' style='display: none' class='subirFotos'>
+                                <input type='hidden' value='$datos[0]' id='idA'>
+                                <input type='hidden' value='{$datos['carpeta']}' id='folder' accept='image/*'>
                             </div>
                         </div>
     
@@ -337,83 +417,25 @@ class AdopcionesController extends Adopcion{
                         </div>
                     </div>
                         ";
-                        echo " 
+
+                    echo " 
                         <script src='publico/js/perfilTabs.js'></script>
                         <script>
                         perfilTabs();
                         </script>
                         <script src='publico/js/galeriaAnimalitos.js'></script>
-
-                        ";
+                    ";
 
                     $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' AND estado != 'adoptado' ORDER BY cod DESC");
                     $solicitudes->bindParam(':idUsuario', $idUsuario);
                     $solicitudes->execute();
-    
-                    if($solicitudes->rowCount() > 0){
-                        
-                        echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
-                        foreach($solicitudes AS $solicitud){
 
-                            $fotosSolicitud = Foto::dataFotos($solicitud[0]);
-                            $urlFotoSolicitud = $fotosSolicitud->fetch();
-                            echo "
-                                
-                                <div class='solicitudAdopcion'>
-                                    <div class='row'>
-
-                                        <div class='fotoPerfil'>
-                                            <img src='publico/images/$urlFotoSolicitud[1]'>
-                                            ";
-
-                                            if($solicitud['estado'] == 'a un paso'){
-                                                echo "
-                                                <div class='btns2'>
-                                                <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
-                                                
-                                                <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
-                                                
-                                                </div>
-                                                ";
-                                            }else{
-                                                echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
-                                            }
-
-                                        echo "
-                                        </div>
-
-                                        <div style='width: 60%'>
-                                            <div class='dataAnimal'>
-                                                <ul class='row'>
-                                                    <li>Para adoptar a: $solicitud[1]</li>
-                                                    <li>De la especie: $solicitud[2]</li>
-                                                </ul>
-                                                <ul>
-                                                    <li>De la raza: $solicitud[3]</li>
-                                                </ul>
-                                            </div>
-                                            <div class='detallesSolicitud'>
-                                                <table>
-                                                    <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
-                                                    <tbody>
-                                                        <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
-                                                        <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            
-                                        </div>
-
-                                    </div>
-
-                                </div>";
-                                
-                        }
-
-                    echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
-
-                    }
+                    self::mostrarSolicitudes($solicitudes);
+                    
                 }
+
+                echo " <script src='publico/js/ajax/fotosAjax.js'></script> ";
+
             }else{
 
                 require_once 'modelo/fotos.php';
@@ -422,123 +444,65 @@ class AdopcionesController extends Adopcion{
                 $solicitudes->bindParam(':idUsuario', $idUsuario);
                 $solicitudes->execute();
 
-                if($solicitudes->rowCount() > 0){
+                self::mostrarSolicitudes($solicitudes);
 
-                    echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
-                    
-                    foreach($solicitudes AS $solicitud){
-
-                        $fotosSolicitud = Foto::dataFotos($solicitud[0]);
-                        $urlFotoSolicitud = $fotosSolicitud->fetch();
-
-                        echo " 
-                        <div class='solicitudAdopcion row'>
-
-                            <div class='fotoPerfil'>
-                                <img src='publico/images/$urlFotoSolicitud[1]'>";
-
-                                
-                                if($solicitud['estado'] == 'a un paso'){
-                                    echo "
-                                    <div class='btns2'>
-                                    <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
-                                    
-                                    <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
-                                    
-                                    </div>
-                                    ";
-                                }else{
-                                    echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
-                                }
-                                echo "
-                            </div>
-
-                            <div style='width: 60%'>
-                                <div class='dataAnimal'>
-                                    <ul class='row'>
-                                        <li>Para adoptar a: $solicitud[1]</li>
-                                        <li>De la especie: $solicitud[2]</li>
-                                    </ul>
-                                    <ul>
-                                        <li>De la raza: $solicitud[3]</li>
-                                    </ul>
-                                </div>
-                                <div class='detallesSolicitud'>
-                                    <table>
-                                        <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
-                                        <tbody>
-                                            <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
-                                            <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                            </div>
-
-                        </div>";
-                            
-                    }
-
-                    echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
-
-                }else{
+                if($solicitudes->rowCount() == 0){
 
                     echo " <h2 class='titulo'>Mis mascotas</h2> ";
 
-                    echo " <div class='noAdopcion'>
+                    echo "
+                    <div class='noAdopcion'>
 
-                    <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='adoptar.php' class='btn_naranja'>Adoptar</a></div>
-                    <div class='mensajeApadrina'>¿No puedes adoptar? Colaboranos con una donación<br><br> <a href='' class='btn_naranja'>Dona</a></div>
-    
-                    <div class='husky'>
-                    <div class='mane'>
-                        <div class='coat'></div>
-                    </div>
-                    <div class='body'>
-                        <div class='head'>
-                        <div class='ear'></div>
-                        <div class='ear'></div>
-                        <div class='face'>
-                            <div class='eye'></div>
-                            <div class='eye'></div>
-                            <div class='nose'></div>
-                            <div class='mouth'>
-                            <div class='lips'></div>
-                            <div class='tongue'></div>
+                        <div class='mensajeAdopta'>Aún no has adoptado una mascota ¿Deseas adoptar? <br><br><a href='adoptar.php' class='btn_naranja'>Adoptar</a></div>
+                        <div class='mensajeApadrina'>¿No puedes adoptar? Colaboranos con una donación<br><br> <a href='' class='btn_naranja'>Dona</a></div>
+        
+                        <div class='husky'>
+                            <div class='mane'>
+                                <div class='coat'></div>
                             </div>
-                        </div>
-                        </div>
-                        <div class='torso'></div>
-                    </div>
-                    <div class='legs'>
-                        <div class='front-legs'>
-                        <div class='leg'></div>
-                        <div class='leg'></div>
-                        </div>
-                        <div class='hind-leg'>
-                        </div>
-                    </div>
-                    <div class='tail'>
-                        <div class='tail'>
-                        <div class='tail'>
-                            <div class='tail'>
-                            <div class='tail'>
-                                <div class='tail'>
-                                <div class='tail'></div>
+                            <div class='body'>
+                                <div class='head'>
+                                <div class='ear'></div>
+                                <div class='ear'></div>
+                                <div class='face'>
+                                    <div class='eye'></div>
+                                    <div class='eye'></div>
+                                    <div class='nose'></div>
+                                    <div class='mouth'>
+                                    <div class='lips'></div>
+                                    <div class='tongue'></div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class='torso'></div>
+                            </div>
+                            <div class='legs'>
+                                <div class='front-legs'>
+                                <div class='leg'></div>
+                                <div class='leg'></div>
+                                </div>
+                                <div class='hind-leg'>
                                 </div>
                             </div>
+                            <div class='tail'>
+                                <div class='tail'>
+                                <div class='tail'>
+                                    <div class='tail'>
+                                    <div class='tail'>
+                                        <div class='tail'>
+                                        <div class='tail'></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    </div>
-    
-                    
-                    </div> ";
+        
+                    </div>";
+
                 }
                 
-
-              
             }
         } catch (Exception $e) {
             exit("ERROR AL MOSTRAR ANIMALITO ADOPTADO: ".$e->getMessage());

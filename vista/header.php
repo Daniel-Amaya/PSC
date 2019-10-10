@@ -14,9 +14,11 @@
         }
     }
     ?>
+
     <script src="publico/js/main.js"></script>
     <title><?php if(isset($nombrePagina)) echo $nombrePagina ?> PSC</title>
 
 </head>
 <body>
+
     

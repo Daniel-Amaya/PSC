@@ -26,11 +26,13 @@
             rechazarMsg = id('rechazarMsg').value;
 
             if(rechazarMsg != ""){
-                solicitudAjax('rechazarCod='+cod+'&mensaje='+rechazarMsg, (ht) =>{
+                solicitudAjax('codRespuestas='+codRespuestas+'&rechazarCod='+cod+'&mensaje='+rechazarMsg, (ht) =>{
 
                     if(ht.responseText == '1'){
                         alert("Se ha cancelado la solicitud de adopción");
                         window.location = 'index.php';
+                    }else{
+                        console.log(ht.responseText);
                     }
 
                 }, 'controlador/ajax/solicitudesAjax.php');
@@ -40,7 +42,6 @@
 
         id('cerrarModal').addEventListener('click', cerrarModales);
     }
-
 
     function solicitudAjax(send, action, open){
 

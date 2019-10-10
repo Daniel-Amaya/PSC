@@ -65,7 +65,17 @@ class Respuesta extends Conexion{
         }
     }
 
-}
+    public function deleteRespuesta($cod){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("DELETE FROM respuestasadopcion WHERE cod = :cod");
+            $query->bindParam(':cod', $cod);
+            $query->execute();
 
+        }catch(PDOException $e){
+            exit("ERROR AL ELIMINAR RESPUESTA: ".$e->getMessage());
+        }
+    }
+}
 
 ?>

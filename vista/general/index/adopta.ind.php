@@ -33,7 +33,7 @@ require 'controlador/vacunasController.php';
 
 ?>
 
-                    <div class='card-historia marg'>
+                    <div class='card-historia marg quitar-500'>
                         <div class='image'>
                                 <img src='publico/images/f5.jpg' alt=''>
                         </div>
@@ -50,7 +50,7 @@ require 'controlador/vacunasController.php';
                             
                 </div>
                 
-                <h4 style='text-align: right; padding: 20px 10%; width: 50%; margin-left: auto'>Para ayudar a los animalitos, puedes adoptar o apadrinar, crea una cuenta para poder hacerlo :') <a href='crear-cuenta.php'>Crear cuenta</a></h4>
+                <h4 class='smg-a'>Para ayudar a los animalitos, puedes adoptar o apadrinar, crea una cuenta para poder hacerlo :') <a href='crear-cuenta.php'>Crear cuenta</a></h4>
             
             </div>
 

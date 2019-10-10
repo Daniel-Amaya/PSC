@@ -1,7 +1,5 @@
 <?php
 
-
-
 class SolicitudesController extends Solicitud{
     
     public function mostrarSolicitudesAlAdmin(){
@@ -29,7 +27,6 @@ class SolicitudesController extends Solicitud{
             $solicitudes = parent::dataSolicitud('', $estado);
 
             if($solicitudes->rowCount() > 0){
-
 
                 foreach($solicitudes AS $datos){
 

@@ -22,6 +22,20 @@
         background: lightgreen;
         border-radius: 0 50%;
     }
+    // @include column-one(600px);
+
+    @include respond-to(600px){
+        grid-auto-rows: minmax(100px, 140px);
+        grid-template-areas:'inte inte'
+                            'inte inte'
+                            'info info'
+                            'info info';
+        
+
+        .info-message{
+            padding: 20px;
+        }
+    }
     
 }
 
