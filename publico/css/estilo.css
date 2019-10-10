@@ -2328,6 +2328,9 @@ button {
 .card-adopta .btns_card {
   display: flex;
   padding: 10px 40px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 .card-adopta .btns_card a {
   padding: 3px 10px !important;
