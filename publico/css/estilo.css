@@ -141,6 +141,11 @@ button {
   min-height: 700px;
   min-width: 100%;
 }
+@media only screen and (max-width: 800px) {
+  .padding-menu {
+    padding-left: 0 !important;
+  }
+}
 
 .center {
   text-align: center;
@@ -244,7 +249,7 @@ button {
   width: 100% !important;
 }
 
-.btnB_cafe {
+.btnB_naranja, .btnB_cafe {
   padding: 10px;
   border-radius: 10px;
   outline: none;
@@ -255,9 +260,13 @@ button {
   cursor: pointer;
   background: white;
 }
-.btnB_cafe:hover {
+.btnB_naranja:hover, .btnB_cafe:hover {
   color: black !important;
   border-color: black !important;
+}
+.btn_largo.btnB_naranja, .btn_largo.btnB_cafe {
+  display: block;
+  width: 100% !important;
 }
 
 .btn_rojo {
@@ -299,6 +308,11 @@ button {
 .btnB_cafe {
   border: sienna solid 1px;
   color: sienna !important;
+}
+
+.btnB_naranja {
+  border: #ff7f04 solid 1px;
+  color: #ff7f04;
 }
 
 .btns2 .btn_rojo, .btns2 .btn_cafe, .btns2 .btn_naranja, .btns2 .btn_gris {
@@ -2182,6 +2196,14 @@ button {
   height: 100%;
   background: rgba(0, 0, 0, 0.315);
 }
+@media only screen and (max-width: 650px) {
+  .modal .contenido-modal {
+    width: 100% !important;
+  }
+  .modal .contenido-modal form {
+    padding: 50px 30px !important;
+  }
+}
 
 .contenido-modal {
   position: relative;
@@ -2529,6 +2551,17 @@ button {
   margin: 20px auto;
   border-radius: 44px;
 }
+@media only screen and (max-width: 500px) {
+  .solicitudAdopcion {
+    width: 95%;
+  }
+  .solicitudAdopcion .fotoPerfil, .solicitudAdopcion .infoSolicitud {
+    width: 100% !important;
+  }
+}
+.solicitudAdopcion .infoSolicitud {
+  width: 60%;
+}
 .solicitudAdopcion .fotoPerfil {
   display: flex;
   flex-direction: column;
@@ -2730,13 +2763,16 @@ nav div.nav-items {
 nav div.nav-items ul li {
   padding: 20px;
 }
-nav div.nav-items ul li a {
-  position: relative;
-}
 @media only screen and (max-width: 800px) {
-  nav div.nav-items ul li a {
+  nav div.nav-items ul li {
     display: none;
   }
+  nav div.nav-items ul li:nth-child(1) {
+    display: block;
+  }
+}
+nav div.nav-items ul li a {
+  position: relative;
 }
 
 .menuLateralGen {
@@ -2756,6 +2792,11 @@ nav div.nav-items ul li a {
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
+}
+.menuLateralGen .nav-logo img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .menuLateralGen h3 {
   width: 100%;
@@ -2808,6 +2849,11 @@ nav div.nav-items ul li a {
   left: 0;
   background: #ff7f04;
   box-shadow: 0px 10px 5px black;
+}
+@media only screen and (max-width: 800px) {
+  .menuLateral {
+    left: -273px;
+  }
 }
 .menuLateral .nav-logo {
   margin: auto;
@@ -3027,7 +3073,7 @@ footer {
 }
 @media only screen and (max-width: 500px) {
   footer {
-    padding: 0;
+    padding: 0 !important;
     text-align: center;
   }
 }
@@ -3049,6 +3095,9 @@ footer div.redes {
   justify-items: center;
   grid-template-columns: repeat(4, 1fr);
   font-size: 30px;
+}
+footer div.redes a {
+  color: black;
 }
 footer div.redes div i {
   width: 50px;

@@ -16,7 +16,7 @@ footer{
     @include transitions(1s);
     @include column-one(500px);
     @include respond-to(500px){
-        padding: 0;
+        padding: 0 !important;
         text-align: center;
     }
 
@@ -26,9 +26,11 @@ footer{
         min-height: min-content;
     }
     div{
+
         @include respond-to(500px){
             padding: 10px;
         }
+
         &.redes{
             display: grid;
             align-items: center;
@@ -37,6 +39,9 @@ footer{
             justify-items: center;
             grid-template-columns: repeat(4, 1fr); 
             font-size: 30px;
+            a{
+                color: black;
+            }
             div{
  
                 i{
@@ -129,10 +134,11 @@ footer{
     display:table-cell;
     padding:8px;
  }
- .icon-pack3 ul {   
-     display:table;
-     table-layout:fixed;
- }
+
+.icon-pack3 ul {   
+    display:table;
+    table-layout:fixed;
+}
  
  .icon-pack3 ul li a{
      position:relative;

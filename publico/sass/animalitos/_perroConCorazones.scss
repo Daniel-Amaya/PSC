@@ -34,7 +34,11 @@ $easing: ease-out;
 	height: 40vmin;
 	position: relative;
 	margin: 10px;
+	@include respond-to(800px){
+		margin: 10px auto !important;
+	}
 }
+
 .dog {
 	position: absolute;
 	top: 50%;

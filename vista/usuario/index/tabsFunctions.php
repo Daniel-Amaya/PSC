@@ -1,14 +1,31 @@
 <section class='margin-menu padding-menu boxPerroAzul'>
     <ul class='navegador-tabs'>
-        <li class='tabsItemUser'><strong>Mis mascotas</strong></li>
-        <li class='tabsItemUser'><strong>Mis apadrinamientos</strong></li>
-        <li class='tabsItemUser'><strong>Mis donaciones</strong></li>
-        <li class='tabsItemUser'><strong>Mi información</strong></li>
+
+        <li class='tabsItemUser'>
+            <strong>Mis mascotas</strong>
+            <div class="tabRes"><i class="fas fa-dog"></i></div>
+        </li>
+        <li class='tabsItemUser'>
+            <strong>Mis apadrinamientos</strong>
+            <div class="tabRes"><i class="fas fa-bone"></i></div>
+        </li>
+        <li class='tabsItemUser'>
+            <strong>Mis donaciones</strong>
+            <div class="tabRes"><i class="fas fa-money-bill-alt"></i></div>
+        </li>
+        <li class='tabsItemUser'>
+            <strong>Mi información</strong>
+            <div class="tabRes"><i class="fas fa-user"></i></div>
+        </li>
+
     </ul> 
 
     <div class="tabBox">
        <?php
        require_once 'modelo/adopciones.php';
+       require_once 'modelo/solicitudes.php';
+       require_once 'controlador/solicitudesController.php';
+
        require_once 'controlador/adopcionesController.php';
 
        AdopcionesController::mostrarMiAnimalAdoptado($_SESSION['sesion_usuario']['id']);

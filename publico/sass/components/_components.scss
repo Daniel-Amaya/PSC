@@ -58,6 +58,9 @@
    padding-left: 280px; 
    min-height: 700px;
    min-width: 100%;
+   @include respond-to(800px){
+       padding-left: 0 !important;
+   }
 }
 
 .center{

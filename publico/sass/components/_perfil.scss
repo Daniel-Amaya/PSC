@@ -12,16 +12,25 @@
         // Responsive --------------------------------
 
         @include respond-to(1000px){
-            .fotoPerfil, .nombreAnimal{
+
+            .fotoPerfil{
+                    width: max-content !important;
+                    height: max-content !important;
+                img{
+                    width: 150px !important;
+                    height: 150px !important;
+                    border-radius: 50%;
+                }
+            }
+
+            .nombreAnimal{
+
                 width: 50% !important;
                 height: 50% !important;
-            }
-            .nombreAnimal{
                 display: flex;
-                height: 180px !important;
                 align-items: center;
+                justify-content: center;
                 position: relative !important;
-                top: 0 !important;
                 left: 0;
                 font-size: 30px !important;
             }
@@ -75,26 +84,34 @@
     }
 
 
-   .adoptadoORadoptar{
-       display: flex;
-       font-size: 16px;
-       position: absolute;
-       right: 30px;
-       bottom: 10px;
-        strong{
-            margin: 0 10px;
-        }
-        span{
-            margin: 0 10px;
-            color: gray;
-        }
+    .adoptadoORadoptar{
+        display: flex;
+        font-size: 16px;
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
 
-        .btn_naranja{
-            width: 40%;
-            margin: 3px;
-            width: 250px;
+        @include respond-to(600px){
+            right: 20px;
+            bottom: -30px;
+            .btn_naranja{
+                width: 130px !important;
+            }
         }
-    }
+            strong{
+                margin: 0 10px;
+            }
+            span{
+                margin: 0 10px;
+                color: gray;
+            }
+
+            .btn_naranja{
+                width: 40%;
+                margin: 3px;
+                width: 250px;
+            }
+        }
 
     .perfilTabsItems{
         display: flex;
@@ -241,8 +258,6 @@
        }
    }
 }
-
-
 
 .perfilUsuario{
     margin: auto;

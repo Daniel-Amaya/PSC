@@ -14,12 +14,12 @@ require 'controlador/vacunasController.php';
             <div class='row'>
                 <div class='card-historia marg'>
                     <div class='image'>
-                        <img src='publico/images/f4.jpg' alt=''>
+                        <img src='publico/images/historias/historia_1.jpg' alt=''>
                     </div>
                             
                     <h2 class='card_h_titulo'>La alegria de la familia</h2>
                             
-                    <p class='card_h_text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi iste officia assumenda, possimus minus cum modi aliquam facilis distinctio. Officia quisquam ut quidem odio ratione at quae necessitatibus ipsa corporis?</p>
+                    <p class='card_h_text'>Estos 2 hermanos bebés han encontrado el hogar que tanto deseabamos que tuviesen para ser felices y más aún JUNTOS, alrededor de personas que los cuidarán y amarán con todo el corazón.</p>
                             
                     <div class='conocemas'><a href=''>Conocer más historias</a></div>
                             

@@ -74,9 +74,9 @@
 			</p>
 			<a href="#" class="btn">Contacto</a>
 			<ul class="social-media">
-				<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-				<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="https://www.facebook.com/juandavidmosqueramu"><i class="fab fa-facebook-square"></i></a></li>
+				<li><a href="https://twitter.com/JuanDav19713850"><i class="fab fa-twitter-square"></i></a></li>
+				<li><a href="https://www.instagram.com/juan_d_mosquera_/?hl=es-la"><i class="fab fa-instagram"></i></a></li>
 			</ul>
 		</div>
 		<div class="card">

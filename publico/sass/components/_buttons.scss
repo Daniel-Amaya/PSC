@@ -30,6 +30,11 @@
         color: black !important;
         border-color: black !important; 
     }
+
+    &.btn_largo{
+        display: block;
+        width: 100% !important;
+    }
 }
 
 .btn_rojo{
@@ -83,7 +88,12 @@
     border: sienna solid 1px;
     color: sienna !important;
 
-    
+}
+
+.btnB_naranja{
+    @extend %btnsB;
+    border: $color-principal solid 1px;
+    color: $color-principal;
 }
 
 

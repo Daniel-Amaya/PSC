@@ -4,21 +4,44 @@
     border-bottom: 1px solid black;
     display: flex;
     color: black;
+
+    @include respond-to(500px){
+
+        padding: 20px 5px;
+        li{
+            strong{
+                display: none;
+            }
+            .tabRes{
+                display: block !important;
+            }
+        }
+
+    }
+    
     li{
         cursor: pointer;
         width: 25%;
         text-align: center;
+
+        .tabRes{
+            display: none;
+        }
 
         &.tabSelection{
            background: $color-principal;
            color: white;
            border-radius: 20px;
         }
+
     }
 }
 
 .tabBox{
     padding: 30px;
+    @include respond-to(500px){
+        padding: 0px;
+    }
 }
 
 .boxPerroAzul{
@@ -91,6 +114,15 @@
     align-items: center;
     position: relative;
     margin: 10px auto;
+    @include respond-to(500px){
+        margin: 10rem auto !important;
+        .mensajeAdopta{
+            top: -50% !important;
+        }
+        .mensajeApadrina{
+            top: 120% !important;
+        }
+    }
 
     .mensajeAdopta, .mensajeApadrina{
         max-width: 300px;

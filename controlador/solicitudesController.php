@@ -1,7 +1,84 @@
 <?php
 
+use PHPMailer\PHPMailer\Exception;
+
+trait mostrarSolicitudes{
+
+    static function mostrarSolicitudes($solicitudes){
+        require_once 'modelo/fotos.php';
+        if($solicitudes->rowCount() > 0){
+                        
+            foreach($solicitudes AS $solicitud){
+
+                $fotosSolicitud = Foto::dataFotos($solicitud[0]);
+                $urlFotoSolicitud = $fotosSolicitud->fetch();
+                echo "
+                    
+                    <div class='solicitudAdopcion'>
+                        <div class='row'>
+
+                            <div class='fotoPerfil'>
+                                <img src='publico/images/$urlFotoSolicitud[1]'>
+                                ";
+
+                                if($solicitud['estado'] == 'a un paso'){
+                                    echo "
+                                    <div class='btns2'>
+                                    <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
+                                    
+                                    <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
+                                    
+                                    </div>
+                                    ";
+                                }elseif($solicitud['estado'] == 'adoptado'){
+
+                                    echo " <button class='btnB_naranja btn_largo'>Adoptado</button> ";
+
+                                }
+                                else{
+                                    echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
+                                }
+
+                            echo "
+                            </div>
+
+                            <div class='infoSolicitud'>
+                                <div class='dataAnimal'>
+                                    <ul class='row'>
+                                        <li>Para adoptar a: $solicitud[1]</li>
+                                        <li>De la especie: $solicitud[2]</li>
+                                    </ul>
+                                    <ul>
+                                        <li>De la raza: $solicitud[3]</li>
+                                    </ul>
+                                </div>
+                                <div class='detallesSolicitud'>
+                                    <table>
+                                        <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
+                                            <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>";
+                    
+            }
+
+        echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
+
+        }
+    }
+}
+
 class SolicitudesController extends Solicitud{
     
+    use mostrarSolicitudes;
     public function mostrarSolicitudesAlAdmin(){
         try{
             $solicitudes = parent::dataSolicitud('', 'espera');
@@ -71,6 +148,23 @@ class SolicitudesController extends Solicitud{
         }
     }
 
+    // Usuario
+
+    public function mostrarSolicitudesUsuario($idU){
+        try{
+            $solicitudes = parent::dataSolicitud($idU, '');
+            self::mostrarSolicitudes($solicitudes);
+
+            if($solicitudes->rowCount() == 0){
+                echo " <div class='center'>Aún no has intentado realizar una adopción ¿Qué esperas? <a href='adoptar.php' class='btn_naranja'>Adopta</a></div> ";
+                include 'vista/vacio.php';
+            }
+
+            
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR SOLICITUDES: ".$e->getMessage());
+        }
+    }
     public function notificaciones($idU){
         $con = parent::conectar();
         try{

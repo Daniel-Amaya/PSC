@@ -31,11 +31,16 @@ const idUsuario = <?php echo $datosDelUsuario[0] ?>
     <hr>
 
     <ul id='navegador'>
+
+        <li class="response-item"><a href="index.php" >Inicio</a></li>
+        <li class="response-item"><a href="fundacion.php">Fundación</a></li>
+        <li class="response-item"><a href="calendario.php">Eventos</a></li>
         <li><a href="adoptar.php" clas='rayita-naranja'>Adoptar</a></li>
         <li><a href="" clas='rayita-naranja'>Apadrinar</a></li>
         <li><a href="donar.php" clas='rayita-naranja'>Donar</a></li>
-        <!-- <li><a href="">Mis solicitudes</a></li> -->
+        <li><a href="solicitudes.php">Mis solicitudes</a></li>
         <li><a href="contacto.php" clas='rayita-naranja'>Contacto</a></li>
+
     </ul>
 
 </header>

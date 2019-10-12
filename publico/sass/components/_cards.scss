@@ -244,6 +244,17 @@
     margin: 20px auto;
     border-radius: 44px;
 
+    @include respond-to(500px){
+        width: 95%;
+        .fotoPerfil, .infoSolicitud{
+            width: 100% !important;
+        }
+    }
+
+    .infoSolicitud{
+        width: 60%;
+    }
+
     .fotoPerfil{
         display: flex;
         flex-direction: column;

@@ -1,6 +1,6 @@
 <section class="grid inicio">
 
-    <div class='cols'><h1> Peluditos San Cristobal <hr style='background: green; border-color: green'></h1> 
+    <div class='cols'><h1> Peluditos San Cristóbal <hr style='background: green; border-color: green'></h1> 
         sin voz pero con dignidad
             </div>
     </div>

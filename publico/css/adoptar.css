@@ -148,6 +148,15 @@
   font-size: 30px;
   cursor: pointer;
 }
+@media only screen and (max-width: 500px) {
+  .buscador-mascotas {
+    position: absolute;
+    left: 15px;
+    margin-top: 10px;
+    font-size: 20px;
+    width: max-content;
+  }
+}
 
 #buscarAnimalitos {
   padding: 50px 100px;
@@ -163,6 +172,11 @@
 }
 #solicitudModal .solicitarAdopcion {
   padding: 30px 50px;
+}
+@media only screen and (max-width: 600px) {
+  #solicitudModal .solicitarAdopcion {
+    padding: 30px 5px;
+  }
 }
 #solicitudModal .mensajeSolicitud {
   justify-content: center;
@@ -540,16 +554,22 @@
   position: relative;
 }
 @media only screen and (max-width: 1000px) {
-  .perfil .header .fotoPerfil, .perfil .header .nombreAnimal {
-    width: 50% !important;
-    height: 50% !important;
+  .perfil .header .fotoPerfil {
+    width: max-content !important;
+    height: max-content !important;
+  }
+  .perfil .header .fotoPerfil img {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50%;
   }
   .perfil .header .nombreAnimal {
+    width: 50% !important;
+    height: 50% !important;
     display: flex;
-    height: 180px !important;
     align-items: center;
+    justify-content: center;
     position: relative !important;
-    top: 0 !important;
     left: 0;
     font-size: 30px !important;
   }
@@ -602,6 +622,15 @@
   position: absolute;
   right: 30px;
   bottom: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .perfil .adoptadoORadoptar {
+    right: 20px;
+    bottom: -30px;
+  }
+  .perfil .adoptadoORadoptar .btn_naranja {
+    width: 130px !important;
+  }
 }
 .perfil .adoptadoORadoptar strong {
   margin: 0 10px;
@@ -1308,6 +1337,11 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
   height: 40vmin;
   position: relative;
   margin: 10px;
+}
+@media only screen and (max-width: 800px) {
+  .boxPerrito {
+    margin: 10px auto !important;
+  }
 }
 
 .dog {

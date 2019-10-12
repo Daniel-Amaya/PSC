@@ -1,78 +1,8 @@
 <?php
 
-trait mostrarAdopcionesYSolicitudes{
-    
-    static function mostrarSolicitudes($solicitudes){
-        if($solicitudes->rowCount() > 0){
-                        
-            echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
-            foreach($solicitudes AS $solicitud){
-
-                $fotosSolicitud = Foto::dataFotos($solicitud[0]);
-                $urlFotoSolicitud = $fotosSolicitud->fetch();
-                echo "
-                    
-                    <div class='solicitudAdopcion'>
-                        <div class='row'>
-
-                            <div class='fotoPerfil'>
-                                <img src='publico/images/$urlFotoSolicitud[1]'>
-                                ";
-
-                                if($solicitud['estado'] == 'a un paso'){
-                                    echo "
-                                    <div class='btns2'>
-                                    <button class='btn_rojo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>
-                                    
-                                    <button class='btn_cafe' onclick='window.location = \"adopcion.php?solicitud={$solicitud['cod']}\"'>Llenar formulario</button>
-                                    
-                                    </div>
-                                    ";
-                                }else{
-                                    echo "<button class='btn_rojo btn_largo' onclick='cancelarSolicitud(".$solicitud['cod'].")'>Cancelar solicitud</button>";
-                                }
-
-                            echo "
-                            </div>
-
-                            <div style='width: 60%'>
-                                <div class='dataAnimal'>
-                                    <ul class='row'>
-                                        <li>Para adoptar a: $solicitud[1]</li>
-                                        <li>De la especie: $solicitud[2]</li>
-                                    </ul>
-                                    <ul>
-                                        <li>De la raza: $solicitud[3]</li>
-                                    </ul>
-                                </div>
-                                <div class='detallesSolicitud'>
-                                    <table>
-                                        <thead><tr><th colspan='2'>Detalles de la solicitud</th></tr></thead>
-                                        <tbody>
-                                            <tr><td>Estado</td><td>".$solicitud['estado']."</td></tr>
-                                            <tr><td>Fecha de la solicitud</td><td>".$solicitud['fechaSolicitud']."</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                            </div>
-
-                        </div>
-
-                    </div>";
-                    
-            }
-
-        echo " <script src='publico/js/ajax/adopcion/solicitarAdopcion.js'></script> ";
-
-        }
-    }
-    
-}
-
 class AdopcionesController extends Adopcion{
     
-    use mostrarAdopcionesYSolicitudes;
+    use mostrarSolicitudes;
     
     // Administrador
 
@@ -333,10 +263,10 @@ class AdopcionesController extends Adopcion{
                             
                             <h2 class='nombreAnimal'>$datos[1]</h2>
     
-                        <div class='adoptadoORadoptar'>
-                        <span>información legal de la adopción</span>
-                        <strong>Fecha de adopción: $datos[13]</strong>
-                        </div>
+                            <div class='adoptadoORadoptar quitar-500'>
+                                <span>información legal de la adopción</span>
+                                <strong>Fecha de adopción: $datos[13]</strong>
+                            </div>
     
                         </div>
     
@@ -430,6 +360,10 @@ class AdopcionesController extends Adopcion{
                     $solicitudes->bindParam(':idUsuario', $idUsuario);
                     $solicitudes->execute();
 
+                    if($solicitudes->rowCount() > 0){
+                        echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
+                    }
+
                     self::mostrarSolicitudes($solicitudes);
                     
                 }
@@ -443,6 +377,10 @@ class AdopcionesController extends Adopcion{
                 $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' ORDER BY cod DESC");
                 $solicitudes->bindParam(':idUsuario', $idUsuario);
                 $solicitudes->execute();
+
+                if($solicitudes->rowCount() > 0){
+                    echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
+                }
 
                 self::mostrarSolicitudes($solicitudes);
 
