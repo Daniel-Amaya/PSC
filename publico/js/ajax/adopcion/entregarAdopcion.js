@@ -6,9 +6,15 @@
         id('continuar').addEventListener('click', () =>{
             
             solicitudAjax('adoptado='+adoptado+'&adoptante='+adoptante+'&solicitud='+solicitud+'&nomAdo='+nomAdo, (ht) => {
-                if(ht.responseText == '11'){
-                    alert('Se ha llevado a cabo la adopción');
-                    window.location = 'index.php';
+                if(ht.responseText == '111'){
+                    // alert('Se ha llevado a cabo la adopción');
+                    // window.location = 'index.php';
+                    id('nomA').textContent = nomAdo;
+                    id('respAd').style.display = 'none';
+                    id('seguimiento').style.display = 'block';
+
+                    id('idU').value = adoptante;
+                    id('idA').value = adoptado;
                 }else{
                     alert(ht.responseText);
                 }

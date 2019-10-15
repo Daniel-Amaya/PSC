@@ -1,17 +1,17 @@
 <?php 
 
 require_once 'modelo/connect.php';
-require_once 'modelo/adopciones.php';
-require_once 'controlador/adopcionesController.php';
 require_once 'modelo/solicitudes.php';
 require_once 'controlador/solicitudesController.php';
+require_once 'modelo/adopciones.php';
+require_once 'controlador/adopcionesController.php';
 
 ?>
 
 <div class="padding-menu margin-menu">
 
     <?php
-
+    
     require 'controlador/get/adopcionesAdmin.php';
 
     ?>

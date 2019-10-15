@@ -1,4 +1,4 @@
-verSolicitud = (data, fotoAnimalito) => {
+verSolicitud = (data, fotoAnimalito, numSolis) => {
     
     console.log(data);
 
@@ -10,15 +10,16 @@ verSolicitud = (data, fotoAnimalito) => {
         id('fotoUsuario').src = 'publico/images/fotoPerfilVacia.png';
     }
 
+
     id('nombreUsuario').textContent = data[12] + " " + data[13];
     id('celfon').textContent = "Contactar en: " + data['telefono'];
     id('DI').textContent = "Cedula: "+ data['cedula'];
-    id('perfilUser').href = "usuarios.php?usuario="+data[11];
+    id('perfilUser').href = "usuarios.php?perfil="+data[11];
 
     id('fotoAnimalito').src = 'publico/images/'+fotoAnimalito;
     id('nombreAnimalito').textContent = data[1];
     id('especieAnimalito').textContent = "Especie: "+ data[2];
-    id('numSolicitudes').textContent = 'Solicitudes actuales: 2';
+    id('numSolis').textContent = 'Solicitudes actuales: '+numSolis;
     id('perfilAni').href = "animalitos.php?perfil="+data[0];
 
     nuevaModal();

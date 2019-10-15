@@ -355,18 +355,18 @@ class AdopcionesController extends Adopcion{
                         </script>
                         <script src='publico/js/galeriaAnimalitos.js'></script>
                     ";
-
-                    $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' AND estado != 'adoptado' ORDER BY cod DESC");
-                    $solicitudes->bindParam(':idUsuario', $idUsuario);
-                    $solicitudes->execute();
-
-                    if($solicitudes->rowCount() > 0){
-                        echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
-                    }
-
-                    self::mostrarSolicitudes($solicitudes);
                     
                 }
+
+                $solicitudes = $con->prepare("SELECT animales.*, usuarios.*, solicitudesadopcion.* FROM animales, usuarios, solicitudesadopcion WHERE animales.id = idAnimal AND solicitudesadopcion.idUsuario = usuarios.id AND idUsuario = :idUsuario AND estado != 'rechazada' AND estado != 'procesando adopción' AND estado != 'adoptado' ORDER BY cod DESC");
+                $solicitudes->bindParam(':idUsuario', $idUsuario);
+                $solicitudes->execute();
+
+                if($solicitudes->rowCount() > 0){
+                    echo "<h2 class='titulo'> Mis solicitudes de adopción: </h2>";
+                }
+
+                self::mostrarSolicitudes($solicitudes);
 
                 echo " <script src='publico/js/ajax/fotosAjax.js'></script> ";
 
@@ -446,7 +446,6 @@ class AdopcionesController extends Adopcion{
             exit("ERROR AL MOSTRAR ANIMALITO ADOPTADO: ".$e->getMessage());
         }
     }
-
     
 }
 

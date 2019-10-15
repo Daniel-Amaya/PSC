@@ -110,11 +110,14 @@ class SolicitudesController extends Solicitud{
                     $fotoPerfil = Foto::fotoPerfil($datos[0]);
                     $fotoPerfil = $fotoPerfil->fetch();
 
+                    $numSolis = parent::countSolicitudes($datos[0]);
+                    $numSolis = $numSolis->fetch();
+
                     $datosJ = json_encode($datos);
 
                     if($estado == "espera"){
     
-                        echo " <tr onclick='verSolicitud($datosJ, \"$fotoPerfil[1]\")'>
+                        echo " <tr onclick='verSolicitud($datosJ, \"$fotoPerfil[1]\", $numSolis[0])'>
                             <th><i class='fas fa-eye'></i></th>
                             <th>$datos[12] $datos[13]</th>
                             <th>$datos[1]</th>
@@ -131,7 +134,7 @@ class SolicitudesController extends Solicitud{
                         </tr>";
                     }else{
 
-                        echo " <tr onclick='verSolicitud($datosJ, \"$fotoPerfil[1]\")'>
+                        echo " <tr onclick='verSolicitud($datosJ, \"$fotoPerfil[1]\", $numSolis[0])'>
                             <th><i class='fas fa-eye'></i></th>
                             <th>$datos[12] $datos[13]</th>
                             <th>$datos[1]</th>

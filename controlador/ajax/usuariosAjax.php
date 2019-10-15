@@ -27,7 +27,7 @@ if(isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['correo
 
         if($validar == 'bien'){
 
-            if($_FILES['foto']){
+            if(isset($_FILES['foto'])){
 
                 $carpeta = Carpetas::crearCarpeta($_POST['correo']);
                 $foto = Carpetas::agregarFoto($carpeta, $_FILES['foto']['name'], $_FILES['foto']['tmp_name']);

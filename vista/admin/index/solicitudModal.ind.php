@@ -26,7 +26,7 @@
                             <ul>
                                 <li id='nombreAnimalito'></li>
                                 <li id='especieAnimalito'></li>
-                                <li id='numSolicitudes'></li>
+                                <li id='numSolis'></li>
                                 <li><a href="" id='perfilAni' target="_blank">ver perfil</a></li>
                             </ul>
                         </div>

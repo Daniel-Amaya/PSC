@@ -2,15 +2,15 @@
 
 class Animal extends Conexion{
 
-    public $nombre;
-    public $especie;
-    public $raza;
-    public $color;
-    public $sexo;
-    public $edad;
-    public $esterilizado;
-    public $descripcion;
-    public $procedencia;    
+    protected $nombre;
+    protected $especie;
+    protected $raza;
+    protected $color;
+    protected $sexo;
+    protected $edad;
+    protected $esterilizado;
+    protected $descripcion;
+    protected $procedencia;    
 
     public function __construct($nombre, $especie, $raza, $color, $sexo, $edad, $esterilizado, $descripcion, $procedencia){
 

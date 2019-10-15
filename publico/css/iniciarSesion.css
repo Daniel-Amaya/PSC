@@ -662,6 +662,11 @@
 .crear-cuenta form img {
   width: 200px;
 }
+.crear-cuenta form .error {
+  position: relative;
+  text-align: right;
+  bottom: 0;
+}
 
 .cc-cat {
   position: relative;

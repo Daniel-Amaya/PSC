@@ -9,6 +9,11 @@
                     <p>Al hacer clic en continuar adopción, estás entregando la mascota <?php echo $datosSolicitud['nombre'] ?> al adoptante <?php echo $usuario['nombre']. " " . $usuario['apellidos'] ?> aceptando que cumple con todos los requisitos para adoptar la mascota ¿Deseas continuar?</p>
                 </div>
 
+                <div class="boxInput">
+                    <label for="">Has clic para indicar el dia en el que la persona puede venir por su mascota (en caso de ser entregada en adopción):</label>
+                    <button>Mostrar calendario</button>
+                </div>
+
                 <div class="btns2">
                     <button class='btn_naranja' id='continuar'>Continuar adopción</button>
                     <button class="btn_cafe" id='cerrarDar'>Volver</button>

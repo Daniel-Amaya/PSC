@@ -9,6 +9,10 @@ if($_SESSION['sesion_rol'] == 'a'){
 
     require 'vista/admin/menuAdmin.php';
     require 'vista/admin/adopcion/respuestas.ado.php';
+    # Seguimiento
+    require 'vista/admin/adopcion/seguimientoModales.php';
+    require 'vista/admin/adopcion/programarSegumiento.php';
+    # Seguimiento
     require 'vista/admin/adopcion/cancelarAdopcionModal.php';
     require 'vista/admin/adopcion/entregarEnAdopcionModal.php';
 

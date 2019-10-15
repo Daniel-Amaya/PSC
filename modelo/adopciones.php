@@ -2,10 +2,10 @@
 
 class Adopcion extends Conexion{
 
-    public $usuario;
-    public $animal;
-    public $fecha;
-    public $codEsterilizacion;
+    protected $usuario;
+    protected $animal;
+    protected $fecha;
+    protected $codEsterilizacion;
 
     public function __construct($usuario, $animal, $fecha, $codEsterilizacion){
         $this->usuario = $usuario;

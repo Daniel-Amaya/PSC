@@ -1,6 +1,6 @@
 <?php 
 
-$linksStyles = ['adoptar.css']; 
+$linksStyles = ['adoptar.css', 'fullcalendar.css']; 
 
 $nombrePagina = "Formulario de adopción";
 

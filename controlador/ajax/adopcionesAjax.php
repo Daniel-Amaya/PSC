@@ -12,6 +12,8 @@ if(isset($_POST['adoptado']) && !empty($_POST['adoptado']) && isset($_POST['soli
     Solicitud::updateEstado($_POST['solicitud'], 'adoptado', "Has completado el proceso de adopción, ahora $nombreAnimal es tu mascota, debes venir a la fundación durante los proximos días para llevar a tu mascota y llenarla de amor");
     Solicitud::updateNotificado($_POST['solicitud'], 0);
 
+    Solicitud::updateAdoptadoPorOtro($_POST['adoptante'], $_POST['adoptado']);
+
 }
 
 

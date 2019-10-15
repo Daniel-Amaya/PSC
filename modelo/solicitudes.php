@@ -1,5 +1,7 @@
 <?php
 
+use PHPMailer\PHPMailer\Exception;
+
 class Solicitud extends Conexion{
 
     public $usuario;
@@ -144,6 +146,39 @@ class Solicitud extends Conexion{
             $query->execute();
         }catch(Exception $e){
             exit("ERROR AL CAMBIAR VISTA DE NOTIFICACION: ".$e->getMessage());
+        }
+    }
+
+    public function countSolicitudes($idA){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("SELECT count(cod) FROM solicitudesadopcion WHERE idAnimal = :idA AND estado != 'adoptado'");
+            $query->bindParam(':idA', $idA, PDO::PARAM_INT);
+            $query->execute();
+
+            return $query;
+        }catch(PDOException $e){
+            exit("ERROR AL CONTAR SOLICITUDES:".$e->getMessage());
+        }
+    }
+
+    public function updateAdoptadoPorOtro($idU, $idA){
+        $con = parent::conectar();
+        try{
+
+            $query = $con->prepare("UPDATE solicitudesadopcion SET estado='rechazada', notificado=0, notificacion='Se ha cancelado la solicitud ya que la mascota ha sido adoptada por otra persona.' WHERE idAnimal = :idA AND idUsuario != :idU");
+            $query->bindParam(':idA', $idA);
+            $query->bindParam(':idU', $idU);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0";
+            }else{
+                echo "1";
+            }
+
+        }catch(PDOException $e){
+            exit("ERROR AL MODIFICAR LAS SOLICITUDES: ".$e->getMessage());
         }
     }
 }
