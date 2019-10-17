@@ -28,7 +28,9 @@ class Adopcion extends Conexion{
             }else{
 
                 if($query->rowCount() > 0){
-                    echo "1";
+                    echo "1&&";
+                    $id = $query->fetchColumn();
+                    echo $id;
                 }
             }
 

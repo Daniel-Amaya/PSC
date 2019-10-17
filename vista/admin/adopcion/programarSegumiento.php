@@ -6,149 +6,95 @@
     </div>
 </div>
 
-
-<script src="publico/js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="publico/js/bootstrap.min.js"></script>
-
-<!-- FullCalendar -->
-<script src='publico/js/moment.min.js'></script>
-<script src='publico/js/fullcalendar/fullcalendar.min.js'></script>
-<script src='publico/js/fullcalendar/fullcalendar.js'></script>
-<script src='publico/js/fullcalendar/locale/es.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/core/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/interaction/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/daygrid/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/timegrid/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/list/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/core/locales/es.js'></script>
 
 <script>
 
-añadirSeg =() =>{
+seguimientoAjax = (send, action) => {
+    
+    ht = new XMLHttpRequest;
 
-    visita = id('title').value;
-    // idU = id('idU').value;
-    // idA = id('idA').value;
-    // start = id('start').value;
-    // color = id('color').value;
-
-    idU = 15;
-    idA = 62;
-    start = id('start').value;
-    color = id('color').value;
-
-    $.ajax({
-        url: 'controlador/ajax/seguimientoAjax.php',
-        type: 'POST',
-        data: {'fechaVisita':start, 'visita':visita, 'idU':idU, 'idA': idA, 'color':color},
-
-        success: function(rep){
-            console.log(rep);
-
-            e = rep.split('&&');
-            if(e[0] == 1){
-                calendarAjaxR();
-            }else{
-                alert("No se pudo agregar");
-            }
+    ht.addEventListener('readystatechange', function(){
+        if(this.readyState == 4 && this.status == 200){
+            action(this);
         }
     });
+
+    ht.open('POST','controlador/ajax/seguimientoAjax.php');
+    ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 
+    ht.send(send);
 }
 
-// $(document).ready(function() {
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    const calendar = new FullCalendar.Calendar(id('calendar'), {
+
+        locale: 'es',
+        plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+        header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,listWeek',
+            },
+            
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+        selectable: true,
+        selectHelper: true, 
+        events: 'controlador/ajax/seguimientoAjax.php',
+        dateClick: (info) =>{
+            id('start').value = info.dateStr;
+            id('ModalAdd').style.display = 'block';
+        },
+        eventClick: (info) =>{
+            id('titleSeg').textContent = info.event.title;
+            id('fechaHora').textContent = info.event.start; 
+            // id('adoptanteSeg').textContent = info.event.nombre + info.event.apellidos;
+            id('adoptadoSeg').textContent = info.event.adoptado;
+            id('direccSeg').textContent = info.event.direccionApto;
+            id('numAdo').textContent = info.event.numAdo;
+            id('fechaAdo').textContent = info.event.fechaAdopcion;
+
+            id('modalInfo').style.display = 'block';
+        }
+
+    });
+
+    calendar.render();
 
     id('newE').addEventListener('submit', function(e){
     
         e.preventDefault();
-        añadirSeg();
-    });
 
+        visita = id('title').value;
+        idU = 15;
+        idA = 62;
+        start = id('start').value;
 
-
-function calendarAjaxR(){
-
-    $.ajax({
-        url: 'controlador/ajax/seguimientoAjax.php',
-        type: "POST",
-        data: '',
-        success: function(rep) {
-
-            var date = new Date();
-            var yyyy = date.getFullYear().toString();
-            var mm = (date.getMonth()+1).toString().length == 1 ? "0"+(date.getMonth()+1).toString() : (date.getMonth()+1).toString();
-            var dd  = (date.getDate()).toString().length == 1 ? "0"+(date.getDate()).toString() : (date.getDate()).toString();
-                
-            $('#calendar').fullCalendar({
-                
-                header: {
-                    language: 'es',
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,basicWeek,basicDay',
-
-                },
-                defaultDate: yyyy+"-"+mm+"-"+dd,
-                editable: true,
-                // eventLimit: true, // allow "more" link when too many events
-                selectable: true,
-                selectHelper: true,
-                events: JSON.parse(rep),
-                select: function(start, end) {
-                    
-                    $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-                    $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
-                    $('#ModalAdd').modal('show');
-
-                },
-                eventRender: function(event, element) {
-                    element.bind('click', function() {
-                        $('#ModalEdit #id').val(event.id);
-                        $('#ModalEdit #title').val(event.title);
-                        $('#ModalEdit #color').val(event.color);
-                        $('#ModalEdit').modal('show');
-                    });
-                },
-                eventDrop: function(event, delta, revertFunc) { // si changement de position
-
-                    edit(event);
-
-                },
-                eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
-
-                    edit(event);
-
-                }
-            
-            });
-            
-            function edit(event){
-
-                start = event.start.format('YYYY-MM-DD HH:mm:ss');
-                
-                id =  event.id;
-                
-                Event = [];
-                Event[0] = id;
-                Event[1] = start;
-                
-                $.ajax({
-                url: 'controlador/ajax/seguimientoAjax.php',
-                type: "POST",
-                data: {Event:Event},
-                success: function(rep) {
-                        e = rep.split('&&');
-                        if(rep[0] == '1'){
-                            alert('Evento se ha guardado correctamente');
-                        }else{
-                            alert('No se pudo guardar. Inténtalo de nuevo.'); 
-                        }
-                    }
-                });
+        seguimientoAjax('fechaVisita='+start+'&visita='+visita+'&idU='+idU+'&idA='+idA, (ht) => {
+            e = ht.responseText.split('&&');
+            if(e[0] == 1){
+                calendar.refetchEvents();
+            }else{
+                alert("No se pudo agregar");
             }
+        });
 
-        }
+        this.parentNode.parentNode.parentNode.style.display = 'none';
     });
-}
 
-calendarAjaxR();
+    // id('')
 
-// });
+
+});
+
+
 
 </script>
 

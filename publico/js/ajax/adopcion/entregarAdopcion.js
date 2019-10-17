@@ -6,8 +6,9 @@
         id('continuar').addEventListener('click', () =>{
             
             solicitudAjax('adoptado='+adoptado+'&adoptante='+adoptante+'&solicitud='+solicitud+'&nomAdo='+nomAdo, (ht) => {
-                if(ht.responseText == '111'){
-                    // alert('Se ha llevado a cabo la adopción');
+                e = ht.responseText.split('&&');
+                if(e[0] == '111'){
+                    alert(e[1]);
                     // window.location = 'index.php';
                     id('nomA').textContent = nomAdo;
                     id('respAd').style.display = 'none';

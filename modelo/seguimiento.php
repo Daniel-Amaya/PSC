@@ -40,7 +40,7 @@ class Seguimiento extends Conexion{
         $con = parent::conectar();
         try{
 
-            $query = $con->query("SELECT cod AS id,visita AS title, fechaVisita AS start FROM seguimiento");
+            $query = $con->query("SELECT cod AS id,visita AS title, fechaVisita AS start, adopciones.*, usuarios.nombre, usuarios.apellidos, direccionApto, animales.nombre AS adoptado FROM seguimiento, adopciones, animales, usuarios WHERE adopciones.idAnimalAdoptado = seguimiento.idAnimal AND adopciones.idAnimalAdoptado = animales.id AND usuarios.id = adopciones.idUsuario");
             return $query;
 
         }catch(PDOException $e){

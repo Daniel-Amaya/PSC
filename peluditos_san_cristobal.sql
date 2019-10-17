@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2019 a las 22:13:01
+-- Tiempo de generación: 17-10-2019 a las 12:37:05
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -41,7 +41,8 @@ CREATE TABLE `adopciones` (
 --
 
 INSERT INTO `adopciones` (`numAdopcion`, `idAnimalAdoptado`, `idUsuario`, `fechaAdopcion`, `codEsterilizacion`) VALUES
-(1, 62, 15, '2019-10-13', NULL);
+(1, 62, 15, '2019-10-13', NULL),
+(2, 63, 16, '2019-10-16', NULL);
 
 -- --------------------------------------------------------
 
@@ -334,11 +335,9 @@ CREATE TABLE `seguimiento` (
 --
 
 INSERT INTO `seguimiento` (`cod`, `visita`, `fechaVisita`, `idUsuario`, `idAnimal`) VALUES
-(1, 'Visita 1 husky', '2019-10-15 10:21:02', 15, 62),
-(2, 'lkjlk', '2019-10-22 00:00:00', 15, 62),
-(3, 'lkjlk', '2019-10-22 00:00:00', 15, 62),
-(4, '21321', '2019-10-09 00:00:00', 15, 62),
-(5, '21321', '2019-10-09 00:00:00', 15, 62);
+(1, 'Seguimiento #2 Juan David', '2019-10-17 00:00:00', 15, 62),
+(2, 'Seguimiento #2 Juan David', '2019-10-17 08:30:00', 15, 62),
+(3, 'Seguimiento #4 El rondo', '2019-10-25 00:00:00', 15, 62);
 
 -- --------------------------------------------------------
 
@@ -362,7 +361,7 @@ CREATE TABLE `solicitudesadopcion` (
 
 INSERT INTO `solicitudesadopcion` (`cod`, `idUsuario`, `idAnimal`, `fechaSolicitud`, `estado`, `notificado`, `notificacion`) VALUES
 (1, 15, 62, '2019-10-13', 'adoptado', 0, 'Has completado el proceso de adopciÃ³n, ahora Toby es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor'),
-(2, 16, 63, '2019-10-13', 'procesando adopciÃ³n', 1, 'El administrador estÃ¡ mirando tus respuestas y agregando la firma de la fundaciÃ³n para que puedas adoptar');
+(2, 16, 63, '2019-10-13', 'adoptado', 0, 'Has completado el proceso de adopciÃ³n, ahora Mishi es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor');
 
 -- --------------------------------------------------------
 
@@ -426,6 +425,7 @@ INSERT INTO `vacunas` (`cod`, `especie`, `vacuna`, `descripcion`) VALUES
 ALTER TABLE `adopciones`
   ADD PRIMARY KEY (`numAdopcion`),
   ADD UNIQUE KEY `unique_idAnimalesAdoptados` (`idAnimalAdoptado`),
+  ADD UNIQUE KEY `idAnimalAdoptado` (`idAnimalAdoptado`),
   ADD KEY `fk_adopcionesUsuarios` (`idUsuario`),
   ADD KEY `fk_adopcionesEsterilizacion` (`codEsterilizacion`);
 
@@ -520,7 +520,7 @@ ALTER TABLE `vacunas`
 -- AUTO_INCREMENT de la tabla `adopciones`
 --
 ALTER TABLE `adopciones`
-  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `animales`
@@ -556,7 +556,7 @@ ALTER TABLE `respuestasadopcion`
 -- AUTO_INCREMENT de la tabla `seguimiento`
 --
 ALTER TABLE `seguimiento`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudesadopcion`
