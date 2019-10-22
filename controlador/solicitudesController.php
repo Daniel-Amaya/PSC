@@ -76,7 +76,7 @@ trait mostrarSolicitudes{
     }
 }
 
-class SolicitudesController extends Solicitud{
+class SolicitudesController extends Solicitud implements Notificaciones{
     
     use mostrarSolicitudes;
     public function mostrarSolicitudesAlAdmin(){
@@ -168,6 +168,7 @@ class SolicitudesController extends Solicitud{
             exit("ERROR AL MOSTRAR SOLICITUDES: ".$e->getMessage());
         }
     }
+
     public function notificaciones($idU){
         $con = parent::conectar();
         try{

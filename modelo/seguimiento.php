@@ -38,11 +38,20 @@ class Seguimiento extends Conexion{
         }
     }
 
-    public function dataDiasSeg(){
+    public function dataDiasSeg($idU){
         $con = parent::conectar();
         try{
 
-            $query = $con->query("SELECT cod AS id,visita AS title, fechaVisita AS start, visitado, adopciones.*, usuarios.nombre, usuarios.apellidos, direccionApto, animales.nombre AS adoptado FROM seguimiento, adopciones, animales, usuarios WHERE adopciones.idAnimalAdoptado = seguimiento.idAnimal AND adopciones.idAnimalAdoptado = animales.id AND usuarios.id = adopciones.idUsuario");
+            if(!empty($idU)){
+                $query = $con->prepare("SELECT cod AS id,visita AS title, fechaVisita AS start, visitado, adopciones.*, usuarios.nombre, usuarios.apellidos, direccionApto, animales.nombre AS adoptado FROM seguimiento, adopciones, animales, usuarios WHERE adopciones.idAnimalAdoptado = seguimiento.idAnimal AND adopciones.idAnimalAdoptado = animales.id AND usuarios.id = adopciones.idUsuario AND usuarios.id = :idU");
+                $query->bindParam(':idU', $idU);
+                $query->execute();
+            }else{
+
+                $query = $con->query("SELECT cod AS id,visita AS title, fechaVisita AS start, visitado, adopciones.*, usuarios.nombre, usuarios.apellidos, direccionApto, animales.nombre AS adoptado FROM seguimiento, adopciones, animales, usuarios WHERE adopciones.idAnimalAdoptado = seguimiento.idAnimal AND adopciones.idAnimalAdoptado = animales.id AND usuarios.id = adopciones.idUsuario");
+
+            }
+
             return $query;
 
         }catch(PDOException $e){
@@ -78,7 +87,7 @@ class Seguimiento extends Conexion{
         $con = parent::conectar();
         try{
             $fecha = date('Y-m-d');
-            $query = $con->query("SELECT * FROM seguimiento, usuarios, animales, adopciones WHERE adopciones.idAnimalAdoptado = seguimiento.idAnimal AND adopciones.idAnimalAdoptado = animales.id AND usuarios.id = adopciones.idUsuario AND fechaVisita < '$fecha'");
+            $query = $con->query("SELECT * FROM seguimiento, usuarios, animales, adopciones WHERE adopciones.idAnimalAdoptado = seguimiento.idAnimal AND adopciones.idAnimalAdoptado = animales.id AND usuarios.id = adopciones.idUsuario AND fechaVisita < '$fecha' AND visitado != 1");
             return $query;
         }catch(PDOException $e){
             exit("ERROR AL MOSTRAR EL SEGUIMIENTO: ".$e->getMessage());

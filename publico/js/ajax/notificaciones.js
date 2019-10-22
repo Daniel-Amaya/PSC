@@ -19,7 +19,6 @@ abrirNotificaciones = () =>{
     }
 
 
-
 }
 
 mostrarNotificaciones = (idU) => {
@@ -46,39 +45,59 @@ mostrarNotificaciones = (idU) => {
                     let notif = document.createElement('div'); notif.className = 'notificacion';
                     let notifTitulo = document.createElement('h4'); 
 
-                    if(notificacion['notificado'] == 0){
+
+                    ////////////////////// Notificacion por solicitud //////////////////////////////
+                    if(notificacion['tipoNotificacion'] == 'solicitudAdopcion'){
+                        
+                        notifTitulo.textContent = 'Solicitud de adopción, adoptar a '+notificacion['nombre'];
+
+                        if(notificacion['notificado'] == 0){
+
+                            numNotiSinVer++;
+                            notif.setAttribute('data-cod', notificacion['cod']);
+
+                        }else{
+                            notif.setAttribute('data-codigo', notificacion['cod']);
+                        }
+
+                        if(notificacion['estado'] == 'a un paso'){
+
+                            notif.addEventListener('click', () =>{
+                                if(notif.dataset.codigo){
+                                    window.location = 'adopcion.php?solicitud='+ notif.dataset.codigo;
+                                }else{
+                                    window.location = 'adopcion.php?solicitud='+ notif.dataset.cod;
+                                }
+                            });
+                        }
+    
+                        if(notificacion['estado'] == 'adoptado'){
+                                
+    
+                        }
+    
+                        let notiCuerpo = document.createElement('p'); notiCuerpo.textContent = notificacion['notificacion'];
+                        notif.appendChild(notifTitulo);
+                        notif.appendChild(notiCuerpo);
+
+                    ////////////////////// Notificacion por seguimiento //////////////////////////////
+
+                    }else if(notificacion['tipoNotificacion'] == 'seguimiento'){
 
                         numNotiSinVer++;
-                        notif.setAttribute('data-cod', notificacion['cod']);
+                        notifTitulo.textContent = 'La visita se aproxima, proximamente se realizará la visita de seguimiento';
 
-                    }else{
-                        notif.setAttribute('data-codigo', notificacion['cod']);
+                        let fechaSegui = notificacion['fechaVisita'];
+                        let horaVisita = fechaSegui.split(' ');
+                        let notiCuerpo = document.createElement('p'); notiCuerpo.textContent ="Dia de la visita: "+ horaVisita[0] +" Hora de la visita: "+horaVisita[1];
+
+                        notif.appendChild(notifTitulo);
+                        notif.appendChild(notiCuerpo);
+                        
                     }
 
-                    if(notificacion['tipoNotificacion'] == 'solicitudAdopcion'){
-                        notifTitulo.textContent = 'Solicitud de adopción, adoptar a '+notificacion['nombre'];
-                    }
-
-                    if(notificacion['estado'] == 'a un paso'){
-
-                        notif.addEventListener('click', () =>{
-                            if(notif.dataset.codigo){
-                                window.location = 'adopcion.php?solicitud='+ notif.dataset.codigo;
-                            }else{
-                                window.location = 'adopcion.php?solicitud='+ notif.dataset.cod;
-                            }
-                        });
-                    }
-
-                    if(notificacion['estado'] == 'adoptado'){
-                            
-
-                    }
-
-                    let notiCuerpo = document.createElement('p'); notiCuerpo.textContent = notificacion['notificacion'];
-                    notif.appendChild(notifTitulo);
-                    notif.appendChild(notiCuerpo);
                     id('notificaciones').appendChild(notif);
+
 
                 }
 

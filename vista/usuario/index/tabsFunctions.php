@@ -22,7 +22,6 @@
 
     <div class="tabBox">
        <?php
-       require_once 'modelo/adopciones.php';
        require_once 'modelo/solicitudes.php';
        require_once 'controlador/solicitudesController.php';
 

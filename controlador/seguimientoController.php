@@ -2,7 +2,7 @@
 
 use PHPMailer\PHPMailer\Exception;
 
-class SeguimientoController extends Seguimiento{
+class SeguimientoController extends Seguimiento implements Notificaciones{
 
     public function seguienteSeguimiento($idA){
         $con = parent::conectar();
@@ -88,6 +88,31 @@ class SeguimientoController extends Seguimiento{
             }
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR SEGUIMIENTO: ".$e->getMessage());
+        }
+    }
+
+    public function notificaciones($idU){
+        $con = parent::conectar();
+        try{
+            $fechaHoy = date('Y-m-d');
+            $fecha = explode('-',$fechaHoy);
+            $fecha = $fecha[0].'-'.$fecha[1].'-'.($fecha[2]+1);
+            $query = $con->prepare("SELECT * FROM seguimiento WHERE idUsuario = :idU AND (fechaVisita LIKE '%$fecha%' OR fechaVisita LIKE '%$fechaHoy%')");
+            $query->bindParam(':idU', $idU);
+            $query->execute();
+
+            if($query->rowCount() > 0){
+
+                foreach($query AS $seguimiento){
+                    $seguimiento['tipoNotificacion'] = 'seguimiento';
+                    $notiJeison = json_encode($seguimiento);
+                    echo $notiJeison . "&&";
+                }
+
+            }
+            
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR NOTIFICACIONES: ".$e->getMessage());
         }
     }
     

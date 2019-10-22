@@ -30,6 +30,7 @@ $datosDelUsuario = UsuariosController::mostrarDatosDelUsuario($_SESSION['sesion_
         <li><a href="vacunas.php">Vacunas</a></li>
         <li><a href="animalitos.php">Mascotas</a></li>
         <li><a href="adoptar.php">Adopciones</a></li>
+        <li><a href="seguimiento.php">Seguimiento</a></li>
         <li><a href="">Apadrinamientos</a></li>
         <li><a href="">Donaciones</a></li>
 

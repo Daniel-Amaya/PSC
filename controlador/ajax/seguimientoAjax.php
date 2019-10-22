@@ -12,7 +12,11 @@ if(isset($_POST['fechaUp']) && isset($_POST['codUp'])){
     Seguimiento::updateSeguimiento($_POST['codUp'], $_POST['fechaUp']);
 }
 
-$Seguimiento = Seguimiento::dataDiasSeg();
+if(isset($_GET['idU']) && !empty($_GET['idU'])){
+    $Seguimiento = Seguimiento::dataDiasSeg($_GET['idU']);
+}else{
+    $Seguimiento = Seguimiento::dataDiasSeg('');
+}
 
 $events = [];
 foreach($Seguimiento->fetchAll(PDO::FETCH_ASSOC) AS $fechas){

@@ -52,7 +52,15 @@ const idUsuario = <?php echo $datosDelUsuario[0] ?>
             <li><a class="rayita-naranja" href="index.php">Inicio</a></li>
             <li><a class="rayita-naranja"  href="">Fundación</a></li>
             <li><a class="rayita-naranja" href="calendario.php">Eventos</a></li>
-            <li><a class="rayita-naranja" href="donar.php"></a></li>
+            <?php
+            require_once 'modelo/adopciones.php';
+            $verificarAdopcion = Adopcion::dataAdopciones($datosDelUsuario[0]);
+            if($verificarAdopcion->rowCount() > 0){
+            ?>
+            <li><a class="rayita-naranja" href="seguimiento.php">Seguimiento</a></li>
+            <?php
+            }
+            ?>
 
         </ul>
     </div>
