@@ -8,8 +8,8 @@
             solicitudAjax('adoptado='+adoptado+'&adoptante='+adoptante+'&solicitud='+solicitud+'&nomAdo='+nomAdo, (ht) => {
                 e = ht.responseText.split('&&');
                 if(e[0] == '111'){
-                    alert(e[1]);
                     // window.location = 'index.php';
+                    id('entregarModal').style.display = 'none';
                     id('nomA').textContent = nomAdo;
                     id('respAd').style.display = 'none';
                     id('seguimiento').style.display = 'block';

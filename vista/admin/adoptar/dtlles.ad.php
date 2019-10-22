@@ -98,6 +98,7 @@ require_once 'controlador/adopcionesController.php';
         <table>
             <thead>
                 <tr>
+                    <th></th>
                     <th>Adoptado</th>
                     <th>Adoptante</th>
                     <th>fecha de adopción</th>

@@ -126,6 +126,56 @@
     }
 }
 
+///////////////////////////////////// Seguimiento ////////////////////////////////////////////
+.seguimientoInfo{
+    th{
+        width: 50%;
+    }
+    button{
+        margin: 10px auto;
+        width: 400px;
+        display: block;
+    }
+    .col-500-6{
+        padding: 0px 5%;
+    }
+    .divTableDatos{
+        margin: 20px auto;
+    }
+}
+
+#todosLosSeg{
+    .segHoy{
+        margin: 40px 20px;
+        align-items: center;
+        .btn_naranja{
+            width: 40%;
+        }
+        i{
+            font-size: 30px;
+            margin: auto 20px;
+        }
+    }
+    #visitas{
+        padding: 0 30px;
+        width: 50%;
+        button{
+            margin: 5px 0;
+        } 
+    }
+}
+
+.seguiD{
+    padding: 30px;
+    width: 40%;
+    button{
+        margin: 10px auto;
+    }
+    .titulo{
+        margin: 10px auto;
+    }
+}
+
 
 // Usuario 
 

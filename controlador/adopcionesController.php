@@ -61,6 +61,7 @@ class AdopcionesController extends Adopcion{
 
                 foreach($adopciones AS $datos){
                     echo "<tr>
+                        <th><a href='adoptar.php?adopcion={$datos['numAdopcion']}'><i class='fas fa-eye'></i></a></th>
                         <th>$datos[1]</th>
                         <th>$datos[12] $datos[13]</th>
                         <th>{$datos['fechaAdopcion']}</th>
@@ -95,6 +96,10 @@ class AdopcionesController extends Adopcion{
 
                     $fotoPerfil = Foto::fotoPerfil($adopcion[0]);
                     $fotoPerfil = $fotoPerfil->fetch();
+
+                    $seguimiento = $con->query("SELECT * FROM seguimiento WHERE idUsuario = {$adopcion['idUsuario']} AND visitado = 1 ORDER BY fechaVisita ASC LIMIT 1");
+
+                    $seguimientoU = $con->query("SELECT * FROM seguimiento WHERE idUsuario = {$adopcion['idUsuario']} AND visitado = 0 ORDER BY fechaVisita ASC LIMIT 1");
                     echo " 
                     <h2 class='titulo'>Adopción numero {$adopcion['numAdopcion']}</h2>
                     <div class='adopcion-concreta'>
@@ -197,11 +202,31 @@ class AdopcionesController extends Adopcion{
                                     </tr>
                                     <tr>
                                         <td>Último seguimiento:</td>
-                                        <td>2019-04-23</td>
+                                        <td>";
+                                        if($seguimiento->rowCount() > 0){
+                                            $seguimiento = $seguimiento->fetch();
+                                            echo $seguimiento['fechaVisita'];
+                                        }else{
+                                            echo "No visitado aún";
+                                        }
+                                        echo "
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Siguiente:</td>
-                                        <td>Finalizado</td>
+                                        <td>";
+                                        if($seguimientoU->rowCount() > 0){
+                                            $seguimientoU = $seguimientoU->fetch();
+                                            echo $seguimientoU['fechaVisita'];
+                                        }else{
+                                            echo "Finalizado";
+                                        }
+                                        echo "
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Seguimiento:</td>
+                                        <td><a href='seguimiento.php?seg={$adopcion['idAnimalAdoptado']}'>Ver prog.</a></td>
                                     </tr>
                                 </table>
                             </div>

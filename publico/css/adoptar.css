@@ -123,6 +123,51 @@
   background: rgba(255, 125, 4, 0.753);
 }
 
+.seguimientoInfo th {
+  width: 50%;
+}
+.seguimientoInfo button {
+  margin: 10px auto;
+  width: 400px;
+  display: block;
+}
+.seguimientoInfo .col-500-6 {
+  padding: 0px 5%;
+}
+.seguimientoInfo .divTableDatos {
+  margin: 20px auto;
+}
+
+#todosLosSeg .segHoy {
+  margin: 40px 20px;
+  align-items: center;
+}
+#todosLosSeg .segHoy .btn_naranja {
+  width: 40%;
+}
+#todosLosSeg .segHoy i {
+  font-size: 30px;
+  margin: auto 20px;
+}
+#todosLosSeg #visitas {
+  padding: 0 30px;
+  width: 50%;
+}
+#todosLosSeg #visitas button {
+  margin: 5px 0;
+}
+
+.seguiD {
+  padding: 30px;
+  width: 40%;
+}
+.seguiD button {
+  margin: 10px auto;
+}
+.seguiD .titulo {
+  margin: 10px auto;
+}
+
 .adoptaAnimalitoUser {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1330,6 +1375,17 @@ FINFORMULARIO VACUNAS DEL ANIMALITO
 }
 .tableUsuarios .btn_cafe, .tableUsuarios .btn_naranja, .tableUsuarios .btn_rojo, .tableUsuarios .btnB_cafe {
   padding: 5px 15px;
+}
+
+.tableIzDe {
+  max-width: 300px;
+  margin: auto;
+}
+.tableIzDe tr td, .tableIzDe tr th {
+  padding: 10px;
+}
+.tableIzDe tr td:nth-child(2), .tableIzDe tr th:nth-child(2) {
+  text-align: right;
 }
 
 .boxPerrito {

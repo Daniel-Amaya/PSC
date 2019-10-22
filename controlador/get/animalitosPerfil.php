@@ -14,7 +14,7 @@ if(isset($_GET['perfil']) && !empty($_GET['perfil'])){
         echo "
         <script>
 
-        modalAnimalitos($datosj, \"$fotoPerfil[0]\", \"".edad($animalPerfil['edad'])."\");
+        modalAnimalitos($datosj, \"$fotoPerfil[1]\", \"".edad($animalPerfil['edad'])."\");
 
         </script>
         ";

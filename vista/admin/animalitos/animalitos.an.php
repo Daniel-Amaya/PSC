@@ -5,7 +5,6 @@ include 'modelo/fotos.php';
 require_once 'controlador/funciones.php';
 
 
-
 ?>
 
 <!-- <script src="publico/js/modal.js"></script> -->

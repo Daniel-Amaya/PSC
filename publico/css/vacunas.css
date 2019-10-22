@@ -78,6 +78,17 @@
   padding: 5px 15px;
 }
 
+.tableIzDe {
+  max-width: 300px;
+  margin: auto;
+}
+.tableIzDe tr td, .tableIzDe tr th {
+  padding: 10px;
+}
+.tableIzDe tr td:nth-child(2), .tableIzDe tr th:nth-child(2) {
+  text-align: right;
+}
+
 .mostrarVacunas td {
   width: 50%;
   text-align: center;

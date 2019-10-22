@@ -705,8 +705,8 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 
 .fc-button:focus {
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
+  // -webkit-box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
+  // box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
 }
 
 .fc-button:disabled {
@@ -726,10 +726,10 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   border-color: $cafe;
 }
 
-.fc-button-primary:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
-}
+// .fc-button-primary:focus {
+//   // -webkit-box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
+//   // box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
+// }
 
 .fc-button-primary:disabled {
   color: $cafe;
@@ -744,11 +744,11 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   border-color: $cafe;
 }
 
-.fc-button-primary:not(:disabled):active:focus,
-.fc-button-primary:not(:disabled).fc-button-active:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
-}
+// .fc-button-primary:not(:disabled):active:focus,
+// .fc-button-primary:not(:disabled).fc-button-active:focus {
+//   // -webkit-box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
+//   // box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
+// }
 
 /* icons within buttons */
 .fc-button .fc-icon {

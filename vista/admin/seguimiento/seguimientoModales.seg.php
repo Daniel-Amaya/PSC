@@ -51,3 +51,23 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="seguiD">
+    <div class="flex-modal">
+        <div class="contenido-modal seguiD">
+            <h2 class="titulo" id='ttD' style="margin-bottom: 20px"></h2>
+
+            <div style='padding: 5px'>Fecha y hora: <span id='fhD'></span></div>
+            <div style='padding: 5px'>Adoptante: <span id='ateD'></span></div>
+            <div style='padding: 5px'>Adoptado: <span id='atoD'></span></div>
+            <div style='padding: 5px'>Teléfono: <span id='telD'></span> </div>
+            <div style='padding: 5px'>Dirección de vivienda: <span id='diD'></span></div>
+            <div style='padding: 5px'>Num. adopción: <span id='nadD'></span></div>
+            <div style='padding: 5px'>Fecha adopción: <span id='faD'></span></div>
+            <div>
+                <button class='btn_naranja btn_largo' id='marVisit'>Marcar como visitado</button>
+                <button class='btn_rojo btn_largo'>Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
