@@ -754,10 +754,6 @@
     -moz-transform: translate(5px);
   }
 }
-.alertAction {
-  background: red;
-}
-
 @keyframes head {
   0% {
     transform: rotate(0);
@@ -1901,6 +1897,7 @@
   max-width: 300px;
   text-align: center;
   position: absolute;
+  z-index: 3;
 }
 .noAdopcion .mensajeAdopta .btn_naranja, .noAdopcion .mensajeApadrina .btn_naranja {
   padding: 3px 20px;

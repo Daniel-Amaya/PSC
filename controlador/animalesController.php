@@ -5,8 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 /**
  * 
  */
-trait mostrarAnimalitos
-{
+trait mostrarAnimalitos{
     static function animalitosAdmin($animales, $con){
         if($animales->rowCount() > 0){
         
@@ -238,7 +237,10 @@ trait mostrarAnimalitos
         }
     }
 
-    static function animalitosGeneral($animales, $con){
+    static function animalitosGeneral($animales, $con, $ifi){
+        if($ifi == true){
+            $conrtador = 0;
+        }
         if($animales->rowCount() > 0){
         
             foreach($animales as $datos) {
@@ -246,7 +248,13 @@ trait mostrarAnimalitos
                 $verificarAdopcion = $con->query("SELECT * FROM adopciones WHERE idAnimalAdoptado=$datos[0]");
                 if($verificarAdopcion->rowCount() == 0){
 
-    
+                    if($ifi == true){
+                        $conrtador++;
+                        if($conrtador > 4){
+                            break;
+                        }
+                    }
+
                     $fotos = Foto::fotoPerfil($datos[0]);
                     $urlFotoPerfil = $fotos->fetch();
         
@@ -292,9 +300,9 @@ class AnimalesController extends Animal{
         $con = parent::conectar();
         try{
             
-            $animales = $con->query("SELECT * FROM animales");
+            $animales = parent::dataAnimal('');
 
-            self::animalitosGeneral($animales, $con);
+            self::animalitosGeneral($animales, $con, false);
         
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
@@ -430,9 +438,9 @@ class AnimalesController extends Animal{
         $con = parent::conectar();
         try{
             
-            $animales = $con->query("SELECT * FROM animales LIMIT 4");
+            $animales = parent::dataAnimal('');
         
-            self::animalitosGeneral($animales, $con);
+            self::animalitosGeneral($animales, $con, true);
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LOS DATOS DE LOS ANIMALITOS: ".$e->getMessage());
         }

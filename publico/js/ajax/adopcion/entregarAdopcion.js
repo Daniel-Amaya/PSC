@@ -12,7 +12,9 @@
                     id('entregarModal').style.display = 'none';
                     id('nomA').textContent = nomAdo;
                     id('respAd').style.display = 'none';
-                    id('seguimiento').style.display = 'block';
+                    id('seguimiento').style.overflow = 'initial';
+                    id('seguimiento').style.height = 'auto';
+                    id('seguimiento').style.minHeight = '700px';
 
                     id('idU').value = adoptante;
                     id('idA').value = adoptado;

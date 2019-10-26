@@ -67,7 +67,7 @@ img {
 }
 
 hr {
-  border-width: 0.5px;
+  border-width: 1px;
   border-color: #ff7f04;
   background: #ff7f04;
 }
@@ -2322,6 +2322,16 @@ button {
 .formBuscador {
   padding: 50px 100px;
   text-align: center;
+}
+
+#politicaDatos .contenido-modal {
+  padding: 40px;
+}
+#politicaDatos .contenido-modal .titulo {
+  margin: 20px auto;
+}
+#politicaDatos .contenido-modal p {
+  padding: 20px;
 }
 
 .card-adopta {
