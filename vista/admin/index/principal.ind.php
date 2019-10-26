@@ -4,7 +4,7 @@
     <ul class="navegador-tabs">
         <li class="tabsItemUser tabSelection"><strong>Solicitudes</strong></li>
         <li class="tabsItemUser"><strong>Formularios diligenciados</strong></li>
-        <li class="tabsItemUser"><strong>Apadrinamientos</strong></li>
+        <li class="tabsItemUser"><strong>Visitas de seguimiento</strong></li>
         <li class="tabsItemUser"><strong>Información</strong></li>
     </ul>
 
@@ -105,6 +105,19 @@
     </div>
 
     <div class="tabBox">
+    <?php 
+        require 'modelo/seguimiento.php';
+        require 'controlador/seguimientoController.php';
+        // SeguimientoController::dataDiasSeg('');
+    ?>
+        <!-- Visitas de seguimiento -->
+        <div class="row">
+            <div class="col-500-6 center">
+                <h3 class="titulo" style='margin-top: 10px'>Visitas programadas para el dia de hoy</h3>
+                <?php SeguimientoController::seguimientoDiarioAdmin(); ?>
+            </div>
+        </div>
+    
 
     </div>
 

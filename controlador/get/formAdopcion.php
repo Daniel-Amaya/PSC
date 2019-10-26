@@ -84,7 +84,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
                         </li>
 
                         <li>
-                        Se enviarán fotos regularmente a: sancristobalpeluditos@gmail.com, con el fin de realizar el seguimiento del estado, trato y medio en el que se desenvuelve el animalito adoptado; también así se podrá mantener actualizada nuestra base de datos.
+                        Se enviarán fotos regularmente a: sesión mis animalitos, con el fin de realizar el seguimiento del estado, trato y medio en el que se desenvuelve el animalito adoptado; también así se podrá mantener actualizada nuestra base de datos.
                         </li>
                     </ol>
                 </p>

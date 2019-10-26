@@ -1,7 +1,6 @@
-function vacunasAjax(send, action){
+function vacunasAjax(send, action, message){
 
     var ht = new XMLHttpRequest;
-
 
     ht.addEventListener('progress', (e) => {
         let porcentaje = Math.round((e.loaded / e.total) * 100);
@@ -16,7 +15,7 @@ function vacunasAjax(send, action){
 
     ht.addEventListener('readystatechange', function(){
         if(this.readyState == 4 && this.status == 200){
-            action(this);
+            action(this, message);
         }
     });
 
@@ -25,26 +24,36 @@ function vacunasAjax(send, action){
     ht.send(send);
 }
 
-function vacunascanina(ht){
+function vacunascanina(ht, message){
     e = ht.responseText;
 
     e = e.split('%%');
 
     if(e.length == 2){
         console.log(e[0]);
+        if(e[0] == 1){
+            alertAction(message[0], color_principal);
+        }else{
+            alertAction(message[1], 'red');
+        }
         id('vacunasCanino').innerHTML = e[1];
     }else{
         id('vacunasCanino').innerHTML = e[0];
     }
 }
 
-function vacunasfelina(ht){
+function vacunasfelina(ht, message){
     e = ht.responseText;
 
     e = e.split('%%');
 
     if(e.length == 2){
         console.log(e[0]);
+        if(e[0] == 1){
+            alertAction(message[0], color_principal);
+        }else{
+            alertAction(message[1], 'red');
+        }
         id('vacunasFelino').innerHTML = e[1];
     }else{
         id('vacunasFelino').innerHTML = e[0];
@@ -80,11 +89,10 @@ function llenarVacunas(idV,nombre, descripcion, especie){
 
 }
 
-
 document.addEventListener('DOMContentLoaded', function(){
 
-    vacunasAjax('especie=canina', vacunascanina);
-    vacunasAjax('especie=felina', vacunasfelina);
+    vacunasAjax('especie=canina', vacunascanina, '');
+    vacunasAjax('especie=felina', vacunasfelina, '');
 
     // Agregar 
 
@@ -97,10 +105,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(nombre != "" && descripcion != "" && especie != ""){
             if(especie == "felina"){
-                vacunasAjax('especie=felina&nomVacuna='+nombre+'&desVacuna='+descripcion+"&especieV="+especie, vacunasfelina);
+                vacunasAjax('especie=felina&nomVacuna='+nombre+'&desVacuna='+descripcion+"&especieV="+especie, vacunasfelina, ['Se ha agregado la vacuna (Especie felina)', 'No ha sido posible agregar la vacuna']);
                 this.parentNode.parentNode.parentNode.style.display = 'none';
             }else{
-                vacunasAjax('especie=canina&nomVacuna='+nombre+'&desVacuna='+descripcion+"&especieV="+especie, vacunascanina);
+                vacunasAjax('especie=canina&nomVacuna='+nombre+'&desVacuna='+descripcion+"&especieV="+especie, vacunascanina, ['Se ha agregado la vacuna (Especie canina)', 'No ha sido posible agregar la vacuna']);
                 this.parentNode.parentNode.parentNode.style.display = 'none';
             }
         }
@@ -118,10 +126,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(nombre != "" && descripcion != "" && especie != ""){
             if(especie == "felina"){
-                vacunasAjax('especie=felina&ENV='+nombre+'&EDV='+descripcion+"&codE="+cod, vacunasfelina);
+                vacunasAjax('especie=felina&ENV='+nombre+'&EDV='+descripcion+"&codE="+cod, vacunasfelina, ['Se ha editado la vacuna (Especie felina)', 'No ha sido posible editar la vacuna']);
                 this.parentNode.parentNode.parentNode.style.display = 'none';
             }else{
-                vacunasAjax('especie=canina&ENV='+nombre+'&EDV='+descripcion+"&codE="+cod, vacunascanina);
+                vacunasAjax('especie=canina&ENV='+nombre+'&EDV='+descripcion+"&codE="+cod, vacunascanina, ['Se ha editado la vacuna (Especie canina)', 'No ha sido posible editar la vacuna']);
                 this.parentNode.parentNode.parentNode.style.display = 'none';
             }
         }
@@ -138,13 +146,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(nombre != "" || descripcion != ""){
 
-            vacunasAjax('especie=canina&nomBus='+nombre+'&desBus='+descripcion, vacunascanina);
-            vacunasAjax('especie=felina&nomBus='+nombre+'&desBus='+descripcion, vacunasfelina);
+            vacunasAjax('especie=canina&nomBus='+nombre+'&desBus='+descripcion, vacunascanina, '');
+            vacunasAjax('especie=felina&nomBus='+nombre+'&desBus='+descripcion, vacunasfelina, '');
 
         }else{
 
-            vacunasAjax('especie=canina', vacunascanina);
-            vacunasAjax('especie=felina', vacunasfelina);
+            vacunasAjax('especie=canina', vacunascanina, '');
+            vacunasAjax('especie=felina', vacunasfelina, '');
             
         }
     });

@@ -754,6 +754,10 @@
     -moz-transform: translate(5px);
   }
 }
+.alertAction {
+  background: red;
+}
+
 @keyframes head {
   0% {
     transform: rotate(0);

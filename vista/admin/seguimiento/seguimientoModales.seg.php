@@ -1,14 +1,29 @@
 <div class="modal" id="ModalAdd">
     <div class="flex-modal" role="document">
         <div class="contenido-modal">
-            <form style='padding: 50px' method="POST" id="newE">
+            <form style='padding: 50px' method="POST" id="aggSeg">
     
                     <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                <h2 class="center" id="myModalLabel">Agregar Evento</h2>
+                <h2 class="center" id="myModalLabel">Agregar visita de seguimiento</h2>
+
+                <div class="boxInput">
+                    <label for="adopcion">Seguimiento a la adopción</label>
+                    <select name='adopcion' id="adopcion">
+                        <?php
+
+                        require 'modelo/solicitudes.php';
+                        require 'controlador/solicitudesController.php';
+                        require 'modelo/adopciones.php';
+                        require 'controlador/adopcionesController.php';
+                        AdopcionesController::adopcionOption(); 
+
+                        ?>
+                    </select>
+                </div>
         
                 <div class="boxInput">
                     <label for="title">Indicador de seguimiento</label>
-                    <input type="text" name="title"  id="title" placeholder="Titulo" value="Seguimiento a <?php echo $usuario['nombre']." ".$usuario['apellidos'] ?>">
+                    <input type="text" name="title"  id="title" placeholder="Ejm: Seguimiento a Ejemplo #Número de visita">
                 </div>
 
                 <div class="boxInput">
@@ -21,12 +36,9 @@
                 </div>
 
                 <div class="boxInput">
-                    <label for="start" >Fecha Inicial</label>
-                    <input type="text" name="start" id="start" placeholder="YYYY-MM-DDT">
+                    <label for="start">Fecha Inicial</label>
+                    <input type="text" name="start" id="start" placeholder="YYYY-MM-DDT" readonly>
                 </div>
-
-                <input type="hidden" id='idU'>
-                <input type="hidden" id='idA'>
 
                 <div class="btns2">
                     <button type="button" class="btn_naranja" id='cerrarEs'>Cerrar</button>
@@ -48,6 +60,8 @@
             <div style='padding: 5px'>Dirección de vivienda: <span id='direccSeg'></span></div>
             <div style='padding: 5px'>Num. adopción: <span id='numAdo'></span></div>
             <div style='padding: 5px'>Fecha adopción: <span id='fechaAdo'></span></div>
+
+            <button id="elimSeg" class="btn_rojo btn_largo">Eliminar seguimiento</button>
         </div>
     </div>
 </div>

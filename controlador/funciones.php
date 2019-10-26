@@ -1,5 +1,7 @@
 <?php
 
+use PHPMailer\PHPMailer\Exception;
+
 function genero($data){
     if($data == "F"){
         return "Femenino";
@@ -11,24 +13,31 @@ function genero($data){
 }
 
 function edad($fecha){
-    $separarFecha = explode('-', $fecha);
+    try{
 
-    $añoActual = date('Y');
-    $años = ($añoActual-$separarFecha[0]);
-    $mesActual = date('m');
-    $meses = ($mesActual - $separarFecha[1]);
+        $separarFecha = explode('-', $fecha);
 
-    if($años == 0 && $meses != 0){
-        $edad = "{$meses} meses";
-    }elseif($años != 0 && $meses != 0){
-        $edad = "{$años} años y {$meses} meses";
-    }elseif($años == 0 && $meses == 0){
-        $edad = "Recien nacido";
-    }elseif($meses == 0 && $años != 0){
-        $edad = "{$años} años";
+        $añoActual = date('Y');
+        $años = ($añoActual-$separarFecha[0]);
+        $mesActual = date('m');
+        $meses = ($mesActual - $separarFecha[1]);
+
+        if($años == 0 && $meses != 0){
+            $edad = "{$meses} meses";
+        }elseif($años != 0 && $meses != 0){
+            $edad = "{$años} años y {$meses} meses";
+        }elseif($años == 0 && $meses == 0){
+            $edad = "Recien nacido";
+        }elseif($meses == 0 && $años != 0){
+            $edad = "{$años} años";
+        }
+
+        return $edad;
+
+    }catch(Exception $e){
+        echo "ERROR AL MOSTRAR LA EDAD: {$e->getMessage()}";
     }
 
-    return $edad;
 }
 
 function esterilizado($data){

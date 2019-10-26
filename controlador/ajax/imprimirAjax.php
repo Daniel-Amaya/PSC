@@ -84,31 +84,40 @@ if(isset($_POST['tables'])){
             flex-wrap: wrap;
         }
 
-        .firmas {
-            text-align: center;
-        }
-
-        .firmas .nombreCompleto {
-            margin: 30px 0 0 0;
-        }
-
-
         .col-ms-6 {
             width: 500px;
             display: inline-block;
         }
 
-        .firmas .firmaAdoptante, .firmas .firmaFundacion {
-            height: 130px;
-            width: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            // padding: 0 10px;
-            color: rgba(0, 0, 0, 0.5);
-            font-weight: 400;
+        .firmas strong{
+            display: block;
+            width: 100% !important;
         }
 
+        .informacionAdoptado {
+            margin: 0 0 100px 0;
+            display: flex;
+            padding: 0 200px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .informacionAdoptado .fotoPerfil {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .informacionAdoptado .fotoPerfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .informacionAdoptado .nombreAdoptado, .informacionAdoptado .edadAdoptado, .informacionAdoptado .sexoAdoptado {
+            padding: 13px 30px;
+        }
 
         </style>";
 
@@ -116,7 +125,7 @@ if(isset($_POST['tables'])){
 
     $pdfImprimir = new Html2Pdf('P', 'A4', 'es', true, 'UTF-8');
     $pdfImprimir->writeHTML($tables);
-    $pdfImprimir->output('documento_de_adopcion.pdf', 'D');;
+    $pdfImprimir->output("documento_adopcion_num_{$_GET['ad']}.pdf", 'D');
 
 }
 

@@ -228,6 +228,18 @@ button {
   border-radius: 44px;
 }
 
+.alertAction {
+  padding: 10px 25px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+  width: 450px;
+  color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.637);
+}
+
 /*-------------------------------*\
               BOTONES
 \*-------------------------------*/
@@ -2228,7 +2240,6 @@ button {
   }
 }
 .close-modal {
-  color: white;
   font-size: 30px;
   font-weight: bold;
 }
@@ -2240,8 +2251,6 @@ button {
 
 .modal-header, .modal-footer {
   padding: 8px 16px;
-  background: rgba(255, 125, 4, 0.753);
-  color: white;
 }
 
 .modal-body {

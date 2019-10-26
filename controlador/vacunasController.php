@@ -15,7 +15,7 @@ trait mostrarVacunas{
                 <div class='nameAndButtons'>
                     <span class='editar pointer' onclick='llenarVacunas(\"$datos[0]\",\"$datos[2]\", \"$datos[3]\", \"$datos[1]\")'><i class='fas fa-pencil-alt'></i></span>
                     <h4 class='nombreVacuna'>$datos[2]</h4>
-                    <span class='eliminar pointer' onclick='vacunasAjax(\"especie=$datos[1]&eliminar=$datos[0]\", vacunas$datos[1])'><i class='fas fa-trash'></i></span>
+                    <span class='eliminar pointer' onclick='vacunasAjax(\"especie=$datos[1]&eliminar=$datos[0]\", vacunas$datos[1], [\"Se ha eliminado la vacuna (especie $datos[1])\", \"No ha sido posible eliminar la vacuna\"])'><i class='fas fa-trash'></i></span>
                 </div>
 
                 <div class='informacionVacuna'>

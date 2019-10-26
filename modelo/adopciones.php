@@ -51,7 +51,7 @@ class Adopcion extends Conexion{
 
             }else{
 
-                $query = $con->query("SELECT animales.*, usuarios.*, adopciones.* FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id");
+                $query = $con->query("SELECT animales.*, usuarios.*, adopciones.*, animales.nombre AS nombreA FROM usuarios, adopciones, animales WHERE animales.id = idAnimalAdoptado AND idUsuario = usuarios.id");
             }
 
             return $query;
@@ -75,6 +75,7 @@ class Adopcion extends Conexion{
             exit("ERROR AL RETORNAR IDS: ".$e->getMessage());
         }
     }
+
 }
 
 ?>

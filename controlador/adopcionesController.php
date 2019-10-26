@@ -1,5 +1,7 @@
 <?php
 
+use PHPMailer\PHPMailer\Exception;
+
 class AdopcionesController extends Adopcion{
     
     use mostrarSolicitudes;
@@ -185,10 +187,6 @@ class AdopcionesController extends Adopcion{
                                         <td>{$adopcion['fechaAdopcion']}</td>
                                     </tr>
                                     <tr>
-                                        <td>Entregado por: </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td>Doc. adopción:</td>
                                         <td><a href='documentacion.php?adopcion={$adopcion['numAdopcion']}'>Ver doc.</a></td>
                                     </tr>
@@ -242,6 +240,17 @@ class AdopcionesController extends Adopcion{
 
         }catch(Exception $e){
             exit("ERROR AL MOSTRAR LA ADOPCIÓN: ".$e->getMessage());
+        }
+    }
+
+    public function adopcionOption(){
+        try{
+            $adopciones = parent::dataAdopciones('');
+            foreach($adopciones AS $adopcion){
+                echo "<option data-nombre='{$adopcion['nombre']} {$adopcion['apellidos']}' value='{$adopcion['idUsuario']},{$adopcion['idAnimalAdoptado']}'>Adopción #{$adopcion['numAdopcion']} ({$adopcion['nombre']} {$adopcion['apellidos']} - {$adopcion['nombreA']})</option>";
+            }
+        }catch(Exception $e){
+            exit("ERROR AL MOSTRAR ADOPCIONES: ".$e->getMessage());
         }
     }
 

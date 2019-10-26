@@ -118,7 +118,6 @@ id('agregarVacunas').addEventListener('submit', function(e){
     
 });
 
-
 // Función para enviar foto seleccionada 
 
 function fotosAjaxN(folder, perfil){
@@ -315,11 +314,6 @@ function editarAnimalito(){
                                 window.location = "adoptar.php";
                             }
                         });
-
-                        // Creando header de la ventana modal
-
-                        let headerModal = document.createElement('div'); headerModal.className = "modal-header";
-                        headerModal.textContent = "Confirmar eliminación de un perrito";
 
                         // Creando body y botones de la ventana modal
                         let bodyModal = document.createElement('div'); bodyModal.className = "modal-body";

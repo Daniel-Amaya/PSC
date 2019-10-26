@@ -80,7 +80,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
                         </li>
 
                         <li>
-                        Se enviarán fotos regularmente a: sancristobalpeluditos@gmail.com, con el fin de realizar el seguimiento del estado, trato y medio en el que se desenvuelve el animalito adoptado; también así se podrá mantener actualizada nuestra base de datos.
+                        Se enviarán fotos regularmente a: sesión mis animalitos, con el fin de realizar el seguimiento del estado, trato y medio en el que se desenvuelve el animalito adoptado; también así se podrá mantener actualizada nuestra base de datos.
                         </li>
                     </ol>
                 </p>
@@ -108,7 +108,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
                 <strong>ACEPTO CONDICIONES</strong>
 
                 <div class="firmaAdoptante">
-                    <label class='firmaBox'><img src="publico/images/<?php echo $documentos[1] ?>"></label>
+                    <label class='firmaBox'><img src="http://localhost/PSC/publico/images/<?php echo $documentos[1] ?>"></label>
 
                 </div>
 
@@ -137,7 +137,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
 
         <div class="informacionAdoptado">
             <div class="fotoPerfil">
-                <img src="publico/images/<?php echo $fotoPerfil[1] ?>">
+                <img src="http://localhost/PSC/publico/images/<?php echo $fotoPerfil[1] ?>">
             </div>
             
             <div>
@@ -159,7 +159,7 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
         <a href="publico/images/<?php echo $documentos[2] ?>" class='btn_cafe verCed' target="_blank">Ver copia de cédula</a>
 
         <div class="btns2">
-            <form action="controlador/ajax/imprimirAjax.php" method="post">
+            <form action="controlador/ajax/imprimirAjax.php?ad=<?php echo $_GET['adopcion'] ?>" method="post">
                 <input type="hidden" value='' id='iner' name='tables'>
                 <button class='btn_naranja'>Descargar</button>
                 <button class='btn_cafe'>Imprimir</button>

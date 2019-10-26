@@ -4,11 +4,11 @@
             <form style='padding: 50px' method="POST" id="newE">
     
                     <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                <h2 class="center" id="myModalLabel">Agregar Evento</h2>
+                <h2 class="center" id="myModalLabel">Agregar visita de seguimiento</h2>
         
                 <div class="boxInput">
                     <label for="title">Indicador de seguimiento</label>
-                    <input type="text" name="title"  id="title" placeholder="Titulo" value="Seguimiento a <?php echo $usuario['nombre']." ".$usuario['apellidos'] ?>">
+                    <input type="text" name="title"  id="title" placeholder="Titulo" value="Seguimiento a <?php echo $usuario['nombre']." ".$usuario['apellidos'] ?>" readonly>
                 </div>
 
                 <div class="boxInput">
@@ -48,6 +48,8 @@
             <div style='padding: 5px'>Dirección de vivienda: <span id='direccSeg'></span></div>
             <div style='padding: 5px'>Num. adopción: <span id='numAdo'></span></div>
             <div style='padding: 5px'>Fecha adopción: <span id='fechaAdo'></span></div>
+
+            <button id="elimSeg" class="btn_rojo btn_largo">Eliminar seguimiento</button>
         </div>
     </div>
 </div>

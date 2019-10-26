@@ -38,6 +38,23 @@ class Seguimiento extends Conexion{
         }
     }
 
+    public function deleteSeguimiento($cod){
+        $con = parent::conectar();
+        try{
+            $query = $con->prepare("DELETE FROM seguimiento WHERE cod=:cod");
+            $query->bindParam(':cod', $cod, PDO::PARAM_INT);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0&&";
+            }else{
+                echo "1&&";
+            }
+        }catch(PDOException $e){
+            exit("ERROR AL ELIMINAR SEGUIMIENTO: ".$e->getMessage());
+        }
+    }
+
     public function dataDiasSeg($idU){
         $con = parent::conectar();
         try{
@@ -130,6 +147,8 @@ class Seguimiento extends Conexion{
             exit("ERROR AL MODIFICAR SEGUIMIENTO: ".$e->getMessage());
         }
     }
+
+
 
 }
 

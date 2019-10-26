@@ -56,16 +56,23 @@ document.addEventListener('DOMContentLoaded', function(){
             id('ModalAdd').style.display = 'block';
         },
         eventClick: (info) => {
+
             start = info.event.start;
             id('titleSeg').textContent = info.event.title;
             id('fechaHora').textContent = start.getFullYear() +'-'+ (start.getMonth()+1) +'-'+ start.getDate()+' Hora: '+start.getHours() +':'+start.getMinutes() +':'+start.getSeconds(); 
-            // id('adoptanteSeg').textContent = info.event.nombre + info.event.apellidos;
-            // id('adoptadoSeg').textContent = info.event.adoptado;
-            // id('direccSeg').textContent = info.event.direccionApto;
-            // id('numAdo').textContent = info.event.numAdo;
-            // id('fechaAdo').textContent = info.event.fechaAdopcion;
+            if(info.event.backgroundColor == 'red'){
+                alert("ESTA VISITA DEBE CAMBIAR DE FECHA O SER MARCADA COMO LLEVADA A A CABO (visitado)");
+            }
+            id('adoptanteSeg').textContent = info.event.extendedProps.nombre + ' '+info.event.extendedProps.apellidos;
+            id('adoptadoSeg').textContent = info.event.extendedProps.adoptado;
+            id('direccSeg').textContent = info.event.extendedProps.direccionApto;
+            id('numAdo').textContent = info.event.extendedProps.numAdopcion;
+            id('fechaAdo').textContent = info.event.extendedProps.fechaAdopcion;
+
+            id('elimSeg').setAttribute('data-cod', info.event.id);
 
             id('modalInfo').style.display = 'block';
+
         },
         eventDrop: (info) => {
             cod = info.event.id;
@@ -78,7 +85,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 if(e[0] != 1){                    
                     info.revert();
                 }else{
-                    alert("Se ha modificado la fecha");
+                    alertAction('Se ha modificado la fecha', color_principal);
+                    
                 }
             });
         }
@@ -99,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function(){
         seguimientoAjax('fechaVisita='+start+'&visita='+visita+'&idU='+idU+'&idA='+idA, (ht) => {
             e = ht.responseText.split('&&');
             if(e[0] == 1){
+                alertAction('Se ha agregado el seguimiento', color_principal);
                 calendar.refetchEvents();
             }else{
                 alert("No se pudo agregar");
@@ -106,6 +115,41 @@ document.addEventListener('DOMContentLoaded', function(){
         });
 
         this.parentNode.parentNode.parentNode.style.display = 'none';
+    });
+
+    id('elimSeg').addEventListener('click', () =>{
+        if(id('elimSeg').dataset.cod = 'dislabed'){
+            alert("No se puede eliminar el seguimiento porque ya ha sido marcado como visitado");
+
+        }else{
+
+            var confiElim = confirm("¿Seguro que deseas eliminar la visita de seguimiento?");
+            if(confiElim == true){
+                let cod = id('elimSeg').dataset.cod;
+                seguimientoAjax('codEl='+cod, (ht) =>{
+                    let e = ht.responseText.split('&&');
+                    alert(e);
+                    if(e.length == 2){
+                        
+                        if(e[0] == '1'){
+
+                            alertAction('Se ha eliminado el seguimiento', color_principal);
+                            calendar.refetchEvents();
+
+                        }else{
+
+                            alertAction('No ha sido posible eliminar el seguimiento', 'red');
+                            
+
+                        }
+                    }
+
+                    id('modalInfo').style.display = 'none';
+                }, 'controlador/ajax/seguimientoAjax.php');
+            }
+            
+        }
+
     });
 
     window.addEventListener('click',function(e){

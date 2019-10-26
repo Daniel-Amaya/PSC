@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             listDay: { buttonText: 'Diaria'}
             
         },
+        navLinks: true,
         footer: {
             left: 'prev,next',
             right: 'listYear,listMonth,listWeek,listDay'
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         // },
         events: 'controlador/ajax/seguimientoAjax.php',
 
-        /////////////////////////// cuando se hace clic en el evento ///////////////////////////////
+        ////////////////////////// cuando se hace clic en el evento /////////////////////////////
         eventClick: (info) => {
 
             start = info.event.start;
@@ -57,10 +58,24 @@ document.addEventListener('DOMContentLoaded', () =>{
             id('adoptanteSeg').textContent = info.event.extendedProps.nombre + ' '+info.event.extendedProps.apellidos;
             id('adoptadoSeg').textContent = info.event.extendedProps.adoptado;
             id('direccSeg').textContent = info.event.extendedProps.direccionApto;
-            id('numAdo').textContent = info.event.extendedProps.numAdo;
+            id('numAdo').textContent = info.event.extendedProps.numAdopcion;
             id('fechaAdo').textContent = info.event.extendedProps.fechaAdopcion;
 
+            if(info.event.extendedProps.visitado == 0){
+                id('elimSeg').setAttribute('data-cod', info.event.id);
+            }else{
+                id('elimSeg').setAttribute('data-cod', 'dislabed');
+            }
+
+
             id('modalInfo').style.display = 'block';
+        },
+
+        /////////////////////////// Cuando hace clic en el día ///////////////////////////////////
+
+        dateClick: (info) =>{
+            id('start').value = info.dateStr;
+            id('ModalAdd').style.display = 'block';
         },
 
         /////////////////////////// cuando se suelte el evento ///////////////////////////////////
@@ -78,10 +93,9 @@ document.addEventListener('DOMContentLoaded', () =>{
                     e = ht.responseText.split('&&');
                     if(e[0] != 1){                    
                         info.revert();
-                        alert("No se ha modificado la fecha");
                     }else{
                         actualizarSeguimiento();
-                        alert("Se ha modificado la fecha");
+                        alertAction('Se ha modificado la fecha', color_principal);
                     }
                 }, 
 
@@ -91,6 +105,70 @@ document.addEventListener('DOMContentLoaded', () =>{
     });
 
     calendar.render();
+
+    //////////////////////////// Eliminar seguimiento ///////////////////////////////////////////
+    id('elimSeg').addEventListener('click', () =>{
+        if(id('elimSeg').dataset.cod == 'dislabed'){
+            alert("No se puede eliminar el seguimiento porque ya ha sido marcado como visitado");
+
+        }else{
+
+            var confiElim = confirm("¿Seguro que deseas eliminar la visita de seguimiento?");
+            if(confiElim == true){
+                let cod = id('elimSeg').dataset.cod;
+                seguimientoAjax('codEl='+cod, (ht) =>{
+                    let e = ht.responseText.split('&&');
+                    if(e.length == 2){
+                        
+                        if(e[0] == '1'){
+
+                            actualizarSeguimiento();
+                            alertAction('Se ha eliminado el seguimiento', 'red');
+                            calendar.refetchEvents();
+
+                        }else{
+
+                            alert("Ha ocurrido un error, vuelve a intentarlo");
+
+                        }
+                    }
+
+                    id('modalInfo').style.display = 'none';
+                }, 'controlador/ajax/seguimientoAjax.php');
+            }
+            
+        }
+
+    });
+
+    //////////////////////////////// Agregar seguimiento ////////////////////////////////////////
+    id('aggSeg').addEventListener('submit', function(e){
+
+        e.preventDefault();
+
+        let ids = id('adopcion').value.split(',');
+
+        visita = id('title').value;
+        idU = ids[0];
+        idA = ids[1];
+        start = id('start').value;
+
+        seguimientoAjax('fechaVisita='+start+'&visita='+visita+'&idU='+idU+'&idA='+idA, (ht) => {
+            e = ht.responseText.split('&&');
+            if(e[0] == 1){
+                
+                actualizarSeguimiento();
+                alertAction('Se ha agregado el seguimiento', color_principal);
+
+                calendar.refetchEvents();
+            }else{
+                alertAction('No se pudo agregar el seguimiento', 'red');
+                alert("No se pudo agregar");
+            }
+        }, 'controlador/ajax/seguimientoAjax.php');
+
+        this.parentNode.parentNode.parentNode.style.display = 'none';
+    });
 
     ////////////////////////// Cosas del seguimiento distintas al calendario /////////////////////
     actualizarSeguimiento = () => {

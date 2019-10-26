@@ -93,11 +93,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                             let img = document.createElement('img');
                             img.src = window.URL.createObjectURL(file[0]);
                             id('fotos').appendChild(img);
+                            alertAction('Se ha agregado la foto', color_principal);
                         }else{
                             console.log(ht.responseText);
-                            alert("No se ha agregado la foto");
+                            alertAction('No se a agregado la foto', 'red');
                         }
-
                     }
                 });
             

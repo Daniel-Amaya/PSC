@@ -1058,6 +1058,9 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   width: 95%;
   margin: auto;
 }
+#calendar a {
+  color: black;
+}
 
 /* DayGridView
 --------------------------------------------------------------------------------------------------*/
