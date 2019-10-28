@@ -37,12 +37,12 @@ if(isset($_GET['adopcion']) && !empty($_GET['adopcion'])){
 
                 <tr>
                     <td colspan='2'>C.I:  <?php  echo $usuario['cedula'] ?></td>
-                    <td colspan='2'>Estado civil  <?php $usuario['estadoCivil'] ?></td>
+                    <td colspan='2'>Estado civil:  <?php echo $usuario['estadoCivil'] ?></td>
                 </tr>
     
                 <tr>
                     <td colspan='2'>Dirección:  <?php  echo $usuario['direccionApto'] ?></td>
-                    <td colspan='2'>Referencia personal:  <?php $usuario['referencia'] ?></td>
+                    <td colspan='2'>Referencia personal:  <?php echo $usuario['referencia'] ?></td>
                 </tr>
     
                 <tr>
