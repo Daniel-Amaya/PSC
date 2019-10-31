@@ -2388,6 +2388,93 @@ button {
   border-radius: 20px;
 }
 
+@keyframes hoverCorazones {
+  0% {
+    transform: scale(0.75) rotate(35deg);
+    opacity: 1;
+  }
+  5%, 15%, 25% {
+    transform: scale(1) rotate(35deg);
+  }
+  10%, 20% {
+    transform: scale(0.75) rotate(35deg);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(35deg) translateY(-40px) translateX(-40px);
+    opacity: 0;
+  }
+}
+.corazonesAnimation .AnimacionCorazones {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #e64356;
+  border-bottom-right-radius: 23%;
+  opacity: 0;
+  animation-fill-mode: both;
+  animation: hoverCorazones 2s ease-out 4 1.5s;
+}
+.corazonesAnimation .AnimacionCorazones::before, .corazonesAnimation .AnimacionCorazones::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-radius: 50%;
+  background-color: #e64356;
+}
+.corazonesAnimation .AnimacionCorazones::before {
+  top: -53%;
+  right: 0px;
+  transform: rotate(45deg);
+}
+.corazonesAnimation .AnimacionCorazones::after {
+  bottom: 0px;
+  left: -53%;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(1) {
+  top: 50px;
+  left: 103px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(2) {
+  top: 100px;
+  left: 153px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(3) {
+  top: 50px;
+  left: 203px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(4) {
+  top: 100px;
+  left: 253px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(5) {
+  top: 50px;
+  left: 303px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(6) {
+  top: 100px;
+  left: 353px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(7) {
+  top: 50px;
+  left: 403px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(8) {
+  top: 100px;
+  left: 453px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(9) {
+  top: 50px;
+  left: 503px;
+}
+.corazonesAnimation .AnimacionCorazones:nth-child(10) {
+  top: 100px;
+  left: 553px;
+}
+
 .buttonCorazones {
   position: relative;
 }
@@ -2432,25 +2519,6 @@ button {
 .buttonCorazones .AnimacionCorazones.cor4 {
   top: -153%;
   left: -13%;
-}
-@keyframes hoverCorazones {
-  0% {
-    transform: scale(0.75) rotate(35deg);
-    opacity: 1;
-  }
-  5%, 15%, 25% {
-    transform: scale(1) rotate(35deg);
-  }
-  10%, 20% {
-    transform: scale(0.75) rotate(35deg);
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(35deg) translateY(-40px) translateX(-40px);
-    opacity: 0;
-  }
 }
 .buttonCorazones:hover .cor1 {
   animation: hoverCorazones 2s ease-out 1 1.5s;

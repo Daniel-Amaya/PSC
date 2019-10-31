@@ -66,8 +66,7 @@ class Carpetas implements Carpeta{
                 return $folder."/".$numberName.".png";
 
             }else{
-
-                throw new Exception("k mierda malditasea triplehpta");
+                throw new Exception("No es posible mover la foto");
             }
         }catch(Exception $e){
             exit("ERROR AL AGREGAR LA IMAGEN: ".$e->getMessage());

@@ -3,7 +3,7 @@
 <h1 class="titulo">¿Que desea donar?</h1>
 
 
-        <div class="containerCat">
+    <div class="containerCat">
         
         <div class="plane">
             
@@ -43,7 +43,7 @@
             </div>
         </div>
         
-        </div>
+    </div>
 
       
 <div class="container-donar" >
@@ -53,57 +53,56 @@
             <h2 class="center">Formulario de donación</h2>
             <br>
             
-
-            <form action="" method="post" id=''>
+            <form method="POST" id='insertar-donacion' enctype="multipart/form-data" >
             
-            <h3>¿De que es su donación?</h3>
-                <div class="boxInput">
-                    <select name="opciones"  required> 
-                        <!-- <option disabled selected>Opciones</option> -->
-                        <option></option>
-                        <option value="alimentos">Alimentos</option>
-                        <option value="medicamentos">Medicamentos</option>
-                        <option value="dinero">Dinero</option>
-                    </select>
-                   
-                </div>
+            <div class="boxInput">
+                <h3>¿De que es su donación?</h3>
+                <select name="donacion" id='donacion' required> 
+                    <!-- <option disabled selected>Opciones</option> -->
+                    <option>¿De qué es su donación?</option>
+                    <option value="alimentos">Alimentos</option>
+                    <option value="medicamentos">Medicamentos</option>
+                    <option value="dinero">Dinero</option>
+                </select>
+            </div>
 
-            <h3>¿De cuanto es su donacion?</h3>
-                <div class="boxInput"  >
-                    <input type="number" placeholder="Cantidad" name=''  required>
-                </div>
+            <div class="boxInput">
+                <h3>¿De cuanto es su donacion?</h3>
+                <input type="number" placeholder="¿De cuanto es su donación?" name='cantidad' required min='1' id='cantidad'>
+            </div>
 
-                <div class="boxInput" style="width:60%" >
-                    <select name="opciones" required>
-                        <!-- <option disabled selected>Medición</option> -->
-                        <option></option>
-                        <option value="libras">Lb/Libras</option>
-                        <option value="unidades">Unidades</option>
-                        <option value="pesos">$/Pesos</option>
-                    </select>
-                   
-                </div>
-                <div class="boxInput">
-                        <label for="nuevaFoto" class="btn_gris">Agregar foto:</label>
-                        <input type="file" name="fotoComprovante" id="fotoComprovante" class="none" accept="image/*">
-                        
-                    </div>
+            <div class="boxInput">
+                <select name="valor" required id='unidades'>
+                    <!-- <option disabled selected>Medición</option> -->
+                    <option>Unidades Ejm: Pesos, libras, gramos etc.</option>
+                    <option value="libras">Lb/Libras</option>
+                    <option value="unidades">Unidades</option>
+                    <option value="pesos">$/Pesos</option>
+                </select>
+            </div>
 
-                 <div id="imagesBox">
-                        <h3 style="margin-left:15px;">Imagenes agregadas:</h3>
-                        <div id="messageError"></div>
-                </div>
-        
-                <div class="boxInput">
-                    <textarea name="mensajeDonacion" placeholder="Si tienes algo que decirnos escribelo aquí" rows="4"></textarea>
-                </div>
+            <div class="boxInput">
+                <h3 >Agregue una foto del Comprobante:</h3>
+                <label for="fotoComprobante" class="btn_gris btn_largo" style='display: block'>Agregar foto:</label>
+                <input style='display: none' type="file" name="fotoComprobante" id="fotoComprobante" class="btn_gris">
+            </div>
 
+             <!-- <div id="imagesBox">
+                    <h3 style="margin-left:15px;">Imagenes agregadas:</h3>
+                    <div id="messageError"></div>
+            </div> -->
+    
+            <!-- <div class="boxInput">
+                <textarea name="mensajeDonacion" placeholder="Si tienes algo que decirnos escribelo aquí" rows="4"></textarea>
+            </div> -->
 
-                <div class="boxInputGris ">
-                    <input type="submit" value="Enviar" style="">
-                </div>
+            <div class="boxInputGris boxInput">
+                <input type="submit" value="Enviar" style="">
+            </div>
 
-            </form>
+        </form>
+
+        <script src="publico/js/ajax/donacionesAjax.js"></script>
                 
         
 

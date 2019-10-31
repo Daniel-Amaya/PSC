@@ -61,7 +61,72 @@
         }
     }
 }
+$top: 50;
+$left: 50;
 
+@keyframes hoverCorazones {
+    0% { transform: scale(0.75) rotate(35deg); opacity: 1; }
+    5%, 15%, 25% { transform: scale(1) rotate(35deg); }
+    10%, 20% { transform: scale(0.75) rotate(35deg); }
+    70% { opacity: 1;}
+    100% {transform: rotate(35deg)  translateY(-40px) translateX(-40px); opacity: 0;}
+}
+
+.corazonesAnimation{
+    // position: relative;
+
+    .AnimacionCorazones{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color:#e64356;
+        border-bottom-right-radius: 23%;
+        opacity: 0;
+        animation-fill-mode: both;
+        animation: hoverCorazones 2s ease-out 4 1.5s;
+    
+        &::before, &::after{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: "";
+            border-radius: 50%;
+            background-color:#e64356;
+        }
+    
+        &::before{
+            top: -53%;
+            right: 0px;
+            transform: rotate(45deg);
+        }
+        &::after{
+            bottom: 0px;
+            left: -53%;
+        }
+        
+        @for $i from 1 through 10 {
+            
+            @if $i % 2 == 0{
+
+                &:nth-child(#{$i}){
+
+                    top: $top+$top*1px;
+                    left: ($left*$i+53)*1px;
+
+                }
+            } @else{
+
+                &:nth-child(#{$i}){
+
+                    top: $top*1px;
+                    left: ($left*$i+53)*1px;
+
+                }
+            }
+        }
+
+    }
+}
 .buttonCorazones{
     position: relative;
 
@@ -114,13 +179,6 @@
             left: -13%;
         }
     
-        @keyframes hoverCorazones {
-            0% { transform: scale(0.75) rotate(35deg); opacity: 1; }
-            5%, 15%, 25% { transform: scale(1) rotate(35deg); }
-            10%, 20% { transform: scale(0.75) rotate(35deg); }
-            70% { opacity: 1;}
-            100% {transform: rotate(35deg)  translateY(-40px) translateX(-40px); opacity: 0;}
-        }
     }
 
     &:hover{

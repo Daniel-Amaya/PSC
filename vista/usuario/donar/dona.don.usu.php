@@ -2,8 +2,8 @@
 <h1 class="titulo">¿Que desea donar?</h1>
 
 
-        <div class="containerCat">
-        
+    <div class="containerCat">
+    
         <div class="plane">
             
             <div class="p-body">
@@ -41,103 +41,97 @@
             </ul>
             </div>
         </div>
-        
-        </div>
+    
+    </div>
 
       
 <div class="container-donar" >
         <div class="col-6 margin-menu grisColor" id='respuesta'style="margin-left:45px;">
            
-
             <h2 class="center">Formulario de donación</h2>
             <br>
             
-
-            <form action="modelo/donaciones/insertar-donaciones.php" method="POST" id='insertar-donacion' enctype="multipart/form-data" >
+            <form method="POST" id='insertar-donacion' enctype="multipart/form-data" >
             
-            <h3>¿De que es su donación?</h3>
                 <div class="boxInput">
-                    <select name="donacion"  required> 
+                    <h3>¿De que es su donación?</h3>
+                    <select name="donacion" id='donacion' required> 
                         <!-- <option disabled selected>Opciones</option> -->
-                        <option></option>
+                        <option>¿De qué es su donación?</option>
                         <option value="alimentos">Alimentos</option>
                         <option value="medicamentos">Medicamentos</option>
                         <option value="dinero">Dinero</option>
                     </select>
-                   
                 </div>
 
-            <h3>¿De cuanto es su donacion?</h3>
-                <div class="boxInput"  >
-                    <input type="number" placeholder="Cantidad" name='cantidad'  required>
+                <div class="boxInput">
+                    <h3>¿De cuanto es su donacion?</h3>
+                    <input type="number" placeholder="¿De cuanto es su donación?" name='cantidad' required min='1' id='cantidad'>
                 </div>
 
-                <div class="boxInput" style="width:60%" >
-                    <select name="valor" required>
+                <div class="boxInput">
+                    <select name="valor" required id='unidades'>
                         <!-- <option disabled selected>Medición</option> -->
-                        <option></option>
+                        <option>Unidades Ejm: Pesos, libras, gramos etc.</option>
                         <option value="libras">Lb/Libras</option>
                         <option value="unidades">Unidades</option>
                         <option value="pesos">$/Pesos</option>
                     </select>
-                   
                 </div>
+
                 <div class="boxInput">
-                <h3 >Agregue una foto del Comprobante:</h3>
-                        <!-- <label for="nuevaFoto" class="btn_gris">Agregar foto:</label> -->
-                        <input type="file" name="fotoComprovante" id="fotoComprovante" class="btn_gris">
-                        
-                    </div>
+                    <h3 >Agregue una foto del Comprobante:</h3>
+                    <label for="fotoComprobante" class="btn_gris btn_largo" style='display: block'>Agregar foto:</label>
+                    <input style='display: none' type="file" name="fotoComprobante" id="fotoComprobante" class="btn_gris">
+                </div>
 
                  <!-- <div id="imagesBox">
                         <h3 style="margin-left:15px;">Imagenes agregadas:</h3>
                         <div id="messageError"></div>
                 </div> -->
         
-                <div class="boxInput">
+                <!-- <div class="boxInput">
                     <textarea name="mensajeDonacion" placeholder="Si tienes algo que decirnos escribelo aquí" rows="4"></textarea>
-                </div>
+                </div> -->
 
-
-                <div class="boxInputGris ">
+                <div class="boxInputGris boxInput">
                     <input type="submit" value="Enviar" style="">
                 </div>
 
             </form>
-                
-        
+
+            <script src="publico/js/ajax/donacionesAjax.js"></script>
 
         </div>
 
         <div class="col-6">
-        <div class="tabBox">
+            <div class="tabBox">
                 <div class="textos-modal donacionesAlimentos">
 
-                <h1>Dinero</h1> <br>
-            <div class="doscolumnas" style="text-align: center;">
-                    <p><h3>¿Que es donar?</h3> <br>
-                    Donar es dar algo de valor para ayudar al bienestar del otro 
-                    entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
-                    <h3> ¿Por que donar? </h3> <br>
-                        <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
-            </div> <br>
-                        <h3>  Puedes donar aquí </h3> <br>
-                  
-            <div class="containerquedonar">
-                <div class="quedonar1"> 
-                <a href="https://biz.payulatam.com/L0ca57a1E3AD611">Donar 10.000$</a> <br> <br>
-                <a href="https://biz.payulatam.com/L0ca57a705D54D9">Donar 20.000$</a> <br> <br>
-                <a href="https://biz.payulatam.com/L0ca57a7B4A2A1B">Donar 50.000$</a> <br> <br>
-                <a href="https://biz.payulatam.com/L0ca57aC8D6380B">Donar 100.000$</a> <br>  <br>
-                </div>
-    
-            </div> <br>
+                    <h1>Dinero</h1> <br>
+                    <div class="doscolumnas" style="text-align: center;">
+                            <p><h3>¿Que es donar?</h3><br>
+                            Donar es dar algo de valor para ayudar al bienestar del otro 
+                            entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
+                            <h3> ¿Por que donar? </h3><br>
+                                <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
+                    </div> <br>
+                    <h3>  Puedes donar aquí </h3><br>
+                    
+                    <div class="containerquedonar">
+                        <div class="quedonar1"> 
+                        <a href="https://biz.payulatam.com/L0ca57a1E3AD611">Donar 10.000$</a> <br> <br>
+                        <a href="https://biz.payulatam.com/L0ca57a705D54D9">Donar 20.000$</a> <br> <br>
+                        <a href="https://biz.payulatam.com/L0ca57a7B4A2A1B">Donar 50.000$</a> <br> <br>
+                        <a href="https://biz.payulatam.com/L0ca57aC8D6380B">Donar 100.000$</a> <br>  <br>
+                    </div>
+        
+                </div><br>
                 
                 <p>
-                    <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
-                    </p>
-                </div>
-
+                <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
+                </p>
+            </div>
         </div>
 
 
