@@ -121,15 +121,14 @@
                     <h3> ¿Por que donar? </h3> <br>
                         <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
             </div> <br>
-                        <h3>  Pasos para donar </h3> <br>
-                    <p style="text-align: center;">Consigne en la Cuenta Corriente No. ##########, a nombre de la  Peluditos Sancristobal, el valor que desee donar en pesos colombianos, únicamente en efectivo.
-Una vez realice el pago, el Banco le entregará un Comprobante de pago y recaudo rápido el cual le servirá como constancia de la cancelación de los derechos de inscripción, es su responsabilidad la custodia y uso que haga del mismo.</p> 
-                    </p>
-                    <br>
+                        <h3>  Puedes donar aquí </h3> <br>
+                  
             <div class="containerquedonar">
                 <div class="quedonar1"> 
-                    <img src="publico/images/donar.jpg" class="quedonarCont">
-                    <p class="quedonarCont"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, </p>
+                <a href="https://biz.payulatam.com/L0ca57a1E3AD611">Donar 10.000$</a> <br> <br>
+                <a href="https://biz.payulatam.com/L0ca57a705D54D9">Donar 20.000$</a> <br> <br>
+                <a href="https://biz.payulatam.com/L0ca57a7B4A2A1B">Donar 50.000$</a> <br> <br>
+                <a href="https://biz.payulatam.com/L0ca57aC8D6380B">Donar 100.000$</a> <br>  <br>
                 </div>
     
             </div> <br>
@@ -169,13 +168,7 @@ Una vez realice el pago, el Banco le entregará un Comprobante de pago y recaudo
                     <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
                     </p>
                     <br>
-                <div class="containerquedonar">
-                <div class="quedonar1"> 
-                    <img src="publico/images/donar.jpg" class="quedonarCont">
-                    <p class="quedonarCont"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, </p>
-                </div>
-
-                </div> <br>
+               <br>
 
                 <p>
                     <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
@@ -202,13 +195,7 @@ Una vez realice el pago, el Banco le entregará un Comprobante de pago y recaudo
                 <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
                 </p>
                 <br>
-            <div class="containerquedonar">
-            <div class="quedonar1"> 
-                <img src="publico/images/donar.jpg" class="quedonarCont">
-                <p class="quedonarCont"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, non! Libero, </p>
-            </div>
-
-            </div> <br>
+            <br>
 
             <p>
                 <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
