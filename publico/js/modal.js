@@ -3,6 +3,16 @@ let flex = document.getElementById('flex-modal');
 let abrir = document.getElementById('abrir-modal');
 let cerrar = document.getElementById('close-modal');
 
+window.addEventListener('click', function(e){
+
+    var flex = classNames('flex-modal');
+
+    for(let i = 0; i < flex.length; i++){
+        if(e.target == flex[i]){
+            flex[i].parentNode.style.display = 'none';
+        }
+    }
+});
 
 if(abrir){
 

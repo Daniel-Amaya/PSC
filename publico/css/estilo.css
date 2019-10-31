@@ -2415,7 +2415,7 @@ button {
   border-bottom-right-radius: 23%;
   opacity: 0;
   animation-fill-mode: both;
-  animation: hoverCorazones 2s ease-out 4 1.5s;
+  animation: hoverCorazones 2s ease-out 2 1.5s;
 }
 .corazonesAnimation .AnimacionCorazones::before, .corazonesAnimation .AnimacionCorazones::after {
   position: absolute;

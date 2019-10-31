@@ -1,5 +1,5 @@
 <div class="modal" id='modal'>
-    <div class="flex-modal">
+    <div class="flex-modal" id='flex-modal'>
         <div class="contenido-modal">
             <div style="padding: 50px">
                 <div id="mensajeDonar">
