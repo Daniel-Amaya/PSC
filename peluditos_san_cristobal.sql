@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2019 a las 21:40:45
+-- Tiempo de generación: 31-10-2019 a las 00:02:00
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -43,7 +43,8 @@ CREATE TABLE `adopciones` (
 INSERT INTO `adopciones` (`numAdopcion`, `idAnimalAdoptado`, `idUsuario`, `fechaAdopcion`, `codEsterilizacion`) VALUES
 (1, 62, 15, '2019-10-13', NULL),
 (2, 63, 16, '2019-10-16', NULL),
-(3, 64, 17, '2019-10-20', NULL);
+(3, 64, 17, '2019-10-20', NULL),
+(4, 65, 15, '2019-10-26', NULL);
 
 -- --------------------------------------------------------
 
@@ -71,8 +72,14 @@ CREATE TABLE `animales` (
 
 INSERT INTO `animales` (`id`, `nombre`, `especie`, `raza`, `color`, `sexo`, `edad`, `esterilizado`, `descripcion`, `procedencia`, `carpeta`) VALUES
 (62, 'Toby', 'canina', 'Cruce', 'CafÃ©', 'M', '2019-08-14', 1, 0x5065727269746f206a7567756574c3b36e2c206d757920616c65677265, 'Calle', 'Toby96647843'),
-(63, 'Mishi', 'felina', 'Egipcio', 'Morado', 'M', '2018-05-09', 1, 0x5265616c206168737461206c61206d7565727465, 'Calle', 'Mishi37460585'),
-(64, 'Realito', 'felina', 'Pitbull', 'Morado', 'M', '2016-10-20', 1, 0x5265617366736420, 'Robledo Villa SofÃ­a', 'Realito94148368');
+(63, 'Mishi', 'canina', 'Egipcio', 'Morado', 'M', '2018-05-09', 0, 0x5265616c206861737461206c61206d7565727465, 'Calle 13', 'Mishi37460585'),
+(64, 'Realito', 'felina', 'Pitbull', 'Morado', 'M', '2016-10-20', 1, 0x5265617366736420, 'Robledo Villa SofÃ­a', 'Realito94148368'),
+(65, 'Hunsky', 'canina', 'Pitbull', 'Blanco', 'M', '2017-10-12', 1, 0x5245666473, 'Calle', 'Hunsky17066693'),
+(66, 'Luis Miguel', 'canina', 'Pitbull', 'Morado', 'F', '2019-10-10', 1, 0x666766676764666764, 'Robledo Villa SofÃ­a', 'Luis Miguel27037673'),
+(67, 'Hunsky', 'canina', 'Egipcio', 'gfdgd', 'M', '2019-10-24', 0, 0x65777272657277776572, 'Robledo Bello Horizonte - Mede', 'Hunsky38975878'),
+(68, 'Hunsky', 'felina', 'Egipcio', 'gfdgd', 'M', '2017-07-05', 1, 0x736466666473646673667364, 'Robledo Bello Horizonte', 'Hunsky43104727'),
+(69, 'Toby', 'felina', 'gfhf', 'Morado', 'M', '2019-10-10', 0, 0x65727274657274, 'ererer', 'Toby38975400'),
+(70, 'Toby', 'felina', 'Pitbull', 'CafÃ©', 'M', '2019-10-03', 1, 0x667364646664, 'Robledo Villa SofÃ­a', 'Toby49883241');
 
 -- --------------------------------------------------------
 
@@ -92,7 +99,15 @@ CREATE TABLE `animalesvacunados` (
 INSERT INTO `animalesvacunados` (`codVacuna`, `idAnimal`) VALUES
 (20, 62),
 (21, 63),
-(21, 64);
+(21, 64),
+(20, 65),
+(20, 66),
+(20, 67),
+(23, 68),
+(21, 69),
+(23, 69),
+(21, 70),
+(23, 70);
 
 -- --------------------------------------------------------
 
@@ -138,7 +153,8 @@ CREATE TABLE `documentoslegales` (
 INSERT INTO `documentoslegales` (`idUsuario`, `firma`, `copiaCedula`) VALUES
 (15, 'usuarios/juanDavid@gmail.com/firma.png', 'usuarios/juanDavid@gmail.com/cedula.pdf'),
 (16, 'usuarios/danytf2103@gmail.com/firma.png', 'usuarios/danytf2103@gmail.com/cedula.pdf'),
-(17, 'usuarios/pruebon@gmail.com/firma.png', 'usuarios/pruebon@gmail.com/cedula.pdf');
+(17, 'usuarios/pruebon@gmail.com/firma.png', 'usuarios/pruebon@gmail.com/cedula.pdf'),
+(15, 'usuarios/juanDavid@gmail.com/firma.png', 'usuarios/juanDavid@gmail.com/cedula.pdf');
 
 -- --------------------------------------------------------
 
@@ -147,13 +163,26 @@ INSERT INTO `documentoslegales` (`idUsuario`, `firma`, `copiaCedula`) VALUES
 --
 
 CREATE TABLE `donaciones` (
-  `iddonacion` int(11) NOT NULL,
-  `donacion` varchar(255) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `valor` varchar(255) DEFAULT NULL,
-  `ruta_imagen` varchar(255) DEFAULT NULL,
-  `mensaje` text DEFAULT NULL
+  `iddonacion` int(11) UNSIGNED NOT NULL,
+  `donacion` varchar(255) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `unidades` varchar(255) NOT NULL,
+  `ruta_imagen` varchar(255) NOT NULL,
+  `mensaje` text DEFAULT NULL,
+  `idUsuario` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `donaciones`
+--
+
+INSERT INTO `donaciones` (`iddonacion`, `donacion`, `cantidad`, `unidades`, `ruta_imagen`, `mensaje`, `idUsuario`) VALUES
+(1, 'alimentos', 2, 'libras', 'comprobanteDonaciones/383947147.png', NULL, NULL),
+(2, 'medicamentos', 21, 'libras', 'comprobanteDonaciones/840832306.png', NULL, NULL),
+(3, 'alimentos', 2, 'libras', 'comprobanteDonaciones/927128330.png', NULL, NULL),
+(4, 'alimentos', 1, 'libras', 'comprobanteDonaciones/656998691.png', NULL, NULL),
+(5, 'alimentos', 2, 'libras', 'comprobanteDonaciones/466645201.png', NULL, NULL),
+(6, 'alimentos', 1, 'libras', 'comprobanteDonaciones/727836207.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -174,8 +203,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`) VALUES
-(0, '', '', '2019-10-09 00:00:00', '2019-10-10 00:00:00'),
-(0, '21321', '#0071c5', '2019-10-09 00:00:00', '2019-10-10 00:00:00');
+(0, '', '', '2019-10-25 00:00:00', '2019-10-26 00:00:00'),
+(0, '21321', '#0071c5', '2019-10-25 00:00:00', '2019-10-26 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -204,7 +233,29 @@ INSERT INTO `fotos` (`cod`, `direccion`, `idAnimal`, `perfil`) VALUES
 (7, 'Realito94148368/173378701.png', 64, 1),
 (8, 'Realito94148368/850366697.png', 64, 0),
 (9, 'Realito94148368/188347567.png', 64, 0),
-(10, 'Realito94148368/280050482.png', 64, 0);
+(10, 'Realito94148368/280050482.png', 64, 0),
+(11, 'Toby96647843/617175245.png', 62, 0),
+(12, 'Hunsky17066693/847310815.png', 65, 1),
+(13, 'Hunsky17066693/716955269.png', 65, 0),
+(14, 'Hunsky17066693/202448634.png', 65, 0),
+(16, 'Luis Miguel27037673/755597857.png', 66, 1),
+(17, 'Luis Miguel27037673/461847220.png', 66, 0),
+(18, 'Luis Miguel27037673/522340137.png', 66, 0),
+(19, 'Luis Miguel27037673/797815972.png', 66, 0),
+(20, 'Hunsky38975878/674946027.png', 67, 1),
+(21, 'Hunsky38975878/394950706.png', 67, 0),
+(22, 'Hunsky38975878/270424112.png', 67, 0),
+(23, 'Hunsky38975878/743216172.png', 67, 0),
+(24, 'Hunsky43104727/241534301.png', 68, 1),
+(25, 'Hunsky43104727/410829595.png', 68, 0),
+(26, 'Hunsky43104727/134938969.png', 68, 0),
+(27, 'Hunsky43104727/676645484.png', 68, 0),
+(28, 'Toby38975400/827989064.png', 69, 1),
+(29, 'Toby38975400/945733126.png', 69, 0),
+(30, 'Toby38975400/295787794.png', 69, 0),
+(31, 'Toby38975400/304348560.png', 69, 0),
+(32, 'Toby49883241/955916901.png', 70, 1),
+(33, 'Toby49883241/434476813.png', 70, 0);
 
 -- --------------------------------------------------------
 
@@ -349,7 +400,33 @@ INSERT INTO `respuestasadopcion` (`cod`, `respuesta`, `dbPreguntaRespuesta`, `nu
 (75, 'si', NULL, 23, 17, 64),
 (76, 'Alfonsi', '21321', 24, 17, 64),
 (77, 'si', NULL, 25, 17, 64),
-(78, 'SÃ­', 'Porque es lo mejor para el animalito', 26, 17, 64);
+(78, 'SÃ­', 'Porque es lo mejor para el animalito', 26, 17, 64),
+(79, 'asdfadsfd', NULL, 1, 15, 65),
+(80, 'SÃ­', 'dfd', 2, 15, 65),
+(81, 'no', 'gdf', 3, 15, 65),
+(82, 'SÃ­', 'fdgfg', 4, 15, 65),
+(83, 'dssgfd', NULL, 5, 15, 65),
+(84, 'SÃ­', 'rwer', 6, 15, 65),
+(85, 'weqeds', NULL, 7, 15, 65),
+(86, 'SÃ­', NULL, 8, 15, 65),
+(87, 'si', '12', 9, 15, 65),
+(88, 'fbbvfc', NULL, 10, 15, 65),
+(89, 'si', '32fzf', 11, 15, 65),
+(90, 'fdsdfsfds', NULL, 12, 15, 65),
+(91, 'vgfdgdf', NULL, 13, 15, 65),
+(92, 'fbcv', NULL, 14, 15, 65),
+(93, 'cdfsdf', NULL, 15, 15, 65),
+(94, 'SÃ­', NULL, 16, 15, 65),
+(95, 'gdfgdg', NULL, 17, 15, 65),
+(96, 'fdggdf', NULL, 18, 15, 65),
+(97, 'fdgghhhfg', NULL, 19, 15, 65),
+(98, '32232323', NULL, 20, 15, 65),
+(99, 'fvbgdfg', NULL, 21, 15, 65),
+(100, 'true,true,true,true,true,true,true,true,true', NULL, 22, 15, 65),
+(101, 'si', NULL, 23, 15, 65),
+(102, 'dsadsadsa', '3324432', 24, 15, 65),
+(103, 'si', NULL, 25, 15, 65),
+(104, 'SÃ­', 'dsffdd', 26, 15, 65);
 
 -- --------------------------------------------------------
 
@@ -372,10 +449,12 @@ CREATE TABLE `seguimiento` (
 
 INSERT INTO `seguimiento` (`cod`, `visita`, `fechaVisita`, `visitado`, `idUsuario`, `idAnimal`) VALUES
 (1, 'Seguimiento #2 Juan David', '2019-10-31 15:30:00', 0, 15, 62),
-(2, 'Seguimiento #2 Juan David', '2019-10-24 08:16:18', 0, 15, 62),
 (3, 'Seguimiento #4 El rondo', '2019-10-27 09:00:00', 0, 15, 62),
 (4, 'Seguimiento a PruebÃ³n', '2019-10-21 06:00:00', 1, 17, 64),
-(5, 'Seguimiento a PruebÃ³n #2', '2019-11-02 14:00:00', 0, 17, 64);
+(5, 'Seguimiento a PruebÃ³n #2', '2019-11-02 14:00:00', 0, 17, 64),
+(6, 'Seguimiento Juan David #3', '2019-10-25 17:00:00', 1, 15, 62),
+(8, 'Seguimiento Real #3', '2019-10-30 10:00:00', 0, 17, 64),
+(13, 'Seguimiento Juan David Mosquera #1', '2019-10-31 15:30:00', 0, 15, 65);
 
 -- --------------------------------------------------------
 
@@ -400,7 +479,8 @@ CREATE TABLE `solicitudesadopcion` (
 INSERT INTO `solicitudesadopcion` (`cod`, `idUsuario`, `idAnimal`, `fechaSolicitud`, `estado`, `notificado`, `notificacion`) VALUES
 (1, 15, 62, '2019-10-13', 'adoptado', 1, 'Has completado el proceso de adopciÃ³n, ahora Toby es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor'),
 (2, 16, 63, '2019-10-13', 'adoptado', 0, 'Has completado el proceso de adopciÃ³n, ahora Mishi es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor'),
-(3, 17, 64, '2019-10-20', 'adoptado', 1, 'Has completado el proceso de adopciÃ³n, ahora Realito es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor');
+(3, 17, 64, '2019-10-20', 'adoptado', 1, 'Has completado el proceso de adopciÃ³n, ahora Realito es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor'),
+(4, 15, 65, '2019-10-26', 'adoptado', 1, 'Has completado el proceso de adopciÃ³n, ahora Hunsky es tu mascota, debes venir a la fundaciÃ³n durante los proximos dÃ­as para llevar a tu mascota y llenarla de amor â™¥, ademÃ¡s ya puedes ver los dias en los cuales se te fue asignado el seguimiento.');
 
 -- --------------------------------------------------------
 
@@ -430,9 +510,10 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `correo`, `telefono`, `cedula`, `password`, `rol`, `foto`, `estadoCivil`, `direccionApto`, `referencia`, `telefonoRef`) VALUES
 (1, 'michy', 'batsuayi', 'michy21@gmail.com', '2213231', '23424234', '$2y$10$zQiTa.Em5LJ0cl6YxLGjKesx0RBk3lhHmJqHzN5d.RsVn0hRtJe8a', 'a', '', NULL, NULL, NULL, NULL),
-(15, 'Juan David', 'Mosquera MuÃ±oz', 'juanDavid@gmail.com', '3117033212', '542439876', '$2y$10$LTGfV7RwnueXXmOMMcGG6.1IlGP01DevTI4fpDHFg8j9d4c4yAgya', 'u', 'usuarios/juanDavid@gmail.com/fotoPerfil.png', 'Casado', 'cll56#79A47', 'Daniel Amaya', 31212),
+(15, 'Juan David', 'Mosquera MuÃ±oz', 'juanDavid@gmail.com', '3117033212', '542439876', '$2y$10$LTGfV7RwnueXXmOMMcGG6.1IlGP01DevTI4fpDHFg8j9d4c4yAgya', 'u', 'usuarios/juanDavid@gmail.com/fotoPerfil.png', 'Casado', 'cll43a21', 'Daniel Amaya', 2147483647),
 (16, 'Daniel', 'Amaya Arango', 'danytf2103@gmail.com', '3012345434', '1000557673', '$2y$10$qJJUaKXim4QvupGaWhbxKOA4Ox.KN.qSKJbEmJCeQNajsxttFw5yW', 'u', 'usuarios/danytf2103@gmail.com/fotoPerfil.png', 'Casado', 'sdfdsfdsf', 'Daniel Amaya', 2147483647),
-(17, 'Real prueba', 'Prueba', 'pruebon@gmail.com', '1234567', '4324234423', '$2y$10$bK/oIqtsis9LQaLfMvDY3.9p79Qf4sDJ3bOMSQ7RNcuDd0UeiLg0a', 'u', 'usuarios/pruebon@gmail.com/fotoPerfil.png', 'Soltero', 'cll56#79A47', 'Daniel Amaya', 123124324);
+(17, 'Real prueba', 'Prueba', 'pruebon@gmail.com', '1234567', '4324234423', '$2y$10$bK/oIqtsis9LQaLfMvDY3.9p79Qf4sDJ3bOMSQ7RNcuDd0UeiLg0a', 'u', 'usuarios/pruebon@gmail.com/fotoPerfil.png', 'Soltero', 'cll56#79A47', 'Daniel Amaya', 123124324),
+(18, 'Paula', 'Lancheros CaÃ±as', 'paula@gmail.com', '3212221222', '43212243545', '$2y$10$Ft5YqRxVMnkbPxAWEuJKcuKPKvn7Xixj5WgdKJY3H.rCs9BxrYtH2', 'u', '', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -453,7 +534,8 @@ CREATE TABLE `vacunas` (
 
 INSERT INTO `vacunas` (`cod`, `especie`, `vacuna`, `descripcion`) VALUES
 (20, 'canina', 'Rabia', 0x50617261206375726172206c6120726162696120656e206c6f7320616e696d616c6573),
-(21, 'felina', 'Rabia', 0x50617261206375726172206c6120726162696120656e206c6f7320616e696d616c6573);
+(21, 'felina', 'Rabia', 0x50617261206375726172206c6120726162696120656e206c6f7320616e696d616c6573),
+(23, 'felina', 'Rataviru', 0x4f6967612063616e74696e65726f2073697276616d65206f74726f2061677561726469656e7465);
 
 --
 -- Índices para tablas volcadas
@@ -499,6 +581,13 @@ ALTER TABLE `compromisoesterilizacion`
 -- Indices de la tabla `documentoslegales`
 --
 ALTER TABLE `documentoslegales`
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
+-- Indices de la tabla `donaciones`
+--
+ALTER TABLE `donaciones`
+  ADD PRIMARY KEY (`iddonacion`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
@@ -560,13 +649,13 @@ ALTER TABLE `vacunas`
 -- AUTO_INCREMENT de la tabla `adopciones`
 --
 ALTER TABLE `adopciones`
-  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `numAdopcion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `compromisoesterilizacion`
@@ -575,10 +664,16 @@ ALTER TABLE `compromisoesterilizacion`
   MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `donaciones`
+--
+ALTER TABLE `donaciones`
+  MODIFY `iddonacion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntasadopcion`
@@ -590,31 +685,31 @@ ALTER TABLE `preguntasadopcion`
 -- AUTO_INCREMENT de la tabla `respuestasadopcion`
 --
 ALTER TABLE `respuestasadopcion`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT de la tabla `seguimiento`
 --
 ALTER TABLE `seguimiento`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudesadopcion`
 --
 ALTER TABLE `solicitudesadopcion`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `vacunas`
 --
 ALTER TABLE `vacunas`
-  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cod` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas
@@ -647,6 +742,12 @@ ALTER TABLE `apadrinamientos`
 --
 ALTER TABLE `documentoslegales`
   ADD CONSTRAINT `documentoslegales_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `donaciones`
+--
+ALTER TABLE `donaciones`
+  ADD CONSTRAINT `donaciones_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `fotos`
