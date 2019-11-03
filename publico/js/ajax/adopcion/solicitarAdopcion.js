@@ -16,11 +16,12 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
             if(this.readyState == 4 && this.status == 200){
                 if(this.responseText == '1'){
 
-                    alert('Se ha enviado la solicitud de adopción');
-                    window.location = 'index.php';
-
+                    alertAction('Se ha enviado la solicitud de adopción', color_principal);
+                    animalitosUserAjax('idU='+idUsuario, mostrarAnimalitos);
+                    id('solicitudModal').style.display = 'none';
+                    
                 }else{
-                    alert('No es posible solicitar la adopción, intenta de nuevo');
+                    alertAction('No es posible solicitar la adopción, intenta de nuevo', 'red');
                 }
             }
         });
@@ -75,12 +76,11 @@ cancelarSolicitud = (codSolicitud) => {
             if(this.readyState == 4 && this.status == 200){
                 if(this.responseText == '1'){
 
-                    alert('Se ha cancelado la solicitud de adopción');
-                    window.location = 'index.php';
-
+                    alertAction('Se ha cancelado la solicitud de adopción', 'sienna');
+                    animalitosUserAjax('idU='+idUsuario, mostrarAnimalitos);
                 }else{
 
-                    alert('No es posible cancelar la solicitud de adopción');
+                    alertAction('No es posible cancelar la solicitud de adopción', 'red');
                 }
             }
         });
@@ -94,7 +94,7 @@ cancelarSolicitud = (codSolicitud) => {
 
 }
 
-})()
+})();
 
 
 

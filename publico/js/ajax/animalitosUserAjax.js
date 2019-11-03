@@ -33,7 +33,6 @@
 
     }
 
-
     document.addEventListener('DOMContentLoaded', () =>{
         
         animalitosUserAjax('idU='+idUsuario, mostrarAnimalitos);

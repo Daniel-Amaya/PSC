@@ -10,7 +10,7 @@
                 if(e[0] == '111'){
                     // window.location = 'index.php';
                     id('entregarModal').style.display = 'none';
-                    id('nomA').textContent = nomAdo;
+                    // id('nomA').textContent = nomAdo;
                     id('respAd').style.display = 'none';
                     id('seguimiento').style.overflow = 'initial';
                     id('seguimiento').style.height = 'auto';

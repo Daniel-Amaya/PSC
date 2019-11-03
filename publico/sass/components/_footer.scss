@@ -114,7 +114,7 @@ footer{
             grid-column-start: 1;
             grid-column-end: 3;
             text-align: center;
-            background: #ff7f04;
+            background: $color-principal;
             color: $blanco;
             @include respond-to(500px){
                 grid-column-end: auto;

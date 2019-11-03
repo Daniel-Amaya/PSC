@@ -9,7 +9,6 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
             $preguntas = parent::dataPreguntas();
 
             if($preguntas->rowCount() > 0){
-
                
                 foreach($preguntas AS $pregunta){
 
@@ -18,7 +17,7 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
                         if($pregunta[3] == 1){
                             echo "
                             <div class='boxInput preguntaDerecha'>
-                                <div class='pregunta'>$pregunta[0]. $pregunta[1]</div>
+                                <div class='pregunta' id='pregSN$pregunta[0]'>$pregunta[0]. $pregunta[1]</div>
                                 <label for='si$pregunta[0]'>Sí</label> 
                                 <input type='$pregunta[2]' value='Sí' id='si$pregunta[0]' name='$pregunta[0]'>
 
@@ -111,12 +110,12 @@ class PreguntasAdopcionController extends PreguntasAdopcion{
                         if($pregunta[3] == 1){
                             echo "
                             <div class='boxInput preguntaIzquierda'>
-                                <div class='pregunta'>$pregunta[0]. $pregunta[1]</div>
+                                <div class='pregunta' id='pregSN$pregunta[0]'>$pregunta[0]. $pregunta[1]</div>
                                 <label for='si$pregunta[0]'>Sí</label> 
-                                <input type='$pregunta[2]' value='si' id='si$pregunta[0]' name='$pregunta[0]'>
+                                <input type='$pregunta[2]' value='Sí' id='si$pregunta[0]' name='$pregunta[0]'>
 
                                 <label for='no$pregunta[0]'>No</label> 
-                                <input type='$pregunta[2]' value='no' id='no$pregunta[0]' name='$pregunta[0]'>";
+                                <input type='$pregunta[2]' value='No' id='no$pregunta[0]' name='$pregunta[0]'>";
 
                             if($pregunta[4] != null){
                                 echo "<label for='db$pregunta[0]'>$pregunta[4]</label>

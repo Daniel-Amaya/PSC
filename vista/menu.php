@@ -34,7 +34,7 @@
         </ul>
     </div>
     <div class="nav-logo">
-        <img src="publico/images/logo.jpeg">
+        <a href="index.php"><img src="publico/images/logo.jpeg"></a>
     </div>
 </nav>
 

@@ -40,7 +40,6 @@ class DocumentosLegales extends Conexion{
         }
     }
 
-
     public function cargarCedula($pdfN, $pdfTmp, $folder){
         try{
             
@@ -60,7 +59,7 @@ class DocumentosLegales extends Conexion{
 
             }else{
 
-                throw new Exception("No agrega esa malparida firma de mierda piroba carechimba");
+                throw new Exception("No es posible agregar la firma");
                 
             }
 

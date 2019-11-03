@@ -17,7 +17,7 @@ require 'controlador/vacunasController.php';
                         <img src='publico/images/historias/historia_1.jpg' alt=''>
                     </div>
                             
-                    <h2 class='card_h_titulo'>La alegria de la familia</h2>
+                    <h2 class='card_h_titulo'>La alegría de la familia</h2>
                             
                     <p class='card_h_text'>Estos 2 hermanos bebés han encontrado el hogar que tanto deseabamos que tuviesen para ser felices y más aún JUNTOS, alrededor de personas que los cuidarán y amarán con todo el corazón.</p>
                             

@@ -1,5 +1,6 @@
-<div class="padding-menu margin-menu" id="seguimiento" style="height: 0; overflow: hidden;min-height: 0;">
-    <h2 class="textoDeTitulo">Ahora <span id='nomA'></span> es la mascota de <span id='nomU'></span>, debes avisarle que día puede venir a la fundación por su nueva mascota, además programar las visitas de seguimiento que se realizan a los adoptados y adoptantes. </h2>
+<div class="padding-menu margin-menu" id="seguimiento" style="height: 0; overflow: hidden; min-height: 0;">
+
+    <h2 class="textoDeTitulo">Ahora <?php if(isset($datosSolicitud)) echo $datosSolicitud['nombre'] ?> es la mascota de <?php if(isset($datosSolicitud)) echo "{$usuario['nombre']} {$usuario['apellidos']}" ?>, debes avisarle que día puede venir a la fundación por su nueva mascota, además programar las visitas de seguimiento que se realizan a los adoptados y adoptantes. </h2>
 
     <div id="calendar" style='min-height: 500px;'>
 
