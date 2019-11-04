@@ -2201,7 +2201,7 @@ button {
 .modal {
   display: none;
   position: fixed;
-  z-index: 5;
+  z-index: 9;
   overflow: auto;
   top: 0;
   width: 100%;

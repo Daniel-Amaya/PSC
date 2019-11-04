@@ -1,6 +1,6 @@
 <?php 
 
-$linksStyles = ['fullcalendar.min.css']; 
+$linksStyles = ['']; 
 
 $nombrePagina = "Calendario";
 
