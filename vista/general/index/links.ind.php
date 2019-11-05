@@ -1,6 +1,6 @@
 <?php 
 
-$linksStyles = ['index.css']; 
+$linksStyles = ['index.css', 'fullCalendar.css']; 
 
 
 ?>
