@@ -35,6 +35,9 @@
 
         if(donacion != "" && cantidad != "" && unidades != "" && comprobante.length > 0){
             donaciones = new FormData;
+            if(idUsuario){
+                donaciones.append('idU', idUsuario);
+            }
             donaciones.append('donacion', donacion);
             donaciones.append('cantidad', cantidad);
             donaciones.append('unidades', unidades);
