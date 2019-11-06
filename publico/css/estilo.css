@@ -2334,6 +2334,17 @@ button {
   padding: 20px;
 }
 
+.tituloModal {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  /* letter-spacing: 1px; */
+  /* margin-right: -1px; */
+  /* margin-top: 7rem; */
+  text-align: center;
+  color: #333;
+  position: relative;
+}
+
 .card-adopta {
   width: 250px;
   height: 400px;

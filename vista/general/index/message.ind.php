@@ -43,37 +43,66 @@
 
 </div>
 
-    
-    <script src='publico/js/fullcalendar-4.3.1/packages/core/main.js'></script>
-    <script src='publico/js/fullcalendar-4.3.1/packages/interaction/main.js'></script>
-    <script src='publico/js/fullcalendar-4.3.1/packages/daygrid/main.js'></script>
-    <script src='publico/js/fullcalendar-4.3.1/packages/timegrid/main.js'></script>
-    <script src='publico/js/fullcalendar-4.3.1/packages/list/main.js'></script>
-    <script src='publico/js/fullcalendar-4.3.1/packages/core/locales/es.js'></script>
+<!-- Modal ver--> 
+<div class="modal" id="modalEvent">
+    <div class="flex-modal" role="document">
+        <div class="contenido-modal">
+            <div class="modal-header">
+                <h4 class="center">Información del evento</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="tituloModal" id='nombreEvento'></h3>
+                <h4 class="descripModal" id='descripEvento'></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn_rojo" id='cerrarEs'>Cerrar</button>
 
-    <script>
+            </div>
+        </div>
+    </div>
+</div>
 
-        const calendar = new FullCalendar.Calendar(id('calendar'), {
 
-            locale: 'es',
-            plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list', 'moment' ],
-            header: {
-                    center: 'title',
-                    right: ' today prev,next',
-                    left: 'dayGridMonth,listWeek,listDay'
 
-                },
-            views: {
-                listWeek: {buttonText: 'Semana'},
-                listDay: {buttonText: 'Dia'}
+<script src='publico/js/fullcalendar-4.3.1/packages/core/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/interaction/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/daygrid/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/timegrid/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/list/main.js'></script>
+<script src='publico/js/fullcalendar-4.3.1/packages/core/locales/es.js'></script>
+<script src='publico/js/modal.js'></script>
+
+<script>
+    const calendar = new FullCalendar.Calendar(id('calendar'), {
+
+        locale: 'es',
+        plugins: ['interaction', 'dayGrid', 'timeGrid', 'list', 'moment'],
+        header: {
+            center: 'title',
+            right: ' today prev,next',
+            left: 'dayGridMonth,listWeek,listDay'
+
+        },
+        views: {
+            listWeek: {
+                buttonText: 'Semana'
             },
-        
-            editable: false,
+            listDay: {
+                buttonText: 'Dia'
+            }
+        },
+        eventClick: (info) => {
+            id('nombreEvento').textContent = info.event.title;
+            id('descripEvento').textContent = info.event.descripcion;
+            id('modalEvent').style.display = 'block';
+            id('cerrarEs').modal.style.display = 'none';
+        },
 
-            events: 'controlador/ajax/eventosAjax.php'
-                
-        });
+        editable: false,
 
-        calendar.render();
+        events: 'controlador/ajax/eventosAjax.php'
 
-    </script>
+    });
+
+    calendar.render();
+</script>
