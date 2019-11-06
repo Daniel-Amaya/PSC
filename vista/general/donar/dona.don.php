@@ -1,210 +1,165 @@
-<section class='margin-menu '>
+<section class='margin-menu'>
 
-<h1 class="titulo">¿Que desea donar?</h1>
+    <h1 class="titulo">¿Que desea donar?</h1>
 
+  
+    <div class="row">
 
-    <div class="containerCat">
-        
-        <div class="plane">
-            
-            <div class="p-body">
-            <div class="p-parts">
-                <div class="part-one">
-                <span class="po-up"></span>
-                <span class="po-middle"></span>
-                <span class="po-down"></span>
+        <div class="col-500-6 row">
+            <div class="containerCat">
+                
+                <strong  class='msg-don'>Has clic en lo que deseas donar para ver los pasos de como hacerlo</strong>
+                <div class="plane">
+                    
+                    <div class="p-body">
+                        <div class="p-parts">
+                            <div class="part-one">
+                                <span class="po-up"></span>
+                                <span class="po-middle"></span>
+                                <span class="po-down"></span>
+                            </div>
+                            <div class="part-two">
+                                <span class="pt-wing"></span>
+                            </div>
+                            <div class="part-three">
+                                <span class="roll"></span>
+                            </div>
+                            <div class="helix">
+                                <span class="h-base"></span>
+                                <span class="h-rotor"></span>
+                            </div>
+                        </div>
+                    
+                        <div class="cat">
+                            <span class="eyes left"></span>
+                            <span class="eyes right"></span>
+                            <span class="mouth"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-message">
+                    <div class="rope"></div>
+                    <ul>
+                        <li class='tabsItemUser pointer'> <strong>Alimento</strong></li>
+                        <li class="middle tabsItemUser pointer"> <strong>Medicamentos</strong></li>
+                        <li class='tabsItemUser pointer'> <strong> Dinero</strong></li>
+                    </ul>
+                    </div>
                 </div>
-                <div class="part-two">
-                <span class="pt-wing"></span>
-                </div>
-                <div class="part-three">
-                <span class="roll"></span>
-                </div>
-                <div class="helix">
-                <span class="h-base"></span>
-                <span class="h-rotor"></span>
-                </div>
-            </div>
-            
-            <div class="cat">
-                <span class="eyes left"></span>
-                <span class="eyes right"></span>
-                <span class="mouth"></span>
-            </div>
-            </div>
-            
-            <div class="p-message">
-            <div class="rope"></div>
-            <ul>
-                <li class='tabsItemUser pointer'> <strong>Dinero</strong></li>
-                <li class="middle tabsItemUser pointer"> <strong>Medicamentos</strong></li>
-                <li class='tabsItemUser pointer'> <strong> Alimento</strong></li>
-            </ul>
+                
             </div>
         </div>
         
+        <div class="col-500-6">
+            <div class="box-don">
+                
+                <h2 class='center t-don' id='t-don'>Alimento</h2>
+                <div class='row'>
+
+                    <div class="col-ms-6">
+
+                        <h3 class="center">Formulario de donación</h3>
+                        
+                        <form method="POST" id='insertar-donacion' enctype="multipart/form-data" >
+                        
+                            <div class="boxInput">
+                                <select name="donacion" id='donacion' required> 
+                                    <!-- <option disabled selected>Opciones</option> -->
+                                    <option>¿De qué es su donación?</option>
+                                    <option value="alimentos">Alimentos</option>
+                                    <option value="medicamentos">Medicamentos</option>
+                                    <option value="dinero">Dinero</option>
+                                </select>
+                            </div>
+
+                            <div class="boxInput">
+                                <input type="number" placeholder="¿De cuanto es su donación?" name='cantidad' required min='1' id='cantidad'>
+                            </div>
+
+                            <div class="boxInput">
+                                <select name="valor" required id='unidades'>
+                                    <!-- <option disabled selected>Medición</option> -->
+                                    <option>Unidades Ejm: Pesos, libras, gramos etc.</option>
+                                    <option value="libras">Lb/Libras</option>
+                                    <option value="unidades">Unidades</option>
+                                    <option value="pesos">$/Pesos</option>
+                                </select>
+                            </div>
+
+                            <div class="boxInput">
+                                <label for="fotoComprobante" class="btn_cafe btn_largo" style='display: block'>Agregar foto de comprobante:</label>
+                                <input style='display: none' type="file" name="fotoComprobante" id="fotoComprobante">
+                            </div>
+
+                            <!-- <div id="imagesBox">
+                                    <h3 style="margin-left:15px;">Imagenes agregadas:</h3>
+                                    <div id="messageError"></div>
+                            </div> -->
+                    
+                            <!-- <div class="boxInput">
+                                <textarea name="mensajeDonacion" placeholder="Si tienes algo que decirnos escribelo aquí" rows="4"></textarea>
+                            </div> -->
+
+                            <div class="boxInput">
+                                <input type="submit" value="Registrar donación">
+                            </div>
+
+                        </form>
+
+                        <script src="publico/js/ajax/donacionesAjax.js"></script>
+                    </div>
+
+                    <div class="col-ms-6">
+
+                        <!-- ALIMENTOS -->
+                        <div class="tabBox">
+
+                            <strong>¿Por qué donar alimento?</strong>
+
+                            <p>La fundación resguarda animalitos en estado de calle, y mientras estos no sean adoptados, la fundación se esmera por mejorar su estadía trantando de brindar la mejor aimientación, cualquier aporte de tu parte ayudaría a la mejor alimentación de las mascotas resguardadas en la fundación.</p>
+                            <br><br>
+                            <p>Puedes envíar el cuido a la dirección: 
+                            cll 43 # 90 A 47 que se ubica en el barrio Robledo </p>
+                            
+                        </div>
+
+                        <!-- MEDICAMENTOS -->
+
+                        <div class="tabBox">
+                            
+                        </div>
+
+                        <!-- DINERO -->
+
+                        <div class="tabBox">
+
+                            <strong>¿Por qué donar dinero?</strong>
+
+                            <p>muchas de las mascotas resguardadas en la fundación están enfermas, lesionadas o provienen con problemas de alimentación, con el dinero recaudado la fundación puede comprar medicamentos, contratar veterinarios, comprar cuido y dar la mejor atención a los animalitos.</p>
+                            <br>
+                            <strong>¿Cuánto podrías donar?</strong>
+
+                            <div class="row">
+                                <a target='_blank' class='btn_cafe btn_don' href="https://biz.payulatam.com/L0ca57a1E3AD611">10.000$</a> 
+                                <a target='_blank' class='btn_cafe btn_don' href="https://biz.payulatam.com/L0ca57a705D54D9">20.000$</a> 
+                                <a target='_blank' class='btn_cafe btn_don' href="https://biz.payulatam.com/L0ca57a7B4A2A1B">50.000$</a> 
+                                <a target='_blank' class='btn_cafe btn_don' href="https://biz.payulatam.com/L0ca57aC8D6380B">100.000$</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+
     </div>
+    
 
       
-<div class="container-donar" >
-        <div class="col-6 margin-menu grisColor" style="margin-left:45px;">
-           
-
-            <h2 class="center">Formulario de donación</h2>
-            <br>
-            
-            <form method="POST" id='insertar-donacion' enctype="multipart/form-data" >
-            
-            <div class="boxInput">
-                <h3>¿De que es su donación?</h3>
-                <select name="donacion" id='donacion' required> 
-                    <!-- <option disabled selected>Opciones</option> -->
-                    <option>¿De qué es su donación?</option>
-                    <option value="alimentos">Alimentos</option>
-                    <option value="medicamentos">Medicamentos</option>
-                    <option value="dinero">Dinero</option>
-                </select>
-            </div>
-
-            <div class="boxInput">
-                <h3>¿De cuanto es su donacion?</h3>
-                <input type="number" placeholder="¿De cuanto es su donación?" name='cantidad' required min='1' id='cantidad'>
-            </div>
-
-            <div class="boxInput">
-                <select name="valor" required id='unidades'>
-                    <!-- <option disabled selected>Medición</option> -->
-                    <option>Unidades Ejm: Pesos, libras, gramos etc.</option>
-                    <option value="libras">Lb/Libras</option>
-                    <option value="unidades">Unidades</option>
-                    <option value="pesos">$/Pesos</option>
-                </select>
-            </div>
-
-            <div class="boxInput">
-                <h3 >Agregue una foto del Comprobante:</h3>
-                <label for="fotoComprobante" class="btn_gris btn_largo" style='display: block'>Agregar foto:</label>
-                <input style='display: none' type="file" name="fotoComprobante" id="fotoComprobante" class="btn_gris">
-            </div>
-
-             <!-- <div id="imagesBox">
-                    <h3 style="margin-left:15px;">Imagenes agregadas:</h3>
-                    <div id="messageError"></div>
-            </div> -->
-    
-            <!-- <div class="boxInput">
-                <textarea name="mensajeDonacion" placeholder="Si tienes algo que decirnos escribelo aquí" rows="4"></textarea>
-            </div> -->
-
-            <div class="boxInputGris boxInput">
-                <input type="submit" value="Enviar" style="">
-            </div>
-
-        </form>
-
-        <script src="publico/js/ajax/donacionesAjax.js"></script>
-                
-        
-
-        </div>
-
-        <div class="col-6">
-        <div class="tabBox">
-                <div class="textos-modal donacionesAlimentos">
-
-                <h1>Dinero</h1> <br>
-            <div class="doscolumnas" style="text-align: center;">
-                    <p><h3>¿Que es donar?</h3> <br>
-                    Donar es dar algo de valor para ayudar al bienestar del otro 
-                    entregandose  de forma voluntaria y sin esperar premio ni recompensa alguna. <br>
-                    <h3> ¿Por que donar? </h3> <br>
-                        <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
-            </div> <br>
-                        <h3>  Puedes donar aquí </h3> <br>
-                  
-            <div class="containerquedonar">
-                <div class="quedonar1"> 
-                <a href="https://biz.payulatam.com/L0ca57a1E3AD611">Donar 10.000$</a> <br> <br>
-                <a href="https://biz.payulatam.com/L0ca57a705D54D9">Donar 20.000$</a> <br> <br>
-                <a href="https://biz.payulatam.com/L0ca57a7B4A2A1B">Donar 50.000$</a> <br> <br>
-                <a href="https://biz.payulatam.com/L0ca57aC8D6380B">Donar 100.000$</a> <br>  <br>
-                </div>
-    
-            </div> <br>
-                
-                <p>
-                    <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
-                    </p>
-                </div>
-
-        </div>
-
-
-
     
 
-
- <div class="tabBox">
- <div class="textos-modal donacionesAlimentos">
-
-                <h1>Medicamentos</h1> <br>
-                <div class="doscolumnas" style="text-align: center;">
-                    <p><h3>¿Que medicamentos puedo donar?</h3> <br>
-                    -Antiparasitarios perros y gatos.
-                    -Pastillas antiparasitarias internas para perros y gatos.
-                    -Condroprotectores para perros y gatos.
-                    -Vitaminas para perros y energizantes y gatos.
-                    -Pancreáticos para perros y gatos.
-                    -ADAPTIL para perros.
-                    -Calcio para perros y gatos.
-                    -Dermatologicos piel y pelo.
-                    
-                     <br> <br>
-                    <h3> ¿Por qué donar? </h3> <br>
-                        <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
-                </div> <br>
-                        <h3>  Pasos para donar </h3> <br>
-                    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
-                    </p>
-                    <br>
-               <br>
-
-                <p>
-                    <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
-                    </p>
-                </div>
-
-    
-    </div>
-    <div class="tabBox">
-    <div class="textos-modal donacionesAlimentos">
-
-            <h1>Alimentos </h1> <br>
-            <div class="doscolumnas" style="text-align: center;">
-                <p><h3>¿Que alimentos puedo donar?</h3> <br>
-                
-                Cuido para perros y gatos de todas las edades y tamaños. <br>
-                Crocetas para perros y gatos de todas las edades y tamaños.
-                
-                 <br>
-                <h3> ¿Por qué donar? </h3> <br>
-                    <p>La fundación no cuenta con el suficiente apoyo para suplir las necesidades del maltrato y abandono animal</p>
-            </div> <br>
-                    <h3>  ¿Como puedo donar? </h3> <br>
-                <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consequuntur ea provident alias blanditiis quas eum? Magni quas nesciunt sed accusamus esse architecto, reprehenderit quos suscipit cumque minima libero dicta?</p> 
-                </p>
-                <br>
-            <br>
-
-            <p>
-                <div style="width: 90%; height: 3px; background-color: Orange; Margin:auto; margin-top: 3px;"></div>
-                </p>
-            </div>
-
-</div>
-</div>
-</div>
-</div>
 </section> 
 
 <script>
@@ -229,6 +184,14 @@ function tabsUser(){
             tabs[indic].style.display = 'block';
             tabButtons[indic].classList.add('tabSelection');
 
+            if(indic == 0){
+                id('t-don').textContent = 'Alimento';
+            }else if(indic == 1){
+                id('t-don').textContent = 'Medicamentos';
+            }else{
+                id('t-don').textContent = 'Dinero';
+            }
+
         });
 
 
@@ -236,7 +199,6 @@ function tabsUser(){
 
     tabs[indic].style.display = "block";
     tabButtons[indic].classList.add('tabSelection');
-
 
 
 }

@@ -230,19 +230,20 @@
 .plane .p-message ul li{
   float: right;
   height: 40px;
-  background: #FFF;
-  width: 33%;
+  background: rgb(224, 224, 224);
+  // width: 33%;
   text-align: center;
   line-height: 2.85em;
   font-weight: 600;
   // text-transform: uppercase;
   font-size: 0.75em;
   color: #777;
+  padding:5px 10px;
 }
 
 .plane .p-message ul li.middle{
   top: 0px;
-  background: #FAFAFA;
+  background: rgba(224, 224, 224, 0.671);
   animation:m-fly 1s infinite;
   -webkit-animation:m-fly 1s infinite;
 }
