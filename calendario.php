@@ -13,8 +13,9 @@ if(!isset($_SESSION['sesion_rol']) OR empty($_SESSION['sesion_rol'])){
 
 }else if($_SESSION['sesion_rol'] == 'a'){
 
-    require 'vista/admin/calendario/calendario.cal.php';
     require 'vista/admin/menuAdmin.php';
+    require 'vista/admin/calendario/calendario.cal.php';
+    require 'vista/admin/calendario/modales.cal.php';
     
 }else if($_SESSION['sesion_rol'] == "u"){
 

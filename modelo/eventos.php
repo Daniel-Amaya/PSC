@@ -20,17 +20,18 @@ class Evento extends Conexion{
 
         try{ 
             
-            $query = $con->prepare("INSERT INTO events (title, descripcion, color, start, end) VALUES (:title, :descripcion, :color, :start, :end)");
+            $query = $con->prepare("INSERT INTO eventos SET title=:title, color=:color, start=:start, end=:end, descripcion=:descripcion");
 
             $query->bindParam(':title', $this->title);
-            $query->bindParam(':descripcion', $this->descripcion);
             $query->bindParam(':color', $this->color);
-            $query->bindParam(':start', $this->start);
+            $query->bindParam(':start', $this->start);;
             $query->bindParam(':end', $this->end);
+            $query->bindParam(':descripcion', $this->descripcion);
+
             $query->execute();
 
             if($query->errorCode() != "00000"){
-                echo "0%%";
+                echo "0%%{$query->errorCode()}&&";
             }else{
                 echo "1%%";
             }
@@ -46,7 +47,7 @@ class Evento extends Conexion{
         $con = parent::conectar();
         try{
 
-            $query = $con->query("SELECT * FROM events");
+            $query = $con->query("SELECT * FROM eventos");
             return $query;
         }catch(PDOException $e){
             exit("ERROR AL MOSTRAR EVENTOS: ".$e->getMessage());
@@ -56,7 +57,7 @@ class Evento extends Conexion{
     public function deleteEvento($id){
         $con = parent::conectar();
         try {
-            $query = $con->prepare("DELETE FROM events WHERE id=:id");
+            $query = $con->prepare("DELETE FROM eventos WHERE id=:id");
             $query->bindParam(':id', $id);
             $query->execute();
             if($query->errorCode() != "00000"){
@@ -73,7 +74,7 @@ class Evento extends Conexion{
     public function updateVacunas($title, $descripcion, $color, $start, $end, $id){
         $con = parent::conectar();
         try {
-            $query = $con->prepare("UPDATE events SET title=:title, descripcion=:descripcion, color=:color, start=:start, end=:end WHERE id=:id");
+            $query = $con->prepare("UPDATE eventos SET title=:title, descripcion=:descripcion, color=:color, start=:start, end=:end WHERE id=:id");
             $query->bindParam(':title', $title);
             $query->bindParam(':descripcion', $descripcion);
             $query->bindParam(':color', $color);

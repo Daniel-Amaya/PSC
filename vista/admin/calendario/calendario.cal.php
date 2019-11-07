@@ -1,21 +1,6 @@
-<?php
-require_once('modelo/calendar/bdd.php');
 
 
-$sql = "SELECT id, title, start, end, color FROM events ";
 
-$req = $bdd->prepare($sql);
-$req->execute();
-
-$events = $req->fetchAll();
-
-?>
-
-<head>
-	<link rel='stylesheet' href='publico/js/fullcalendar/fullcalendar.css'>
-</head>
-
-<body>
 	<section class='margin-menu padding-menu'>
 		<!-- Page Content -->
 		<div class="container" style="width: 80%;">
@@ -26,7 +11,7 @@ $events = $req->fetchAll();
 					<p class="lead">¡Programa aquí los proximos eventos de la fundación!</p>
 				</div>
 				<br>
-				<div id="calendar" class="col-centered">
+				<div id="calendar">
 				</div>
 			</div>
 			<!-- /.row -->
@@ -38,129 +23,18 @@ $events = $req->fetchAll();
 
 	</section>
 
-	<!-- Modal Agregar -->
-	<div class="modal" id="ModalAdd">
-		<div class="flex-modal" role="document">
-			<div class="contenido-modal">
-				<form class="form-horizontal" method="POST" action="modelo/calendar/addEvent.php">
 
-					<div class="">
-						<h2 class="center" id="myModalLabel">Agregar Evento</h2>
-					</div>
-					<div class="modal-body">
+	<script src='publico/js/fullcalendar-4.3.1/packages/core/main.js'></script>
+	<script src='publico/js/fullcalendar-4.3.1/packages/interaction/main.js'></script>
+	<script src='publico/js/fullcalendar-4.3.1/packages/daygrid/main.js'></script>
+	<script src='publico/js/fullcalendar-4.3.1/packages/timegrid/main.js'></script>
+	<script src='publico/js/fullcalendar-4.3.1/packages/list/main.js'></script>
+	<script src='publico/js/fullcalendar-4.3.1/packages/core/locales/es.js'></script>
 
-						<div class="boxInput">
-							<label for="title" class="col-sm-2 control-label">Titulo</label>
-							<div class="col-sm-10">
-								<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
-							</div>
-						</div>
-						<div class="boxInput">
-							<label for="color" class="col-sm-2 control-label">Color</label>
-							<div class="col-sm-10">
-								<select name="color" class="form-control" id="color">
-									<option value="">Seleccionar</option>
-									<option style="color:#0071c5;" value="#0071c5">&#9724; Azul oscuro</option>
-									<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
-									<option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
-									<option style="color:#FF8C00;" value="#FF8C00">&#9724; Naranja</option>
-									<option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
-									<option style="color:#000;" value="#000">&#9724; Negro</option>
-								</select>
-							</div>
-						</div>
-						<div class="boxInput">
-							<label for="start" class="col-sm-2 control-label">Fecha Inicial</label>
-							<div class="col-sm-10">
-								<input type="text" name="start" class="form-control" id="start" readonly>
-							</div>
-						</div>
-						<div class="boxInput">
-							<label for="end" class="col-sm-2 control-label">Fecha Final</label>
-							<div class="col-sm-10">
-								<input type="text" name="end" class="form-control" id="end" readonly>
-							</div>
-						</div>
-
-					</div>
-					<div class="boxInput">
-						<button type="button" class="btn_rojo" data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn_naranja">Guardar</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	<script src="publico/js/ajax/eventosAjax.js"></script>
 
 
-	<!-- Modal editar-->
-	<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="flex-modal" role="document">
-			<div class="contenido-modal">
-				<form class="form-horizontal" method="POST" action="modelo/calendar/editEventTitle.php">
-					<div class="modal-header">
-						<h4 class="center" id="myModalLabel">Modificar Evento</h4>
-					</div>
-					<div class="modal-body">
-
-						<div class="boxInput">
-							<label for="title" class="col-sm-2 control-label">Titulo</label>
-							<div class="col-sm-10">
-								<input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
-							</div>
-						</div>
-						<div class="boxInput">
-							<label for="color" class="col-sm-2 control-label">Color</label>
-							<div class="col-sm-10">
-								<select name="color" class="form-control" id="color">
-									<option value="">Seleccionar</option>
-									<option style="color:#0071c5;" value="#0071c5">&#9724; Azul oscuro</option>
-									<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
-									<option style="color:#008000;" value="#008000">&#9724; Verde</option>
-									<option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
-									<option style="color:#FF8C00;" value="#FF8C00">&#9724; Naranja</option>
-									<option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
-									<option style="color:#000;" value="#000">&#9724; Negro</option>
-
-								</select>
-							</div>
-						</div>
-						<!-- <div class="boxInput">  -->
-						<div class="col-sm-offset-2 col-sm-10">
-							<div class="checkbox">
-								<label><input type="checkbox" name="delete"> Eliminar Evento</label>
-							</div>
-							<!-- </div> -->
-						</div>
-
-						<input type="hidden" name="id" class="form-control" id="id">
-
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn_rojo" data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn_naranja">Guardar</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- /.container -->
-
-	<!-- jQuery Version 1.11.1 -->
-	<script src="publico/js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="publico/js/bootstrap.min.js"></script>
-	<!-- FullCalendar -->
-	<script src='publico/js/moment.min.js'></script>
-	<script src='publico/js/fullcalendar/fullcalendar.min.js'></script>
-	<script src='publico/js/fullcalendar/fullcalendar.js'></script>
-	<script src='publico/js/fullcalendar/locale/es.js'></script>
-
-
+<!-- 
 	<script>
 		$(document).ready(function() {
 
@@ -264,8 +138,4 @@ $events = $req->fetchAll();
 			}
 
 		});
-	</script>
-
-</body>
-
-</html>
+	</script> -->

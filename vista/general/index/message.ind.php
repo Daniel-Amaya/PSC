@@ -63,7 +63,6 @@
 </div>
 
 
-
 <script src='publico/js/fullcalendar-4.3.1/packages/core/main.js'></script>
 <script src='publico/js/fullcalendar-4.3.1/packages/interaction/main.js'></script>
 <script src='publico/js/fullcalendar-4.3.1/packages/daygrid/main.js'></script>
@@ -93,7 +92,7 @@
         },
         eventClick: (info) => {
             id('nombreEvento').textContent = info.event.title;
-            id('descripEvento').textContent = info.event.descripcion;
+            id('descripEvento').textContent = info.event.extendedProps.descripcion;
             id('modalEvent').style.display = 'block';
             id('cerrarEs').modal.style.display = 'none';
         },
