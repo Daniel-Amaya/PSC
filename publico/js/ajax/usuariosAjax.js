@@ -31,7 +31,7 @@
     
         ht.open('POST','controlador/ajax/usuariosAjax.php');
         ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
-        ht.send(send);
+        ht.send('adminU=true&'+send);
     }
 
     mostrarUsuarios = (ht) => {

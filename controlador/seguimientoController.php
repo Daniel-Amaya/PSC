@@ -111,7 +111,7 @@ class SeguimientoController extends Seguimiento implements Notificaciones{
 
             }
             
-        }catch(Exception $e){
+        }catch(PDOException $e){
             exit("ERROR AL MOSTRAR NOTIFICACIONES: ".$e->getMessage());
         }
     }

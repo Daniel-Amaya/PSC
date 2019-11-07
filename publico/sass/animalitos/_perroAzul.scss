@@ -227,6 +227,9 @@ $k-right-ear: (
   height: 60vmin;
   width: 84vmin;
 
+  @include respond-to(500px){
+    animation: none !important;
+  }
 
   div:before, div:after {
     content: '';

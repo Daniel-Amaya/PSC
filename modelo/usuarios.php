@@ -59,7 +59,7 @@ class Usuario extends Conexion{
 
             }
 
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             exit("ERROR AL INSERTAR USUARIO: ".$e->getMessage());
         }
     }
@@ -161,6 +161,61 @@ class Usuario extends Conexion{
             return $query;
         }catch(PDOException $e){
             exit("ERROR AL BUSCAR USUARIOS: ".$e->getMessage());
+        }
+    }
+
+    public function updateRol($id){
+        $con = parent::conectar();
+        try{
+            
+            $query = $con->prepare("UPDATE usuarios SET rol='a' WHERE id=:id");
+            $query->bindParam(':idU', $id);
+            $query->execute();
+
+            if($query->errorCode() != "00000"){
+                echo "0";
+            }else{
+                echo "1";
+            }
+
+        }catch(PDOException $e){
+            exit("ERROR AL CAMBIAR ROL DEL USUARIO: ".$e->getMessage());
+        }
+    }
+
+    public function updateUsuario($id, $nombre, $apellidos, $correo, $telefono, $cedula, $estado, $direccion, $referencia, $telReferencia){
+        $con = parent::conectar();
+        try{
+
+            $validar = $con->prepare("SELECT * FROM adopciones WHERE idUsuario = :idU");
+            $validar->bindParam(':idU', $id, PDO::PARAM_INT);
+            $validar->execute();
+
+            if($validar->rowCount() > 0){
+
+            }else{
+                $query = $con->prepare("UPDATE usuarios SET nombre=:nom, apellidos=:ape, correo=:corr, telefono=:tel, cedula=:ced, estadoCivil=:est, direccionApto=:dirr, referencia=:ref, telefonoRef=:telRef WHERE id =:idU");
+                $query->execute([
+                    ':nom' => $nombre,
+                    ':ape' => $apellidos,
+                    ':corr' => $correo,
+                    ':tel' => $telefono,
+                    ':ced' => $cedula,
+                    ':est' => $estado,
+                    ':dirr' => $direccion,
+                    ':ref' => $referencia, 
+                    ':telRef' => $telReferencia,
+                    ':idU' => $id
+                ]);
+
+                if($query->errorCode() != "00000"){
+                    echo "0";
+                }else{
+                    echo "1";
+                }
+            }
+        }catch(PDOException $e){
+            exit("ERROR AL MODIFICAR DATOS DEL USUARIO: ".$e->getMessage());
         }
     }
 }

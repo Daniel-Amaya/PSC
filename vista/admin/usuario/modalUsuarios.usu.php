@@ -106,46 +106,7 @@
     </div>
 </div>
 
-<script>
-
-    (function(){
-
-    mostrarUsuariosData = (data) =>{
-
-        id('modalUsu').style.display = 'block';
-
-        classNames('nombreUsuario')[0].textContent = data['nombre'] + " " +data['apellidos'];
-
-        id('nom').textContent = data['nombre'];
-        id('ape').textContent = data['apellidos'];
-        id('corr').textContent = data['correo'];
-        id('tel').textContent = data['telefono'];
-        id('ced').textContent = data['cedula'];
-        
-        if(data['foto'] != ""){
-            id('fotoPerfilModal').src = 'publico/images/'+data['foto'];
-        }else{
-            id('fotoPerfilModal').src = 'publico/images/fotoPerfilVacia.png';
-        }
-
-        if(data['estadoCivl'] != "" && data['referencia'] != "" && data['direccionApto'] != ""){
-            id('est').textContent == data['estadoCivil'];
-            id('dir').textContent == data['direccionApto'];
-            id('ref').textContent == data['referencia'];
-            id('telRef').textContent == data['telefonoRef'];
-        }
-
-        document.addEventListener('click', (e) =>{
-            if(e.target == id('modalUsu').getElementsByClassName('flex-modal')[0]){
-                id('modalUsu').style.display = 'none';
-            }
-        });
-
-    }
-
-    })()
-
-</script>
+<script src='publico/js/usuariosModal.js'></script>
 
 <script src="publico/js/modal.js"></script>
 

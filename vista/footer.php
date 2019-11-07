@@ -1,15 +1,15 @@
     <footer>
         <div class="contacto">
             <h2>Contactanos:</h2><br>
-            <div>telefono: 12443543</div>
-            <div>Correo: perritos@gmail.com</div>
-            <div>Dirección Cll 34 60 B 15</div>
+            <div>teléfono: </div>
+            <div>Correo:  sancristobalpeluditos@gmail.com</div>
+            <div>Dirección: </div>
         </div>
         <div class="redes">
 
             <div><a target='_blank' href="https://www.facebook.com/peluditossancristobal/"><i class="fab fa-facebook-f pointer"></i></a></div>
 
-            <div><i class='fab fa-instagram pointer'></i></div>
+            <div><a target="_blank" href="https://instagram.com/peluditos.medellin"><i class='fab fa-instagram pointer'></i></a></div>
 
             <div><a target='_blank' href="https://twitter.com/PeluditosM"><i class='fab fa-twitter pointer'></i></a></div>
 

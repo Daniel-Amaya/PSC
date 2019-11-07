@@ -118,9 +118,11 @@
         margin: 10rem auto !important;
         .mensajeAdopta{
             top: -50% !important;
+            left: inherit !important;
         }
         .mensajeApadrina{
             top: 120% !important;
+            right: inherit !important;
         }
     }
 

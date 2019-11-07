@@ -77,15 +77,15 @@
 
             <div class="header">
                 <div class="fotoPerfil">
-                <?php if($datosDelUsuario[8] == ""){
+                <?php 
+                if($datosDelUsuario[8] == ""){
                     echo " <img src='publico/images/fotoPerfilVacia.png'>";
                 }else{
-                    echo " <img src='publico/images/$datosDelUsuario[8]'>";
+                    echo "<img src='publico/images/$datosDelUsuario[8]'>";
                 }
                  ?>
-                    <img src="publico/images/$datosDelUsuario[8]">
                 </div>
-                <div class="btn_editar">
+                <div class="btn_editar" id='abrir-modal'>
                     <i class="fas fa-user-edit"></i>
                 </div>
                 <div class="nombreUsuario">
@@ -95,8 +95,16 @@
                 </div>
             </div>
 
-            <div class="informacion">
+            <div class="informacion row">
                 <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td><?php echo $datosDelUsuario[1] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Apellidos:</td>
+                        <td><?php echo $datosDelUsuario[2] ?></td>
+                    </tr>
                     <tr>
                         <td>Correo:</td>
                         <td><?php echo $datosDelUsuario[3] ?></td>
@@ -108,6 +116,58 @@
                     <tr>
                         <td>Cedula:</td>
                         <td><?php echo $datosDelUsuario[5] ?></td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td>Estado civil:</td>
+                        <td>
+                            <?php 
+                                if($datosDelUsuario['estadoCivil'] == null){
+                                    echo "No aplica";
+                                }else{
+                                    echo $datosDelUsuario['estadoCivil'];
+                                }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dirección de apartamento:</td>
+                        <td>
+                            <?php 
+                                if($datosDelUsuario['direccionApto'] == null){
+                                    echo "No aplica";
+                                }else{
+                                    echo $datosDelUsuario['direccionApto'];
+                                }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Referencia:</td>
+                        <td>
+                            <?php 
+                                if($datosDelUsuario['referencia'] == null){
+                                    echo "No aplica";
+                                }else{
+                                    echo $datosDelUsuario['referencia'];
+                                }
+                            ?>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Teléfono de referencia:</td>
+                        <td>
+                            <?php 
+                                if($datosDelUsuario['telefonoRef'] == null){
+                                    echo "No aplica";
+                                }else{
+                                    echo $datosDelUsuario['telefonoRef'];
+                                }
+                            ?>
+                        </td>
                     </tr>
                 </table>
             </div>

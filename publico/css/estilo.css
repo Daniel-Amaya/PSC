@@ -207,7 +207,7 @@ button {
 }
 
 #loadAjax {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -238,6 +238,41 @@ button {
   width: 450px;
   color: white;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.637);
+}
+
+.bloqClic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.116);
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+.bloqClic .confirmar {
+  border-radius: 20px;
+  min-width: 400px;
+  max-width: 500px;
+  box-shadow: 10px 10px 10px black;
+  position: fixed;
+  background: white;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  z-index: 7;
+  font-size: 20px;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+.bloqClic .confirmar div {
+  padding: 10px;
+}
+.bloqClic .confirmar button {
+  margin: 2px !important;
 }
 
 /*-------------------------------*\
@@ -1993,7 +2028,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #e6dcdc;
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
@@ -2322,6 +2357,10 @@ button {
 .formBuscador {
   padding: 50px 100px;
   text-align: center;
+}
+
+.modalPadding {
+  padding: 50px;
 }
 
 #politicaDatos .contenido-modal {

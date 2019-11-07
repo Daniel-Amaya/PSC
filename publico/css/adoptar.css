@@ -821,6 +821,31 @@
   box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.5);
   position: relative;
 }
+@media only screen and (max-width: 600px) {
+  .perfilUsuario .header {
+    flex-direction: column;
+  }
+  .perfilUsuario .header .fotoPerfil {
+    margin: auto;
+  }
+  .perfilUsuario .btn_editar i {
+    margin: 0 !important;
+  }
+  .perfilUsuario .nombreUsuario {
+    width: 100% !important;
+    font-size: 30px !important;
+    padding: 10px !important;
+    position: relative !important;
+    top: 0 !important;
+  }
+  .perfilUsuario .informacion {
+    padding: 10px !important;
+  }
+  .perfilUsuario .informacion table {
+    width: 100% !important;
+    margin: 10px auto !important;
+  }
+}
 .perfilUsuario .header {
   display: flex;
   position: relative;

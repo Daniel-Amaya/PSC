@@ -16,7 +16,7 @@ window.addEventListener('click', function(e){
 
 if(abrir){
 
-    abrir.addEventListener('click',function(){
+    abrir.addEventListener('click' ,function(){
         modal.style.display = 'block';
     });
 }

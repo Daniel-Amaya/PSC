@@ -15,4 +15,6 @@ id('cerrarSesion').addEventListener('click', function(){
     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
     ht.send();
 
+    loadAjax(ht);
+
 });

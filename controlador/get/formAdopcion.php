@@ -51,7 +51,6 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
         </div>
         
 
-
         <h2 class="titulo">Formulario de adopción</h2>
 
         <div id="preguntasAdopcion">
@@ -176,6 +175,7 @@ if(isset($_GET['solicitud']) && !empty($_GET['solicitud'])){
         
     </form>
 
+    <script src="publico/js/validar/validarAdopcionForm.js"></script>
     <script src="publico/js/ajax/adopcionForm.js"></script>
 
 <?php

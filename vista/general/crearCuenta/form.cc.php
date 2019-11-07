@@ -4,7 +4,7 @@
         <fieldset class="crear-cuenta">
             <form action="" method="post" id='crearUsuario'>
                 <h2>Crear una cuenta</h2>
-
+                
                 <div class="boxInput">
                     <input placeholder="Nombre" type="text" name='nombre'>
                 </div>
@@ -20,6 +20,7 @@
 
                 <div class="boxInput">
                     <input placeholder="Teléfono" type="number" name='telefono'>
+                    <div class="error"></div>
                 </div>
 
                 <div class="boxInput">
@@ -83,7 +84,7 @@
     </div>
 </div>
 
-<script src="publico/js/ajax/crearCuenta.js"></script>
 <script src="publico/js/validar/validarCrearCuenta.js"></script>
+<script src="publico/js/ajax/crearCuenta.js"></script>
 <script src="publico/js/shadowMenuBlanco.js"></script>
 <script src='publico/js/mostrarFotoPerfil.js'></script>

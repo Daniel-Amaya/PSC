@@ -83,7 +83,7 @@ class UsuariosController extends Usuario{
 
             }
 
-        }catch(Exception $e){
+        }catch(PDOException $e){
             exit("ERROR AL VALIDAR CREAR CUENTA: ".$e->getMessage());
         }
     }

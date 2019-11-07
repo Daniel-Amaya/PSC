@@ -89,6 +89,21 @@ if(isset($_POST['tables'])){
             display: inline-block;
         }
 
+        .firmas{
+            display: table;
+        }
+
+        .firmas .col-ms-6{
+            display: table-cell;
+            width: 200px;
+        }
+        .firmas div, .firmas span, .firmas img{
+            display: block;
+        }
+        .firmas img{
+            width: 200px;
+        }
+
         .firmas strong{
             display: block;
             width: 100% !important;

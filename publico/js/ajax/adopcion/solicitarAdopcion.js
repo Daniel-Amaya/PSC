@@ -30,16 +30,7 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
         ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
         ht.send('solicitudU='+idUsuario+'&solicitudA='+idAnimal);
 
-        ht.addEventListener('progress', (e) =>{
-            let porcentaje = Math.round((e.loaded / e.total) * 100);
-            id('loadAjax').style.display = 'flex';
-            id('porcentajeCarga').textContent = porcentaje + '%';
-            console.log(porcentaje);
-        }); 
-    
-        ht.addEventListener('load', () => {
-            id('loadAjax').style.display = 'none';
-        });
+        loadAjax(ht);
     }
 
     id('cancelar').addEventListener('click', () =>{
@@ -66,7 +57,7 @@ solicitarAdopcion = (nombre, foto, idAnimal, idUsuario) => {
 }
 
 cancelarSolicitud = (codSolicitud) => {
-    confirmar = confirm("¿Seguro que desea cancelar la solicitud de adopción?");
+    confirmar = confirm("¿Seguro que desea cancelar la solicitud de adopción?", 'Cancelar solicitud', 'Volver');
 
     if(confirmar == true){
 
@@ -88,11 +79,13 @@ cancelarSolicitud = (codSolicitud) => {
         ht.open('POST','controlador/ajax/solicitudesAjax.php');
         ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
         ht.send('cancelarSoli='+codSolicitud);
+        loadAjax(ht);
     }else{
         return true;
     }
 
 }
+
 
 })();
 

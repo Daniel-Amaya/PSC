@@ -14,18 +14,7 @@ function animalesAjax(send, action){
     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); 
     ht.send(send);
 
-    ht.addEventListener('progress', (e) =>{
-        let porcentaje = Math.round((e.loaded / e.total) * 100);
-        id('loadAjax').style.display = 'flex';
-        id('porcentajeCarga').textContent = porcentaje + '%';
-        id('mostrarAnimalitos').innerHTML = 'espera';
-        console.log(porcentaje);
-    }); 
-
-    ht.addEventListener('load', () => {
-        id('loadAjax').style.display = 'none';
-    });
-
+    loadAjax(ht);
 
 }
 
@@ -104,16 +93,17 @@ id('agregarVacunas').addEventListener('submit', function(e){
     ht.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');    
     ht.send('codsVacunas='+codsVacunas+"&idAnimal="+idAnimalito);
     
-    ht.addEventListener('progress', (e) =>{
-        let porcentaje = Math.round((e.loaded / e.total) * 100);
-        id('loadAjax').style.display = 'flex';
-        id('porcentajeCarga').textContent = porcentaje + '%';
-        console.log(porcentaje);
-    }); 
+    loadAjax(ht);
+    // ht.addEventListener('progress', (e) =>{
+    //     let porcentaje = Math.round((e.loaded / e.total) * 100);
+    //     id('loadAjax').style.display = 'flex';
+    //     id('porcentajeCarga').textContent = porcentaje + '%';
+    //     console.log(porcentaje);
+    // }); 
 
-    ht.addEventListener('load', () => {
-        id('loadAjax').style.display = 'none';
-    });
+    // ht.addEventListener('load', () => {
+    //     id('loadAjax').style.display = 'none';
+    // });
     
     
 });
@@ -139,16 +129,17 @@ function fotosAjaxN(folder, perfil){
     ht.open('POST','controlador/ajax/fotosAjax.php');
     ht.send(fData);
 
-    ht.addEventListener('progress', (e) =>{
-        let porcentaje = Math.round((e.loaded / e.total) * 100);
-        id('loadAjax').style.display = 'flex';
-        id('porcentajeCarga').textContent = porcentaje + '%';
-        console.log(porcentaje);
-    }); 
+    loadAjax(ht);
+    // ht.addEventListener('progress', (e) =>{
+    //     let porcentaje = Math.round((e.loaded / e.total) * 100);
+    //     id('loadAjax').style.display = 'flex';
+    //     id('porcentajeCarga').textContent = porcentaje + '%';
+    //     console.log(porcentaje);
+    // }); 
 
-    ht.addEventListener('load', () => {
-        id('loadAjax').style.display = 'none';
-    });
+    // ht.addEventListener('load', () => {
+    //     id('loadAjax').style.display = 'none';
+    // });
 }
 
 // Buscar según el fitro 

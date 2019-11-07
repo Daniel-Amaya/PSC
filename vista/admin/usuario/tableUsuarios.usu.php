@@ -1,13 +1,13 @@
-<div class="padding-menu margin-menu">
+<div class="padding-menu margin-menu" id='tabUsuarios'>
 
-        <h3 class='textoDeTitulo'>
-        Aquí vas a encontrar todos los usuarios registrados en la página, tanto los administradores como los usuarios, puedes ver el perfil de cada persona en el botón ver perfil:
-        </h3>
+    <h3 class='textoDeTitulo'>
+    Aquí vas a encontrar todos los usuarios registrados en la página, tanto los administradores como los usuarios, puedes ver el perfil de cada persona en el botón ver perfil:
+    </h3>
 
     <div class="divTableDatos">
         <div class="navTable">
             <div class="buttonsTable">
-                <button class="btn_naranja btn_largo">Agregar usuarios</button>
+                <button class="btn_naranja btn_largo" id='aggU'>Agregar usuarios</button>
             </div>
             <div class="nombreIndicador">Usuarios</div>
 
@@ -17,24 +17,24 @@
 
         </div>
 
-            <table class='tableUsuarios'>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Correo</th>
-                        <th>Cedula</th>
-                        <th>Perfil</th>
-                        <th>Rol</th>
-                    </tr>
-                </thead>
+        <table class='tableUsuarios'>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Cedula</th>
+                    <th>Perfil</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
 
-                <tbody id='tableUsuarios'>
-                    
-                    
-                </tbody>
-            </table>
+            <tbody id='tableUsuarios'>
+                
+                
+            </tbody>
+        </table>
     </div>
 </div>
 
