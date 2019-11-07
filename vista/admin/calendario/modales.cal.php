@@ -4,9 +4,7 @@
 			<div class="contenido-modal">
 				<form class="padding-mod" method="POST" id='addEvent'>
 
-					<div class="">
-						<h2 class="center" id="myModalLabel">Agregar Evento</h2>
-					</div>
+					<h2 class="center">Agregar Evento</h2>
 					<div class="modal-body">
 
 						<div class="boxInput">
@@ -53,44 +51,36 @@
 	<!-- Modal editar-->
 	<div class="modal" id="ModalEdit">
 		<div class="flex-modal" role="document">
-			<div class="contenido-modal">
-					<div class="modal-header">
-						<h4 class="center" id="myModalLabel">Modificar Evento</h4>
+			<div class="contenido-modal padding-modal">
+
+				<h2 class="center">Modificar Evento</h2>
+
+				<div class="boxInput">
+					<label for="titleE">Titulo</label>
+					<div >
+						<input type="text" name="title"  id="titleE" placeholder="Titulo">
 					</div>
-					<div class="modal-body">
+				</div>
+				<div class="boxInput">
+					<label for="colorE">Color</label>
+					<div class="col-sm-10">
+						<select name="color" class="form-control" id="colorE">
+							<option value="">Seleccionar</option>
+							<option style="color:#0071c5;" value="#0071c5">&#9724; Recaudación de donaciones</option>
+							<option style="color:#40E0D0;" value="#40E0D0">&#9724; Cuidado del medio ambiente</option>
+							<option style="color:#FF0000;" value="#FF0000">&#9724; Evento de adopciones</option>
+							<option style="color:#000;" value="#000">&#9724; Negro</option>
 
-						<div class="boxInput">
-							<label for="title">Titulo</label>
-							<div >
-								<input type="text" name="title"  id="title" placeholder="Titulo">
-							</div>
-						</div>
-						<div class="boxInput">
-							<label for="color">Color</label>
-							<div class="col-sm-10">
-								<select name="color" class="form-control" id="color">
-									<option value="">Seleccionar</option>
-									<option style="color:#0071c5;" value="#0071c5">&#9724; Recaudación de donaciones</option>
-									<option style="color:#40E0D0;" value="#40E0D0">&#9724; Cuidado del medio ambiente</option>
-									<option style="color:#FF0000;" value="#FF0000">&#9724; Evento de adopciones</option>
-									<option style="color:#000;" value="#000">&#9724; Negro</option>
-
-								</select>
-							</div>
-						</div>
-							<div class="checkbox">
-								<label><input type="checkbox" name="delete"> Eliminar Evento</label>
-							</div>
-						</div>
-
-						<input type="hidden" name="id"  id="id">
-
-
+						</select>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn_rojo" data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn_naranja">Guardar</button>
-					</div>
+				</div>
+
+				<input type="hidden" name="id"  id="idE">
+
+				<div class="btns2">
+					<button type="button" class="btn_rojo" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn_naranja">Guardar</button>
+				</div>
 			</div>
 		</div>
 	</div>

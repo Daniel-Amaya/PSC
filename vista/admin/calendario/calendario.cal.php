@@ -1,6 +1,4 @@
 
-
-
 	<section class='margin-menu padding-menu'>
 		<!-- Page Content -->
 		<div class="container" style="width: 80%;">

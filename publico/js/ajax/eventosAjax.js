@@ -25,17 +25,29 @@
         events: 'controlador/ajax/eventosAjax.php',
 
         eventClick: (info) => {
-            id('nombreEvento').textContent = info.event.title;
-            id('descripEvento').textContent = info.event.extendedProps.descripcion;
-            id('modalEvent').style.display = 'block';
-            id('cerrarEs').modal.style.display = 'none';
+            id('titleE').value = info.event.title;
+            id('colorE').value = info.event.color;
+            id('idE').value = info.event.id;
+            // id('descripEvento').textContent = info.event.extendedProps.descripcion;
+            id('ModalEdit').style.display = 'block';
+            // id('cerrarEs').modal.style.display = 'none';
         },
 
         eventDrop: (info) => {
-            cod = info.event.id;
+            id = info.event.id;
             start = info.event.start;
 
             fecha = start.getFullYear() +'-'+ (start.getMonth()+1) +'-'+ start.getDate()+' '+start.getHours() +':'+start.getMinutes() +':'+start.getSeconds();
+
+            eventosAjax('dropId='+id+'&start='+fecha, (ht) =>{
+                let e = ht.responseText.split('%%');
+
+                if(e == 1){
+                    alertAction('Se ha cambiado la fecha del evento', color_principal);
+                }else{
+                    alertAction('No es posible cambiar la fecha del evento', 'red');
+                }
+            });
         
         },
         dateClick: (info) =>{
